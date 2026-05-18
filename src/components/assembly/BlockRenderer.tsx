@@ -13,12 +13,22 @@ import { ContentSplit } from '@/components/blocks/ContentSplit'
 import { FeatureGrid } from '@/components/blocks/FeatureGrid'
 import { CtaBanner } from '@/components/blocks/CtaBanner'
 import { FaqAccordion } from '@/components/blocks/FaqAccordion'
+import { IntroText } from '@/components/blocks/IntroText'
+import { ServiceCards } from '@/components/blocks/ServiceCards'
+import { TeamGrid } from '@/components/blocks/TeamGrid'
+import { Testimonials } from '@/components/blocks/Testimonials'
+import { StatsBar } from '@/components/blocks/StatsBar'
 
 import {
   extractContentSplitProps,
   extractFeatureGridProps,
   extractCtaBannerProps,
   extractFaqAccordionProps,
+  extractIntroTextProps,
+  extractServiceCardsProps,
+  extractTeamGridProps,
+  extractTestimonialsProps,
+  extractStatsBarProps,
 } from '@/lib/assembly/extract-block-props'
 
 type BlockRendererProps = {
@@ -58,6 +68,16 @@ export function BlockRenderer({ section, manifest }: BlockRendererProps) {
       return <CtaBanner {...extractCtaBannerProps(section)} />
     case 'faq-accordion':
       return <FaqAccordion {...extractFaqAccordionProps(section, manifest)} />
+    case 'intro-text':
+      return <IntroText {...extractIntroTextProps(section)} />
+    case 'service-cards':
+      return <ServiceCards {...extractServiceCardsProps(section)} />
+    case 'team-grid':
+      return <TeamGrid {...extractTeamGridProps(section)} />
+    case 'testimonials':
+      return <Testimonials {...extractTestimonialsProps(section)} />
+    case 'stats-bar':
+      return <StatsBar {...extractStatsBarProps(section)} />
     default:
       return <UnknownBlockPlaceholder section={section} />
   }

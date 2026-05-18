@@ -446,6 +446,155 @@ export function parsePricingTiers(body: string): {
 }
 
 /**
+ * Like parseH3CardList but supports an optional metadata line right after
+ * the H3 heading in the format "YYYY-MM-DD · filename.jpg" (date and image
+ * both optional, separated by · / ・ / em-dash / long dash).
+ * The intro is text before the first ###.
+ * The trailing CTA is the LAST standalone [label](url) line in the body that
+ * is NOT immediately after a ### heading.
+ * Never throws.
+ */
+export function parseContentCardList(body: string): {
+  intro?: string
+  cards: Array<{ title: string; excerpt: string; url: string; image?: string; date?: string }>
+  trailingCta?: { label: string; url: string }
+} {
+  const firstH3 = body.indexOf('\n###')
+  const intro =
+    firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
+
+  const raw = firstH3 >= 0 ? body.slice(firstH3) : body
+  const chunks = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
+
+  // Detect a standalone trailing CTA: a [label](url) line that appears after
+  // the last chunk ends (i.e. in the body after the last H3 section).
+  // We find it by checking if the last line of the body (after all chunks) is a link.
+  let trailingCta: { label: string; url: string } | undefined
+  if (chunks.length > 0) {
+    const lastChunk = chunks[chunks.length - 1]
+    const afterLastChunk = raw.slice(raw.lastIndexOf(lastChunk) + lastChunk.length).trim()
+    const ctaMatch = afterLastChunk.match(/^\[([^\]]+)\]\(([^)]+)\)\s*$/)
+    if (ctaMatch) {
+      trailingCta = { label: ctaMatch[1], url: ctaMatch[2] }
+    }
+  }
+
+  // Metadata line pattern: "YYYY-MM-DD · image.jpg", "YYYY-MM-DD", "image.jpg", etc.
+  // The separator is · (U+00B7), ・ (U+30FB), — (em-dash), or – (en-dash).
+  const metaLinePattern = /^(\d{4}-\d{2}-\d{2})?\s*[·・—–]?\s*(\S+\.(jpg|jpeg|png|webp|gif|svg))?$/i
+
+  const cards = chunks.map(chunk => {
+    const lines = chunk.trim().split('\n')
+    const title = lines[0].replace(/^###\s+/, '').trim()
+    const rest = lines.slice(1)
+
+    let image: string | undefined
+    let date: string | undefined
+    let startIdx = 0
+
+    // Second line may be metadata line
+    if (rest.length > 0 && rest[0].trim()) {
+      const candidate = rest[0].trim()
+      // Check for date · image, date only, or image only patterns
+      const dateImageMatch = candidate.match(
+        /^(\d{4}-\d{2}-\d{2})?\s*[·・—–]?\s*([A-Za-z0-9_\-]+\.(jpg|jpeg|png|webp|gif|svg))?$/i
+      )
+      if (
+        dateImageMatch &&
+        (dateImageMatch[1] || dateImageMatch[2]) &&
+        !candidate.startsWith('[') // not a link
+      ) {
+        date = dateImageMatch[1] || undefined
+        image = dateImageMatch[2] || undefined
+        startIdx = 1
+      }
+    }
+
+    const remaining = rest.slice(startIdx).join('\n').trim()
+
+    // Pop trailing link as card url
+    const ctaMatch = remaining.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/)
+    const url = ctaMatch ? ctaMatch[2] : '#'
+    const excerpt = ctaMatch
+      ? remaining.slice(0, ctaMatch.index).trimEnd()
+      : remaining
+
+    return { title, excerpt, url, image, date }
+  })
+
+  return { intro, cards, trailingCta }
+}
+
+/**
+ * Splits body at a "sidebar:" marker line (case-insensitive).
+ * Returns { intro, sidebar }. Both are trimmed.
+ * If no marker is found, the entire body is returned as intro.
+ * Never throws.
+ */
+export function splitOnSidebarMarker(body: string): { intro: string; sidebar?: string } {
+  // Match a line that is exactly "sidebar:" (case-insensitive, optional whitespace)
+  const markerMatch = body.match(/^[ \t]*sidebar:[ \t]*$/im)
+  if (!markerMatch || markerMatch.index === undefined) {
+    return { intro: body.trim() }
+  }
+  const intro = body.slice(0, markerMatch.index).trim()
+  const sidebar = body.slice(markerMatch.index + markerMatch[0].length).trim() || undefined
+  return { intro, sidebar }
+}
+
+/**
+ * Parses a standard GFM markdown table from body.
+ * Intro is text BEFORE the table; caption is text AFTER the table.
+ * The separator row (|---|...) is detected to find table boundaries.
+ * Returns null if no table is found. Never throws.
+ */
+export function parseMarkdownTable(body: string): {
+  intro?: string
+  headers: string[]
+  rows: string[][]
+  caption?: string
+} | null {
+  const lines = body.split('\n')
+
+  // Find the separator row (|---|---|...) — that's row index [1] of the table
+  const sepIdx = lines.findIndex(l =>
+    /^\|[\s|:-]+\|/.test(l.trim()) && l.includes('-')
+  )
+  if (sepIdx < 1) return null
+
+  // Header row is the line immediately before the separator
+  const headerLine = lines[sepIdx - 1]
+  if (!headerLine || !headerLine.trim().startsWith('|')) return null
+
+  const parseRow = (line: string): string[] =>
+    line
+      .trim()
+      .replace(/^\|/, '')
+      .replace(/\|$/, '')
+      .split('|')
+      .map(cell => cell.trim())
+
+  const headers = parseRow(headerLine)
+
+  // Collect data rows after the separator
+  const rows: string[][] = []
+  let endIdx = sepIdx + 1
+  while (endIdx < lines.length && lines[endIdx].trim().startsWith('|')) {
+    rows.push(parseRow(lines[endIdx]))
+    endIdx++
+  }
+
+  // intro: text before the header row
+  const tableStart = sepIdx - 1
+  const intro = lines.slice(0, tableStart).join('\n').trim() || undefined
+
+  // caption: text after the last table row
+  const caption = lines.slice(endIdx).join('\n').trim() || undefined
+
+  return { intro, headers, rows, caption }
+}
+
+/**
  * Parse testimonials written as blockquote pairs:
  *
  *   > "Quote text here."

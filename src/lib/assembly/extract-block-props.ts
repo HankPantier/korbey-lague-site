@@ -18,6 +18,9 @@ import {
   parseSimpleBulletList,
   parseLogoList,
   parsePricingTiers,
+  parseContentCardList,
+  splitOnSidebarMarker,
+  parseMarkdownTable,
 } from './md-utils'
 import type { PricingTier } from './md-utils'
 
@@ -449,5 +452,105 @@ export function extractPricingProps(section: PageSection): PricingProps {
     intro,
     tiers,
     disclaimer,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// HeroSplit
+// ---------------------------------------------------------------------------
+
+export type HeroSplitProps = {
+  variant: 'image-right' | 'image-left'
+  headline: string
+  subheadline: string
+  cta_primary?: { label: string; url: string }
+  cta_secondary?: { label: string; url: string }
+  image: string
+  image_alt: string
+}
+
+/**
+ * HeroSplit is page-level — sourced from the manifest, same pattern as Hero
+ * and PageHeader. M4.D wires it into PageLayout via manifest.hero_block.
+ */
+export function extractHeroSplitProps(manifest: PageManifest): HeroSplitProps {
+  const headline = manifest.title.split(' | ')[0].trim()
+  return {
+    variant: (manifest.hero_variant as HeroSplitProps['variant']) ?? 'image-right',
+    headline,
+    subheadline: manifest.meta_description,
+    cta_primary: undefined,
+    cta_secondary: undefined,
+    image: manifest.hero_image ?? '',
+    image_alt: headline,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// ContentCards
+// ---------------------------------------------------------------------------
+
+export type ContentCardsProps = {
+  variant: '3-col' | '2-col'
+  heading: string
+  intro?: string
+  cards: Array<{ title: string; excerpt: string; url: string; image?: string; date?: string }>
+  cta?: { label: string; url: string }
+}
+
+export function extractContentCardsProps(section: PageSection): ContentCardsProps {
+  const { intro, cards, trailingCta } = parseContentCardList(section.content)
+  return {
+    variant: (section.variant as ContentCardsProps['variant']) ?? '3-col',
+    heading: section.heading,
+    intro,
+    cards,
+    cta: trailingCta,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Form
+// ---------------------------------------------------------------------------
+
+export type FormProps = {
+  variant: 'contact' | 'quote' | 'newsletter'
+  heading: string
+  intro?: string
+  sidebar_content?: string  // raw markdown
+  success_message?: string
+}
+
+export function extractFormProps(section: PageSection): FormProps {
+  const { intro, sidebar } = splitOnSidebarMarker(section.content)
+  return {
+    variant: (section.variant as FormProps['variant']) ?? 'contact',
+    heading: section.heading,
+    intro: intro || undefined,
+    sidebar_content: sidebar,
+    success_message: undefined,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// ContentTable
+// ---------------------------------------------------------------------------
+
+export type ContentTableProps = {
+  heading?: string
+  intro?: string
+  headers: string[]
+  rows: string[][]
+  caption?: string
+}
+
+export function extractContentTableProps(section: PageSection): ContentTableProps {
+  const parsed = parseMarkdownTable(section.content)
+  return {
+    heading: section.heading.trim() || undefined,
+    intro: parsed?.intro,
+    headers: parsed?.headers ?? [],
+    rows: parsed?.rows ?? [],
+    caption: parsed?.caption,
   }
 }

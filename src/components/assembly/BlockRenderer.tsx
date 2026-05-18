@@ -24,6 +24,9 @@ import { ProcessSteps } from '@/components/blocks/ProcessSteps'
 import { IndustryCards } from '@/components/blocks/IndustryCards'
 import { LogoBar } from '@/components/blocks/LogoBar'
 import { Pricing } from '@/components/blocks/Pricing'
+import { ContentCards } from '@/components/blocks/ContentCards'
+import { Form } from '@/components/blocks/Form'
+import { ContentTable } from '@/components/blocks/ContentTable'
 
 import {
   extractContentSplitProps,
@@ -41,6 +44,9 @@ import {
   extractIndustryCardsProps,
   extractLogoBarProps,
   extractPricingProps,
+  extractContentCardsProps,
+  extractFormProps,
+  extractContentTableProps,
 } from '@/lib/assembly/extract-block-props'
 
 type BlockRendererProps = {
@@ -102,6 +108,12 @@ export function BlockRenderer({ section, manifest }: BlockRendererProps) {
       return <LogoBar {...extractLogoBarProps(section)} />
     case 'pricing':
       return <Pricing {...extractPricingProps(section)} />
+    case 'content-cards':
+      return <ContentCards {...extractContentCardsProps(section)} />
+    case 'form':
+      return <Form {...extractFormProps(section)} />
+    case 'content-table':
+      return <ContentTable {...extractContentTableProps(section)} />
     default:
       return <UnknownBlockPlaceholder section={section} />
   }

@@ -277,6 +277,175 @@ export function parseTeamMembers(body: string): {
 }
 
 /**
+ * Parse a body where each item is "- text" (plain bullet, no icon prefix).
+ * Returns intro (all text before the first list line) and items (stripped list text).
+ * Never throws.
+ */
+export function parseSimpleBulletList(body: string): { intro?: string; items: string[] } {
+  const lines = body.split('\n')
+  const firstListIdx = lines.findIndex(l => /^\s*[-*]\s+/.test(l))
+
+  if (firstListIdx < 0) return { intro: body.trim() || undefined, items: [] }
+
+  const intro = lines
+    .slice(0, firstListIdx)
+    .join('\n')
+    .trim() || undefined
+
+  const items = lines
+    .slice(firstListIdx)
+    .filter(l => /^\s*[-*]\s+/.test(l))
+    .map(l => l.replace(/^\s*[-*]\s+/, '').trim())
+    .filter(Boolean)
+
+  return { intro, items }
+}
+
+/**
+ * Parse a logo-bar list where each line is "- <filename>: <alt>".
+ * Optionally a URL may be appended as "[url]" at the end.
+ * Example:  "- aicpa-logo.png: AICPA [https://aicpa.org]"
+ * Never throws.
+ */
+export function parseLogoList(
+  body: string
+): Array<{ src: string; alt: string; url?: string }> {
+  return body
+    .split('\n')
+    .filter(line => /^\s*[-*]\s+/.test(line))
+    .map(line => {
+      const cleaned = line.replace(/^\s*[-*]\s+/, '').trim()
+      // Optional trailing URL in square brackets: "alt [https://...]"
+      const urlMatch = cleaned.match(/\[([^\]]+)\]\s*$/)
+      const withoutUrl = urlMatch ? cleaned.slice(0, urlMatch.index).trim() : cleaned
+      const url = urlMatch ? urlMatch[1] : undefined
+
+      // Split on first ": " to get filename and alt
+      const colonIdx = withoutUrl.indexOf(': ')
+      if (colonIdx < 0) {
+        // No colon — treat entire string as alt with no src
+        return { src: '', alt: withoutUrl.trim(), url }
+      }
+      const src = withoutUrl.slice(0, colonIdx).trim()
+      const alt = withoutUrl.slice(colonIdx + 2).trim()
+      return { src, alt, url }
+    })
+    .filter(entry => entry.src || entry.alt) // discard completely empty lines
+}
+
+// ---------------------------------------------------------------------------
+// Pricing tier types (exported so extract-block-props.ts can import)
+// ---------------------------------------------------------------------------
+
+export type PricingTier = {
+  name: string
+  price: string
+  price_period?: string
+  description: string
+  features: string[]
+  cta: { label: string; url: string }
+  highlighted?: boolean
+}
+
+/**
+ * Parse pricing tiers from a body split into H3 sections.
+ * Also extracts optional intro (text before first ###) and disclaimer (text
+ * after the last tier's CTA link on its own line).
+ * Never throws.
+ */
+export function parsePricingTiers(body: string): {
+  intro?: string
+  tiers: PricingTier[]
+  disclaimer?: string
+} {
+  // Split on ### boundaries
+  const firstH3 = body.indexOf('\n###')
+  const intro =
+    firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
+
+  const raw = firstH3 >= 0 ? body.slice(firstH3) : body
+  const chunks = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
+
+  // After the last tier there may be a disclaimer paragraph (no ### prefix)
+  // We detect it by looking at the trailing text after the last chunk's CTA.
+  // The disclaimer is captured per-tier below and set only when no CTA follows.
+  let disclaimer: string | undefined
+
+  const tiers: PricingTier[] = chunks.map(chunk => {
+    const lines = chunk.trim().split('\n').map(l => l.trim())
+    const name = lines[0].replace(/^###\s+/, '').trim()
+
+    // Line 1: price, possibly "$300/month"
+    let price = ''
+    let price_period: string | undefined
+    if (lines[1]) {
+      const slashIdx = lines[1].indexOf('/')
+      if (slashIdx > 0) {
+        price = lines[1].slice(0, slashIdx).trim()
+        price_period = '/' + lines[1].slice(slashIdx + 1).trim()
+      } else {
+        price = lines[1].trim()
+      }
+    }
+
+    // Remaining lines: description paragraph(s), feature list, CTA
+    const rest = lines.slice(2).join('\n').trim()
+
+    // Detect trailing CTA link
+    const ctaMatch = rest.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/)
+    const withoutCta = ctaMatch ? rest.slice(0, ctaMatch.index).trimEnd() : rest
+    const cta: { label: string; url: string } = ctaMatch
+      ? { label: ctaMatch[1], url: ctaMatch[2] }
+      : { label: 'Get started', url: '/contact' }
+
+    // Separate feature list (lines starting with "- ")
+    const restLines = withoutCta.split('\n')
+    const firstFeatureIdx = restLines.findIndex(l => /^\s*[-*]\s+/.test(l))
+
+    const descLines =
+      firstFeatureIdx >= 0 ? restLines.slice(0, firstFeatureIdx) : restLines
+    const featureLines =
+      firstFeatureIdx >= 0 ? restLines.slice(firstFeatureIdx) : []
+
+    let description = descLines.join('\n').trim()
+    const features = featureLines
+      .filter(l => /^\s*[-*]\s+/.test(l))
+      .map(l => l.replace(/^\s*[-*]\s+/, '').trim())
+      .filter(Boolean)
+
+    // Detect highlighted tier: description contains **Most popular** or **Recommended**
+    const highlightMatch = description.match(/\*\*(Most popular|Recommended)\*\*\s*(?:—|–|--)?\s*/i)
+    const highlighted = !!highlightMatch
+    if (highlighted) {
+      description = description.replace(/\*\*(Most popular|Recommended)\*\*\s*(?:—|–|--)?\s*/i, '').trim()
+    }
+
+    return {
+      name,
+      price,
+      price_period,
+      description,
+      features,
+      cta,
+      highlighted: highlighted || undefined,
+    }
+  })
+
+  // Look for disclaimer: text in the body after the very last CTA link that
+  // sits outside any ### block. We look in the raw body after the last chunk.
+  if (chunks.length > 0) {
+    const lastChunk = chunks[chunks.length - 1]
+    const lastChunkEnd = raw.lastIndexOf(lastChunk) + lastChunk.length
+    const trailing = raw.slice(lastChunkEnd).trim()
+    if (trailing && !trailing.startsWith('###')) {
+      disclaimer = trailing
+    }
+  }
+
+  return { intro, tiers, disclaimer }
+}
+
+/**
  * Parse testimonials written as blockquote pairs:
  *
  *   > "Quote text here."

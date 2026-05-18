@@ -18,6 +18,12 @@ import { ServiceCards } from '@/components/blocks/ServiceCards'
 import { TeamGrid } from '@/components/blocks/TeamGrid'
 import { Testimonials } from '@/components/blocks/Testimonials'
 import { StatsBar } from '@/components/blocks/StatsBar'
+import { ContentProse } from '@/components/blocks/ContentProse'
+import { ChecklistSection } from '@/components/blocks/ChecklistSection'
+import { ProcessSteps } from '@/components/blocks/ProcessSteps'
+import { IndustryCards } from '@/components/blocks/IndustryCards'
+import { LogoBar } from '@/components/blocks/LogoBar'
+import { Pricing } from '@/components/blocks/Pricing'
 
 import {
   extractContentSplitProps,
@@ -29,6 +35,12 @@ import {
   extractTeamGridProps,
   extractTestimonialsProps,
   extractStatsBarProps,
+  extractContentProseProps,
+  extractChecklistSectionProps,
+  extractProcessStepsProps,
+  extractIndustryCardsProps,
+  extractLogoBarProps,
+  extractPricingProps,
 } from '@/lib/assembly/extract-block-props'
 
 type BlockRendererProps = {
@@ -78,6 +90,18 @@ export function BlockRenderer({ section, manifest }: BlockRendererProps) {
       return <Testimonials {...extractTestimonialsProps(section)} />
     case 'stats-bar':
       return <StatsBar {...extractStatsBarProps(section)} />
+    case 'content-prose':
+      return <ContentProse {...extractContentProseProps(section)} />
+    case 'checklist-section':
+      return <ChecklistSection {...extractChecklistSectionProps(section)} />
+    case 'process-steps':
+      return <ProcessSteps {...extractProcessStepsProps(section)} />
+    case 'industry-cards':
+      return <IndustryCards {...extractIndustryCardsProps(section)} />
+    case 'logo-bar':
+      return <LogoBar {...extractLogoBarProps(section)} />
+    case 'pricing':
+      return <Pricing {...extractPricingProps(section)} />
     default:
       return <UnknownBlockPlaceholder section={section} />
   }

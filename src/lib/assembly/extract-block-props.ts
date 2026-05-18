@@ -13,8 +13,15 @@ import {
   parseH3CardList,
   parseTeamMembers,
   parseStatsList,
+  parseStepsList,
   parseTestimonials,
+  parseSimpleBulletList,
+  parseLogoList,
+  parsePricingTiers,
 } from './md-utils'
+import type { PricingTier } from './md-utils'
+
+export type { PricingTier }
 
 // ---------------------------------------------------------------------------
 // Hero
@@ -284,5 +291,163 @@ export function extractStatsBarProps(section: PageSection): StatsBarProps {
     variant: (section.variant as StatsBarProps['variant']) ?? '3-up',
     heading: section.heading || undefined,
     stats,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// ContentProse
+// ---------------------------------------------------------------------------
+
+export type ContentProseProps = {
+  heading?: string
+  body: string  // raw markdown
+}
+
+export function extractContentProseProps(section: PageSection): ContentProseProps {
+  return {
+    heading: section.heading.trim() || undefined,
+    body: section.content,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// ChecklistSection
+// ---------------------------------------------------------------------------
+
+export type ChecklistSectionProps = {
+  variant: 'with-image' | 'standalone'
+  heading: string
+  intro?: string
+  items: string[]
+  image?: string
+  image_alt?: string
+  cta?: { label: string; url: string }
+}
+
+export function extractChecklistSectionProps(section: PageSection): ChecklistSectionProps {
+  const { body, cta } = extractTrailingCta(section.content)
+  const { intro, items } = parseSimpleBulletList(body)
+  return {
+    variant: (section.variant as ChecklistSectionProps['variant']) ?? 'standalone',
+    heading: section.heading,
+    intro,
+    items,
+    image: section.image,
+    image_alt: section.image ? section.heading : undefined,
+    cta,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// ProcessSteps
+// ---------------------------------------------------------------------------
+
+export type ProcessStepsProps = {
+  variant: 'horizontal' | 'vertical'
+  heading: string
+  intro?: string
+  steps: Array<{ number: string; title: string; description: string }>
+  cta?: { label: string; url: string }
+}
+
+export function extractProcessStepsProps(section: PageSection): ProcessStepsProps {
+  const { body, cta } = extractTrailingCta(section.content)
+
+  // Detect intro: all text before the first numbered/bullet list item
+  const lines = body.split('\n')
+  const firstStepIdx = lines.findIndex(l => /^\s*\d+\.\s+/.test(l) || /^\s*[-*]\s+/.test(l))
+  const intro =
+    firstStepIdx > 0
+      ? lines.slice(0, firstStepIdx).join('\n').trim() || undefined
+      : undefined
+
+  const stepsBody = firstStepIdx >= 0 ? lines.slice(firstStepIdx).join('\n') : body
+  const steps = parseStepsList(stepsBody)
+
+  return {
+    variant: (section.variant as ProcessStepsProps['variant']) ?? 'vertical',
+    heading: section.heading,
+    intro,
+    steps,
+    cta,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// IndustryCards
+// ---------------------------------------------------------------------------
+
+export type IndustryCardsProps = {
+  variant: '3-col' | '4-col'
+  heading: string
+  intro?: string
+  industries: Array<{ icon: string; title: string; description: string; url?: string }>
+}
+
+export function extractIndustryCardsProps(section: PageSection): IndustryCardsProps {
+  const { body, cta: _cta } = extractTrailingCta(section.content)
+
+  // Detect optional intro before list
+  const lines = body.split('\n')
+  const firstListIdx = lines.findIndex(l => /^\s*[-*]\s+/.test(l))
+  const intro =
+    firstListIdx > 0
+      ? lines.slice(0, firstListIdx).join('\n').trim() || undefined
+      : undefined
+
+  const listBody = firstListIdx >= 0 ? lines.slice(firstListIdx).join('\n') : body
+  const rawItems = parseIconTitleDescriptionList(listBody)
+  const industries = rawItems.map(item => ({
+    icon: item.icon,
+    title: item.title,
+    description: item.description,
+    url: undefined as string | undefined,
+  }))
+
+  return {
+    variant: (section.variant as IndustryCardsProps['variant']) ?? '3-col',
+    heading: section.heading,
+    intro,
+    industries,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// LogoBar
+// ---------------------------------------------------------------------------
+
+export type LogoBarProps = {
+  heading?: string
+  logos: Array<{ src: string; alt: string; url?: string }>
+}
+
+export function extractLogoBarProps(section: PageSection): LogoBarProps {
+  const logos = parseLogoList(section.content)
+  return {
+    heading: section.heading.trim() || undefined,
+    logos,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Pricing
+// ---------------------------------------------------------------------------
+
+export type PricingProps = {
+  variant: '2-tier' | '3-tier' | '4-tier'
+  heading: string
+  intro?: string
+  tiers: PricingTier[]
+  disclaimer?: string
+}
+
+export function extractPricingProps(section: PageSection): PricingProps {
+  const { intro, tiers, disclaimer } = parsePricingTiers(section.content)
+  return {
+    variant: (section.variant as PricingProps['variant']) ?? '3-tier',
+    heading: section.heading,
+    intro,
+    tiers,
+    disclaimer,
   }
 }

@@ -1,0 +1,78 @@
+import { Section } from './Section'
+import { Icon } from './Icon'
+import { Card } from '@/components/ui/card'
+import Link from 'next/link'
+import { cn } from '@/lib/utils'
+import type { IndustryCardsProps } from '@/lib/assembly/extract-block-props'
+
+export type { IndustryCardsProps }
+
+export function IndustryCards({ variant, heading, intro, industries }: IndustryCardsProps) {
+  const colsClass =
+    variant === '4-col'
+      ? 'sm:grid-cols-2 lg:grid-cols-4'
+      : 'sm:grid-cols-2 lg:grid-cols-3'
+
+  return (
+    <Section>
+      <header className="max-w-2xl mx-auto text-center">
+        <h2
+          className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
+          style={{ fontFamily: 'var(--font-heading)' }}
+        >
+          {heading}
+        </h2>
+        {intro && (
+          <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+        )}
+      </header>
+
+      <div className={cn('mt-12 grid gap-6', colsClass)}>
+        {industries.map((industry, i) => {
+          const cardContent = (
+            <Card
+              className={cn(
+                'p-6 flex flex-col items-start gap-3 transition-shadow',
+                industry.url && 'hover:shadow-md cursor-pointer'
+              )}
+              style={{ boxShadow: 'var(--shadow-card, 0 2px 8px rgba(0,59,113,0.08))' }}
+            >
+              <div
+                className="flex items-center justify-center w-12 h-12 rounded-lg"
+                style={{
+                  backgroundColor:
+                    'color-mix(in srgb, var(--color-primary,theme(colors.blue.700)) 12%, transparent)',
+                }}
+              >
+                <Icon
+                  name={industry.icon}
+                  className="h-6 w-6 text-[color:var(--color-primary,theme(colors.blue.700))]"
+                />
+              </div>
+              <h3
+                className="font-heading font-semibold text-lg text-foreground"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                {industry.title}
+              </h3>
+              {industry.description && (
+                <p className="text-foreground/70 text-sm leading-relaxed">
+                  {industry.description}
+                </p>
+              )}
+            </Card>
+          )
+
+          if (industry.url) {
+            return (
+              <Link key={i} href={industry.url} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
+                {cardContent}
+              </Link>
+            )
+          }
+          return cardContent
+        })}
+      </div>
+    </Section>
+  )
+}

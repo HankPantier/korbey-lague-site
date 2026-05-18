@@ -1,0 +1,93 @@
+import { Section } from './Section'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Check } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import type { ChecklistSectionProps } from '@/lib/assembly/extract-block-props'
+
+export type { ChecklistSectionProps }
+
+export function ChecklistSection({
+  variant,
+  heading,
+  intro,
+  items,
+  image,
+  image_alt,
+  cta,
+}: ChecklistSectionProps) {
+  // 2-column layout when 5+ items in standalone mode
+  const useDoubleCol = variant === 'standalone' && items.length >= 5
+
+  const checklist = (
+    <div>
+      <h2
+        className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
+        style={{ fontFamily: 'var(--font-heading)' }}
+      >
+        {heading}
+      </h2>
+      {intro && (
+        <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+      )}
+      <ul
+        className={cn(
+          'mt-6 space-y-3',
+          useDoubleCol && 'sm:grid sm:grid-cols-2 sm:gap-x-8 sm:space-y-0 sm:gap-y-3'
+        )}
+      >
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <Check
+              className="mt-0.5 h-5 w-5 shrink-0"
+              style={{ color: 'var(--color-action, theme(colors.cyan.500))' }}
+              strokeWidth={2.5}
+              aria-hidden="true"
+            />
+            <span className="text-foreground/85 leading-snug">{item}</span>
+          </li>
+        ))}
+      </ul>
+      {cta && (
+        <div className="mt-8">
+          <Button asChild>
+            <Link href={cta.url}>{cta.label}</Link>
+          </Button>
+        </div>
+      )}
+    </div>
+  )
+
+  if (variant === 'with-image') {
+    return (
+      <Section>
+        <div className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
+          {checklist}
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+            {image ? (
+              <Image
+                src={`/content-assets/${image}`}
+                alt={image_alt ?? heading}
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            ) : (
+              <div className="absolute inset-0 grid place-items-center text-muted-foreground text-sm">
+                Image: {image_alt ?? '(missing)'}
+              </div>
+            )}
+          </div>
+        </div>
+      </Section>
+    )
+  }
+
+  // standalone
+  return (
+    <Section>
+      {checklist}
+    </Section>
+  )
+}

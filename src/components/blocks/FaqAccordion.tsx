@@ -1,16 +1,44 @@
-/**
- * FaqAccordion — placeholder stub.
- * Full implementation delivered in M3.F.
- */
+'use client'
+
+import { Section } from './Section'
+import {
+  Accordion,
+  AccordionItem,
+  AccordionContent,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import type { FaqAccordionProps } from '@/lib/assembly/extract-block-props'
 
-export function FaqAccordion(props: FaqAccordionProps) {
+export type { FaqAccordionProps }
+
+export function FaqAccordion({ heading, items }: FaqAccordionProps) {
+  if (!items || items.length === 0) return null
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <p className="text-xs font-mono text-muted-foreground">
-        FaqAccordion — implemented in M3.F
-      </p>
-      <h2 className="mt-2 text-2xl font-semibold">{props.heading}</h2>
-    </section>
+    <Section>
+      <div className="max-w-3xl mx-auto">
+        <h2
+          className="font-heading text-3xl md:text-4xl font-semibold text-center text-foreground"
+          style={{ fontFamily: 'var(--font-heading)' }}
+        >
+          {heading}
+        </h2>
+        <Accordion type="single" collapsible className="mt-10 w-full">
+          {items.map((item, i) => (
+            <AccordionItem key={i} value={`item-${i}`}>
+              <AccordionTrigger
+                className="text-left font-heading text-base md:text-lg"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-foreground/80 leading-relaxed">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </Section>
   )
 }

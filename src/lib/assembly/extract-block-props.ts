@@ -25,23 +25,18 @@ export type HeroProps = {
 }
 
 /**
- * Hero is page-level: sourced from frontmatter and (optionally) the first
- * section's opening paragraph for the subheadline.
+ * Hero is page-level: sourced from frontmatter.
+ * Subheadline comes from meta_description (a brief tagline authored in frontmatter).
+ * This avoids duplicating body section content below the hero.
  */
 export function extractHeroProps(manifest: PageManifest): HeroProps {
-  const firstSection = manifest.sections[0]
-  // Use the first paragraph of the first section as the subheadline.
-  const subheadline = firstSection
-    ? (firstSection.content.split('\n\n')[0]?.trim() ?? '')
-    : ''
-
   return {
     variant: (manifest.hero_variant as HeroProps['variant']) ?? 'image',
     image: manifest.hero_image,
     // Strip " | Firm Name" suffix from title to get the clean page headline.
-    headline: manifest.title.split(' | ')[0] ?? manifest.title,
-    subheadline,
-    cta_primary: undefined, // Derived in a later iteration if a body link is present.
+    headline: manifest.title.split(' | ')[0].trim(),
+    subheadline: manifest.meta_description,
+    cta_primary: undefined,
   }
 }
 

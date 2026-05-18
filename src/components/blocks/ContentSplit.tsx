@@ -1,16 +1,57 @@
-/**
- * ContentSplit — placeholder stub.
- * Full implementation delivered in M3.F.
- */
+import { Section } from './Section'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { cn } from '@/lib/utils'
 import type { ContentSplitProps } from '@/lib/assembly/extract-block-props'
 
-export function ContentSplit(props: ContentSplitProps) {
+export type { ContentSplitProps }
+
+export function ContentSplit({ variant, heading, body, image, image_alt, cta }: ContentSplitProps) {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <p className="text-xs font-mono text-muted-foreground">
-        ContentSplit — implemented in M3.F
-      </p>
-      <h2 className="mt-2 text-2xl font-semibold">{props.heading}</h2>
-    </section>
+    <Section>
+      <div
+        className={cn(
+          'grid gap-10 md:gap-16 md:grid-cols-2 items-center',
+          variant === 'image-left' && 'md:[&>*:first-child]:order-2'
+        )}
+      >
+        <div>
+          <h2
+            className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            {heading}
+          </h2>
+          <div className="prose prose-neutral mt-4 max-w-none text-foreground/85 leading-relaxed">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+          </div>
+          {cta && (
+            <div className="mt-6">
+              <Button asChild variant="link" className="px-0">
+                <Link href={cta.url}>{cta.label} &rarr;</Link>
+              </Button>
+            </div>
+          )}
+        </div>
+        <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+          {image ? (
+            <Image
+              src={`/content-assets/${image}`}
+              alt={image_alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          ) : (
+            <div className="absolute inset-0 grid place-items-center text-muted-foreground text-sm">
+              Image: {image_alt || '(missing)'}
+            </div>
+          )}
+        </div>
+      </div>
+    </Section>
   )
 }

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated theme CSS (built per-client from brand/design.json)
+src/styles/theme.css

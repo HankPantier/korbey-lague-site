@@ -1,0 +1,571 @@
+#!/usr/bin/env tsx
+/**
+ * Export a design brief for Claude.ai Design.
+ *
+ * Usage:
+ *   npm run export-brief                    # writes ./design-brief.md
+ *   npm run export-brief -- --out brief.md  # custom output path
+ *   npm run export-brief -- --stdout         # write to stdout
+ */
+
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+interface Palette {
+  primary: string
+  secondary: string
+  complementary: string
+  action: string
+  nearBlack: string
+  nearWhite: string
+}
+
+interface BrandJson {
+  firm: {
+    name: string
+    tagline?: string
+    foundingYear?: string
+  }
+  contact?: {
+    address?: {
+      street?: string
+      city?: string
+      state?: string
+      zip?: string
+    }
+    phone?: string
+    email?: string
+  }
+  palette: Palette
+}
+
+interface DesignJson {
+  typography: {
+    headingFont: string
+    bodyFont: string
+    googleFontsUrl?: string
+  }
+  roundness?: string
+  density?: string
+  visualFeel?: string
+  spacing?: Record<string, string>
+  radius?: Record<string, string>
+}
+
+interface PageFile {
+  filename: string
+  raw: string
+}
+
+interface BlockSpec {
+  id: string
+  purpose: string
+  variants: string[]
+  tokens?: string
+}
+
+// ---------------------------------------------------------------------------
+// Block catalog (21 blocks, sourced from component-library-spec.md)
+// ---------------------------------------------------------------------------
+
+const BLOCK_CATALOG: BlockSpec[] = [
+  // Page-level
+  {
+    id: 'hero',
+    purpose: 'Full-bleed, above-the-fold page opener.',
+    variants: ['image', 'video', 'slider'],
+    tokens: '--color-primary (overlay), --color-action (CTA), --font-heading',
+  },
+  {
+    id: 'hero-split',
+    purpose: 'Two-column page opener with text + image.',
+    variants: ['image-right', 'image-left'],
+  },
+  {
+    id: 'page-header',
+    purpose: 'Slim inner-page title bar.',
+    variants: [],
+    tokens: '--color-primary (background), --color-near-white (text)',
+  },
+  // Inline
+  {
+    id: 'intro-text',
+    purpose: 'Short headline + paragraph transition between sections.',
+    variants: ['centered', 'left-aligned'],
+  },
+  {
+    id: 'content-split',
+    purpose: 'Narrative paragraph with a supporting image.',
+    variants: ['image-right', 'image-left'],
+  },
+  {
+    id: 'content-prose',
+    purpose: 'Long-form copy with no supporting image.',
+    variants: [],
+  },
+  {
+    id: 'checklist-section',
+    purpose: 'List of benefits, inclusions, or qualifying criteria.',
+    variants: ['with-image', 'standalone'],
+    tokens: '--color-action (checkmark icon)',
+  },
+  {
+    id: 'process-steps',
+    purpose: 'Numbered or sequential how-it-works explanation.',
+    variants: ['horizontal', 'vertical'],
+  },
+  {
+    id: 'feature-grid',
+    purpose: '3–8 equal-weight features with icon + short description.',
+    variants: ['3-col', '4-col'],
+  },
+  {
+    id: 'service-cards',
+    purpose: '2–9 named services with descriptions and links.',
+    variants: ['2-col', '3-col'],
+  },
+  {
+    id: 'content-cards',
+    purpose: 'Blog posts, articles, or resources with images.',
+    variants: ['3-col', '2-col'],
+  },
+  {
+    id: 'team-grid',
+    purpose: 'Staff or partner profiles with photos.',
+    variants: ['2-col', '3-col', '4-col'],
+  },
+  {
+    id: 'industry-cards',
+    purpose: 'Industry or niche verticals with icons.',
+    variants: ['3-col', '4-col'],
+  },
+  {
+    id: 'testimonials',
+    purpose: 'Client quotes or reviews.',
+    variants: ['carousel', 'grid'],
+  },
+  {
+    id: 'stats-bar',
+    purpose: '3–4 numeric proof points (years, clients, staff).',
+    variants: ['3-up', '4-up'],
+    tokens: '--color-primary (bg), --color-near-white (text)',
+  },
+  {
+    id: 'logo-bar',
+    purpose: 'Certification badges or association logos.',
+    variants: [],
+  },
+  {
+    id: 'cta-banner',
+    purpose: 'A direct call to action with a single button.',
+    variants: ['color-bg', 'image-bg'],
+    tokens: '--color-action, --color-primary, --color-near-white',
+  },
+  {
+    id: 'pricing',
+    purpose: 'Tiered service packages with feature lists and prices.',
+    variants: ['2-tier', '3-tier', '4-tier'],
+  },
+  {
+    id: 'faq-accordion',
+    purpose: 'Expandable question-and-answer pairs.',
+    variants: [],
+  },
+  {
+    id: 'form',
+    purpose: 'A lead-capture, contact, or newsletter signup form.',
+    variants: ['contact', 'quote', 'newsletter'],
+  },
+  {
+    id: 'content-table',
+    purpose: 'Comparison data, calendars, or structured reference info.',
+    variants: [],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+/** Parse YAML frontmatter + body from a markdown file. Very light parser. */
+function parseFrontmatter(raw: string): { frontmatter: Record<string, string>; body: string } {
+  if (!raw.startsWith('---')) {
+    return { frontmatter: {}, body: raw }
+  }
+  const end = raw.indexOf('\n---', 3)
+  if (end === -1) {
+    return { frontmatter: {}, body: raw }
+  }
+  const yamlBlock = raw.slice(4, end)
+  const body = raw.slice(end + 4).replace(/^\n/, '')
+  const frontmatter: Record<string, string> = {}
+  for (const line of yamlBlock.split('\n')) {
+    const colon = line.indexOf(':')
+    if (colon === -1) continue
+    const key = line.slice(0, colon).trim()
+    const value = line.slice(colon + 1).trim().replace(/^['"]|['"]$/g, '')
+    if (key) frontmatter[key] = value
+  }
+  return { frontmatter, body }
+}
+
+/** Extract block annotation IDs from page body in order. */
+function extractBlockIds(body: string): string[] {
+  const ids: string[] = []
+  const re = /<!--\s*block:\s*([a-z-]+)/g
+  let m: RegExpExecArray | null
+  while ((m = re.exec(body)) !== null) {
+    ids.push(m[1])
+  }
+  return ids
+}
+
+/** Derive URL from filename: home.md → /, about.md → /about */
+function urlFromFilename(filename: string): string {
+  const base = filename.replace(/\.md$/, '')
+  return base === 'home' ? '/' : `/${base}`
+}
+
+// ---------------------------------------------------------------------------
+// Brief builder
+// ---------------------------------------------------------------------------
+
+interface BriefInput {
+  brand: BrandJson
+  design: DesignJson
+  brandMd: string
+  pages: PageFile[]
+}
+
+function buildBrief({ brand, design, brandMd, pages }: BriefInput): string {
+  const { firm, contact, palette } = brand
+  const { typography, roundness, density, visualFeel, spacing, radius } = design
+
+  const city = contact?.address?.city ?? ''
+  const state = contact?.address?.state ?? ''
+  const location = city && state ? `${city}, ${state}` : city || state || ''
+
+  const sections: string[] = []
+
+  // ------------------------------------------------------------------
+  // Title + intro
+  // ------------------------------------------------------------------
+  sections.push(`# Design Brief — ${firm.name}
+
+This brief is a structured prompt for **Claude.ai Design** to produce visual styling for ${firm.name}'s website. The brief contains the client's brand identity, the component vocabulary used to build the site, sample content, and a contract for how to format your output.
+
+## What we're asking you to do
+
+Produce two outputs:
+
+1. **\`design-overrides.css\`** — a CSS file that augments the default theme. Target blocks via the \`data-block\` attribute selectors listed below. Focus on the blocks that most define this site's identity (hero, content-split, feature-grid, cta-banner, faq-accordion). Aim for 50–200 lines.
+
+2. **A refined \`design.json\`** (optional) — if you'd recommend changes to the palette, typography, or token scale, output an updated \`design.json\` reflecting your refinements. Otherwise just say "no token changes needed."
+
+Don't propose changes to the React component tree or block markup — those are fixed. Style only.`)
+
+  // ------------------------------------------------------------------
+  // Firm context
+  // ------------------------------------------------------------------
+  const firmLines: string[] = [
+    `**Name:** ${firm.name}`,
+    firm.tagline ? `**Tagline:** ${firm.tagline}` : '',
+    firm.foundingYear ? `**Founded:** ${firm.foundingYear}` : '',
+    location ? `**Location:** ${location}` : '',
+  ].filter(Boolean)
+
+  sections.push(`---
+
+## Firm context
+
+${firmLines.join('\n')}${brandMd ? `\n\n${brandMd.trim()}` : ''}`)
+
+  // ------------------------------------------------------------------
+  // Current tokens
+  // ------------------------------------------------------------------
+
+  // Palette table
+  const paletteRows = [
+    ['primary', palette.primary],
+    ['secondary', palette.secondary],
+    ['complementary', palette.complementary],
+    ['action', palette.action],
+    ['near-black', palette.nearBlack],
+    ['near-white', palette.nearWhite],
+  ]
+    .map(([role, hex]) => `| ${role} | ${hex} |`)
+    .join('\n')
+
+  // Typography
+  const typoLines = [
+    `- Heading font: **${typography.headingFont}**`,
+    `- Body font: **${typography.bodyFont}**`,
+    typography.googleFontsUrl ? `- Google Fonts URL: ${typography.googleFontsUrl}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n')
+
+  // Shape system
+  const shapeLines = [
+    roundness ? `- Roundness: **${roundness}** (pill value: ${radius?.pill ?? 'n/a'})` : '',
+    density ? `- Density: **${density}**` : '',
+    visualFeel ? `- Visual feel: **${visualFeel}**` : '',
+  ]
+    .filter(Boolean)
+    .join('\n')
+
+  // Spacing scale
+  const spacingList = spacing
+    ? Object.entries(spacing)
+        .map(([k, v]) => `- ${k}: ${v}`)
+        .join('\n')
+    : '(not defined)'
+
+  // Radius scale
+  const radiusList = radius
+    ? Object.entries(radius)
+        .map(([k, v]) => `- ${k}: ${v}`)
+        .join('\n')
+    : '(not defined)'
+
+  sections.push(`---
+
+## Current tokens
+
+### Palette
+
+| Role | Hex |
+|---|---|
+${paletteRows}
+
+### Typography
+
+${typoLines}
+
+### Shape system
+
+${shapeLines}
+
+### Spacing scale
+
+${spacingList}
+
+### Radius scale
+
+${radiusList}`)
+
+  // ------------------------------------------------------------------
+  // CSS variable contract
+  // ------------------------------------------------------------------
+  sections.push(`---
+
+## CSS variable contract
+
+These are the CSS variables the template defines. You can refine them via \`design.json\` (which feeds \`theme.css\` via the theme generator). Anything beyond these — block-specific tints, shadows, gradients — goes in \`design-overrides.css\`.
+
+### Color variables (from palette → HSL)
+
+- \`--color-primary\`, \`--color-primary-foreground\`
+- \`--color-secondary\`, \`--color-secondary-foreground\`
+- \`--color-accent\`, \`--color-accent-foreground\` (derived from complementary)
+- \`--color-background\`, \`--color-foreground\`
+- \`--color-muted\`, \`--color-muted-foreground\`
+- \`--color-card\`, \`--color-card-foreground\`
+- \`--color-popover\`, \`--color-popover-foreground\`
+- \`--color-border\`, \`--color-input\`
+- \`--color-ring\` (derived from action)
+- \`--color-destructive\`, \`--color-destructive-foreground\`
+
+### Direct hex tokens (for direct CSS usage)
+
+- \`--color-action\` (the brand cyan or equivalent — used for CTAs)
+- \`--color-action-foreground\`
+- \`--color-primary-hex\`, \`--color-near-black\`, \`--color-near-white\`, \`--color-complementary\`
+
+### Spacing / radius / font
+
+- \`--spacing-xs\` through \`--spacing-2xl\`
+- \`--radius-sm\`, \`--radius-md\`, \`--radius-lg\`, \`--radius-pill\`, \`--radius\` (default)
+- \`--font-heading\`, \`--font-body\``)
+
+  // ------------------------------------------------------------------
+  // Block vocabulary
+  // ------------------------------------------------------------------
+
+  // Page-level blocks
+  const pageLevelBlocks = BLOCK_CATALOG.slice(0, 3)
+  const inlineBlocks = BLOCK_CATALOG.slice(3)
+
+  const pageLevelMd = pageLevelBlocks
+    .map(b => {
+      const variantsStr = b.variants.length ? b.variants.join(', ') : '(none)'
+      const tokensLine = b.tokens ? `\n**Currently uses:** ${b.tokens}` : ''
+      return `#### \`[data-block="${b.id}"]\`\n**Purpose:** ${b.purpose}\n**Variants:** ${variantsStr}${tokensLine}`
+    })
+    .join('\n\n')
+
+  const inlineMd = inlineBlocks
+    .map(b => {
+      const variantsStr = b.variants.length ? b.variants.join(', ') : '(none)'
+      const tokensLine = b.tokens
+        ? `**Currently uses:** ${b.tokens}`
+        : '**Currently uses:** shadcn semantic colors (card, foreground, muted)'
+      return `#### \`[data-block="${b.id}"]\`\n**Purpose:** ${b.purpose}\n**Variants:** ${variantsStr}\n${tokensLine}`
+    })
+    .join('\n\n')
+
+  sections.push(`---
+
+## Block vocabulary
+
+The site is composed from 21 reusable blocks. Each block has a \`data-block\` attribute on its outer element — use that as your primary selector in \`design-overrides.css\`.
+
+For each block, the catalog below lists its purpose, variants, and which CSS tokens it currently consumes.
+
+### Page-level blocks (one per page, from frontmatter \`hero:\` field)
+
+${pageLevelMd}
+
+### Inline blocks (selected during content generation, annotated \`<!-- block: ... -->\`)
+
+${inlineMd}`)
+
+  // ------------------------------------------------------------------
+  // Sample content
+  // ------------------------------------------------------------------
+
+  const pageSections = pages.map(({ filename, raw }) => {
+    const { frontmatter, body } = parseFrontmatter(raw)
+    const url = frontmatter['url'] ?? urlFromFilename(filename)
+    const pageTitle = frontmatter['title'] ?? filename
+    const heroBlock = frontmatter['hero'] ?? 'unknown'
+    const heroVariant = frontmatter['hero_variant'] ?? 'unknown'
+    const blockIds = extractBlockIds(body)
+    const sectionsStr = blockIds.length ? blockIds.join(', ') : '(none)'
+
+    return `### ${url} (${pageTitle})
+
+**Hero:** ${heroBlock} (${heroVariant})
+**Sections:** ${sectionsStr}
+
+${body.trim()}`
+  })
+
+  sections.push(`---
+
+## Sample content
+
+The actual pages this template renders. Use these to inform your styling — what does a "real" feature-grid look like? What's the longest content-prose section?
+
+${pageSections.join('\n\n---\n\n')}`)
+
+  // ------------------------------------------------------------------
+  // Output format instructions
+  // ------------------------------------------------------------------
+  sections.push(`---
+
+## Output format
+
+When you produce \`design-overrides.css\`, prefix it with this comment header:
+
+\`\`\`css
+/* design-overrides.css for ${firm.name}
+ * Generated by Claude.ai Design — YYYY-MM-DD
+ * Save this file to: content/design-overrides.css
+ * Loaded by src/app/globals.css after theme.css.
+ */
+\`\`\`
+
+Use \`data-block\` attribute selectors for block-specific overrides. Use \`:root\` overrides for global token tweaks. Don't use \`!important\` unless absolutely necessary.
+
+If you propose changes to \`design.json\`, output it as a fenced \`\`\`json block with the full file content (not just a diff).`)
+
+  return sections.join('\n\n')
+}
+
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
+
+async function main(): Promise<void> {
+  const args = process.argv.slice(2)
+  const stdoutOnly = args.includes('--stdout')
+  const outIdx = args.indexOf('--out')
+  const outPath = outIdx >= 0 ? args[outIdx + 1] : 'design-brief.md'
+
+  if (outIdx >= 0 && !outPath) {
+    console.error('Error: --out requires a path argument')
+    process.exit(1)
+  }
+
+  const repoRoot = process.cwd()
+  const contentDir = path.join(repoRoot, 'content')
+
+  // Load required files
+  let brand: BrandJson
+  let design: DesignJson
+  try {
+    brand = JSON.parse(await fs.readFile(path.join(contentDir, 'brand.json'), 'utf-8')) as BrandJson
+  } catch (err) {
+    console.error('Error: could not read content/brand.json —', (err as Error).message)
+    process.exit(1)
+  }
+
+  try {
+    design = JSON.parse(
+      await fs.readFile(path.join(contentDir, 'design.json'), 'utf-8')
+    ) as DesignJson
+  } catch (err) {
+    console.error('Error: could not read content/design.json —', (err as Error).message)
+    process.exit(1)
+  }
+
+  // Load optional brand.md
+  let brandMd = ''
+  try {
+    const raw = await fs.readFile(path.join(contentDir, 'brand.md'), 'utf-8')
+    // Strip leading "# About …" heading to avoid duplication
+    brandMd = raw.replace(/^# About [^\n]+\n+/, '')
+  } catch {
+    // optional — fine if missing
+  }
+
+  // Load pages
+  const pagesDir = path.join(contentDir, 'pages')
+  const pageFiles = await fs.readdir(pagesDir).catch(() => [] as string[])
+  const pages = await Promise.all(
+    pageFiles
+      .filter(f => f.endsWith('.md'))
+      .sort()
+      .map(async f => {
+        const raw = await fs.readFile(path.join(pagesDir, f), 'utf-8')
+        return { filename: f, raw }
+      })
+  )
+
+  const md = buildBrief({ brand, design, brandMd, pages })
+
+  if (stdoutOnly) {
+    process.stdout.write(md)
+  } else {
+    await fs.writeFile(path.join(repoRoot, outPath), md, 'utf-8')
+    const lines = md.split('\n').length
+    console.log(`Written ${outPath} (${md.length.toLocaleString()} chars, ${lines.toLocaleString()} lines)`)
+    console.log('')
+    console.log('Next steps:')
+    console.log('  1. Open Claude.ai → start a new chat')
+    console.log(`  2. Attach ${outPath} (or paste its contents)`)
+    console.log('  3. Ask: "Produce design-overrides.css per the brief"')
+    console.log('  4. Save the returned CSS to content/design-overrides.css')
+    console.log('  5. Run `npm run dev` to see the styling applied')
+  }
+}
+
+main().catch(err => {
+  console.error(err)
+  process.exit(1)
+})

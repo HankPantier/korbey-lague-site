@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "unpack": "tsx scripts/unpack-deliverable.ts"
+    "unpack": "tsx scripts/unpack-deliverable.ts",
+    "export-brief": "tsx scripts/export-design-brief.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

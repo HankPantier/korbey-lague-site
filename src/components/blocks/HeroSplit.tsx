@@ -73,7 +73,7 @@ export function HeroSplit({
   )
 
   return (
-    <Section as="header" bg="surface">
+    <Section as="header" bg="surface" dataBlock="hero-split">
       <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center min-h-[480px]">
         {imageFirst ? (
           <>

@@ -13,7 +13,7 @@ export function StatsBar({ variant, heading, stats }: StatsBarProps) {
       : 'grid-cols-1 sm:grid-cols-3'
 
   return (
-    <Section as="section" fullBleed bg="primary">
+    <Section as="section" fullBleed bg="primary" dataBlock="stats-bar">
       {heading && (
         <h2
           className="sr-only"

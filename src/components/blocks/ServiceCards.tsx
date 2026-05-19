@@ -14,7 +14,7 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
       : 'sm:grid-cols-2 lg:grid-cols-3'
 
   return (
-    <Section>
+    <Section dataBlock="service-cards">
       <header className="max-w-2xl">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"

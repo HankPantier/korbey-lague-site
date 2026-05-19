@@ -23,6 +23,7 @@ export function CtaBanner({
       fullBleed
       bg={variant === 'image-bg' ? 'none' : 'primary'}
       className="relative overflow-hidden"
+      dataBlock="cta-banner"
     >
       {bgUrl && (
         <div

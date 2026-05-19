@@ -61,7 +61,7 @@ export function ChecklistSection({
 
   if (variant === 'with-image') {
     return (
-      <Section>
+      <Section dataBlock="checklist-section">
         <div className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
           {checklist}
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
@@ -86,7 +86,7 @@ export function ChecklistSection({
 
   // standalone
   return (
-    <Section>
+    <Section dataBlock="checklist-section">
       {checklist}
     </Section>
   )

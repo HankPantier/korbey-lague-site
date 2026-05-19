@@ -5,7 +5,7 @@ export type { ContentTableProps }
 
 export function ContentTable({ heading, intro, headers, rows, caption }: ContentTableProps) {
   return (
-    <Section>
+    <Section dataBlock="content-table">
       {heading && (
         <header className="max-w-2xl mb-8">
           <h2

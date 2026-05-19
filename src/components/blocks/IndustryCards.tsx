@@ -14,7 +14,7 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
       : 'sm:grid-cols-2 lg:grid-cols-3'
 
   return (
-    <Section>
+    <Section dataBlock="industry-cards">
       <header className="max-w-2xl mx-auto text-center">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"

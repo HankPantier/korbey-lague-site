@@ -12,7 +12,7 @@ export function IntroText({ variant, heading, body, cta }: IntroTextProps) {
   const isCentered = variant !== 'left-aligned'
 
   return (
-    <Section>
+    <Section dataBlock="intro-text">
       <div
         className={cn(
           'mx-auto',

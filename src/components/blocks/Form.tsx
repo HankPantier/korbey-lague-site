@@ -53,7 +53,7 @@ export function Form({
   // Newsletter: inline compact layout
   if (variant === 'newsletter') {
     return (
-      <Section bg="surface">
+      <Section bg="surface" dataBlock="form">
         <div className="max-w-xl mx-auto text-center">
           <h2
             className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-3"
@@ -104,7 +104,7 @@ export function Form({
   const hasSidebar = !!sidebar_content
 
   return (
-    <Section>
+    <Section dataBlock="form">
       <header className="max-w-2xl mb-10">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"

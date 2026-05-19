@@ -11,7 +11,7 @@ export type { ContentSplitProps }
 
 export function ContentSplit({ variant, heading, body, image, image_alt, cta }: ContentSplitProps) {
   return (
-    <Section>
+    <Section dataBlock="content-split">
       <div
         className={cn(
           'grid gap-10 md:gap-16 md:grid-cols-2 items-center',

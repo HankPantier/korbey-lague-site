@@ -9,7 +9,7 @@ export type { ProcessStepsProps }
 export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessStepsProps) {
   if (variant === 'horizontal') {
     return (
-      <Section>
+      <Section dataBlock="process-steps">
         <header className="max-w-2xl mx-auto text-center">
           <h2
             className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
@@ -80,7 +80,7 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
 
   // vertical
   return (
-    <Section>
+    <Section dataBlock="process-steps">
       <header className="max-w-2xl">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"

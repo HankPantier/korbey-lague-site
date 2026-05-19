@@ -7,6 +7,7 @@ type SectionProps = {
   bg?: 'none' | 'surface' | 'primary' | 'action' | 'card'
   className?: string
   as?: 'section' | 'header' | 'footer' | 'div'
+  dataBlock?: string
 }
 
 const BG_CLASSES: Record<NonNullable<SectionProps['bg']>, string> = {
@@ -23,12 +24,13 @@ export function Section({
   bg = 'none',
   className,
   as: Tag = 'section',
+  dataBlock,
 }: SectionProps) {
   const bgClass = BG_CLASSES[bg]
 
   if (fullBleed) {
     return (
-      <Tag className={cn(bgClass, className)}>
+      <Tag data-block={dataBlock} className={cn(bgClass, className)}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           {children}
         </div>
@@ -37,7 +39,7 @@ export function Section({
   }
 
   return (
-    <Tag className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16', bgClass, className)}>
+    <Tag data-block={dataBlock} className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16', bgClass, className)}>
       {children}
     </Tag>
   )

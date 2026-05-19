@@ -9,7 +9,7 @@ export function LogoBar({ heading, logos }: LogoBarProps) {
   if (!logos || logos.length === 0) return null
 
   return (
-    <Section fullBleed bg="surface">
+    <Section fullBleed bg="surface" dataBlock="logo-bar">
       {heading && (
         <h2
           className="text-center text-sm font-semibold uppercase tracking-widest text-foreground/50 mb-8"

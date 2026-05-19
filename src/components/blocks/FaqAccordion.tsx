@@ -15,7 +15,7 @@ export function FaqAccordion({ heading, items }: FaqAccordionProps) {
   if (!items || items.length === 0) return null
 
   return (
-    <Section>
+    <Section dataBlock="faq-accordion">
       <div className="max-w-3xl mx-auto">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-center text-foreground"

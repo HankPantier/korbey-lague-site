@@ -7,7 +7,7 @@ export type { ContentProseProps }
 
 export function ContentProse({ heading, body }: ContentProseProps) {
   return (
-    <Section>
+    <Section dataBlock="content-prose">
       <div className="max-w-2xl mx-auto">
         {heading && (
           <h2

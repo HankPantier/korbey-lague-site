@@ -17,7 +17,7 @@ export function Pricing({ variant, heading, intro, tiers, disclaimer }: PricingP
         : 'sm:grid-cols-2 lg:grid-cols-3'
 
   return (
-    <Section>
+    <Section dataBlock="pricing">
       <header className="max-w-2xl mx-auto text-center">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"

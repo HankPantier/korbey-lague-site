@@ -16,7 +16,7 @@ export function Hero({ image, headline, subheadline, cta_primary }: HeroProps) {
   const bgUrl = image ? `/content-assets/${image}` : undefined
 
   return (
-    <Section as="header" fullBleed bg="primary" className="relative overflow-hidden !py-0">
+    <Section as="header" fullBleed bg="primary" className="relative overflow-hidden !py-0" dataBlock="hero">
       {bgUrl && (
         <div
           aria-hidden="true"

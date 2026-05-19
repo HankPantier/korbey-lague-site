@@ -18,7 +18,7 @@ export function Testimonials({ variant, heading, testimonials }: TestimonialsPro
   if (!testimonials || testimonials.length === 0) return null
 
   return (
-    <Section bg="surface">
+    <Section bg="surface" dataBlock="testimonials">
       {heading && (
         <header className="mb-10 text-center">
           <h2

@@ -6,7 +6,7 @@ export type { PageHeaderProps }
 
 export function PageHeader({ headline, subheadline, breadcrumb }: PageHeaderProps) {
   return (
-    <Section as="header" fullBleed bg="primary" className="!py-0">
+    <Section as="header" fullBleed bg="primary" className="!py-0" dataBlock="page-header">
       <div className="py-12 md:py-16">
         {breadcrumb && breadcrumb.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-4">

@@ -54,6 +54,80 @@ Notes:
 - After editing, run `npm run dev` or `npm run build` to pick up changes.
 - Wildcards / regex sources are NOT currently supported — page-level redirects only. (Next.js supports them via the `:path*` syntax if you need it; extend `next.config.ts` to handle that.)
 
+## Designing the visual look (Claude.ai Design handoff)
+
+The 21 block components define the *shape* of every page. Their actual visual treatment — colors, gradients, shadows, custom corner radii, spacing nuance — is fed in via two files:
+
+- **`content/design.json`** — design tokens (palette, fonts, radius scale). Drives the generated `theme.css`.
+- **`content/design-overrides.css`** — block-specific CSS authored by Claude.ai Design (or you by hand). Loaded after `theme.css`, so any rule here wins.
+
+### Workflow
+
+```bash
+# 1. Generate a "design brief" markdown file from the current content
+npm run export-brief                  # writes ./design-brief.md
+# (or: npm run export-brief -- --out brief.md  /  --stdout)
+
+# 2. Open Claude.ai → new chat → attach design-brief.md
+# 3. Ask: "Produce design-overrides.css per the brief."
+# 4. Save the returned CSS as content/design-overrides.css
+# 5. (Optional) If Claude.ai also proposed token changes, overwrite content/design.json
+#    and re-run the theme generator:
+npx tsx scripts/generate-theme.ts
+
+# 6. Restart dev to see the result
+npm run dev
+```
+
+### What Claude.ai Design sees
+
+`design-brief.md` collates everything in one document:
+- Firm context (positioning, location, tagline)
+- Brand identity (palette, typography pairing, radius/spacing tokens)
+- The full CSS-variable contract (the names you can reference)
+- The 21-block vocabulary with their `data-block` selectors
+- All page markdown (so Claude sees the actual content it's styling)
+- A standardized prompt asking for the two outputs (CSS overrides + optional refined `design.json`)
+
+### Targeting blocks in `design-overrides.css`
+
+Every block has a `data-block="<id>"` attribute on its outer element. Use that as your primary selector:
+
+```css
+/* Make the hero feel warmer for this client */
+[data-block="hero"] {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hex) 100%);
+}
+[data-block="hero"] h1 {
+  letter-spacing: -0.03em;
+}
+
+/* Softer corners on feature-grid cards */
+[data-block="feature-grid"] .rounded-lg {
+  border-radius: 20px;
+}
+
+/* Restrained CTA banner — flat color, no shadow */
+[data-block="cta-banner"] {
+  box-shadow: none;
+}
+```
+
+The full list of available `data-block` values matches the 21 block IDs documented in `raw-docs/phaseII/component-library-spec.md` (in the onboarding repo). The brief script also lists them inline.
+
+### Versioning
+
+`content/design-overrides.css` is committed to the repo — each client clone carries its own design decisions in git history. The placeholder ships empty; Claude.ai's output replaces it. Re-running `npm run unpack` does NOT overwrite this file (the Phase I deliverable doesn't include a `design-overrides.css`), so iteration on the design is safe.
+
+### When to re-export the brief
+
+Re-run `npm run export-brief` whenever:
+- Content changes substantively (new pages added, services renamed)
+- Brand tokens change (palette tweak, font swap)
+- You want a fresh design pass on the same content
+
+You don't need to re-export to *use* an existing `design-overrides.css` — just edit it and `npm run dev`.
+
 ## Editing content
 
 - **Page content:** edit the matching `.md` file in `content/pages/`. Block annotations (`<!-- block: feature-grid | variant: 3-col -->`) drive layout — don't remove them.
@@ -74,4 +148,5 @@ When the client comes back with content edits, regenerate the Phase I deliverabl
 | `npm run build` | Production build |
 | `npm run start` | Run the production build |
 | `npm run unpack <path>` | Unpack a Phase I deliverable (zip or folder) |
+| `npm run export-brief` | Generate a design brief markdown file to paste into Claude.ai Design |
 | `npx tsx scripts/generate-theme.ts` | Regenerate the theme CSS from current brand.json/design.json |

@@ -1,0 +1,67 @@
+#!/usr/bin/env tsx
+/**
+ * Unpack a Phase I deliverable into the template repo.
+ *
+ * Usage:
+ *   npm run unpack <path-to-zip-or-folder>
+ *
+ * Examples:
+ *   npm run unpack ~/Downloads/content-package.zip
+ *   npm run unpack ~/Downloads/korbey-lague-content/
+ *
+ * Steps:
+ *   1. Extract zip (or copy folder) into the repo root, overwriting any existing
+ *      files at the destination paths.
+ *   2. Run scripts/generate-theme.ts to produce src/styles/theme.css from the
+ *      new content/brand.json + content/design.json.
+ *
+ * After running this, `npm run dev` renders the unpacked site.
+ *
+ * Idempotent: re-running with the same input produces the same result. Safe to
+ * run after a client returns with content edits — it overwrites content/ but
+ * leaves any non-deliverable files (your source code, customizations) alone.
+ */
+
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
+import { execSync } from 'node:child_process'
+
+async function main(): Promise<void> {
+  const arg = process.argv[2]
+  if (!arg) {
+    console.error('Usage: npm run unpack <path-to-zip-or-folder>')
+    process.exit(1)
+  }
+
+  const absPath = path.resolve(arg)
+  const stat = await fs.stat(absPath).catch(() => null)
+  if (!stat) {
+    console.error(`Not found: ${absPath}`)
+    process.exit(1)
+  }
+
+  const repoRoot = process.cwd()
+  console.log(`Repo root: ${repoRoot}`)
+
+  if (stat.isFile() && absPath.toLowerCase().endsWith('.zip')) {
+    console.log(`Extracting ${absPath} into repo root...`)
+    execSync(`unzip -o "${absPath}" -d "${repoRoot}"`, { stdio: 'inherit' })
+  } else if (stat.isDirectory()) {
+    console.log(`Copying ${absPath}/* into repo root...`)
+    // The trailing /. copies the contents of the directory, not the directory itself.
+    execSync(`cp -R "${absPath}/." "${repoRoot}/"`, { stdio: 'inherit' })
+  } else {
+    console.error(`Expected a .zip file or a directory. Got: ${absPath}`)
+    process.exit(1)
+  }
+
+  console.log('\nRunning theme generator...')
+  execSync('npx --yes tsx scripts/generate-theme.ts', { stdio: 'inherit', cwd: repoRoot })
+
+  console.log('\n✓ Unpack complete. Run `npm run dev` to start the site.\n')
+}
+
+main().catch((err: unknown) => {
+  console.error(err instanceof Error ? err.message : err)
+  process.exit(1)
+})

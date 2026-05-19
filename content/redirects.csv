@@ -1,0 +1,6 @@
+# This file controls 301 redirects for the live site.
+# Format: old_url,new_url,status_code,reason
+old_url,new_url,status_code,reason
+/old-services,/services,301,redirected to new structure
+"/old, with comma",/destination,301,consolidated into /destination
+/legacy,/new-home,301,site restructure

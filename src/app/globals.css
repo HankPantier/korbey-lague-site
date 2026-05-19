@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../styles/theme.css";
+@import "../../content/design-overrides.css";
 
 @layer base {
   * {

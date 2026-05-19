@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CountingFive Client Site Template
 
-## Getting Started
+Next.js 16 + Tailwind v4 + shadcn/ui. Built to consume a Phase I content deliverable from the CountingFive onboarding pipeline.
 
-First, run the development server:
+## Workflow for a new client
 
 ```bash
+# 1. Clone this template
+git clone https://github.com/HankPantier/CountingFiveTemplate my-client-site
+cd my-client-site
+npm install
+
+# 2. Unpack the Phase I deliverable
+npm run unpack ~/Downloads/content-package.zip
+
+# 3. Start dev
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The `unpack` script extracts the zip into the repo root (filling `content/`, `public/`), then regenerates the theme CSS from the client's brand + design tokens.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## File layout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+content/                      ← editable source of truth (unpacked from deliverable)
+├── pages/*.md                ← one file per page, with block annotations
+├── brand.json                ← palette, firm info, social, certifications
+├── design.json               ← typography pairing, radius, spacing
+├── nav.json                  ← curated nav structure (NavBar + Footer)
+├── brand.md, design.md       ← narrative versions (LLM-crawler signal)
+├── redirects.csv             ← 301 redirects from old URLs to new ones
+public/                       ← files served at canonical URLs
+├── robots.txt, sitemap.xml, llms.txt, llms-full.txt
+├── og-images/                ← drop OG share images here (1200×630)
+├── content-assets/           ← logo, team photos, hero images
+src/styles/theme.css           ← generated; do not edit (gitignored)
+```
 
-## Learn More
+## Editing redirects
 
-To learn more about Next.js, take a look at the following resources:
+Open `content/redirects.csv` and add, edit, or remove rows. The CSV is loaded by `next.config.ts` on every build and registered with Next.js as permanent (301) redirects.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Format (header on line 5):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+old_url,new_url,status_code,reason
+/old-services,/services,301,redirected to new structure
+"/old, with comma",/destination,301,consolidated into /destination
+```
 
-## Deploy on Vercel
+Notes:
+- Lines starting with `#` are ignored — useful for comments.
+- `status_code` and `reason` columns aren't currently used by the loader (all redirects are permanent / 308 treated as 301 by search engines), but they're documented for clarity.
+- After editing, run `npm run dev` or `npm run build` to pick up changes.
+- Wildcards / regex sources are NOT currently supported — page-level redirects only. (Next.js supports them via the `:path*` syntax if you need it; extend `next.config.ts` to handle that.)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editing content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Page content:** edit the matching `.md` file in `content/pages/`. Block annotations (`<!-- block: feature-grid | variant: 3-col -->`) drive layout — don't remove them.
+- **Brand colors / fonts:** edit `content/brand.json` and `content/design.json`, then run `npx tsx scripts/generate-theme.ts` to regenerate `src/styles/theme.css`. Or just re-run `npm run unpack <path>` to reset everything.
+- **Nav menu:** edit `content/nav.json` — `primary` is the top-level list, each item may have `children` (one level deep), optional `cta` at the top right.
+- **SEO files:** `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`, `public/llms-full.txt` are served as-is. Edit directly.
+- **Images:** drop logo/team/hero photos into `public/content-assets/`. Reference them in the .md frontmatter or JSON configs by filename (e.g., `hero_image: hero-office.jpg` → served at `/content-assets/hero-office.jpg`).
+
+## Re-unpacking after a content update
+
+When the client comes back with content edits, regenerate the Phase I deliverable in the admin tool, download the new zip, and run `npm run unpack <new-zip>`. The script is idempotent — content gets overwritten, theme regenerates, and your source code is left untouched.
+
+## Available scripts
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Start the Next.js dev server |
+| `npm run build` | Production build |
+| `npm run start` | Run the production build |
+| `npm run unpack <path>` | Unpack a Phase I deliverable (zip or folder) |
+| `npx tsx scripts/generate-theme.ts` | Regenerate the theme CSS from current brand.json/design.json |

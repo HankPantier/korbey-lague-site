@@ -2,22 +2,164 @@
 
 Next.js 16 + Tailwind v4 + shadcn/ui. Built to consume a Phase I content deliverable from the CountingFive onboarding pipeline.
 
-## Workflow for a new client
+## Spinning up a new client site — step by step
+
+### Prerequisites
+
+- Node.js 20 or later (`node --version`)
+- npm 10 or later (`npm --version`)
+- Git
+- A Phase I deliverable `content-package.zip` downloaded from the admin tool (Phase 6 "Assemble Package" → Download)
+
+### 1. Clone the template
 
 ```bash
-# 1. Clone this template
-git clone https://github.com/HankPantier/CountingFiveTemplate my-client-site
-cd my-client-site
+git clone https://github.com/HankPantier/CountingFiveTemplate.git korbey-lague-site
+cd korbey-lague-site
+```
+
+Pick whatever folder name fits the client. Each client gets their own clone — the template is the starting point, not a shared dependency.
+
+### 2. Install dependencies
+
+```bash
 npm install
+```
 
-# 2. Unpack the Phase I deliverable
+Pulls Next.js, shadcn/ui, gray-matter, react-markdown, chroma-js, and the rest. Takes ~30 seconds on a fast connection.
+
+### 3. Unpack the deliverable zip
+
+This is the key step. The Phase I zip is structured so its internal paths mirror the template's layout. The `unpack` script extracts everything into the current repo root, dropping files exactly where Next.js + the assembly system expect them.
+
+```bash
 npm run unpack ~/Downloads/content-package.zip
+```
 
-# 3. Start dev
+**What this does:**
+
+```
+content-package.zip                           (the deliverable)
+├── content/                                  → korbey-lague-site/content/
+│   ├── pages/*.md                            → content/pages/*.md
+│   ├── brand.json                            → content/brand.json
+│   ├── design.json                           → content/design.json
+│   ├── nav.json                              → content/nav.json
+│   ├── brand.md, design.md                   → content/ (LLM-crawler narratives)
+│   └── redirects.csv                         → content/redirects.csv
+├── public/                                   → korbey-lague-site/public/
+│   ├── robots.txt, sitemap.xml               → public/ (served at canonical URLs)
+│   ├── llms.txt, llms-full.txt               → public/
+│   ├── og-images/                            → public/og-images/
+│   └── content-assets/                       → public/content-assets/
+│       ├── <logo>.png                          (firm logo)
+│       ├── <team-photos>.png                   (uploaded headshots)
+│       └── ...                                 (other session assets)
+└── <firm-slug>-content.docx                  → korbey-lague-site/<firm-slug>-content.docx
+                                                  (top-level — human review artifact;
+                                                  not used by the site)
+```
+
+The script then automatically runs `scripts/generate-theme.ts`, which reads the freshly unpacked `content/brand.json` + `content/design.json` and writes `src/styles/theme.css` — the per-client palette + typography variables.
+
+You should see:
+
+```
+Repo root: /Users/you/code/korbey-lague-site
+Extracting /Users/you/Downloads/content-package.zip into repo root...
+Archive:  /Users/you/Downloads/content-package.zip
+  inflating: content/pages/home.md
+  inflating: content/pages/services--virtual-cfo.md
+  ... (etc)
+Running theme generator...
+✓ Wrote /Users/you/code/korbey-lague-site/src/styles/theme.css (palette: #003B71, fonts: Public Sans + Public Sans)
+✓ Unpack complete. Run `npm run dev` to start the site.
+```
+
+The script is **idempotent** — running it again with the same zip (or a fresh deliverable later) overwrites `content/` and regenerates the theme. Your hand-edits to `content/design-overrides.css`, your source code, and any other files in the repo stay untouched.
+
+### 4. Start the dev server
+
+```bash
 npm run dev
 ```
 
-The `unpack` script extracts the zip into the repo root (filling `content/`, `public/`), then regenerates the theme CSS from the client's brand + design tokens.
+Open http://localhost:3000. You should see the client's homepage rendered with:
+- Their firm name + tagline in the NavBar
+- Their actual logo (if a logo file landed in `public/content-assets/`)
+- Their brand colors throughout
+- Their generated page content in each block
+
+If a sub-page like `/services/virtual-cfo` was confirmed in the sitemap, navigating to it should serve its `.md` content via the `[...slug]` route.
+
+### 5. Verify everything looks right
+
+A few quick checks:
+
+```bash
+# Pages should exist
+ls content/pages/
+
+# Theme CSS should be ~5KB with @theme block + :root duplicate
+ls -la src/styles/theme.css
+
+# Public files should be served at canonical URLs:
+#   http://localhost:3000/robots.txt
+#   http://localhost:3000/sitemap.xml
+#   http://localhost:3000/llms.txt
+#   http://localhost:3000/llms-full.txt
+```
+
+If a redirect was set up in the deliverable, hit an old URL in the browser — should 301 to the new one. The dev server console will log `[next.config] Loaded N redirect(s) from content/redirects.csv` at startup.
+
+### 6. Commit the unpacked state
+
+```bash
+git add -A
+git commit -m "chore: unpack initial deliverable"
+```
+
+This pins the client's content in git history, so you have a baseline to diff against when they come back with edits.
+
+### 7. (Optional) Run the design handoff to Claude.ai
+
+If you want a per-client visual treatment beyond the default theme, see [Designing the visual look](#designing-the-visual-look-claudeai-design-handoff) below.
+
+---
+
+## Re-unpacking after a content update
+
+When the client comes back with edits, regenerate the deliverable in the admin tool, download the new zip, and re-run:
+
+```bash
+npm run unpack ~/Downloads/content-package-v2.zip
+```
+
+The script overwrites `content/` and regenerates the theme. Any changes you've made to `content/design-overrides.css`, your source code, or files outside `content/` and `public/` stay put. Commit the diff to see exactly what changed in the deliverable.
+
+---
+
+## Troubleshooting
+
+**`npm run unpack` errors with "Not found"**
+The path you passed doesn't exist. Use an absolute path or one relative to the repo root.
+
+**Homepage 404s**
+The deliverable didn't include `content/pages/home.md`. Re-check the package contents with `unzip -l <path-to-zip>`.
+
+**Blocks render as "Block not yet implemented" placeholders**
+The `.md` file references a block ID that the template's `BlockRenderer` doesn't have a case for. Open the dev console to see which ID is missing. All 21 blocks from the spec are implemented; an unknown ID likely means Claude emitted a typo. Fix the annotation in the `.md` file or re-run content generation in the admin tool.
+
+**Theme colors look wrong (dark red where light gray should be)**
+`generate-theme.ts` didn't run, or it ran on a stale `brand.json`. Re-run `npm run unpack <zip>` to refresh both `content/` and `theme.css` in one shot.
+
+**Images don't load (broken `<img>` tags)**
+The referenced files aren't in `public/content-assets/`. Either:
+- The deliverable didn't include them (check `unzip -l <zip> | grep content-assets`)
+- The `.md` references a different filename than what was uploaded. Open `public/content-assets/` and adjust the `hero_image:` / `image:` value in the page frontmatter or block annotation.
+
+**Build fails on Vercel but works locally**
+Almost always a TypeScript error caused by the local cache being stale. Run `rm -rf .next && npm run build` locally to reproduce.
 
 ## File layout
 

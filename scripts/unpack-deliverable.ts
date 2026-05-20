@@ -25,6 +25,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { execSync } from 'node:child_process'
+import AdmZip from 'adm-zip'
 
 async function main(): Promise<void> {
   const arg = process.argv[2]
@@ -45,11 +46,21 @@ async function main(): Promise<void> {
 
   if (stat.isFile() && absPath.toLowerCase().endsWith('.zip')) {
     console.log(`Extracting ${absPath} into repo root...`)
-    execSync(`unzip -o "${absPath}" -d "${repoRoot}"`, { stdio: 'inherit' })
+    const zip = new AdmZip(absPath)
+    // overwrite = true matches existing `unzip -o` behavior
+    zip.extractAllTo(repoRoot, true)
+    // Log a count of extracted entries so the operator sees progress
+    console.log(`✓ Extracted ${zip.getEntries().length} entries`)
   } else if (stat.isDirectory()) {
     console.log(`Copying ${absPath}/* into repo root...`)
-    // The trailing /. copies the contents of the directory, not the directory itself.
-    execSync(`cp -R "${absPath}/." "${repoRoot}/"`, { stdio: 'inherit' })
+    // Enumerate top-level entries and copy each one to match cp -R "$src/." "$dst/" semantics
+    const entries = await fs.readdir(absPath, { withFileTypes: true })
+    for (const entry of entries) {
+      const src = path.join(absPath, entry.name)
+      const dest = path.join(repoRoot, entry.name)
+      await fs.cp(src, dest, { recursive: true, force: true })
+    }
+    console.log(`✓ Copied ${entries.length} entries`)
   } else {
     console.error(`Expected a .zip file or a directory. Got: ${absPath}`)
     process.exit(1)

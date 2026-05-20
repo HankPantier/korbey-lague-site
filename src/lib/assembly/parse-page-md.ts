@@ -41,10 +41,26 @@ export type PageManifest = {
   sections: PageSection[]
 }
 
+/**
+ * The Phase I deliverable .md files append a human-review metadata trailer
+ * after the assembleable content — answer block, E-E-A-T signals, internal
+ * links, FAQ dump, JSON-LD code block. It starts with a horizontal rule
+ * followed by an "## SEO & AIO Metadata" heading. The trailer is intended
+ * for the .docx + Word review pass, NOT for rendering on the site, so we
+ * trim it before section parsing. Otherwise the last block annotation in
+ * the body greedily captures everything down to end-of-file.
+ */
+const ASSEMBLY_END_MARKER = /\n---\n##\s+SEO\s*&(?:amp;)?\s*AIO Metadata\b/i
+
+function trimMetadataTrailer(body: string): string {
+  const m = body.match(ASSEMBLY_END_MARKER)
+  return m && m.index !== undefined ? body.slice(0, m.index) : body
+}
+
 export function parsePageMd(markdown: string): PageManifest {
   const parsed = matter(markdown)
   const fm = parsed.data as Record<string, unknown>
-  const body = parsed.content
+  const body = trimMetadataTrailer(parsed.content)
 
   /**
    * Splits on the canonical annotation pattern:

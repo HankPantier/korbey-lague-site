@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -17,7 +18,14 @@ import { MobileNav } from './MobileNav'
 import type { BrandJson } from '@/lib/brand/types'
 import type { NavJson } from '@/lib/nav/types'
 
+/** True when `pathname` is exactly `target` or sits beneath it (e.g. /about + /about/our-team). */
+function isUrlActive(pathname: string, target: string): boolean {
+  if (target === '/') return pathname === '/'
+  return pathname === target || pathname.startsWith(target + '/')
+}
+
 export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
+  const pathname = usePathname() ?? '/'
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -51,28 +59,51 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
 
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
-            {nav.primary.map(item =>
-              item.children?.length ? (
+            {nav.primary.map(item => {
+              const itemActive = isUrlActive(pathname, item.url)
+              return item.children?.length ? (
                 <NavigationMenuItem key={item.url}>
-                  <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                  <NavigationMenuTrigger
+                    data-active={itemActive || undefined}
+                    className="data-[active]:text-primary data-[active]:underline data-[active]:underline-offset-8 data-[active]:decoration-2"
+                  >
+                    {item.label}
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-1 p-2">
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={item.url} className="block rounded-md px-3 py-2 text-sm hover:bg-accent">
+                          <Link
+                            href={item.url}
+                            aria-current={pathname === item.url ? 'page' : undefined}
+                            className={cn(
+                              'block rounded-md px-3 py-2 text-sm hover:bg-accent',
+                              pathname === item.url && 'bg-accent/60 text-primary font-semibold'
+                            )}
+                          >
                             Overview
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      {item.children.map(child => (
-                        <li key={child.url}>
-                          <NavigationMenuLink asChild>
-                            <Link href={child.url} className="block rounded-md px-3 py-2 text-sm hover:bg-accent">
-                              {child.label}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
+                      {item.children.map(child => {
+                        const childActive = pathname === child.url
+                        return (
+                          <li key={child.url}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={child.url}
+                                aria-current={childActive ? 'page' : undefined}
+                                className={cn(
+                                  'block rounded-md px-3 py-2 text-sm hover:bg-accent',
+                                  childActive && 'bg-accent/60 text-primary font-semibold'
+                                )}
+                              >
+                                {child.label}
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        )
+                      })}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -81,14 +112,18 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
                   <NavigationMenuLink asChild>
                     <Link
                       href={item.url}
-                      className="inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium hover:bg-accent"
+                      aria-current={itemActive ? 'page' : undefined}
+                      className={cn(
+                        'inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium hover:bg-accent',
+                        itemActive && 'text-primary underline underline-offset-8 decoration-2'
+                      )}
                     >
                       {item.label}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               )
-            )}
+            })}
           </NavigationMenuList>
         </NavigationMenu>
 

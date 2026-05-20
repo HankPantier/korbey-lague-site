@@ -45,7 +45,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased bg-background text-foreground">
+      <body
+        className="min-h-screen flex flex-col antialiased bg-background text-foreground"
+        // Surface the firm's contact email as a body data-attribute so the
+        // client-side Form component's mailto fallback can read it without
+        // needing brand data plumbed through BlockRenderer as a prop. Empty
+        // string when no email is configured — the fallback just opens a
+        // blank "to:" mailto, which is still slightly better than nothing.
+        data-contact-email={brand.contact.email ?? ''}
+        data-firm-name={brand.firm.name}
+      >
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-background focus:text-foreground focus:rounded-md focus:px-4 focus:py-2 focus:shadow-lg focus:outline focus:outline-2 focus:outline-cyan-500"

@@ -189,7 +189,9 @@ export function Form({
       }
     } else {
       // No endpoint configured — fall back to mailto: so the form is
-      // functional at launch.
+      // functional at launch. Recipient + firm name come from data-
+      // attributes on <body> set by RootLayout from brand.json, so this
+      // works without prop plumbing through BlockRenderer.
       const form = e.currentTarget
       const data = new FormData(form)
       const name = data.get('name')?.toString() ?? ''
@@ -197,7 +199,10 @@ export function Form({
       const phone = data.get('phone')?.toString() ?? ''
       const message = data.get('message')?.toString() ?? ''
 
-      const subject = encodeURIComponent(`Inquiry from ${name || 'website visitor'}`)
+      const recipient = document.body.dataset.contactEmail ?? ''
+      const firmName = document.body.dataset.firmName ?? 'the team'
+
+      const subject = encodeURIComponent(`Inquiry to ${firmName} from ${name || 'website visitor'}`)
       const body = encodeURIComponent(
         [
           `Name: ${name}`,
@@ -211,7 +216,7 @@ export function Form({
       )
       // Optimistically mark submitted — if the user cancels the mail client
       // they can simply re-submit.
-      window.location.href = `mailto:?subject=${subject}&body=${body}`
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`
       setSubmitted(true)
       setSubmitting(false)
     }

@@ -27,6 +27,8 @@ import { Pricing } from '@/components/blocks/Pricing'
 import { ContentCards } from '@/components/blocks/ContentCards'
 import { Form } from '@/components/blocks/Form'
 import { ContentTable } from '@/components/blocks/ContentTable'
+import { ContactInfo } from '@/components/blocks/ContactInfo'
+import { MapBlock } from '@/components/blocks/Map'
 
 import {
   extractContentSplitProps,
@@ -114,6 +116,12 @@ export function BlockRenderer({ section, manifest }: BlockRendererProps) {
       return <Form {...extractFormProps(section)} />
     case 'content-table':
       return <ContentTable {...extractContentTableProps(section)} />
+    case 'contact-info':
+      // Data-driven block — reads from content/brand.json. Only needs the heading.
+      return <ContactInfo heading={section.heading} />
+    case 'map':
+      // Data-driven block — reads address from content/brand.json.
+      return <MapBlock heading={section.heading} />
     default:
       return <UnknownBlockPlaceholder section={section} />
   }

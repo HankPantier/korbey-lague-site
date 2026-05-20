@@ -107,25 +107,25 @@ async function main() {
 
 @theme {
   /* Palette → shadcn semantic CSS variables (HSL space-separated) */
-  --color-primary: ${toHslTokens(palette.primary)};
-  --color-primary-foreground: ${toHslTokens(primaryFg)};
-  --color-secondary: ${toHslTokens(palette.secondary)};
-  --color-secondary-foreground: ${toHslTokens(secondaryFg)};
-  --color-accent: ${toHslTokens(palette.complementary)};
-  --color-accent-foreground: ${toHslTokens(accentFg)};
-  --color-background: ${toHslTokens(palette.nearWhite)};
-  --color-foreground: ${toHslTokens(palette.nearBlack)};
-  --color-muted: ${toHslTokens(muted)};
-  --color-muted-foreground: ${toHslTokens(mutedForeground)};
-  --color-card: ${toHslTokens(palette.nearWhite)};
-  --color-card-foreground: ${toHslTokens(palette.nearBlack)};
-  --color-popover: ${toHslTokens(palette.nearWhite)};
-  --color-popover-foreground: ${toHslTokens(palette.nearBlack)};
-  --color-border: ${toHslTokens(borderColor)};
-  --color-input: ${toHslTokens(borderColor)};
-  --color-ring: ${toHslTokens(palette.action)};
-  --color-destructive: ${toHslTokens(destructive)};
-  --color-destructive-foreground: ${toHslTokens(palette.nearWhite)};
+  --color-primary: hsl(${toHslTokens(palette.primary)});
+  --color-primary-foreground: hsl(${toHslTokens(primaryFg)});
+  --color-secondary: hsl(${toHslTokens(palette.secondary)});
+  --color-secondary-foreground: hsl(${toHslTokens(secondaryFg)});
+  --color-accent: hsl(${toHslTokens(palette.complementary)});
+  --color-accent-foreground: hsl(${toHslTokens(accentFg)});
+  --color-background: hsl(${toHslTokens(palette.nearWhite)});
+  --color-foreground: hsl(${toHslTokens(palette.nearBlack)});
+  --color-muted: hsl(${toHslTokens(muted)});
+  --color-muted-foreground: hsl(${toHslTokens(mutedForeground)});
+  --color-card: hsl(${toHslTokens(palette.nearWhite)});
+  --color-card-foreground: hsl(${toHslTokens(palette.nearBlack)});
+  --color-popover: hsl(${toHslTokens(palette.nearWhite)});
+  --color-popover-foreground: hsl(${toHslTokens(palette.nearBlack)});
+  --color-border: hsl(${toHslTokens(borderColor)});
+  --color-input: hsl(${toHslTokens(borderColor)});
+  --color-ring: hsl(${toHslTokens(palette.action)});
+  --color-destructive: hsl(${toHslTokens(destructive)});
+  --color-destructive-foreground: hsl(${toHslTokens(palette.nearWhite)});
 
   /* Custom brand tokens — used directly by block components via var() */
   --color-action: ${palette.action};
@@ -159,25 +159,25 @@ async function main() {
 
 :root {
   /* Duplicate in :root for shadcn components that read vars directly */
-  --color-primary: ${toHslTokens(palette.primary)};
-  --color-primary-foreground: ${toHslTokens(primaryFg)};
-  --color-secondary: ${toHslTokens(palette.secondary)};
-  --color-secondary-foreground: ${toHslTokens(secondaryFg)};
-  --color-accent: ${toHslTokens(palette.complementary)};
-  --color-accent-foreground: ${toHslTokens(accentFg)};
-  --color-background: ${toHslTokens(palette.nearWhite)};
-  --color-foreground: ${toHslTokens(palette.nearBlack)};
-  --color-muted: ${toHslTokens(muted)};
-  --color-muted-foreground: ${toHslTokens(mutedForeground)};
-  --color-card: ${toHslTokens(palette.nearWhite)};
-  --color-card-foreground: ${toHslTokens(palette.nearBlack)};
-  --color-popover: ${toHslTokens(palette.nearWhite)};
-  --color-popover-foreground: ${toHslTokens(palette.nearBlack)};
-  --color-border: ${toHslTokens(borderColor)};
-  --color-input: ${toHslTokens(borderColor)};
-  --color-ring: ${toHslTokens(palette.action)};
-  --color-destructive: ${toHslTokens(destructive)};
-  --color-destructive-foreground: ${toHslTokens(palette.nearWhite)};
+  --color-primary: hsl(${toHslTokens(palette.primary)});
+  --color-primary-foreground: hsl(${toHslTokens(primaryFg)});
+  --color-secondary: hsl(${toHslTokens(palette.secondary)});
+  --color-secondary-foreground: hsl(${toHslTokens(secondaryFg)});
+  --color-accent: hsl(${toHslTokens(palette.complementary)});
+  --color-accent-foreground: hsl(${toHslTokens(accentFg)});
+  --color-background: hsl(${toHslTokens(palette.nearWhite)});
+  --color-foreground: hsl(${toHslTokens(palette.nearBlack)});
+  --color-muted: hsl(${toHslTokens(muted)});
+  --color-muted-foreground: hsl(${toHslTokens(mutedForeground)});
+  --color-card: hsl(${toHslTokens(palette.nearWhite)});
+  --color-card-foreground: hsl(${toHslTokens(palette.nearBlack)});
+  --color-popover: hsl(${toHslTokens(palette.nearWhite)});
+  --color-popover-foreground: hsl(${toHslTokens(palette.nearBlack)});
+  --color-border: hsl(${toHslTokens(borderColor)});
+  --color-input: hsl(${toHslTokens(borderColor)});
+  --color-ring: hsl(${toHslTokens(palette.action)});
+  --color-destructive: hsl(${toHslTokens(destructive)});
+  --color-destructive-foreground: hsl(${toHslTokens(palette.nearWhite)});
 
   /* Custom brand tokens */
   --color-action: ${palette.action};

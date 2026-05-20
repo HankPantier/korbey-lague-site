@@ -5,6 +5,56 @@
  */
 
 /**
+ * Promote standalone bold lines to H3 headings.
+ *
+ * Phase I's content generator commonly emits list-of-items sections using
+ * "**Title**\nbody" instead of "### Title\nbody" — fine for prose rendering
+ * via ReactMarkdown, but it leaves the H3-based section parsers
+ * (parseH3CardList, parseTeamMembers, parsePricingTiers, parseContentCardList,
+ * and the bold-paragraph fallback in parseTitleBodyChunks) seeing zero items.
+ *
+ * This helper rewrites lines that are ENTIRELY a `**Bold Title**` (modulo
+ * trailing whitespace) into `### Bold Title`. It does NOT touch inline bold
+ * inside paragraphs like "Some text **emphasis** here" — the `^...$` anchors
+ * with /gm flag scope the match to whole lines.
+ */
+export function normalizeBoldHeadingsToH3(body: string): string {
+  return body.replace(/^\*\*([^*\n][^*\n]*[^*\n\s])\*\*\s*$/gm, '### $1')
+}
+
+/**
+ * Split a body into intro + title/body chunks. Recognizes both H3 (`### Title`)
+ * and standalone bold-line (`**Title**`) chunk delimiters. Returns:
+ *   { intro: text before first heading, chunks: [{ title, body }, ...] }
+ * If no headings at all, intro is undefined and chunks is empty.
+ *
+ * Used by the H3-based parsers below to avoid five copies of the
+ * find-first-heading/split-into-chunks dance, and by extractors that need
+ * a title+body breakdown without icon-bullet semantics (e.g. industry-cards
+ * when Claude emits bold-paragraph format instead of icon bullets).
+ */
+export function parseTitleBodyChunks(body: string): {
+  intro?: string
+  chunks: Array<{ title: string; body: string }>
+} {
+  const normalized = normalizeBoldHeadingsToH3(body)
+  const headingMatch = normalized.match(/(?:^|\n)### /)
+  if (!headingMatch) return { intro: normalized.trim() || undefined, chunks: [] }
+
+  const firstIdx = headingMatch.index! + (headingMatch[0].startsWith('\n') ? 1 : 0)
+  const intro = firstIdx > 0 ? normalized.slice(0, firstIdx).trim() || undefined : undefined
+  const raw = normalized.slice(firstIdx)
+  const sections = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
+  const chunks = sections.map(chunk => {
+    const lines = chunk.trim().split('\n')
+    const title = lines[0].replace(/^###\s+/, '').trim()
+    const body = lines.slice(1).join('\n').trim()
+    return { title, body }
+  })
+  return { intro, chunks }
+}
+
+/**
  * Split a markdown body into its first heading (H1 or H2) and the body below it.
  * Heading text excludes the leading "## " or "# ".
  * If no heading is found, returns { heading: '', body: markdown }.
@@ -39,7 +89,7 @@ export function extractTrailingCta(body: string): {
 export function parseIconTitleDescriptionList(
   body: string
 ): Array<{ icon: string; title: string; description: string }> {
-  return body
+  const bulletItems = body
     .split('\n')
     .filter(line => /^\s*[-*]\s+/.test(line))
     .map(line => {
@@ -61,6 +111,18 @@ export function parseIconTitleDescriptionList(
       }
       return { icon: 'CheckCircle', title: cleaned.replace(/\*\*/g, '').trim(), description: '' }
     })
+
+  if (bulletItems.length > 0) return bulletItems
+
+  // Fallback: Phase I content generator commonly emits feature/industry lists
+  // as "**Title**\nDescription" paragraphs instead of icon-bullets. Pick those
+  // up via parseTitleBodyChunks so the blocks aren't empty.
+  const { chunks } = parseTitleBodyChunks(body)
+  return chunks.map(({ title, body: description }) => ({
+    icon: 'CheckCircle',
+    title: title.trim(),
+    description: description.trim(),
+  }))
 }
 
 /**
@@ -180,21 +242,8 @@ export function parseH3CardList(body: string): {
   intro?: string
   cards: Array<{ title: string; description: string; url?: string }>
 } {
-  const h3Match = body.match(/(?:^|\n)### /)
-  const firstH3 = h3Match
-    ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
-    : -1
-  const intro =
-    firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
-
-  // Split on ### headings (preserve the delimiter via positive lookbehind split trick)
-  const raw = firstH3 >= 0 ? body.slice(firstH3) : body
-  const chunks = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
-
-  const cards = chunks.map(chunk => {
-    const lines = chunk.trim().split('\n')
-    const title = lines[0].replace(/^###\s+/, '').trim()
-    const rest = lines.slice(1).join('\n').trim()
+  const { intro, chunks } = parseTitleBodyChunks(body)
+  const cards = chunks.map(({ title, body: rest }) => {
     // Pop trailing link as card url
     const ctaMatch = rest.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/)
     if (ctaMatch) {
@@ -206,7 +255,6 @@ export function parseH3CardList(body: string): {
     }
     return { title, description: rest }
   })
-
   return { intro, cards }
 }
 
@@ -236,37 +284,46 @@ export function parseTeamMembers(body: string): {
     photo_alt?: string
   }>
 } {
-  const h3Match = body.match(/(?:^|\n)### /)
-  const firstH3 = h3Match
-    ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
-    : -1
-  const intro =
-    firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
+  const { intro, chunks } = parseTitleBodyChunks(body)
 
-  const raw = firstH3 >= 0 ? body.slice(firstH3) : body
-  const chunks = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
-
-  const members = chunks.map(chunk => {
-    const lines = chunk.trim().split('\n').map(l => l.trim())
-    // Line 0: ### Name, Credentials
-    const nameLine = lines[0].replace(/^###\s+/, '').trim()
-    const commaIdx = nameLine.lastIndexOf(',')
+  const members = chunks.map(({ title: nameLine, body: chunkBody }) => {
+    // Title line shape: "Name, Credential1, Credential2, …"
+    // Split on FIRST comma so multi-credential entries
+    // ("Ron Lague, CPA, PFS") become name="Ron Lague", credentials="CPA, PFS".
+    const commaIdx = nameLine.indexOf(',')
     const name = commaIdx > 0 ? nameLine.slice(0, commaIdx).trim() : nameLine
     const credentials = commaIdx > 0 ? nameLine.slice(commaIdx + 1).trim() : undefined
 
-    let titleLine: string | undefined
-    let photo: string | undefined
-    const bioLines: string[] = []
+    const lines = chunkBody.split('\n').map(l => l.trim()).filter(Boolean)
 
-    for (const line of lines.slice(1)) {
-      if (!titleLine && !line.startsWith('photo:')) {
-        // First non-photo, non-bio line is title
-        titleLine = line.replace(/\*\*/g, '').trim()
-      } else if (line.startsWith('photo:')) {
+    let photo: string | undefined
+    const nonPhotoLines: string[] = []
+    for (const line of lines) {
+      if (line.startsWith('photo:')) {
         photo = line.replace(/^photo:\s*/, '').trim()
       } else {
-        bioLines.push(line)
+        nonPhotoLines.push(line)
       }
+    }
+
+    // Heuristic: when there's a single non-photo content line, it's the bio,
+    // not a job title. When there are 2+, the first SHORT line (under ~60
+    // chars, no terminal punctuation) is a job title and the rest is bio.
+    // This keeps the Phase I bold-paragraph format (no explicit title line)
+    // working without misclassifying the bio as the title.
+    let titleLine: string | undefined
+    let bioLines: string[]
+    if (nonPhotoLines.length >= 2) {
+      const first = nonPhotoLines[0]
+      const looksLikeTitle = first.length < 60 && !/[.!?]$/.test(first)
+      if (looksLikeTitle) {
+        titleLine = first.replace(/\*\*/g, '').trim()
+        bioLines = nonPhotoLines.slice(1)
+      } else {
+        bioLines = nonPhotoLines
+      }
+    } else {
+      bioLines = nonPhotoLines
     }
 
     return {
@@ -364,15 +421,17 @@ export function parsePricingTiers(body: string): {
   tiers: PricingTier[]
   disclaimer?: string
 } {
-  // Split on ### boundaries
-  const h3Match = body.match(/(?:^|\n)### /)
+  // Normalize **Tier**\nprice\n... → ### Tier\nprice\n... so Phase I content
+  // that uses bold-line tier headings parses correctly.
+  const normalized = normalizeBoldHeadingsToH3(body)
+  const h3Match = normalized.match(/(?:^|\n)### /)
   const firstH3 = h3Match
     ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
     : -1
   const intro =
-    firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
+    firstH3 > 0 ? normalized.slice(0, firstH3).trim() || undefined : undefined
 
-  const raw = firstH3 >= 0 ? body.slice(firstH3) : body
+  const raw = firstH3 >= 0 ? normalized.slice(firstH3) : normalized
   const chunks = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
 
   // After the last tier there may be a disclaimer paragraph (no ### prefix)
@@ -468,14 +527,15 @@ export function parseContentCardList(body: string): {
   cards: Array<{ title: string; excerpt: string; url: string; image?: string; date?: string }>
   trailingCta?: { label: string; url: string }
 } {
-  const h3Match = body.match(/(?:^|\n)### /)
+  const normalized = normalizeBoldHeadingsToH3(body)
+  const h3Match = normalized.match(/(?:^|\n)### /)
   const firstH3 = h3Match
     ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
     : -1
   const intro =
-    firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
+    firstH3 > 0 ? normalized.slice(0, firstH3).trim() || undefined : undefined
 
-  const raw = firstH3 >= 0 ? body.slice(firstH3) : body
+  const raw = firstH3 >= 0 ? normalized.slice(firstH3) : normalized
   const chunks = raw.split(/(?=^###\s)/m).filter(c => c.trim().startsWith('###'))
 
   // Detect a standalone trailing CTA: a [label](url) line that appears after

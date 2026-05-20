@@ -5,10 +5,10 @@ import type { BrandJson } from './types'
 let cached: BrandJson | null = null
 
 export async function getBrandConfig(): Promise<BrandJson> {
-  if (cached) return cached
+  if (process.env.NODE_ENV === 'production' && cached) return cached
   const filePath = path.join(process.cwd(), 'content', 'brand.json')
   const raw = await fs.readFile(filePath, 'utf-8')
   const parsed = JSON.parse(raw) as BrandJson
-  cached = parsed
+  if (process.env.NODE_ENV === 'production') cached = parsed
   return parsed
 }

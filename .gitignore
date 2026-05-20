@@ -41,4 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # generated theme CSS (built per-client from brand/design.json)
-src/styles/theme.css
+# NOTE: committed as a placeholder; generate-theme.ts will overwrite it

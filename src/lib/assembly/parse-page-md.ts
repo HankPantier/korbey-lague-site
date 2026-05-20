@@ -86,6 +86,33 @@ export function parsePageMd(markdown: string): PageManifest {
     })
   }
 
+  /**
+   * Drop duplicate FAQ sections.
+   *
+   * The Phase I content generator sometimes emits an "## Frequently Asked
+   * Questions" section in the body (typically annotated as content-prose),
+   * even though the deliverable-builder always auto-appends a structured
+   * faq-accordion block from the page's faq_block metadata. Result: two
+   * FAQ sections render back-to-back with substantially identical Q&A.
+   *
+   * When both exist, the auto-appended faq-accordion is canonical — it has
+   * the structured data behind the FAQPage JSON-LD and the proper
+   * accordion UI. The body-prose version is the stray duplicate, so drop it.
+   *
+   * Conservative: only drops non-faq-accordion sections whose heading
+   * starts with "Frequently Asked Questions" or "FAQ" AND only when an
+   * faq-accordion block exists on the page. A page that legitimately
+   * uses ONLY a prose FAQ keeps its content.
+   */
+  const hasFaqAccordion = sections.some(s => s.blockId === 'faq-accordion')
+  const filteredSections = hasFaqAccordion
+    ? sections.filter(
+        s =>
+          s.blockId === 'faq-accordion' ||
+          !/^(?:Frequently Asked Questions|FAQ)\b/i.test(s.heading)
+      )
+    : sections
+
   return {
     title: String(fm.title ?? ''),
     url: String(fm.url ?? '/'),
@@ -109,6 +136,6 @@ export function parsePageMd(markdown: string): PageManifest {
     faq_block: Array.isArray(fm.faq_block) ? (fm.faq_block as FaqItem[]) : undefined,
     llm_citation_note:
       typeof fm.llm_citation_note === 'string' ? fm.llm_citation_note : undefined,
-    sections,
+    sections: filteredSections,
   }
 }

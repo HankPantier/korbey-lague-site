@@ -56,7 +56,7 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
                 <NavigationMenuItem key={item.url}>
                   <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[240px] gap-1 p-2">
+                    <ul className="grid gap-1 p-2">
                       <li>
                         <NavigationMenuLink asChild>
                           <Link href={item.url} className="block rounded-md px-3 py-2 text-sm hover:bg-accent">

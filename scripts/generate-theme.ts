@@ -135,13 +135,19 @@ async function main() {
   --color-near-white: ${palette.nearWhite};
   --color-complementary: ${palette.complementary};
 
-  /* Spacing scale (from design.json) — Tailwind v4 spacing tokens */
-  --spacing-xs: ${spacing.xs};
-  --spacing-sm: ${spacing.sm};
-  --spacing-md: ${spacing.md};
-  --spacing-lg: ${spacing.lg};
-  --spacing-xl: ${spacing.xl};
-  --spacing-2xl: ${spacing['2xl']};
+  /* Spacing scale — exposed under a c5-prefixed namespace to avoid
+   * colliding with Tailwind v4's --spacing-* namespace, which feeds
+   * max-w-*, w-*, h-*, p-*, m-*, gap-* utilities. Naming these tokens
+   * spacing-xs/sm/md/lg/xl/2xl would silently override max-w-2xl etc.
+   * Reference these in custom CSS via var(--c5-space-xs). For Tailwind
+   * utility values, use the native scale (p-1=4px, p-2=8px, p-4=16px,
+   * p-6=24px, p-12=48px, p-24=96px). */
+  --c5-space-xs: ${spacing.xs};
+  --c5-space-sm: ${spacing.sm};
+  --c5-space-md: ${spacing.md};
+  --c5-space-lg: ${spacing.lg};
+  --c5-space-xl: ${spacing.xl};
+  --c5-space-2xl: ${spacing['2xl']};
 
   /* Radius (from design.json) */
   --radius-none: ${radius.none};
@@ -187,13 +193,13 @@ async function main() {
   --color-near-white: ${palette.nearWhite};
   --color-complementary: ${palette.complementary};
 
-  /* Spacing scale */
-  --spacing-xs: ${spacing.xs};
-  --spacing-sm: ${spacing.sm};
-  --spacing-md: ${spacing.md};
-  --spacing-lg: ${spacing.lg};
-  --spacing-xl: ${spacing.xl};
-  --spacing-2xl: ${spacing['2xl']};
+  /* Spacing scale (c5-prefixed to avoid Tailwind --spacing-* collision) */
+  --c5-space-xs: ${spacing.xs};
+  --c5-space-sm: ${spacing.sm};
+  --c5-space-md: ${spacing.md};
+  --c5-space-lg: ${spacing.lg};
+  --c5-space-xl: ${spacing.xl};
+  --c5-space-2xl: ${spacing['2xl']};
 
   /* Radius */
   --radius-none: ${radius.none};

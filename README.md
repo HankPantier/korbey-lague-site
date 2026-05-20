@@ -175,8 +175,14 @@ public/                       ← files served at canonical URLs
 ├── robots.txt, sitemap.xml, llms.txt, llms-full.txt
 ├── og-images/                ← drop OG share images here (1200×630)
 ├── content-assets/           ← logo, team photos, hero images
+src/app/sitemap.ts            ← dynamic sitemap generator (fallback)
 src/styles/theme.css           ← generated; do not edit (gitignored)
 ```
+
+**Sitemaps:**
+- `public/sitemap.xml` is shipped in the deliverable. While present, it serves at `/sitemap.xml`.
+- `src/app/sitemap.ts` generates a dynamic sitemap from the actual pages in `content/pages/`. It serves only when `public/sitemap.xml` is absent.
+- If you add or remove pages locally without regenerating the deliverable, delete `public/sitemap.xml` to let the dynamic version take over.
 
 ## Editing redirects
 

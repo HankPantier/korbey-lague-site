@@ -77,8 +77,8 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
                             href={item.url}
                             aria-current={pathname === item.url ? 'page' : undefined}
                             className={cn(
-                              'block rounded-md px-3 py-2 text-sm hover:bg-accent',
-                              pathname === item.url && 'bg-accent/60 text-primary font-semibold'
+                              'block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground',
+                              pathname === item.url && 'bg-accent text-accent-foreground font-semibold'
                             )}
                           >
                             Overview
@@ -94,8 +94,8 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
                                 href={child.url}
                                 aria-current={childActive ? 'page' : undefined}
                                 className={cn(
-                                  'block rounded-md px-3 py-2 text-sm hover:bg-accent',
-                                  childActive && 'bg-accent/60 text-primary font-semibold'
+                                  'block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground',
+                                  childActive && 'bg-accent text-accent-foreground font-semibold'
                                 )}
                               >
                                 {child.label}
@@ -114,7 +114,7 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
                       href={item.url}
                       aria-current={itemActive ? 'page' : undefined}
                       className={cn(
-                        'inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium hover:bg-accent',
+                        'inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium hover:bg-accent hover:text-accent-foreground',
                         itemActive && 'text-primary underline underline-offset-8 decoration-2'
                       )}
                     >

@@ -78,7 +78,7 @@ export function MobileNav({ nav }: { nav: NavJson }) {
                   href={item.url}
                   aria-current={itemActive ? 'page' : undefined}
                   className={cn(
-                    'block px-4 py-3 text-base font-medium hover:bg-accent rounded-md',
+                    'block px-4 py-3 text-base font-medium hover:bg-accent hover:text-accent-foreground rounded-md',
                     itemActive && 'text-primary'
                   )}
                   onClick={() => setOpen(false)}

@@ -40,28 +40,23 @@ export type PageManifest = {
   sections: PageSection[]
 }
 
-/**
- * Splits on the canonical annotation pattern:
- *   <!-- block: <id> | variant: <v> | image: <f> -->
- * immediately followed by a ## heading.
- * Variant and image are both optional.
- *
- * Note: This is a global regex — we reset lastIndex before every use.
- */
-const SECTION_PATTERN =
-  /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s>]+))?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
-
 export function parsePageMd(markdown: string): PageManifest {
   const parsed = matter(markdown)
   const fm = parsed.data as Record<string, unknown>
   const body = parsed.content
 
+  /**
+   * Splits on the canonical annotation pattern:
+   *   <!-- block: <id> | variant: <v> | image: <f> -->
+   * immediately followed by a ## heading.
+   * Variant and image are both optional.
+   */
+  const SECTION_PATTERN =
+    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s>]+))?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
+
   const sections: PageSection[] = []
   let m: RegExpExecArray | null
   let i = 0
-
-  // Reset lastIndex defensively — global regex is module-level and shared across calls.
-  SECTION_PATTERN.lastIndex = 0
 
   while ((m = SECTION_PATTERN.exec(body)) !== null) {
     sections.push({

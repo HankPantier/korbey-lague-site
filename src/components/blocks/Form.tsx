@@ -120,6 +120,7 @@ export function Form({
               <form
                 onSubmit={handleNewsletterSubmit}
                 className="flex flex-col sm:flex-row gap-3"
+                aria-label="Newsletter signup"
               >
                 {/* Honeypot — invisible to humans, filled by bots */}
                 <input
@@ -143,6 +144,7 @@ export function Form({
                   required
                   aria-required="true"
                   autoComplete="email"
+                  inputMode="email"
                   className="flex-1"
                   disabled={submitting}
                 />
@@ -257,7 +259,11 @@ export function Form({
             </div>
           ) : (
             <>
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-5"
+                aria-label={variant === 'quote' ? 'Quote request form' : 'Contact form'}
+              >
                 {/* Honeypot — invisible to humans, filled by bots */}
                 <input
                   type="text"
@@ -294,6 +300,7 @@ export function Form({
                       required
                       aria-required="true"
                       autoComplete="email"
+                      inputMode="email"
                       disabled={submitting}
                     />
                   </div>

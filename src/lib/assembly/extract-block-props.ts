@@ -40,16 +40,15 @@ export type HeroProps = {
 
 /**
  * Hero is page-level: sourced from frontmatter.
- * Subheadline comes from meta_description (a brief tagline authored in frontmatter).
- * This avoids duplicating body section content below the hero.
+ * Prefer hero_subhead (benefit-led, written for on-page); fall back to
+ * meta_description for older deliverables that predate the dedicated field.
  */
 export function extractHeroProps(manifest: PageManifest): HeroProps {
   return {
     variant: (manifest.hero_variant as HeroProps['variant']) ?? 'image',
     image: manifest.hero_image,
-    // Strip " | Firm Name" suffix from title to get the clean page headline.
     headline: manifest.title.split(' | ')[0].trim(),
-    subheadline: manifest.meta_description,
+    subheadline: manifest.hero_subhead ?? manifest.meta_description,
     cta_primary: undefined,
   }
 }
@@ -196,9 +195,8 @@ export type PageHeaderProps = {
  */
 export function extractPageHeaderProps(manifest: PageManifest): PageHeaderProps {
   return {
-    // Strip " | Firm Name" suffix from title for the clean page headline
     headline: manifest.title.split(' | ')[0].trim(),
-    subheadline: manifest.meta_description || undefined,
+    subheadline: manifest.hero_subhead ?? manifest.meta_description ?? undefined,
     breadcrumb: [],
   }
 }
@@ -478,7 +476,7 @@ export function extractHeroSplitProps(manifest: PageManifest): HeroSplitProps {
   return {
     variant: (manifest.hero_variant as HeroSplitProps['variant']) ?? 'image-right',
     headline,
-    subheadline: manifest.meta_description,
+    subheadline: manifest.hero_subhead ?? manifest.meta_description,
     cta_primary: undefined,
     cta_secondary: undefined,
     image: manifest.hero_image ?? '',

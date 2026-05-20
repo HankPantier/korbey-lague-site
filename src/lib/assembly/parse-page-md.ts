@@ -30,6 +30,7 @@ export type PageManifest = {
   hero_block: string        // 'hero' | 'hero-split' | 'page-header'
   hero_variant?: string
   hero_image?: string
+  hero_subhead?: string     // Benefit-led hero copy; falls back to meta_description in consumers
   // Optional structured data (passed through)
   answer_block?: string
   eeat_signals?: string[]
@@ -80,6 +81,10 @@ export function parsePageMd(markdown: string): PageManifest {
     hero_block: String(fm.hero ?? fm.hero_block ?? 'page-header'),
     hero_variant: typeof fm.hero_variant === 'string' ? fm.hero_variant : undefined,
     hero_image: typeof fm.hero_image === 'string' ? fm.hero_image : undefined,
+    hero_subhead:
+      typeof fm.hero_subhead === 'string' && fm.hero_subhead.trim()
+        ? fm.hero_subhead.trim()
+        : undefined,
     answer_block: typeof fm.answer_block === 'string' ? fm.answer_block : undefined,
     eeat_signals: Array.isArray(fm.eeat_signals) ? (fm.eeat_signals as string[]) : undefined,
     internal_links: Array.isArray(fm.internal_links)

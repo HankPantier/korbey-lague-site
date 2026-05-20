@@ -511,22 +511,33 @@ export function extractContentCardsProps(section: PageSection): ContentCardsProp
 // Form
 // ---------------------------------------------------------------------------
 
+import type { FieldDef } from '../forms/types'
+import { parseCustomFields } from '../forms/parse-custom-fields'
+
 export type FormProps = {
-  variant: 'contact' | 'quote' | 'newsletter'
+  variant: 'contact' | 'quote' | 'newsletter' | 'custom'
   heading: string
   intro?: string
   sidebar_content?: string  // raw markdown
   success_message?: string
+  /**
+   * Field definitions for the `custom` variant. Parsed from the markdown
+   * list in the section body. Undefined for built-in variants, which use
+   * a hardcoded field set in Form.tsx.
+   */
+  customFields?: FieldDef[]
 }
 
 export function extractFormProps(section: PageSection): FormProps {
+  const variant = (section.variant as FormProps['variant']) ?? 'contact'
   const { intro, sidebar } = splitOnSidebarMarker(section.content)
   return {
-    variant: (section.variant as FormProps['variant']) ?? 'contact',
+    variant,
     heading: section.heading,
     intro: intro || undefined,
     sidebar_content: sidebar,
     success_message: undefined,
+    customFields: variant === 'custom' ? parseCustomFields(section.content) : undefined,
   }
 }
 

@@ -11,7 +11,10 @@
     "start": "next start",
     "lint": "eslint",
     "unpack": "tsx scripts/unpack-deliverable.ts",
-    "export-brief": "tsx scripts/export-design-brief.ts"
+    "export-brief": "tsx scripts/export-design-brief.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -45,10 +48,12 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^4.1.7",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
     "tsx": "^4.22.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.7"
   }
 }

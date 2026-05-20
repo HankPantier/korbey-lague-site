@@ -12,6 +12,7 @@
     "lint": "eslint",
     "unpack": "tsx scripts/unpack-deliverable.ts",
     "export-brief": "tsx scripts/export-design-brief.ts",
+    "validate": "tsx scripts/validate-deliverable.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"

@@ -33,7 +33,7 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
           const cardContent = (
             <Card
               className={cn(
-                'p-6 flex flex-col items-start gap-3 transition-shadow',
+                'h-full p-6 flex flex-col items-start gap-3 transition-shadow',
                 industry.url && 'hover:shadow-md cursor-pointer'
               )}
               style={{ boxShadow: 'var(--shadow-card, 0 2px 8px rgba(0,59,113,0.08))' }}
@@ -65,12 +65,12 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
 
           if (industry.url) {
             return (
-              <Link key={itemKey} href={industry.url} aria-label={industry.title} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
+              <Link key={itemKey} href={industry.url} aria-label={industry.title} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
                 {cardContent}
               </Link>
             )
           }
-          return <div key={itemKey}>{cardContent}</div>
+          return <div key={itemKey} className="h-full">{cardContent}</div>
         })}
       </div>
     </Section>

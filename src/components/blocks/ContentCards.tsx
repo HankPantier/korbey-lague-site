@@ -38,9 +38,9 @@ export function ContentCards({ variant, heading, intro, cards, cta }: ContentCar
 
       <div className={cn('mt-10 grid gap-6', colsClass)}>
         {cards.map((card, i) => (
-          <article key={i}>
+          <article key={i} className="h-full">
             <Card
-              className="flex flex-col overflow-hidden h-full"
+              className="h-full flex flex-col overflow-hidden"
               style={{ boxShadow: 'var(--shadow-card, 0 2px 8px rgba(0,59,113,0.08))' }}
             >
               {/* Image */}

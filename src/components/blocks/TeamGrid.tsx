@@ -32,9 +32,9 @@ export function TeamGrid({ variant, heading, intro, members }: TeamGridProps) {
       </header>
       <div className={cn('mt-12 grid gap-8', colsClass)}>
         {members.map((member, i) => (
-          <article key={i} itemScope itemType="https://schema.org/Person">
-            <Card className="overflow-hidden">
-              <div className="relative aspect-[4/5] bg-muted">
+          <article key={i} className="h-full" itemScope itemType="https://schema.org/Person">
+            <Card className="h-full flex flex-col overflow-hidden">
+              <div className="relative aspect-[4/5] bg-muted shrink-0">
                 {member.photo ? (
                   <Image
                     src={`/content-assets/${member.photo}`}
@@ -49,7 +49,7 @@ export function TeamGrid({ variant, heading, intro, members }: TeamGridProps) {
                   </div>
                 )}
               </div>
-              <CardContent className="p-5">
+              <CardContent className="p-5 flex-1">
                 <h3
                   className="font-heading font-semibold text-lg text-foreground"
                   itemProp="name"

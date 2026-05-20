@@ -30,12 +30,12 @@ export function Pricing({ variant, heading, intro, tiers, disclaimer }: PricingP
         )}
       </header>
 
-      <div className={cn('mt-12 grid gap-6 items-start', colsClass)}>
+      <div className={cn('mt-12 grid gap-6', colsClass)}>
         {tiers.map((tier, i) => (
           <Card
             key={i}
             className={cn(
-              'flex flex-col p-6 gap-4',
+              'h-full flex flex-col p-6 gap-4',
               tier.highlighted
                 ? 'border-primary ring-2 ring-primary shadow-lg scale-[1.03] bg-primary text-primary-foreground'
                 : 'border-border'

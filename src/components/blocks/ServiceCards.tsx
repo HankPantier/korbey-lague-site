@@ -30,7 +30,7 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
         {cards.map((card, i) => (
           <Card
             key={i}
-            className="flex flex-col"
+            className="h-full flex flex-col"
             style={{ boxShadow: 'var(--shadow-card, 0 2px 8px rgba(0,59,113,0.08))' }}
           >
             <CardHeader className="pb-2">

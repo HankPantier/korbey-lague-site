@@ -27,7 +27,7 @@ export function FeatureGrid({ variant, heading, intro, items }: FeatureGridProps
       </header>
       <div className={cn('mt-12 grid gap-6', colsClass)}>
         {items.map((item, i) => (
-          <Card key={i} className="p-6 flex flex-col items-start gap-3">
+          <Card key={i} className="h-full p-6 flex flex-col items-start gap-3">
             <div
               className="flex items-center justify-center w-12 h-12 rounded-lg"
               style={{

@@ -78,7 +78,7 @@ export function parseStatsList(body: string): Array<{ value: string; label: stri
   if (listLines.length > 0) {
     return listLines.map(line => {
       const text = line.replace(/^\s*[-*]\s+/, '').replace(/\*\*/g, '').trim()
-      const m = text.match(/^([\d,+$%\.]+(?:\+)?)\s*(.+)?$/)
+      const m = text.match(/^(\$?[\d.,]+[\d.,KMBkmb%xX+]*)\s*(.+)?$/)
       if (m) return { value: m[1].trim(), label: (m[2] ?? '').trim() }
       return { value: text, label: '' }
     })
@@ -89,7 +89,7 @@ export function parseStatsList(body: string): Array<{ value: string; label: stri
   const parts = body.split(separators).map(s => s.trim()).filter(Boolean)
   if (parts.length > 1) {
     return parts.map(part => {
-      const m = part.match(/^([\d,+$%\.]+(?:\+)?)\s*(.+)?$/)
+      const m = part.match(/^(\$?[\d.,]+[\d.,KMBkmb%xX+]*)\s*(.+)?$/)
       if (m) return { value: m[1].trim(), label: (m[2] ?? '').trim() }
       return { value: part, label: '' }
     })
@@ -180,7 +180,10 @@ export function parseH3CardList(body: string): {
   intro?: string
   cards: Array<{ title: string; description: string; url?: string }>
 } {
-  const firstH3 = body.indexOf('\n###')
+  const h3Match = body.match(/(?:^|\n)### /)
+  const firstH3 = h3Match
+    ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
+    : -1
   const intro =
     firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
 
@@ -233,7 +236,10 @@ export function parseTeamMembers(body: string): {
     photo_alt?: string
   }>
 } {
-  const firstH3 = body.indexOf('\n###')
+  const h3Match = body.match(/(?:^|\n)### /)
+  const firstH3 = h3Match
+    ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
+    : -1
   const intro =
     firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
 
@@ -359,7 +365,10 @@ export function parsePricingTiers(body: string): {
   disclaimer?: string
 } {
   // Split on ### boundaries
-  const firstH3 = body.indexOf('\n###')
+  const h3Match = body.match(/(?:^|\n)### /)
+  const firstH3 = h3Match
+    ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
+    : -1
   const intro =
     firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
 
@@ -459,7 +468,10 @@ export function parseContentCardList(body: string): {
   cards: Array<{ title: string; excerpt: string; url: string; image?: string; date?: string }>
   trailingCta?: { label: string; url: string }
 } {
-  const firstH3 = body.indexOf('\n###')
+  const h3Match = body.match(/(?:^|\n)### /)
+  const firstH3 = h3Match
+    ? h3Match.index! + (h3Match[0].startsWith('\n') ? 1 : 0)
+    : -1
   const intro =
     firstH3 > 0 ? body.slice(0, firstH3).trim() || undefined : undefined
 

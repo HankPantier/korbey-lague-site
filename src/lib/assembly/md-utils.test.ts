@@ -184,14 +184,12 @@ describe('parseStatsList', () => {
     expect(result[1]).toEqual({ value: '400+', label: 'clients' })
   })
 
-  it('parses inline pipe-delimited format', () => {
-    // NOTE: the value regex /^([\d,+$%\.]+)/ stops at the first non-digit/symbol
-    // character after the leading number, so "$2M managed" yields value "$2" not "$2M".
-    // This is a known parser limitation for alphanumeric stat values like "$2M".
+  it('parses inline pipe-delimited format with alphanumeric unit suffixes', () => {
     const body = '$2M managed | 98% retention | 15 staff'
     const result = parseStatsList(body)
     expect(result).toHaveLength(3)
-    expect(result[0].value).toBe('$2')  // parser stops at 'M' — value regex limitation
+    expect(result[0].value).toBe('$2M')
+    expect(result[0].label).toBe('managed')
     expect(result[1].value).toBe('98%')
     expect(result[2].value).toBe('15')
   })
@@ -316,16 +314,14 @@ describe('parseFaqList', () => {
 // parseH3CardList
 // ---------------------------------------------------------------------------
 describe('parseH3CardList', () => {
-  it('parses H3-delimited cards', () => {
-    // NOTE: indexOf('\n###') cannot match a ### at position 0.
-    // Real usage: body arrives after splitHeadingFromBody strips the top heading,
-    // so a leading newline is present. We replicate that here.
-    const body = `\n### Tax Planning\nWe help you plan for the future.\n\n### Bookkeeping\nWe keep your books clean.`
+  it('parses H3-delimited cards with leading H3 heading', () => {
+    const body = `### Tax Planning\nWe help you plan for the future.\n\n### Bookkeeping\nWe keep your books clean.`
     const result = parseH3CardList(body)
     expect(result.cards).toHaveLength(2)
     expect(result.cards[0].title).toBe('Tax Planning')
     expect(result.cards[0].description).toBe('We help you plan for the future.')
     expect(result.cards[1].title).toBe('Bookkeeping')
+    expect(result.intro).toBeUndefined()
   })
 
   it('extracts intro text before first H3', () => {
@@ -385,14 +381,13 @@ describe('parseTeamMembers', () => {
     expect(result.members[0].credentials).toBeUndefined()
   })
 
-  it('parses multiple members', () => {
-    // Leading newline required: indexOf('\n###') skips a ### at position 0.
-    // Real-world: body arrives post-splitHeadingFromBody, so this is normal.
-    const body = `\n### Alice, CPA\nPartner\nAlice leads tax.\n\n### Bob, CFP\nAdvisor\nBob manages wealth.`
+  it('parses multiple members with leading H3 heading', () => {
+    const body = `### Alice, CPA\nPartner\nAlice leads tax.\n\n### Bob, CFP\nAdvisor\nBob manages wealth.`
     const result = parseTeamMembers(body)
     expect(result.members).toHaveLength(2)
     expect(result.members[0].name).toBe('Alice')
     expect(result.members[1].name).toBe('Bob')
+    expect(result.intro).toBeUndefined()
   })
 
   it('extracts intro before first H3', () => {
@@ -480,10 +475,8 @@ describe('parseTestimonials', () => {
 // parsePricingTiers
 // ---------------------------------------------------------------------------
 describe('parsePricingTiers', () => {
-  it('parses basic pricing tiers with price period and features', () => {
-    // Leading newline required: indexOf('\n###') skips a ### at position 0.
+  it('parses basic pricing tiers with price period and features, handling leading H3', () => {
     const body = [
-      '',
       '### Starter',
       '$500/month',
       'Basic tax filing for individuals.',
@@ -506,6 +499,7 @@ describe('parsePricingTiers', () => {
     expect(result.tiers[0].features).toHaveLength(2)
     expect(result.tiers[0].features[0]).toBe('One state return')
     expect(result.tiers[0].highlighted).toBeUndefined()
+    expect(result.intro).toBeUndefined()
   })
 
   it('detects highlighted tier via **Most popular** marker', () => {
@@ -756,10 +750,8 @@ describe('parseContentCardList', () => {
     expect(result.cards[0].url).toBe('#')
   })
 
-  it('parses multiple cards', () => {
-    // Leading newline required: indexOf('\n###') skips a ### at position 0.
+  it('parses multiple cards with leading H3 heading', () => {
     const body = [
-      '',
       '### Post One',
       '2024-01-01',
       'Excerpt one.',
@@ -774,6 +766,7 @@ describe('parseContentCardList', () => {
     expect(result.cards).toHaveLength(2)
     expect(result.cards[0].title).toBe('Post One')
     expect(result.cards[1].title).toBe('Post Two')
+    expect(result.intro).toBeUndefined()
   })
 })
 

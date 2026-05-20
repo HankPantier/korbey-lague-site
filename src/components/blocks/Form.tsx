@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import type { FormEvent } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,6 +17,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import type { FormProps } from '@/lib/assembly/extract-block-props'
+import { siteConfig } from '../../../site.config'
 
 export type { FormProps }
 
@@ -26,13 +30,6 @@ const SERVICE_OPTIONS = [
   'Other',
 ]
 
-function renderMarkdown(text: string): string {
-  // Minimal inline markdown: **bold** and line breaks
-  return text
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\n/g, '<br />')
-}
-
 export function Form({
   variant,
   heading,
@@ -41,17 +38,50 @@ export function Form({
   success_message,
 }: FormProps) {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(false)
   const [service, setService] = useState('')
+  const [honeypot, setHoneypot] = useState('')
 
-  const defaultSuccess = 'Thank you! We\'ll be in touch shortly.'
+  const defaultSuccess = "Thank you! We'll be in touch shortly."
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
-  // Newsletter: inline compact layout
+  // Newsletter variant: inline compact layout
   if (variant === 'newsletter') {
+    async function handleNewsletterSubmit(e: FormEvent<HTMLFormElement>) {
+      e.preventDefault()
+
+      // Honeypot check — silently succeed
+      if (honeypot) {
+        setSubmitted(true)
+        return
+      }
+
+      setSubmitting(true)
+      setError(false)
+
+      if (siteConfig.formEndpoint) {
+        try {
+          const payload = Object.fromEntries(new FormData(e.currentTarget).entries())
+          const res = await fetch(siteConfig.formEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          })
+          if (!res.ok) throw new Error('Submit failed')
+          setSubmitted(true)
+        } catch {
+          setError(true)
+        } finally {
+          setSubmitting(false)
+        }
+      } else {
+        // No endpoint configured — just optimistically mark submitted.
+        // A mailto fallback is not meaningful for newsletter sign-ups.
+        setSubmitted(true)
+        setSubmitting(false)
+      }
+    }
+
     return (
       <Section bg="surface" dataBlock="form">
         <div className="max-w-xl mx-auto text-center">
@@ -65,35 +95,59 @@ export function Form({
             <p className="text-foreground/70 mb-6">{intro}</p>
           )}
           {submitted ? (
-            <p className="text-foreground font-medium">
-              {success_message ?? defaultSuccess}
-            </p>
+            <div role="status" aria-live="polite">
+              <p className="text-foreground font-medium">
+                {success_message ?? defaultSuccess}
+              </p>
+            </div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <Label htmlFor="nl-email" className="sr-only">
-                Email address
-              </Label>
-              <Input
-                id="nl-email"
-                type="email"
-                name="email"
-                placeholder="Your email address"
-                required
-                className="flex-1"
-              />
-              <Button
-                type="submit"
-                style={{
-                  backgroundColor: 'var(--color-action)',
-                  color: 'var(--color-action-foreground)',
-                }}
+            <>
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="flex flex-col sm:flex-row gap-3"
               >
-                Subscribe
-              </Button>
-            </form>
+                {/* Honeypot — invisible to humans, filled by bots */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="absolute left-[-9999px] w-px h-px opacity-0"
+                  aria-hidden="true"
+                />
+                <Label htmlFor="nl-email" className="sr-only">
+                  Email address
+                </Label>
+                <Input
+                  id="nl-email"
+                  type="email"
+                  name="email"
+                  placeholder="Your email address"
+                  required
+                  aria-required="true"
+                  autoComplete="email"
+                  className="flex-1"
+                  disabled={submitting}
+                />
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                  style={{
+                    backgroundColor: 'var(--color-action)',
+                    color: 'var(--color-action-foreground)',
+                  }}
+                >
+                  {submitting ? 'Subscribing…' : 'Subscribe'}
+                </Button>
+              </form>
+              {error && (
+                <p className="mt-3 text-sm text-destructive" role="alert">
+                  Something went wrong — please try again.
+                </p>
+              )}
+            </>
           )}
         </div>
       </Section>
@@ -102,6 +156,63 @@ export function Form({
 
   // Contact / Quote: two-column layout (form 2/3, sidebar 1/3)
   const hasSidebar = !!sidebar_content
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    // Honeypot check — silently succeed without doing anything
+    if (honeypot) {
+      setSubmitted(true)
+      return
+    }
+
+    setSubmitting(true)
+    setError(false)
+
+    if (siteConfig.formEndpoint) {
+      try {
+        const payload = Object.fromEntries(new FormData(e.currentTarget).entries())
+        const res = await fetch(siteConfig.formEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+        if (!res.ok) throw new Error('Submit failed')
+        setSubmitted(true)
+      } catch {
+        setError(true)
+      } finally {
+        setSubmitting(false)
+      }
+    } else {
+      // No endpoint configured — fall back to mailto: so the form is
+      // functional at launch.
+      const form = e.currentTarget
+      const data = new FormData(form)
+      const name = data.get('name')?.toString() ?? ''
+      const email = data.get('email')?.toString() ?? ''
+      const phone = data.get('phone')?.toString() ?? ''
+      const message = data.get('message')?.toString() ?? ''
+
+      const subject = encodeURIComponent(`Inquiry from ${name || 'website visitor'}`)
+      const body = encodeURIComponent(
+        [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          phone && `Phone: ${phone}`,
+          '',
+          message,
+        ]
+          .filter(Boolean)
+          .join('\n')
+      )
+      // Optimistically mark submitted — if the user cancels the mail client
+      // they can simply re-submit.
+      window.location.href = `mailto:?subject=${subject}&body=${body}`
+      setSubmitted(true)
+      setSubmitting(false)
+    }
+  }
 
   return (
     <Section dataBlock="form">
@@ -121,97 +232,138 @@ export function Form({
         {/* Form column */}
         <div className={hasSidebar ? 'md:col-span-2' : undefined}>
           {submitted ? (
-            <div className="rounded-lg border border-border bg-muted/40 p-8 text-center">
+            <div
+              role="status"
+              aria-live="polite"
+              className="rounded-lg border border-border bg-muted/40 p-8 text-center"
+            >
               <p className="text-lg font-medium text-foreground">
                 {success_message ?? defaultSuccess}
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              {/* Name */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="f-name">Name *</Label>
-                  <Input id="f-name" name="name" placeholder="Jane Smith" required />
+            <>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                {/* Honeypot — invisible to humans, filled by bots */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="absolute left-[-9999px] w-px h-px opacity-0"
+                  aria-hidden="true"
+                />
+
+                {/* Name + Email */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <Label htmlFor="f-name">Name *</Label>
+                    <Input
+                      id="f-name"
+                      name="name"
+                      placeholder="Jane Smith"
+                      required
+                      aria-required="true"
+                      autoComplete="name"
+                      disabled={submitting}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <Label htmlFor="f-email">Email *</Label>
+                    <Input
+                      id="f-email"
+                      name="email"
+                      type="email"
+                      placeholder="jane@example.com"
+                      required
+                      aria-required="true"
+                      autoComplete="email"
+                      disabled={submitting}
+                    />
+                  </div>
                 </div>
-                {/* Email */}
+
+                {/* Phone */}
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="f-email">Email *</Label>
+                  <Label htmlFor="f-phone">Phone</Label>
                   <Input
-                    id="f-email"
-                    name="email"
-                    type="email"
-                    placeholder="jane@example.com"
-                    required
+                    id="f-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="(555) 000-0000"
+                    autoComplete="tel"
+                    disabled={submitting}
                   />
                 </div>
-              </div>
 
-              {/* Phone */}
-              <div className="flex flex-col gap-1.5">
-                <Label htmlFor="f-phone">Phone</Label>
-                <Input
-                  id="f-phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="(555) 000-0000"
-                />
-              </div>
+                {/* Service dropdown — quote variant only */}
+                {variant === 'quote' && (
+                  <div className="flex flex-col gap-1.5">
+                    <Label htmlFor="f-service">Service of Interest</Label>
+                    <Select value={service} onValueChange={setService} name="service">
+                      <SelectTrigger id="f-service" disabled={submitting}>
+                        <SelectValue placeholder="Select a service…" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {SERVICE_OPTIONS.map(opt => (
+                          <SelectItem key={opt} value={opt}>
+                            {opt}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
 
-              {/* Service dropdown — quote variant only */}
-              {variant === 'quote' && (
+                {/* Message */}
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="f-service">Service of Interest</Label>
-                  <Select value={service} onValueChange={setService} name="service">
-                    <SelectTrigger id="f-service">
-                      <SelectValue placeholder="Select a service…" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {SERVICE_OPTIONS.map(opt => (
-                        <SelectItem key={opt} value={opt}>
-                          {opt}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <Label htmlFor="f-message">Message *</Label>
+                  <Textarea
+                    id="f-message"
+                    name="message"
+                    placeholder="How can we help?"
+                    rows={5}
+                    required
+                    aria-required="true"
+                    autoComplete="off"
+                    disabled={submitting}
+                  />
                 </div>
+
+                <div>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={submitting}
+                    style={{
+                      backgroundColor: 'var(--color-action)',
+                      color: 'var(--color-action-foreground)',
+                    }}
+                  >
+                    {submitting ? 'Sending…' : 'Send Message'}
+                  </Button>
+                </div>
+              </form>
+
+              {error && (
+                <p className="mt-4 text-sm text-destructive" role="alert">
+                  Something went wrong — please try again.
+                </p>
               )}
-
-              {/* Message */}
-              <div className="flex flex-col gap-1.5">
-                <Label htmlFor="f-message">Message *</Label>
-                <Textarea
-                  id="f-message"
-                  name="message"
-                  placeholder="How can we help?"
-                  rows={5}
-                  required
-                />
-              </div>
-
-              <div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  style={{
-                    backgroundColor: 'var(--color-action)',
-                    color: 'var(--color-action-foreground)',
-                  }}
-                >
-                  Send Message
-                </Button>
-              </div>
-            </form>
+            </>
           )}
         </div>
 
         {/* Sidebar column */}
         {hasSidebar && (
           <aside className="md:col-span-1">
-            <div
-              className="prose prose-sm max-w-none text-foreground/80 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: renderMarkdown(sidebar_content!) }}
-            />
+            <div className="prose prose-sm max-w-none text-foreground/80">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {sidebar_content!}
+              </ReactMarkdown>
+            </div>
           </aside>
         )}
       </div>

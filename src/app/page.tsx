@@ -15,13 +15,36 @@ import {
   extractPageHeaderProps,
 } from '@/lib/assembly/extract-block-props'
 
+function ogImageUrlFor(pageUrl: string): string | undefined {
+  // OG images live in public/og-images/<slug>.png with the canonical filename
+  // convention (slashes → double-hyphens). The actual files may or may not be
+  // present; the URL is fine to emit either way since search engines fall back
+  // to no-image when the URL 404s.
+  const slug = pageUrl.replace(/^\//, '').replace(/\//g, '--') || 'home'
+  return `/og-images/${slug}.png`
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const md = await getPageMarkdown('/')
   const manifest = parsePageMd(md)
+  const ogImage = ogImageUrlFor('/')
   return {
     title: manifest.meta_title || manifest.title,
     description: manifest.meta_description,
     alternates: { canonical: manifest.canonical_url || undefined },
+    openGraph: {
+      title: manifest.meta_title || manifest.title,
+      description: manifest.meta_description,
+      url: manifest.canonical_url || undefined,
+      type: 'website',
+      images: ogImage ? [{ url: ogImage, width: 1200, height: 630 }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: manifest.meta_title || manifest.title,
+      description: manifest.meta_description,
+      images: ogImage ? [ogImage] : undefined,
+    },
   }
 }
 

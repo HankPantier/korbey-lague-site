@@ -22,23 +22,20 @@ export function StatsBar({ variant, heading, stats }: StatsBarProps) {
           {heading}
         </h2>
       )}
-      <div className={cn('grid gap-8 text-center', colsClass)}>
+      <dl className={cn('grid gap-8 text-center', colsClass)}>
         {stats.map((stat, i) => (
           <div key={i}>
-            <p
-              className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
+            <dd className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground">
               {stat.value}
-            </p>
+            </dd>
             {stat.label && (
-              <p className="mt-2 text-sm md:text-base text-primary-foreground/75 leading-snug">
+              <dt className="mt-2 text-sm md:text-base text-primary-foreground/75 leading-snug">
                 {stat.label}
-              </p>
+              </dt>
             )}
           </div>
         ))}
-      </div>
+      </dl>
     </Section>
   )
 }

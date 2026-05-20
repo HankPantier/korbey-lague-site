@@ -19,19 +19,19 @@ export function FaqAccordion({ heading, items }: FaqAccordionProps) {
       <div className="max-w-3xl mx-auto">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-center text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
         <Accordion type="single" collapsible className="mt-10 w-full">
           {items.map((item, i) => (
             <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger
-                className="text-left font-heading text-base md:text-lg"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                {item.question}
-              </AccordionTrigger>
+              <h3 className="m-0">
+                <AccordionTrigger
+                  className="text-left font-heading text-base md:text-lg"
+                >
+                  {item.question}
+                </AccordionTrigger>
+              </h3>
               <AccordionContent className="text-foreground/80 leading-relaxed">
                 {item.answer}
               </AccordionContent>

@@ -27,7 +27,8 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
       </header>
 
       <div className={cn('mt-12 grid gap-6', colsClass)}>
-        {industries.map((industry, i) => {
+        {industries.map((industry) => {
+          const itemKey = industry.url ?? industry.title
           const cardContent = (
             <Card
               className={cn(
@@ -63,12 +64,12 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
 
           if (industry.url) {
             return (
-              <Link key={i} href={industry.url} aria-label={industry.title} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
+              <Link key={itemKey} href={industry.url} aria-label={industry.title} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
                 {cardContent}
               </Link>
             )
           }
-          return cardContent
+          return <div key={itemKey}>{cardContent}</div>
         })}
       </div>
     </Section>

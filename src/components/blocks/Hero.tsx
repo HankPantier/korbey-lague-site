@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -13,20 +14,25 @@ export type HeroProps = {
 export function Hero({ image, headline, subheadline, cta_primary }: HeroProps) {
   // For M3, all hero variants render the image variant.
   // Slider/video come in M4.
-  const bgUrl = image ? `/content-assets/${image}` : undefined
+  const bgSrc = image ? `/content-assets/${image}` : undefined
 
   return (
     <Section as="header" fullBleed bg="primary" className="relative overflow-hidden !py-0" dataBlock="hero">
-      {bgUrl && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${bgUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+      {bgSrc && (
+        <>
+          <Image
+            src={bgSrc}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover -z-20"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-[color:var(--color-near-black)]/45"
+          />
+        </>
       )}
       <div className="relative max-w-3xl mx-auto py-20 md:py-32 text-center">
         <h1

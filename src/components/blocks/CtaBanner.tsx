@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -12,7 +13,7 @@ export function CtaBanner({
   background_asset,
   cta_primary,
 }: CtaBannerProps) {
-  const bgUrl =
+  const bgSrc =
     variant === 'image-bg' && background_asset
       ? `/content-assets/${background_asset}`
       : undefined
@@ -25,18 +26,22 @@ export function CtaBanner({
       className="relative overflow-hidden"
       dataBlock="cta-banner"
     >
-      {bgUrl && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,59,113,0.85), rgba(0,59,113,0.85)), url(${bgUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+      {bgSrc && (
+        <>
+          <Image
+            src={bgSrc}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover -z-20"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-[color:var(--color-primary-hex)]/85"
+          />
+        </>
       )}
-      <div className="relative text-center max-w-2xl mx-auto">
+      <div className={`relative text-center max-w-2xl mx-auto${variant === 'image-bg' ? ' text-white' : ''}`}>
         <h2
           className="font-heading text-3xl md:text-4xl font-bold"
           style={{ fontFamily: 'var(--font-heading)' }}

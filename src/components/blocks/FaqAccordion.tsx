@@ -25,13 +25,9 @@ export function FaqAccordion({ heading, items }: FaqAccordionProps) {
         <Accordion type="single" collapsible className="mt-10 w-full">
           {items.map((item, i) => (
             <AccordionItem key={i} value={`item-${i}`}>
-              <h3 className="m-0">
-                <AccordionTrigger
-                  className="text-left font-heading text-base md:text-lg"
-                >
-                  {item.question}
-                </AccordionTrigger>
-              </h3>
+              <AccordionTrigger className="text-left font-heading text-base md:text-lg m-0">
+                {item.question}
+              </AccordionTrigger>
               <AccordionContent className="text-foreground/80 leading-relaxed">
                 {item.answer}
               </AccordionContent>

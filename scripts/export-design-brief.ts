@@ -177,13 +177,25 @@ const BLOCK_CATALOG: BlockSpec[] = [
   },
   {
     id: 'form',
-    purpose: 'A lead-capture, contact, or newsletter signup form.',
-    variants: ['contact', 'quote', 'newsletter'],
+    purpose: 'A lead-capture, contact, or newsletter signup form. The custom variant renders field definitions declared in markdown.',
+    variants: ['contact', 'quote', 'newsletter', 'custom'],
   },
   {
     id: 'content-table',
     purpose: 'Comparison data, calendars, or structured reference info.',
     variants: [],
+  },
+  {
+    id: 'contact-info',
+    purpose: 'Auto-filled contact info card. Reads phone, email, fax, address, and hours from brand.json — no markdown body needed. Two-column layout (Reach out | Visit) with lucide icons (Phone, Mail, Printer, MapPin, Clock).',
+    variants: [],
+    tokens: '--color-primary (icons), --color-foreground (values), --color-border',
+  },
+  {
+    id: 'map',
+    purpose: 'Embedded Google Map for the firm address from brand.json. Single iframe in a 16:9 rounded frame.',
+    variants: [],
+    tokens: '--color-border (frame), --radius-lg (corner)',
   },
 ]
 
@@ -388,9 +400,20 @@ These are the CSS variables the template defines. You can refine them via \`desi
 
 ### Spacing / radius / font
 
-- \`--spacing-xs\` through \`--spacing-2xl\`
+- \`--c5-space-xs\` through \`--c5-space-2xl\` (brand spacing scale; intentionally namespaced to avoid Tailwind v4's \`--spacing-*\` namespace, which feeds max-w/w/h/p/m/gap utilities. If you want a Tailwind utility value, use the native scale: p-1=4px, p-2=8px, p-4=16px, p-6=24px, p-12=48px, p-24=96px)
 - \`--radius-sm\`, \`--radius-md\`, \`--radius-lg\`, \`--radius-pill\`, \`--radius\` (default)
-- \`--font-heading\`, \`--font-body\``)
+- \`--font-heading\`, \`--font-body\`
+
+### Prose baseline in globals.css
+
+The template's \`src/app/globals.css\` ships baseline \`.prose\` rules (outside @layer base since Tailwind v4 tree-shakes custom selectors from base):
+- \`.prose p\`, \`.prose ul\`, \`.prose ol\`, \`.prose blockquote\` get \`margin-bottom: 1em\` (last-child zeroed)
+- \`.prose ul\` / \`.prose ol\` get list-style + \`padding-left: 1.5em\`
+- \`.prose h2/h3/h4\` get \`font-weight: 600\` + top/bottom margins
+- \`.prose a\` gets \`text-decoration: underline\`
+- \`.prose strong\` gets \`font-weight: 600\`
+
+If you want to override prose for a specific block, scope to that block: \`[data-block="cta-banner"] .prose p { margin-bottom: 0.5em }\` rather than redefining the global rules.`)
 
   // ------------------------------------------------------------------
   // Block vocabulary
@@ -422,7 +445,7 @@ These are the CSS variables the template defines. You can refine them via \`desi
 
 ## Block vocabulary
 
-The site is composed from 21 reusable blocks. Each block has a \`data-block\` attribute on its outer element — use that as your primary selector in \`design-overrides.css\`.
+The site is composed from ${BLOCK_CATALOG.length} reusable blocks. Each block has a \`data-block\` attribute on its outer element — use that as your primary selector in \`design-overrides.css\`.
 
 For each block, the catalog below lists its purpose, variants, and which CSS tokens it currently consumes.
 
@@ -433,6 +456,46 @@ ${pageLevelMd}
 ### Inline blocks (selected during content generation, annotated \`<!-- block: ... -->\`)
 
 ${inlineMd}`)
+
+  // ------------------------------------------------------------------
+  // Site chrome (NavBar + Footer)
+  // ------------------------------------------------------------------
+  sections.push(`---
+
+## Site chrome — NavBar & Footer
+
+Outside the 23 page blocks, the site has two persistent components rendered by \`src/app/layout.tsx\`: the **NavBar** (top, sticky) and the **Footer** (bottom). They each carry a stable \`data-component\` attribute on their outer element for design-override targeting.
+
+### NavBar — \`[data-component="navbar"]\`
+
+A sticky \`<header>\` at the top of every page. Layout left→right: firm logo (or wordmark fallback) → desktop NavigationMenu (hidden below md) → optional CTA button (\`nav.cta\` from \`nav.json\`) → mobile hamburger menu (visible below md).
+
+**Key sub-elements to know about:**
+- The header background toggles on scroll: \`bg-background\` at top, \`bg-background/95 backdrop-blur border-b border-border\` after 12px scroll. To restyle this transition, target \`[data-component="navbar"]\` and override.
+- Top-level nav links: \`[data-component="navbar"] a[role="menuitem"]\` (shadcn NavigationMenuLink) or just \`[data-component="navbar"] nav a\`.
+- Active nav state: links + triggers get \`aria-current="page"\` (for current page) and the trigger gets \`data-active\` (for trigger whose subtree contains the current page). Currently styled as \`text-primary underline underline-offset-8\`. Override via \`[data-component="navbar"] a[aria-current="page"] { ... }\`.
+- Dropdown sub-menu panel: \`[data-component="navbar"] [data-radix-popper-content-wrapper] ul\` (Radix-rendered) or just \`[data-component="navbar"] li[role="menuitem"]\` for individual sub-links.
+- Mobile menu: built on shadcn Sheet (\`<aside>\` slide-out) + Accordion. Selector: \`[role="dialog"]\` (Sheet).
+
+### Footer — \`[data-component="footer"]\`
+
+The Footer is a server component. Default styling: \`bg-foreground text-background\` (inverted color — dark background, light text). Three vertical zones:
+
+1. **Main grid** (\`md:grid-cols-4\`): firm logo + tagline, then 3 columns of nav links sourced from \`nav.json\`.
+2. **Certifications bar**: row of \`brand.certifications[]\` logos with a top separator.
+3. **Legal bar**: copyright + \`siteConfig.legalLinks\` + social icons row.
+
+**Key sub-elements:**
+- Top-level footer: \`[data-component="footer"]\`
+- Each zone is separated by shadcn \`<Separator />\` (rendered as \`hr\`).
+- Logo: \`[data-component="footer"] img\` (rendered with \`invert opacity-90\` so a dark logo reads on a dark background; for clients with already-light logos you may want to override this).
+- Social icons: lucide \`<Mail/>\`, plus an inline-SVG \`SocialIcon\` component for branded platforms (Facebook, LinkedIn, Twitter, etc.). Target via \`[data-component="footer"] [aria-label*="Visit"]\` or by SVG class.
+- Bottom legal text: \`[data-component="footer"] p.text-background\\/50\` (faded body color).
+
+### When to use \`[data-component="..."]\` vs \`[data-block="..."]\`
+
+- \`data-component\` is for persistent site chrome (NavBar, Footer) that appears on every page.
+- \`data-block\` is for content blocks that appear inline based on the page's markdown. Don't mix the two namespaces in one selector.`)
 
   // ------------------------------------------------------------------
   // Sample content

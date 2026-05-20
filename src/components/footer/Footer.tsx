@@ -13,7 +13,7 @@ export async function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-foreground text-background mt-16">
+    <footer data-component="footer" className="bg-foreground text-background mt-16">
       {/* Main */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid gap-8 md:grid-cols-4">
         <div className="md:col-span-1 space-y-3">

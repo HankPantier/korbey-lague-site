@@ -36,6 +36,7 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
 
   return (
     <header
+      data-component="navbar"
       className={cn(
         'sticky top-0 z-40 w-full transition-colors',
         scrolled ? 'bg-background/95 backdrop-blur border-b border-border' : 'bg-background'

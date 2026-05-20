@@ -201,6 +201,36 @@ export function parseStepsList(
   }
   if (current) items.push(current)
 
+  // Fallback: Phase I content-generator commonly emits steps as standalone
+  // bold-paragraph items ("**Step 1 — Submit Your Inquiry**\nbody...")
+  // rather than numbered/bullet lists. If the primary pass found zero
+  // items, walk the body again treating bold-only lines as step starters.
+  // Same robustness pattern as parseTeamMembers / parseH3CardList /
+  // parseIconTitleDescriptionList for the bold-paragraph format.
+  if (items.length === 0) {
+    const BOLD_LINE = /^\*\*([^*\n]+)\*\*\s*$/
+    let boldCurrent: { number: string; title: string; descLines: string[] } | null = null
+    for (const line of lines) {
+      const trimmed = line.trim()
+      const bm = trimmed.match(BOLD_LINE)
+      if (bm) {
+        if (boldCurrent) items.push(boldCurrent)
+        const rawTitle = bm[1].trim()
+        // Strip a leading "Step N — " / "Step N: " prefix if present, keep
+        // the substantive title. Auto-numbering happens in the final pass.
+        const stripped = rawTitle.replace(/^Step\s+\d+\s*[—–\-:]\s*/i, '').trim()
+        boldCurrent = {
+          number: String(items.length + 1),
+          title: stripped || rawTitle,
+          descLines: [],
+        }
+      } else if (boldCurrent && trimmed) {
+        boldCurrent.descLines.push(trimmed)
+      }
+    }
+    if (boldCurrent) items.push(boldCurrent)
+  }
+
   return items.map((item, i) => ({
     number: String(i + 1).padStart(2, '0'),
     title: item.title,

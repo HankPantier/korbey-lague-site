@@ -10,6 +10,13 @@ export type PageSection = {
   blockId: string
   variant?: string
   image?: string
+  /**
+   * Pexels search query Phase I emitted alongside this block's image, when
+   * the image filename was stock-sourced. Not used by the Phase II renderer
+   * (the image is already downloaded into public/content-assets/), but
+   * preserved so consumers can introspect or surface it if needed.
+   */
+  query?: string
   heading: string
   content: string   // raw markdown body below the heading (excluding heading line)
   position: number
@@ -64,12 +71,17 @@ export function parsePageMd(markdown: string): PageManifest {
 
   /**
    * Splits on the canonical annotation pattern:
-   *   <!-- block: <id> | variant: <v> | image: <f> -->
+   *   <!-- block: <id> | variant: <v> | image: <f> | query: "<q>" -->
    * immediately followed by a ## heading.
-   * Variant and image are both optional.
+   * Variant, image, and query are all optional.
+   *
+   * `query` is the Pexels search query Phase I emitted alongside the image.
+   * Captured here so it's surfaced on PageSection, but the renderer doesn't
+   * use it — the image is already downloaded into public/content-assets/
+   * by the time the deliverable lands.
    */
   const SECTION_PATTERN =
-    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s>]+))?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
+    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s|>]+))?(?:\s*\|\s*query:\s*"([^"]+)")?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
 
   const sections: PageSection[] = []
   let m: RegExpExecArray | null
@@ -80,8 +92,9 @@ export function parsePageMd(markdown: string): PageManifest {
       blockId: m[1],
       variant: m[2] || undefined,
       image: m[3] || undefined,
-      heading: m[4].trim(),
-      content: m[5].trim(),
+      query: m[4] || undefined,
+      heading: m[5].trim(),
+      content: m[6].trim(),
       position: i++,
     })
   }

@@ -239,7 +239,67 @@ function extractBlockIds(body: string): string[] {
 /** Derive URL from filename: home.md → /, about.md → /about */
 function urlFromFilename(filename: string): string {
   const base = filename.replace(/\.md$/, '')
-  return base === 'home' ? '/' : `/${base}`
+  if (base === 'home') return '/'
+  // Files use "--" to encode "/" since "/" isn't filename-safe
+  return '/' + base.replace(/--/g, '/')
+}
+
+/**
+ * Fetch real rendered HTML for each block + chrome component from a running
+ * dev server. Walks every page, extracts the outer element matching either
+ * data-block="..." (the 23 content blocks) or data-component="..." (NavBar /
+ * Footer), and keeps the first sample encountered per id.
+ *
+ * The regex matches a block's outer tag (<section>, <header>, <aside>, or
+ * <footer>) and balances opening/closing by tag name — works because no
+ * block contains a nested same-tag element with a sibling data-block (the
+ * render tree puts blocks as siblings, not nested).
+ *
+ * Returns an empty map if the server isn't reachable. The caller falls
+ * back to "no sample available" with a note in the brief output.
+ */
+async function fetchRenderedMarkup(
+  serverUrl: string,
+  pageUrls: string[]
+): Promise<{ blocks: Map<string, string>; components: Map<string, string> }> {
+  const blocks = new Map<string, string>()
+  const components = new Map<string, string>()
+  const blockRe = /<(section|header|aside|footer)([^>]*\sdata-block="([^"]+)"[^>]*)>([\s\S]*?)<\/\1>/g
+  const chromeRe = /<(header|footer|nav|aside)([^>]*\sdata-component="([^"]+)"[^>]*)>([\s\S]*?)<\/\1>/g
+
+  for (const url of pageUrls) {
+    let html: string
+    try {
+      const res = await fetch(`${serverUrl}${url}`, {
+        signal: AbortSignal.timeout(15_000),
+      })
+      if (!res.ok) continue
+      html = await res.text()
+    } catch {
+      continue  // Server unreachable or page errored — skip
+    }
+
+    // Walk block matches. The regex finds the first inner match-pair only;
+    // for nested same-tag (e.g. a <section> inside a <section>) we'd need a
+    // real parser, but rendered blocks are siblings so this is safe.
+    let m: RegExpExecArray | null
+    blockRe.lastIndex = 0
+    while ((m = blockRe.exec(html)) !== null) {
+      const blockId = m[3]
+      if (!blocks.has(blockId)) {
+        blocks.set(blockId, m[0])
+      }
+    }
+    chromeRe.lastIndex = 0
+    while ((m = chromeRe.exec(html)) !== null) {
+      const componentId = m[3]
+      if (!components.has(componentId)) {
+        components.set(componentId, m[0])
+      }
+    }
+  }
+
+  return { blocks, components }
 }
 
 // ---------------------------------------------------------------------------
@@ -251,9 +311,16 @@ interface BriefInput {
   design: DesignJson
   brandMd: string
   pages: PageFile[]
+  /**
+   * Rendered HTML samples keyed by data-block / data-component id. Populated
+   * by fetchRenderedMarkup when --server is reachable; empty Map otherwise
+   * (the brief degrades gracefully with a note instead of HTML).
+   */
+  blockMarkup?: Map<string, string>
+  chromeMarkup?: Map<string, string>
 }
 
-function buildBrief({ brand, design, brandMd, pages }: BriefInput): string {
+function buildBrief({ brand, design, brandMd, pages, blockMarkup, chromeMarkup }: BriefInput): string {
   const { firm, contact, palette } = brand
   const { typography, roundness, density, visualFeel, spacing, radius } = design
 
@@ -423,11 +490,18 @@ If you want to override prose for a specific block, scope to that block: \`[data
   const pageLevelBlocks = BLOCK_CATALOG.slice(0, 3)
   const inlineBlocks = BLOCK_CATALOG.slice(3)
 
+  /** Render the "Sample rendered HTML" code-fence for a block if we have one. */
+  const renderSample = (blockId: string): string => {
+    const html = blockMarkup?.get(blockId)
+    if (!html) return ''
+    return `\n\n**Sample rendered HTML** (verbatim from the dev server — target child selectors precisely):\n\n\`\`\`html\n${html}\n\`\`\``
+  }
+
   const pageLevelMd = pageLevelBlocks
     .map(b => {
       const variantsStr = b.variants.length ? b.variants.join(', ') : '(none)'
       const tokensLine = b.tokens ? `\n**Currently uses:** ${b.tokens}` : ''
-      return `#### \`[data-block="${b.id}"]\`\n**Purpose:** ${b.purpose}\n**Variants:** ${variantsStr}${tokensLine}`
+      return `#### \`[data-block="${b.id}"]\`\n**Purpose:** ${b.purpose}\n**Variants:** ${variantsStr}${tokensLine}${renderSample(b.id)}`
     })
     .join('\n\n')
 
@@ -437,7 +511,7 @@ If you want to override prose for a specific block, scope to that block: \`[data
       const tokensLine = b.tokens
         ? `**Currently uses:** ${b.tokens}`
         : '**Currently uses:** shadcn semantic colors (card, foreground, muted)'
-      return `#### \`[data-block="${b.id}"]\`\n**Purpose:** ${b.purpose}\n**Variants:** ${variantsStr}\n${tokensLine}`
+      return `#### \`[data-block="${b.id}"]\`\n**Purpose:** ${b.purpose}\n**Variants:** ${variantsStr}\n${tokensLine}${renderSample(b.id)}`
     })
     .join('\n\n')
 
@@ -495,7 +569,18 @@ The Footer is a server component. Default styling: \`bg-foreground text-backgrou
 ### When to use \`[data-component="..."]\` vs \`[data-block="..."]\`
 
 - \`data-component\` is for persistent site chrome (NavBar, Footer) that appears on every page.
-- \`data-block\` is for content blocks that appear inline based on the page's markdown. Don't mix the two namespaces in one selector.`)
+- \`data-block\` is for content blocks that appear inline based on the page's markdown. Don't mix the two namespaces in one selector.${
+  chromeMarkup && chromeMarkup.size > 0
+    ? `\n\n### Rendered chrome markup (verbatim)\n\n${['navbar', 'footer']
+        .map(id => {
+          const html = chromeMarkup.get(id)
+          if (!html) return ''
+          return `#### \`[data-component="${id}"]\`\n\n\`\`\`html\n${html}\n\`\`\``
+        })
+        .filter(Boolean)
+        .join('\n\n')}`
+    : ''
+}`)
 
   // ------------------------------------------------------------------
   // Sample content
@@ -560,6 +645,14 @@ async function main(): Promise<void> {
   const outIdx = args.indexOf('--out')
   const outPath = outIdx >= 0 ? args[outIdx + 1] : 'design-brief.md'
 
+  // --server <url> opts into fetching real rendered HTML samples from a
+  // running dev/build server. Default behavior: try localhost:3001 (the
+  // template's default port), silently fall back to no-samples if the
+  // server isn't responding.
+  const serverIdx = args.indexOf('--server')
+  const noMarkupFlag = args.includes('--no-markup')
+  const serverUrl = serverIdx >= 0 ? args[serverIdx + 1] : 'http://localhost:3001'
+
   if (outIdx >= 0 && !outPath) {
     console.error('Error: --out requires a path argument')
     process.exit(1)
@@ -610,7 +703,27 @@ async function main(): Promise<void> {
       })
   )
 
-  const md = buildBrief({ brand, design, brandMd, pages })
+  // Optionally fetch real rendered HTML samples from a running dev server.
+  // Skipped silently if --no-markup is set or the server isn't reachable.
+  let blockMarkup: Map<string, string> | undefined
+  let chromeMarkup: Map<string, string> | undefined
+  if (!noMarkupFlag) {
+    const pageUrls = pages.map(p => urlFromFilename(p.filename))
+    const samples = await fetchRenderedMarkup(serverUrl, pageUrls)
+    if (samples.blocks.size > 0 || samples.components.size > 0) {
+      blockMarkup = samples.blocks
+      chromeMarkup = samples.components
+      console.log(
+        `Rendered markup fetched from ${serverUrl}: ${samples.blocks.size} blocks, ${samples.components.size} chrome components`
+      )
+    } else {
+      console.log(
+        `Note: no rendered markup samples fetched (server ${serverUrl} unreachable or returned no blocks). Brief will use text descriptions only.`
+      )
+    }
+  }
+
+  const md = buildBrief({ brand, design, brandMd, pages, blockMarkup, chromeMarkup })
 
   if (stdoutOnly) {
     process.stdout.write(md)

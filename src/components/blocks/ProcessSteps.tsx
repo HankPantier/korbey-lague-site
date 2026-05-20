@@ -1,4 +1,5 @@
 import { Section } from './Section'
+import { InlineProse } from './InlineProse'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
@@ -20,7 +21,7 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
             {heading}
           </h2>
           {intro && (
-            <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+            <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
           )}
         </header>
 
@@ -89,7 +90,7 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
           {heading}
         </h2>
         {intro && (
-          <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+          <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
         )}
       </header>
 

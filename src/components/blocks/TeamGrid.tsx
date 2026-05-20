@@ -1,4 +1,5 @@
 import { Section } from './Section'
+import { InlineProse } from './InlineProse'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
@@ -26,7 +27,7 @@ export function TeamGrid({ variant, heading, intro, members }: TeamGridProps) {
           {heading}
         </h2>
         {intro && (
-          <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+          <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
         )}
       </header>
       <div className={cn('mt-12 grid gap-8', colsClass)}>

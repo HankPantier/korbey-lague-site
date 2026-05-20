@@ -1,4 +1,5 @@
 import { Section } from './Section'
+import { InlineProse } from './InlineProse'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -22,7 +23,7 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
           {heading}
         </h2>
         {intro && (
-          <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+          <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
         )}
       </header>
       <div className={cn('mt-10 grid gap-6', colsClass)}>

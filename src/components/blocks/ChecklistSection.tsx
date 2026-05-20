@@ -1,4 +1,5 @@
 import { Section } from './Section'
+import { InlineProse } from './InlineProse'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -29,7 +30,7 @@ export function ChecklistSection({
         {heading}
       </h2>
       {intro && (
-        <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+        <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
       )}
       <ul
         className={cn(
@@ -45,7 +46,7 @@ export function ChecklistSection({
               strokeWidth={2.5}
               aria-hidden="true"
             />
-            <span className="text-foreground/85 leading-snug">{item}</span>
+            <InlineProse text={item} className="text-foreground/85 leading-snug" />
           </li>
         ))}
       </ul>

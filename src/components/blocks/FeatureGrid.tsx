@@ -1,4 +1,5 @@
 import { Section } from './Section'
+import { InlineProse } from './InlineProse'
 import { Icon } from './Icon'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -21,7 +22,7 @@ export function FeatureGrid({ variant, heading, intro, items }: FeatureGridProps
           {heading}
         </h2>
         {intro && (
-          <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+          <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
         )}
       </header>
       <div className={cn('mt-12 grid gap-6', colsClass)}>

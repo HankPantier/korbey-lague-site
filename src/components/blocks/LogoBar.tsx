@@ -12,8 +12,7 @@ export function LogoBar({ heading, logos }: LogoBarProps) {
     <Section fullBleed bg="surface" dataBlock="logo-bar">
       {heading && (
         <h2
-          className="text-center text-sm font-semibold uppercase tracking-widest text-foreground/50 mb-8"
-          style={{ fontFamily: 'var(--font-heading)' }}
+          className="text-center text-sm font-heading font-semibold uppercase tracking-widest text-foreground/50 mb-8"
         >
           {heading}
         </h2>
@@ -21,7 +20,7 @@ export function LogoBar({ heading, logos }: LogoBarProps) {
       <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
         {logos.map((logo, i) => {
           const logoImage = (
-            <div className="relative h-12 w-auto min-w-[80px] max-w-[140px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+            <div className="relative h-12 w-auto min-w-[80px] max-w-[140px] grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
               {logo.src ? (
                 <Image
                   src={`/content-assets/${logo.src}`}

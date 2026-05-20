@@ -31,7 +31,6 @@ export function PageHeader({ headline, subheadline, breadcrumb }: PageHeaderProp
         )}
         <h1
           className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {headline}
         </h1>

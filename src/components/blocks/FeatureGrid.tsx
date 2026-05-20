@@ -17,7 +17,6 @@ export function FeatureGrid({ variant, heading, intro, items }: FeatureGridProps
       <header className="max-w-2xl mx-auto text-center">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
@@ -39,7 +38,6 @@ export function FeatureGrid({ variant, heading, intro, items }: FeatureGridProps
             </div>
             <h3
               className="font-heading font-semibold text-lg"
-              style={{ fontFamily: 'var(--font-heading)' }}
             >
               {item.title}
             </h3>

@@ -18,7 +18,6 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
       <header className="max-w-2xl">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
@@ -36,7 +35,6 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
             <CardHeader className="pb-2">
               <h3
                 className="font-heading text-xl font-semibold text-foreground"
-                style={{ fontFamily: 'var(--font-heading)' }}
               >
                 {card.title}
               </h3>
@@ -49,7 +47,7 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
             {card.url && (
               <CardFooter className="pt-2">
                 <Button asChild variant="link" className="px-0 text-sm">
-                  <Link href={card.url}>
+                  <Link href={card.url} aria-label={`Learn more about ${card.title}`}>
                     Learn more &rarr;
                   </Link>
                 </Button>

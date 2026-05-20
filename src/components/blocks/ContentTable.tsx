@@ -10,7 +10,6 @@ export function ContentTable({ heading, intro, headers, rows, caption }: Content
         <header className="max-w-2xl mb-8">
           <h2
             className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-            style={{ fontFamily: 'var(--font-heading)' }}
           >
             {heading}
           </h2>
@@ -26,13 +25,17 @@ export function ContentTable({ heading, intro, headers, rows, caption }: Content
       {/* Horizontal scroll wrapper for mobile */}
       <div className="overflow-x-auto rounded-lg border border-border">
         <table className="w-full text-sm border-collapse">
+          {caption && (
+            <caption className="caption-bottom mt-3 text-xs text-muted-foreground text-center">
+              {caption}
+            </caption>
+          )}
           <thead>
             <tr className="bg-primary text-primary-foreground">
               {headers.map((header, i) => (
                 <th
                   key={i}
-                  className="px-4 py-3 text-left font-semibold whitespace-nowrap"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="px-4 py-3 text-left font-heading font-semibold whitespace-nowrap"
                 >
                   {header}
                 </th>
@@ -58,12 +61,6 @@ export function ContentTable({ heading, intro, headers, rows, caption }: Content
           </tbody>
         </table>
       </div>
-
-      {caption && (
-        <p className="mt-3 text-xs text-muted-foreground text-center">
-          {caption}
-        </p>
-      )}
     </Section>
   )
 }

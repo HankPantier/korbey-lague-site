@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { FormEvent } from 'react'
+import type { FormEvent, ComponentPropsWithoutRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Section } from './Section'
@@ -18,6 +18,22 @@ import {
 } from '@/components/ui/select'
 import type { FormProps } from '@/lib/assembly/extract-block-props'
 import { siteConfig } from '../../../site.config'
+
+const MD_LINK_COMPONENTS = {
+  a: ({ href, children, ...rest }: ComponentPropsWithoutRef<'a'>) => {
+    const external = href?.startsWith('http://') || href?.startsWith('https://')
+    return (
+      <a
+        {...rest}
+        href={href}
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
+        {children}
+        {external && <span className="sr-only"> (opens in new tab)</span>}
+      </a>
+    )
+  },
+}
 
 export type { FormProps }
 
@@ -87,7 +103,6 @@ export function Form({
         <div className="max-w-xl mx-auto text-center">
           <h2
             className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-3"
-            style={{ fontFamily: 'var(--font-heading)' }}
           >
             {heading}
           </h2>
@@ -219,7 +234,6 @@ export function Form({
       <header className="max-w-2xl mb-10">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
@@ -360,7 +374,7 @@ export function Form({
         {hasSidebar && (
           <aside className="md:col-span-1">
             <div className="prose prose-sm max-w-none text-foreground/80">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>
                 {sidebar_content!}
               </ReactMarkdown>
             </div>

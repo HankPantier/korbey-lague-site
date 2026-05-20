@@ -22,7 +22,6 @@ export function HeroSplit({
     <div className="flex flex-col justify-center gap-6">
       <h1
         className="font-heading text-4xl md:text-5xl font-bold leading-tight text-foreground"
-        style={{ fontFamily: 'var(--font-heading)' }}
       >
         {headline}
       </h1>

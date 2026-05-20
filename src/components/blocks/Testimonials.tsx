@@ -23,7 +23,6 @@ export function Testimonials({ variant, heading, testimonials }: TestimonialsPro
         <header className="mb-10 text-center">
           <h2
             className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-            style={{ fontFamily: 'var(--font-heading)' }}
           >
             {heading}
           </h2>
@@ -31,7 +30,13 @@ export function Testimonials({ variant, heading, testimonials }: TestimonialsPro
       )}
 
       {variant === 'carousel' ? (
-        <CarouselLayout testimonials={testimonials} />
+        <div
+          role="region"
+          aria-roledescription="carousel"
+          aria-label={heading ?? 'Customer testimonials'}
+        >
+          <CarouselLayout testimonials={testimonials} />
+        </div>
       ) : (
         <GridLayout testimonials={testimonials} />
       )}
@@ -55,17 +60,14 @@ function QuoteCard({ quote, name, title, company }: QuoteCardProps) {
         </blockquote>
       </CardContent>
       <footer className="mt-6 pt-4 border-t border-border">
-        <p
-          className="font-heading font-semibold text-foreground text-sm"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
+        <cite className="font-heading font-semibold text-foreground text-sm not-italic">
           {name}
-        </p>
-        {(title || company) && (
-          <p className="text-xs text-foreground/60 mt-0.5">
-            {[title, company].filter(Boolean).join(', ')}
-          </p>
-        )}
+          {(title || company) && (
+            <span className="block font-normal text-xs text-foreground/60 mt-0.5">
+              {[title, company].filter(Boolean).join(', ')}
+            </span>
+          )}
+        </cite>
       </footer>
     </Card>
   )
@@ -75,7 +77,7 @@ function CarouselLayout({ testimonials }: { testimonials: TestimonialsProps['tes
   return (
     <div className="relative px-12">
       <Carousel opts={{ loop: true }}>
-        <CarouselContent>
+        <CarouselContent aria-live="polite">
           {testimonials.map((t, i) => (
             <CarouselItem key={i} className="md:basis-1/2 lg:basis-2/3">
               <QuoteCard {...t} />

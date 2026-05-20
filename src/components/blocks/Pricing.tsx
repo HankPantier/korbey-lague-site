@@ -21,7 +21,6 @@ export function Pricing({ variant, heading, intro, tiers, disclaimer }: PricingP
       <header className="max-w-2xl mx-auto text-center">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
@@ -42,7 +41,7 @@ export function Pricing({ variant, heading, intro, tiers, disclaimer }: PricingP
             )}
             style={
               tier.highlighted
-                ? { backgroundColor: 'var(--color-primary, theme(colors.blue.700))' }
+                ? undefined
                 : { boxShadow: 'var(--shadow-card, 0 2px 8px rgba(0,59,113,0.08))' }
             }
           >
@@ -52,8 +51,10 @@ export function Pricing({ variant, heading, intro, tiers, disclaimer }: PricingP
                 'font-heading text-xl font-bold',
                 tier.highlighted ? 'text-primary-foreground' : 'text-foreground'
               )}
-              style={{ fontFamily: 'var(--font-heading)' }}
             >
+              {tier.highlighted && (
+                <span className="sr-only">Recommended plan: </span>
+              )}
               {tier.name}
             </h3>
 
@@ -64,7 +65,6 @@ export function Pricing({ variant, heading, intro, tiers, disclaimer }: PricingP
                   'font-heading text-4xl font-bold',
                   tier.highlighted ? 'text-primary-foreground' : 'text-foreground'
                 )}
-                style={{ fontFamily: 'var(--font-heading)' }}
               >
                 {tier.price}
               </span>

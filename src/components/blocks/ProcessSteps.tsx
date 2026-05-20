@@ -13,7 +13,6 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
         <header className="max-w-2xl mx-auto text-center">
           <h2
             className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-            style={{ fontFamily: 'var(--font-heading)' }}
           >
             {heading}
           </h2>
@@ -29,7 +28,8 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
             style={{ backgroundColor: 'color-mix(in srgb, var(--color-primary,theme(colors.blue.700)) 20%, transparent)' }}
             aria-hidden="true"
           />
-          <div
+          <ol
+            role="list"
             className={cn(
               'grid gap-8',
               steps.length === 3 && 'md:grid-cols-3',
@@ -39,12 +39,11 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
             )}
           >
             {steps.map(step => (
-              <div key={step.number} className="flex flex-col items-center text-center gap-4">
+              <li key={step.number} className="flex flex-col items-center text-center gap-4">
                 <div
                   className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full text-primary-foreground font-heading font-bold text-lg shrink-0"
                   style={{
                     backgroundColor: 'var(--color-primary, theme(colors.blue.700))',
-                    fontFamily: 'var(--font-heading)',
                   }}
                 >
                   {step.number}
@@ -52,7 +51,6 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
                 <div>
                   <h3
                     className="font-heading font-semibold text-foreground"
-                    style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     {step.title}
                   </h3>
@@ -62,9 +60,9 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
                     </p>
                   )}
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
 
         {cta && (
@@ -84,7 +82,6 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
       <header className="max-w-2xl">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
@@ -100,7 +97,6 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
               className="flex items-center justify-center w-14 h-14 rounded-xl text-primary-foreground font-heading font-bold text-xl shrink-0"
               style={{
                 backgroundColor: 'var(--color-primary, theme(colors.blue.700))',
-                fontFamily: 'var(--font-heading)',
               }}
               aria-hidden="true"
             >
@@ -109,7 +105,6 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
             <div className="pt-1">
               <h3
                 className="font-heading text-xl font-semibold text-foreground"
-                style={{ fontFamily: 'var(--font-heading)' }}
               >
                 {step.title}
               </h3>

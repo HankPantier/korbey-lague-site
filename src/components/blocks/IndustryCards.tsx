@@ -18,7 +18,6 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
       <header className="max-w-2xl mx-auto text-center">
         <h2
           className="font-heading text-3xl md:text-4xl font-semibold text-foreground"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>
@@ -51,7 +50,6 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
               </div>
               <h3
                 className="font-heading font-semibold text-lg text-foreground"
-                style={{ fontFamily: 'var(--font-heading)' }}
               >
                 {industry.title}
               </h3>
@@ -65,7 +63,7 @@ export function IndustryCards({ variant, heading, intro, industries }: IndustryC
 
           if (industry.url) {
             return (
-              <Link key={i} href={industry.url} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
+              <Link key={i} href={industry.url} aria-label={industry.title} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg">
                 {cardContent}
               </Link>
             )

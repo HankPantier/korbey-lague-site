@@ -44,7 +44,6 @@ export function CtaBanner({
       <div className={`relative text-center max-w-2xl mx-auto${variant === 'image-bg' ? ' text-white' : ''}`}>
         <h2
           className="font-heading text-3xl md:text-4xl font-bold"
-          style={{ fontFamily: 'var(--font-heading)' }}
         >
           {heading}
         </h2>

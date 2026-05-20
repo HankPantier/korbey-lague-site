@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { Section } from './Section'
+import { InlineProse } from './InlineProse'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -92,7 +93,7 @@ export function Form({
             {heading}
           </h2>
           {intro && (
-            <p className="text-foreground/70 mb-6">{intro}</p>
+            <InlineProse text={intro} className="text-foreground/70 mb-6" />
           )}
           {submitted ? (
             <div role="status" aria-live="polite">
@@ -225,7 +226,7 @@ export function Form({
           {heading}
         </h2>
         {intro && (
-          <p className="mt-3 text-foreground/70 leading-relaxed">{intro}</p>
+          <InlineProse text={intro} className="mt-3 text-foreground/70 leading-relaxed" />
         )}
       </header>
 

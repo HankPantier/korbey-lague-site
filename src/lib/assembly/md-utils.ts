@@ -564,21 +564,43 @@ export function parseContentCardList(body: string): {
     let date: string | undefined
     let startIdx = 0
 
-    // Second line may be metadata line
-    if (rest.length > 0 && rest[0].trim()) {
-      const candidate = rest[0].trim()
-      // Check for date · image, date only, or image only patterns
-      const dateImageMatch = candidate.match(
+    // Header lines after the title — accept any combination of:
+    //   photo: filename.jpg          (Pexels-resolved or uploaded image)
+    //   query: subject only          (Pexels search query — consumed, not stored;
+    //                                 the image is already downloaded by builder)
+    //   date: YYYY-MM-DD             (publication date)
+    //   YYYY-MM-DD · filename.jpg    (legacy single-line meta form, still supported)
+    // Iterate up to 3 lines greedily until we hit non-metadata prose.
+    while (startIdx < Math.min(rest.length, 3)) {
+      const candidate = rest[startIdx]?.trim() ?? ''
+      if (!candidate) { startIdx++; continue }
+
+      const photoMatch = candidate.match(/^photo:\s*(\S+)\s*$/i)
+      const queryMatch = candidate.match(/^query:\s*.+$/i)
+      const dateMatch = candidate.match(/^date:\s*(\d{4}-\d{2}-\d{2})\s*$/i)
+      const legacyMatch = candidate.match(
         /^(\d{4}-\d{2}-\d{2})?\s*[·・—–]?\s*([A-Za-z0-9_\-]+\.(jpg|jpeg|png|webp|gif|svg))?$/i
       )
-      if (
-        dateImageMatch &&
-        (dateImageMatch[1] || dateImageMatch[2]) &&
-        !candidate.startsWith('[') // not a link
+
+      if (photoMatch) {
+        image = photoMatch[1].trim()
+        startIdx++
+      } else if (queryMatch) {
+        // Consume the line but don't store — Phase II doesn't need the query.
+        startIdx++
+      } else if (dateMatch) {
+        date = dateMatch[1]
+        startIdx++
+      } else if (
+        legacyMatch &&
+        (legacyMatch[1] || legacyMatch[2]) &&
+        !candidate.startsWith('[')
       ) {
-        date = dateImageMatch[1] || undefined
-        image = dateImageMatch[2] || undefined
-        startIdx = 1
+        date = legacyMatch[1] || date
+        image = legacyMatch[2] || image
+        startIdx++
+      } else {
+        break
       }
     }
 

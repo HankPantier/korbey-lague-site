@@ -2,6 +2,9 @@ import Image from 'next/image'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import type { CtaBannerProps } from '@/lib/assembly/extract-block-props'
 
 export type { CtaBannerProps }
@@ -48,7 +51,9 @@ export function CtaBanner({
           {heading}
         </h2>
         {body && (
-          <p className="mt-4 text-lg opacity-90 leading-relaxed">{body}</p>
+          <div className="prose prose-invert mt-4 max-w-none text-lg opacity-90 leading-relaxed prose-p:my-0 prose-a:underline">
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>{body}</ReactMarkdown>
+          </div>
         )}
         {cta_primary && (
           <div className="mt-8">

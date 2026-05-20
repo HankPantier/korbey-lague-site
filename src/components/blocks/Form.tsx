@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import type { FormEvent, ComponentPropsWithoutRef } from 'react'
+import type { FormEvent } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -18,22 +19,6 @@ import {
 } from '@/components/ui/select'
 import type { FormProps } from '@/lib/assembly/extract-block-props'
 import { siteConfig } from '../../../site.config'
-
-const MD_LINK_COMPONENTS = {
-  a: ({ href, children, ...rest }: ComponentPropsWithoutRef<'a'>) => {
-    const external = href?.startsWith('http://') || href?.startsWith('https://')
-    return (
-      <a
-        {...rest}
-        href={href}
-        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      >
-        {children}
-        {external && <span className="sr-only"> (opens in new tab)</span>}
-      </a>
-    )
-  },
-}
 
 export type { FormProps }
 

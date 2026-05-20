@@ -1,6 +1,9 @@
 import { Section } from './Section'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
 import type { TeamGridProps } from '@/lib/assembly/extract-block-props'
 
@@ -59,7 +62,9 @@ export function TeamGrid({ variant, heading, intro, members }: TeamGridProps) {
                   <p className="mt-0.5 text-sm text-foreground/60" itemProp="jobTitle">{member.title}</p>
                 )}
                 {member.bio && (
-                  <p className="mt-3 text-sm text-foreground/75 leading-relaxed" itemProp="description">{member.bio}</p>
+                  <div className="prose prose-sm prose-neutral mt-3 max-w-none text-foreground/75 leading-relaxed prose-p:my-0 prose-a:text-primary prose-a:underline" itemProp="description">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>{member.bio}</ReactMarkdown>
+                  </div>
                 )}
               </CardContent>
             </Card>

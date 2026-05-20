@@ -1,6 +1,9 @@
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
 import type { ProcessStepsProps } from '@/lib/assembly/extract-block-props'
 
@@ -55,9 +58,9 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
                     {step.title}
                   </h3>
                   {step.description && (
-                    <p className="mt-1 text-sm text-foreground/70 leading-relaxed">
-                      {step.description}
-                    </p>
+                    <div className="prose prose-sm prose-neutral mt-1 max-w-none text-foreground/70 leading-relaxed prose-p:my-0 prose-a:text-primary prose-a:underline">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>{step.description}</ReactMarkdown>
+                    </div>
                   )}
                 </div>
               </li>
@@ -109,9 +112,9 @@ export function ProcessSteps({ variant, heading, intro, steps, cta }: ProcessSte
                 {step.title}
               </h3>
               {step.description && (
-                <p className="mt-1 text-foreground/70 leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="prose prose-neutral mt-1 max-w-none text-foreground/70 leading-relaxed prose-p:my-0 prose-a:text-primary prose-a:underline">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>{step.description}</ReactMarkdown>
+                </div>
               )}
             </div>
           </li>

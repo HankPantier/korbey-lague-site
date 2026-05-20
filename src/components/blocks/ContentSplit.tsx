@@ -4,25 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
 import type { ContentSplitProps } from '@/lib/assembly/extract-block-props'
-import type { ComponentPropsWithoutRef } from 'react'
-
-const MD_LINK_COMPONENTS = {
-  a: ({ href, children, ...rest }: ComponentPropsWithoutRef<'a'>) => {
-    const external = href?.startsWith('http://') || href?.startsWith('https://')
-    return (
-      <a
-        {...rest}
-        href={href}
-        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      >
-        {children}
-        {external && <span className="sr-only"> (opens in new tab)</span>}
-      </a>
-    )
-  },
-}
 
 export type { ContentSplitProps }
 

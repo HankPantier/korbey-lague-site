@@ -3,6 +3,9 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
 import type { ContentCardsProps } from '@/lib/assembly/extract-block-props'
 
@@ -63,9 +66,9 @@ export function ContentCards({ variant, heading, intro, cards, cta }: ContentCar
                 >
                   {card.title}
                 </h3>
-                <p className="text-sm text-foreground/70 leading-relaxed">
-                  {card.excerpt}
-                </p>
+                <div className="prose prose-sm prose-neutral max-w-none text-foreground/70 leading-relaxed prose-p:my-0 prose-a:text-primary prose-a:underline">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>{card.excerpt}</ReactMarkdown>
+                </div>
               </CardContent>
 
               {card.url && card.url !== '#' && (

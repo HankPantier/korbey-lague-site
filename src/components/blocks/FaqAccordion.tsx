@@ -7,6 +7,9 @@ import {
   AccordionContent,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import type { FaqAccordionProps } from '@/lib/assembly/extract-block-props'
 
 export type { FaqAccordionProps }
@@ -29,7 +32,9 @@ export function FaqAccordion({ heading, items }: FaqAccordionProps) {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="text-foreground/80 leading-relaxed">
-                {item.answer}
+                <div className="prose prose-neutral max-w-none prose-p:my-2 prose-a:text-primary prose-a:underline">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_LINK_COMPONENTS}>{item.answer}</ReactMarkdown>
+                </div>
               </AccordionContent>
             </AccordionItem>
           ))}

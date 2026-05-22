@@ -239,6 +239,32 @@ forms: {
 }
 ```
 
+## Analytics (Google Analytics / Google Tag Manager)
+
+The template ships with optional GA4 / GTM support, gated by a cookie consent banner so no scripts fire before the visitor accepts.
+
+### Setup
+
+1. In `.env.local` (and Vercel project env vars for prod), set ONE of:
+   ```
+   NEXT_PUBLIC_GA4_ID="G-XXXXXXXXXX"     # GA4 measurement ID
+   # OR
+   NEXT_PUBLIC_GTM_ID="GTM-XXXXXX"       # Tag Manager container ID
+   ```
+2. Restart `npm run dev`. Load the site — a consent banner appears at the bottom. Accept it and confirm the script loads in the Network tab (`gtag/js?id=...` for GA4, `gtm.js?id=...` for GTM).
+
+If both vars are set, **GTM wins** and GA4 is not loaded separately (GTM can load GA4 itself plus any other tags). If neither is set, no banner appears and nothing tracks — the site stays clean.
+
+### Consent flow
+
+- Cookie: `analytics-consent=accepted|declined` (365-day expiry, `path=/`).
+- Visitors can revisit the choice via the **"Cookie preferences"** link in the footer (clears the cookie and reloads, banner reappears).
+- `<Analytics />` is an async Server Component (`src/components/analytics/Analytics.tsx`). It reads the cookie via `next/headers` and either renders the GA/GTM script tag, renders the consent banner, or renders nothing.
+
+### Styling the banner per-client
+
+The consent banner is captured in the design brief alongside navbar + footer (`data-component="cookie-consent"` outer element, with `data-slot="message|accept|decline"` on the named child elements). Brand-specific overrides go in `content/design-overrides.css` the same way as any other chrome element — see the "Designing the visual look" section below.
+
 ## Designing the visual look (Claude.ai Design handoff)
 
 The 21 block components define the *shape* of every page. Their actual visual treatment — colors, gradients, shadows, custom corner radii, spacing nuance — is fed in via two files:

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Separator } from '@/components/ui/separator'
 import { SocialIcon } from './SocialIcon'
+import { FooterCookiePrefsLink } from './FooterCookiePrefsLink'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getNavConfig } from '@/lib/nav/get-nav-config'
@@ -148,6 +149,9 @@ export async function Footer() {
               <Link href={l.url} className="hover:text-background">{l.label}</Link>
             </li>
           ))}
+          <li>
+            <FooterCookiePrefsLink />
+          </li>
         </ul>
       </div>
     </footer>

@@ -28,10 +28,25 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
   const pathname = usePathname() ?? '/'
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
+    let frame = 0
+    let pending = false
+    const update = () => {
+      pending = false
+      // setState bails out if the value is unchanged, but the rAF guard
+      // is what keeps us from triggering React work on every scroll tick.
+      setScrolled(window.scrollY > 12)
+    }
+    const onScroll = () => {
+      if (pending) return
+      pending = true
+      frame = requestAnimationFrame(update)
+    }
+    update()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(frame)
+    }
   }, [])
 
   return (

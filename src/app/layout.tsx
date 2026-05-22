@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { CSSProperties } from 'react'
 import { Public_Sans } from 'next/font/google'
 import './globals.css'
 import { NavBar } from '@/components/nav/NavBar'
@@ -10,17 +11,13 @@ import { siteConfig } from '../../site.config'
 
 // Placeholder fonts — generate-theme.ts will rewrite these per client in a
 // future iteration. For now, hardcode Public Sans (matches design.json default).
-const heading = Public_Sans({
+// Loaded once and aliased to both heading + body CSS variables so theme.css
+// (which references --font-{heading,body}-loaded) keeps working without a
+// second next/font instance for the same family.
+const publicSans = Public_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-heading-loaded',
-  display: 'swap',
-})
-
-const body = Public_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-body-loaded',
   display: 'swap',
 })
 
@@ -45,7 +42,11 @@ export default async function RootLayout({
   const [brand, nav] = await Promise.all([getBrandConfig(), getNavConfig()])
 
   return (
-    <html lang="en" className={`${heading.variable} ${body.variable}`}>
+    <html
+      lang="en"
+      className={publicSans.variable}
+      style={{ '--font-body-loaded': 'var(--font-heading-loaded)' } as CSSProperties}
+    >
       <body
         className="min-h-screen flex flex-col antialiased bg-background text-foreground"
         // Surface the firm's contact email as a body data-attribute so the

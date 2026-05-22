@@ -1,16 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 
 const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365
-
-function setConsent(value: 'accepted' | 'declined') {
-  document.cookie = `analytics-consent=${value}; path=/; max-age=${ONE_YEAR_SECONDS}; samesite=lax`
-  // Reload so the server-rendered <Analytics> re-evaluates with the new
-  // cookie state and injects (or doesn't) the GA/GTM script tag.
-  window.location.reload()
-}
 
 /**
  * ConsentBanner — sticky bottom card with Accept / Decline.
@@ -20,8 +14,20 @@ function setConsent(value: 'accepted' | 'declined') {
  * it captures navbar + footer. Slots are exposed via data-slot so
  * design-overrides.css can target precisely without inspecting our
  * internals.
+ *
+ * On Accept/Decline we write the cookie and call router.refresh(), which
+ * re-runs the server tree against the new cookie state without a full
+ * page reload — the <Analytics> server component then renders the GA/GTM
+ * script tag (or nothing, on decline) in the next paint.
  */
 export function ConsentBanner() {
+  const router = useRouter()
+
+  const setConsent = (value: 'accepted' | 'declined') => {
+    document.cookie = `analytics-consent=${value}; path=/; max-age=${ONE_YEAR_SECONDS}; samesite=lax`
+    router.refresh()
+  }
+
   return (
     <aside
       data-component="cookie-consent"

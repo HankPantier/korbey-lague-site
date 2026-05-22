@@ -14,6 +14,10 @@ import type { FormSubmitResponse, FormSubmitPayload, FieldDef, FormVariant } fro
 // Resend's SDK uses node fetch under the hood — Edge runtime won't work.
 export const runtime = 'nodejs'
 
+// Form schemas top out around 6 KB of legitimate input. 64 KB leaves headroom
+// for the largest custom-form payload while rejecting abuse early.
+const MAX_BODY_BYTES = 64 * 1024
+
 /**
  * Form submission endpoint. Validates the request body with the same Zod
  * schema the client uses, then emails the firm via Resend. The recipient
@@ -56,6 +60,11 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
     return jsonError(503, 'Email service not configured')
   }
 
+  const declaredLength = Number(req.headers.get('content-length') ?? '0')
+  if (declaredLength > MAX_BODY_BYTES) {
+    return jsonError(413, 'Payload too large')
+  }
+
   let payload: FormSubmitPayload
   try {
     payload = (await req.json()) as FormSubmitPayload
@@ -91,7 +100,8 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
       ? { success: true, data: r.data as Record<string, unknown> }
       : { success: false, fieldErrors: flattenFieldErrors(r.error.flatten().fieldErrors) }
   } else {
-    return jsonError(400, `Unknown form variant: ${String(variant)}`)
+    console.error('[contact] Unknown form variant:', variant)
+    return jsonError(400, 'Invalid request')
   }
 
   if (!parseResult.success) {
@@ -118,7 +128,13 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
 
   const subject = buildEmailSubject(variant as FormVariant, brand.firm.name, submitterName)
   const text = buildEmailBody(stringFields, variant === 'custom' ? (fieldDefs as FieldDef[]) : undefined)
-  const replyTo = typeof validated.email === 'string' ? validated.email : undefined
+  // Zod's .email() accepts the address shape but does not reject CR/LF, which
+  // an attacker could use to inject mail headers (Bcc:, Subject:) downstream.
+  // Strip them defensively before handing off to Resend.
+  const replyTo =
+    typeof validated.email === 'string'
+      ? validated.email.replace(/[\r\n]+/g, '').trim()
+      : undefined
 
   const resend = new Resend(apiKey)
   try {

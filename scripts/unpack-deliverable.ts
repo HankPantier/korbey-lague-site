@@ -47,6 +47,16 @@ async function main(): Promise<void> {
   if (stat.isFile() && absPath.toLowerCase().endsWith('.zip')) {
     console.log(`Extracting ${absPath} into repo root...`)
     const zip = new AdmZip(absPath)
+    // Zip-slip guard: refuse any entry whose resolved destination escapes
+    // the repo root. adm-zip ≤0.5.x does not validate this on its own.
+    const rootWithSep = repoRoot.endsWith(path.sep) ? repoRoot : repoRoot + path.sep
+    for (const entry of zip.getEntries()) {
+      const resolved = path.resolve(repoRoot, entry.entryName)
+      if (resolved !== repoRoot && !resolved.startsWith(rootWithSep)) {
+        console.error(`Refusing to extract entry that escapes repo root: ${entry.entryName}`)
+        process.exit(1)
+      }
+    }
     // overwrite = true matches existing `unzip -o` behavior
     zip.extractAllTo(repoRoot, true)
     // Log a count of extracted entries so the operator sees progress

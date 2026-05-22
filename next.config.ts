@@ -25,6 +25,12 @@ async function readRedirectsCsv(): Promise<Array<{ source: string; destination: 
     const cells = parseCsvLine(line)
     const [from, to] = cells
     if (!from || !to) continue
+    // Destinations must be path-relative. A row like `/old,https://evil.com`
+    // would otherwise ship as a 308 to an attacker-controlled URL.
+    if (!to.startsWith('/')) {
+      console.warn(`[next.config] Skipping redirect with non-relative destination: ${from} -> ${to}`)
+      continue
+    }
     redirects.push({ source: from, destination: to, permanent: true })
   }
   return redirects
@@ -67,6 +73,19 @@ const nextConfig: NextConfig = {
       console.log(`[next.config] Loaded ${r.length} redirect(s) from content/redirects.csv`)
     }
     return r
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+    ]
   },
 }
 

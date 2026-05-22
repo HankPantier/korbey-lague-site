@@ -67,10 +67,7 @@ async function main() {
       await fs.readFile(designPath, 'utf-8')
     ) as DesignJson
 
-    const {
-      palette,
-      firm: { name: firmName },
-    } = brandJson
+    const { palette } = brandJson
     const { typography, spacing, radius } = designJson
 
     // 2. Build palette → shadcn semantic mapping

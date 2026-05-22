@@ -13,7 +13,7 @@ function setConsent(value: 'accepted' | 'declined') {
 }
 
 /**
- * ConsentBannerClient — sticky bottom card with Accept / Decline.
+ * ConsentBanner — sticky bottom card with Accept / Decline.
  *
  * Outer element is <aside data-component="cookie-consent"> so the
  * design-brief script's chrome-capture regex picks it up the same way
@@ -21,7 +21,7 @@ function setConsent(value: 'accepted' | 'declined') {
  * design-overrides.css can target precisely without inspecting our
  * internals.
  */
-export function ConsentBannerClient() {
+export function ConsentBanner() {
   return (
     <aside
       data-component="cookie-consent"

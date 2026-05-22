@@ -221,9 +221,11 @@ Forms ship with two paths: the built-in Resend-backed `/api/contact` route, or a
      endpoint: '',                        // leave blank to use built-in route
      fromEmail: 'noreply@clientdomain.com', // must be a Resend-verified address in prod
      toEmail: '',                         // blank = use brand.contact.email
+     serviceOptions: ['Bookkeeping', 'Tax Preparation', ...], // dropdown values for the quote form
    }
    ```
 4. Recipient default is `brand.contact.email` in `content/brand.json`. Set `forms.toEmail` only if submissions should go somewhere other than the firm's public contact address.
+5. `forms.serviceOptions` drives the service-select dropdown in the `quote` form variant. Edit per client to reflect the actual services the firm offers; keep `'Other'` as the last entry.
 
 If `RESEND_API_KEY` is missing or blank, the route returns 503 and the client form falls back to a `mailto:` link automatically — the form stays functional even before Resend is wired up.
 

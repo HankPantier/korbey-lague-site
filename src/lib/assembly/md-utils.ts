@@ -581,10 +581,6 @@ export function parseContentCardList(body: string): {
     }
   }
 
-  // Metadata line pattern: "YYYY-MM-DD · image.jpg", "YYYY-MM-DD", "image.jpg", etc.
-  // The separator is · (U+00B7), ・ (U+30FB), — (em-dash), or – (en-dash).
-  const metaLinePattern = /^(\d{4}-\d{2}-\d{2})?\s*[·・—–]?\s*(\S+\.(jpg|jpeg|png|webp|gif|svg))?$/i
-
   const cards = chunks.map(chunk => {
     const lines = chunk.trim().split('\n')
     const title = lines[0].replace(/^###\s+/, '').trim()

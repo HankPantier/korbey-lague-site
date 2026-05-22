@@ -30,15 +30,6 @@ import { siteConfig } from '../../../site.config'
 
 export type { FormProps }
 
-const SERVICE_OPTIONS = [
-  'Bookkeeping',
-  'Tax Preparation',
-  'Payroll Services',
-  'CFO Advisory',
-  'Business Consulting',
-  'Other',
-]
-
 const DEFAULT_SUCCESS = "Thank you! We'll be in touch shortly."
 
 // ---------------------------------------------------------------------------
@@ -578,7 +569,7 @@ export function Form({
                             <SelectValue placeholder="Select a service…" />
                           </SelectTrigger>
                           <SelectContent>
-                            {SERVICE_OPTIONS.map(opt => (
+                            {siteConfig.forms.serviceOptions.map(opt => (
                               <SelectItem key={opt} value={opt}>
                                 {opt}
                               </SelectItem>

@@ -386,7 +386,7 @@ export type IndustryCardsProps = {
 }
 
 export function extractIndustryCardsProps(section: PageSection): IndustryCardsProps {
-  const { body, cta: _cta } = extractTrailingCta(section.content)
+  const { body } = extractTrailingCta(section.content)
 
   // Detect optional intro before list
   const lines = body.split('\n')

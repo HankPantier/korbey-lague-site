@@ -28,6 +28,13 @@ export type FormsConfig = {
    */
   toEmail: string
 
+  /**
+   * Dropdown options for the "quote" form variant's service-select field.
+   * Edit per client to reflect the actual services the firm offers.
+   * 'Other' is conventional as the final entry.
+   */
+  serviceOptions: string[]
+
   // API key for Resend is read from process.env.RESEND_API_KEY.
   // Never commit secrets here. See .env.example.
 }
@@ -48,5 +55,13 @@ export const siteConfig: SiteConfig = {
     endpoint: '',
     fromEmail: 'onboarding@resend.dev',
     toEmail: '',
+    serviceOptions: [
+      'Bookkeeping',
+      'Tax Preparation',
+      'Payroll Services',
+      'CFO Advisory',
+      'Business Consulting',
+      'Other',
+    ],
   },
 }

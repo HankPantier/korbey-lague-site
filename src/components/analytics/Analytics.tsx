@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
-import { ConsentBannerClient } from './ConsentBannerClient'
+import { ConsentBanner } from './ConsentBanner'
 
 /**
  * Analytics — orchestrates analytics scripts + the consent banner.
@@ -34,6 +34,6 @@ export async function Analytics() {
   }
   if (consent === 'declined') return null
 
-  if (ga4Id || gtmId || preview) return <ConsentBannerClient />
+  if (ga4Id || gtmId || preview) return <ConsentBanner />
   return null
 }

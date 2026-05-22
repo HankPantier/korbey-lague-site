@@ -2,7 +2,8 @@ import { BlockRenderer } from '../src/components/assembly/BlockRenderer'
 
 // Just confirm the module loads — BlockRenderer is a React component, we
 // can't really exercise it without a render tree, but we CAN confirm the
-// imports resolve.
+// imports resolve. The `void` keeps the import live for the lint pass.
+void BlockRenderer
 console.log('✓ BlockRenderer module loaded successfully')
 
 // Confirm extract-block-props exports are intact

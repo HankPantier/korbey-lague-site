@@ -39,10 +39,37 @@ export type FormsConfig = {
   // Never commit secrets here. See .env.example.
 }
 
+export type CspConfig = {
+  /**
+   * 'enforce'      — sends the Content-Security-Policy header (browsers
+   *                  block violations).
+   * 'report-only'  — sends Content-Security-Policy-Report-Only (browsers
+   *                  log violations to the console without blocking).
+   *                  Useful before flipping a client to 'enforce' for the
+   *                  first time, or when adding new third-party services.
+   * 'off'          — sends no CSP header. Use sparingly.
+   */
+  mode: 'enforce' | 'report-only' | 'off'
+
+  /**
+   * Extra origins added to the script-src, style-src, connect-src,
+   * img-src, and frame-src directives all at once. Use when a client
+   * embeds a third-party service (Calendly, Stripe, Meta Pixel, HubSpot,
+   * etc.) — adding the origin here is usually enough to make it work.
+   *
+   * Example: ['https://*.calendly.com', 'https://*.stripe.com']
+   *
+   * If you need per-directive control, edit next.config.ts's buildCsp()
+   * helper directly.
+   */
+  extraOrigins: string[]
+}
+
 export type SiteConfig = {
   siteUrl: string
   legalLinks: { label: string; url: string }[]
   forms: FormsConfig
+  csp: CspConfig
 }
 
 export const siteConfig: SiteConfig = {
@@ -63,5 +90,9 @@ export const siteConfig: SiteConfig = {
       'Business Consulting',
       'Other',
     ],
+  },
+  csp: {
+    mode: 'enforce',
+    extraOrigins: [],
   },
 }

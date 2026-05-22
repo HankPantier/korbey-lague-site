@@ -1,6 +1,64 @@
 import type { NextConfig } from 'next'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { siteConfig } from './site.config'
+
+/**
+ * Build the Content-Security-Policy header value.
+ *
+ * Approach: `'unsafe-inline'` for scripts + an explicit third-party allowlist,
+ * NOT nonces. Nonce-based CSP requires per-request rendering, which would
+ * undo the static-prerender win from enabling Cache Components (Next's PPR
+ * docs are explicit: nonces are incompatible with PPR because the static
+ * shell ships before the nonce exists).
+ *
+ * What we DO get from this CSP:
+ *   - frame-ancestors 'self' blocks clickjacking
+ *   - object-src 'none' blocks legacy plugin abuse (Flash, etc.)
+ *   - base-uri 'self' blocks <base href="..."> hijacks
+ *   - form-action 'self' prevents form-action redirect attacks
+ *   - upgrade-insecure-requests force-upgrades any stray http:// URLs
+ *   - script-src/img-src/etc. allowlists reduce blast radius of any inline
+ *     content that would otherwise load from arbitrary origins
+ *
+ * What it does NOT defend against: inline-script injection (because we
+ * allow 'unsafe-inline'). Mitigated upstream by our markdown pipeline
+ * sanitizing user content via react-markdown.
+ */
+function buildCsp(isDev: boolean): string {
+  const extras = siteConfig.csp.extraOrigins
+  const extra = extras.length > 0 ? ' ' + extras.join(' ') : ''
+
+  const directives: Record<string, string> = {
+    'default-src': "'self'",
+    // 'unsafe-eval' is needed in dev because React uses eval to reconstruct
+    // server-side error stacks. Not needed in production.
+    'script-src': `'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://*.googletagmanager.com https://*.google-analytics.com${extra}`,
+    // Tailwind + Next inject inline styles; nonce-based isolation requires
+    // per-request rendering (see above).
+    'style-src': `'self' 'unsafe-inline'${extra}`,
+    // next/font self-hosts Google Fonts under /_next/static, so 'self' is
+    // enough — no fonts.gstatic.com needed.
+    'font-src': "'self'",
+    // Permissive img-src: content-asset images, OG images, certification
+    // logos, and any markdown-embedded images may come from various origins.
+    // data:/blob: covers next/image's placeholder/blur encodings.
+    'img-src': `'self' data: blob: https:`,
+    // GA/GTM measurement endpoints + same-origin /api/contact.
+    'connect-src': `'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${extra}`,
+    // Google Maps embed iframe target (src/components/blocks/Map.tsx).
+    'frame-src': `https://www.google.com https://*.google.com${extra}`,
+    'object-src': "'none'",
+    'base-uri': "'self'",
+    'form-action': "'self'",
+    'frame-ancestors': "'self'",
+    'upgrade-insecure-requests': '',
+  }
+
+  return Object.entries(directives)
+    .map(([k, v]) => (v ? `${k} ${v}` : k))
+    .join('; ')
+}
 
 async function readRedirectsCsv(): Promise<Array<{ source: string; destination: string; permanent: true }>> {
   const csvPath = path.join(process.cwd(), 'content', 'redirects.csv')
@@ -82,17 +140,22 @@ const nextConfig: NextConfig = {
     return r
   },
   async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-        ],
-      },
+    const baseHeaders = [
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
     ]
+    const mode = siteConfig.csp.mode
+    if (mode !== 'off') {
+      const value = buildCsp(process.env.NODE_ENV === 'development')
+      const key =
+        mode === 'report-only'
+          ? 'Content-Security-Policy-Report-Only'
+          : 'Content-Security-Policy'
+      baseHeaders.push({ key, value })
+    }
+    return [{ source: '/:path*', headers: baseHeaders }]
   },
 }
 

@@ -132,11 +132,49 @@ When adding a new color combination to the site, add its pair to `REQUIRED_PAIRS
 Set in `next.config.ts`'s `headers()` function, applied to `/:path*`:
 
 - `X-Content-Type-Options: nosniff` — prevents MIME-type sniffing.
-- `X-Frame-Options: SAMEORIGIN` — prevents clickjacking via iframe.
+- `X-Frame-Options: SAMEORIGIN` — prevents clickjacking via iframe (legacy; modern browsers prefer the CSP `frame-ancestors` directive below, but X-Frame-Options is kept as a fallback).
 - `Referrer-Policy: strict-origin-when-cross-origin` — limits referrer leakage.
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()` — denies feature access by default.
+- `Content-Security-Policy` (or `-Report-Only`, depending on `siteConfig.csp.mode`) — see below.
 
-CSP is intentionally not yet set — see `CHANGELOG.md`'s Deferred section. When you add CSP, deploy in `Content-Security-Policy-Report-Only` mode first and watch the report endpoint for violations from GTM, Google Maps, next/image, and Resend before flipping to enforce mode.
+### Content-Security-Policy
+
+Built by `buildCsp()` in `next.config.ts` and configured under `siteConfig.csp` in `site.config.ts`:
+
+```ts
+csp: {
+  mode: 'enforce' | 'report-only' | 'off'
+  extraOrigins: string[]
+}
+```
+
+**Default mode: `enforce`.** Sends `Content-Security-Policy`; browsers block violations.
+
+**Mode `report-only`** sends `Content-Security-Policy-Report-Only` instead — browsers log violations to the dev console without blocking. Use when wiring up a client for the first time, or before adding a new third-party service (Calendly, Stripe, Meta Pixel, HubSpot, etc.) so you can see exactly which origins need allowlisting.
+
+**`extraOrigins`** appends to `script-src`, `style-src`, `connect-src`, `img-src`, and `frame-src` in one go. Most third-party services need entries in all four. For per-directive control, edit `buildCsp()` directly.
+
+**Approach: `'unsafe-inline'` + explicit allowlist, NOT nonces.** Nonce-based CSP requires per-request rendering, which Next's PPR docs note is incompatible with Cache Components — going nonce would undo the static-prerender benefit. What our CSP still defends against:
+
+| Attack | Directive that blocks it |
+|---|---|
+| Clickjacking | `frame-ancestors 'self'` (+ legacy X-Frame-Options) |
+| Plugin/Flash abuse | `object-src 'none'` |
+| `<base href="evil">` hijack | `base-uri 'self'` |
+| Form-action redirect | `form-action 'self'` |
+| Mixed-content downgrade | `upgrade-insecure-requests` |
+| Unknown-origin scripts/iframes/images/fetches | per-directive allowlists |
+
+What it does NOT block: inline `<script>` injection, because `'unsafe-inline'` allows it. Mitigated upstream by `react-markdown` sanitizing all user-provided markdown content.
+
+### Adding a third-party service
+
+1. Set `csp.mode = 'report-only'` in `site.config.ts`, deploy, load the page where the service runs, watch the console for `Refused to load ...` messages.
+2. Add the service's origins to `csp.extraOrigins`.
+3. Reload, confirm no new violations.
+4. Flip `csp.mode` back to `'enforce'`.
+
+If the violations are in a directive other than the five `extraOrigins` covers (e.g. `worker-src`, `media-src`, `manifest-src`), edit `buildCsp()` in `next.config.ts` directly.
 
 ## Per-client clone workflow
 

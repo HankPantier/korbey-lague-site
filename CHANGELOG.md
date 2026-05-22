@@ -69,8 +69,23 @@ The following defense-in-depth changes are summarized in **Fixed** above but wor
   - `/sitemap.xml` flipped from `ƒ` → **`○ (Static)`**.
   - `/api/contact` stays `ƒ` (correct for POST endpoint).
 
+### Security — Content-Security-Policy (follow-up to the earlier deferral)
+- **CSP header enabled by default** in `enforce` mode, set in `next.config.ts` via `buildCsp()` and configured under `siteConfig.csp` in `site.config.ts`. The directive set:
+  - `default-src 'self'`
+  - `script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.google-analytics.com` (`'unsafe-eval'` added in dev for React's debug eval)
+  - `style-src 'self' 'unsafe-inline'` (Tailwind + the inline font-variable alias need it)
+  - `font-src 'self'` (next/font self-hosts Google Fonts under `/_next/static`)
+  - `img-src 'self' data: blob: https:` (permissive: content assets, OG images, certifications, markdown-embedded images)
+  - `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com`
+  - `frame-src https://www.google.com https://*.google.com` (Google Maps embed in `Map.tsx`)
+  - `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`, `frame-ancestors 'self'`, `upgrade-insecure-requests`
+- **Approach: `'unsafe-inline'` + explicit third-party allowlist, NOT nonces.** Nonce-based CSP requires per-request rendering, which Next's PPR docs explicitly note is incompatible with Cache Components — going nonce would undo the static-prerender win from the prior commit. The CSP we ship still meaningfully defends against clickjacking, base-URI hijacks, form-action redirects, plugin abuse, and mixed content. XSS protection comes from upstream markdown sanitization (`react-markdown`), not from CSP blocking inline scripts.
+- **`siteConfig.csp` config block** with three knobs:
+  - `mode: 'enforce' | 'report-only' | 'off'` — defaults to `enforce`. Set `report-only` when wiring up a client for the first time or adding a new third-party service to catch violations in the browser console without blocking content.
+  - `extraOrigins: string[]` — additional origins added to `script-src`, `style-src`, `connect-src`, `img-src`, and `frame-src` all at once. Example: `['https://*.calendly.com', 'https://*.stripe.com']`. Per-directive control requires editing `buildCsp()` directly.
+
 ### Deferred
-- **CSP header.** Bundling a working Content-Security-Policy with Google Tag Manager, Google Maps embeds, next/image, and Resend requires per-source tuning of `script-src` / `frame-src` / `connect-src` and a Report-Only deploy first to catch violations. Worth a dedicated follow-up.
+*(nothing currently deferred; all audit items shipped)*
 - **`secondary-fg / secondary` contrast pair** ships at 4.47 : 1 vs. the 4.5 : 1 AA threshold. Pre-existing palette tuning issue surfaced by the new contrast verifier; not caused by any change in this pass.
 - **react-markdown in `FaqAccordion.tsx` client bundle.** Same fix pattern as Form (pre-render markdown to React nodes server-side, pass as ReactNode prop). Lower priority than Form because the FAQ block ships on fewer pages.
 - **Image aspect-ratio sweep** across LogoBar, TeamGrid, ContentCards, ChecklistSection. Without measured CLS impact, deferred to a CLS-driven follow-up.

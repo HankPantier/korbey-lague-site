@@ -3,6 +3,7 @@ import { Public_Sans } from 'next/font/google'
 import './globals.css'
 import { NavBar } from '@/components/nav/NavBar'
 import { Footer } from '@/components/footer/Footer'
+import { Analytics } from '@/components/analytics/Analytics'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getNavConfig } from '@/lib/nav/get-nav-config'
 import { siteConfig } from '../../site.config'
@@ -64,6 +65,7 @@ export default async function RootLayout({
         <NavBar brand={brand} nav={nav} />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   )

@@ -271,6 +271,11 @@ async function fetchRenderedMarkup(
     let html: string
     try {
       const res = await fetch(`${serverUrl}${url}`, {
+        // _cookie-preview=1 forces <Analytics> to render the consent banner
+        // even when no NEXT_PUBLIC_GA4_ID / NEXT_PUBLIC_GTM_ID is set, so
+        // the brief can capture banner markup before a real analytics ID
+        // is wired up per-client.
+        headers: { cookie: '_cookie-preview=1' },
         signal: AbortSignal.timeout(15_000),
       })
       if (!res.ok) continue
@@ -536,9 +541,9 @@ ${inlineMd}`)
   // ------------------------------------------------------------------
   sections.push(`---
 
-## Site chrome — NavBar & Footer
+## Site chrome — NavBar, Footer & Consent Banner
 
-Outside the 23 page blocks, the site has two persistent components rendered by \`src/app/layout.tsx\`: the **NavBar** (top, sticky) and the **Footer** (bottom). They each carry a stable \`data-component\` attribute on their outer element for design-override targeting.
+Outside the 23 page blocks, the site has three persistent components rendered by \`src/app/layout.tsx\`: the **NavBar** (top, sticky), the **Footer** (bottom), and the **Cookie Consent Banner** (sticky bottom card, shown until the visitor accepts or declines). They each carry a stable \`data-component\` attribute on their outer element for design-override targeting.
 
 ### NavBar — \`[data-component="navbar"]\`
 
@@ -566,12 +571,24 @@ The Footer is a server component. Default styling: \`bg-foreground text-backgrou
 - Social icons: lucide \`<Mail/>\`, plus an inline-SVG \`SocialIcon\` component for branded platforms (Facebook, LinkedIn, Twitter, etc.). Target via \`[data-component="footer"] [aria-label*="Visit"]\` or by SVG class.
 - Bottom legal text: \`[data-component="footer"] p.text-background\\/50\` (faded body color).
 
+### Cookie Consent Banner — \`[data-component="cookie-consent"]\`
+
+A small sticky \`<aside>\` pinned to the bottom of the viewport. Renders only when (a) at least one analytics ID is configured (\`NEXT_PUBLIC_GA4_ID\` or \`NEXT_PUBLIC_GTM_ID\`) and (b) the visitor hasn't yet accepted or declined. Accepting writes the \`analytics-consent=accepted\` cookie and reloads the page; the page then SSRs with the GA/GTM \`<script>\` injected.
+
+**Key sub-elements:**
+- Container: \`[data-component="cookie-consent"]\` — the outer \`<aside>\`. Default surface is \`bg-background border border-border\`, but the brand may want a full-bleed primary-color bar, a pill-shaped card, etc.
+- Message text: \`[data-component="cookie-consent"] [data-slot="message"]\` (paragraph; includes a "Learn more" link to \`/privacy\`).
+- Accept button: \`[data-component="cookie-consent"] [data-slot="accept"]\` (shadcn Button default variant).
+- Decline button: \`[data-component="cookie-consent"] [data-slot="decline"]\` (shadcn Button ghost variant).
+
+**Token contract:** respects \`--color-background\`, \`--color-foreground\`, \`--color-border\`, \`--color-primary\`, \`--color-action\`. Override the container surface, type weight/size, and button treatments freely. Keep the buttons visually distinguishable (Accept = primary action, Decline = secondary).
+
 ### When to use \`[data-component="..."]\` vs \`[data-block="..."]\`
 
-- \`data-component\` is for persistent site chrome (NavBar, Footer) that appears on every page.
+- \`data-component\` is for persistent site chrome (NavBar, Footer, Cookie Consent Banner) that appears on every page.
 - \`data-block\` is for content blocks that appear inline based on the page's markdown. Don't mix the two namespaces in one selector.${
   chromeMarkup && chromeMarkup.size > 0
-    ? `\n\n### Rendered chrome markup (verbatim)\n\n${['navbar', 'footer']
+    ? `\n\n### Rendered chrome markup (verbatim)\n\n${['navbar', 'footer', 'cookie-consent']
         .map(id => {
           const html = chromeMarkup.get(id)
           if (!html) return ''

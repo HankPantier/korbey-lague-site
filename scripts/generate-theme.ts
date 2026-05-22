@@ -103,12 +103,17 @@ async function main() {
     // and by how much so the operator can adjust brand.json before delivery.
     // Normal-text threshold (4.5:1) — UI tap-targets like hover states use
     // these tokens at body-text sizes, so AA-large (3:1) isn't strict enough.
+    // Footer renders nearWhite text at 90% opacity over nearBlack. Approximate
+    // the rendered color via alpha blend: 0.9 * fg + 0.1 * bg.
+    const footerMutedText = chroma.mix(palette.nearBlack, palette.nearWhite, 0.9, 'rgb').hex()
+
     const REQUIRED_PAIRS: Array<{ name: string; bg: string; fg: string; minRatio: number }> = [
-      { name: 'foreground / background',  bg: palette.nearWhite,     fg: palette.nearBlack, minRatio: 4.5 },
-      { name: 'primary-fg / primary',     bg: palette.primary,       fg: primaryFg,         minRatio: 4.5 },
-      { name: 'secondary-fg / secondary', bg: palette.secondary,     fg: secondaryFg,       minRatio: 4.5 },
-      { name: 'accent-fg / accent',       bg: palette.complementary, fg: accentFg,          minRatio: 4.5 },
-      { name: 'muted-fg / muted',         bg: muted,                 fg: mutedForeground,   minRatio: 4.5 },
+      { name: 'foreground / background',         bg: palette.nearWhite,     fg: palette.nearBlack, minRatio: 4.5 },
+      { name: 'primary-fg / primary',            bg: palette.primary,       fg: primaryFg,         minRatio: 4.5 },
+      { name: 'secondary-fg / secondary',        bg: palette.secondary,     fg: secondaryFg,       minRatio: 4.5 },
+      { name: 'accent-fg / accent',              bg: palette.complementary, fg: accentFg,          minRatio: 4.5 },
+      { name: 'muted-fg / muted',                bg: muted,                 fg: mutedForeground,   minRatio: 4.5 },
+      { name: 'footer muted text (text-bg/90)',  bg: palette.nearBlack,     fg: footerMutedText,   minRatio: 4.5 },
     ]
     const failures: string[] = []
     for (const { name, bg, fg, minRatio } of REQUIRED_PAIRS) {

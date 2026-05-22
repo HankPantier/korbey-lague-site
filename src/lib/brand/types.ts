@@ -43,5 +43,14 @@ export type BrandJson = {
   logo: {
     primary: string
     alt: string
+    /**
+     * Optional footer-specific logo variant. The footer surface is dark
+     * (`bg-foreground`), so a dark primary logo is hard to read. When set,
+     * the footer renders this asset directly. When unset, the footer falls
+     * back to `primary` with an `invert` filter — works for dark logos,
+     * fails silently for already-light ones. Provide this field for any
+     * client whose primary logo is already light/white.
+     */
+    footer?: string
   }
 }

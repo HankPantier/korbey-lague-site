@@ -19,7 +19,15 @@ export async function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid gap-8 md:grid-cols-4">
         <div className="md:col-span-1 space-y-3">
           <Link href="/" className="inline-flex items-center" aria-label={`${brand.firm.name} home`}>
-            {brand.logo.primary ? (
+            {brand.logo.footer ? (
+              <Image
+                src={`/content-assets/${brand.logo.footer}`}
+                alt={brand.logo.alt}
+                width={160}
+                height={32}
+                className="h-8 w-auto"
+              />
+            ) : brand.logo.primary ? (
               <Image
                 src={`/content-assets/${brand.logo.primary}`}
                 alt={brand.logo.alt}
@@ -32,7 +40,7 @@ export async function Footer() {
             )}
           </Link>
           {brand.firm.tagline && (
-            <p className="text-sm text-background/70">{brand.firm.tagline}</p>
+            <p className="text-sm text-background/90">{brand.firm.tagline}</p>
           )}
           {brand.social.length > 0 && (
             <div className="flex gap-3 pt-2">
@@ -56,7 +64,7 @@ export async function Footer() {
                 <ul className="mt-3 space-y-2">
                   {item.children.map(c => (
                     <li key={c.url}>
-                      <Link href={c.url} className="text-sm text-background/70 hover:text-background">
+                      <Link href={c.url} className="text-sm text-background/90 hover:text-background">
                         {c.label}
                       </Link>
                     </li>
@@ -68,7 +76,7 @@ export async function Footer() {
         </div>
 
         {/* Contact */}
-        <div className="space-y-2 text-sm text-background/80">
+        <div className="space-y-2 text-sm text-background/90">
           {brand.contact.address && (
             <div className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
@@ -117,7 +125,7 @@ export async function Footer() {
                       className="h-10 w-auto opacity-70 hover:opacity-100"
                     />
                   ) : (
-                    <span className="text-xs text-background/70">{c.alt}</span>
+                    <span className="text-xs text-background/90">{c.alt}</span>
                   )}
                 </a>
               ) : (
@@ -131,7 +139,7 @@ export async function Footer() {
                     className="h-10 w-auto opacity-70"
                   />
                 ) : (
-                  <span key={c.alt} className="text-xs text-background/70">{c.alt}</span>
+                  <span key={c.alt} className="text-xs text-background/90">{c.alt}</span>
                 )
               )
             ))}
@@ -141,7 +149,7 @@ export async function Footer() {
 
       {/* Legal bar */}
       <Separator className="bg-background/10" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-background/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-background/90">
         <span>© {year} {brand.firm.name}. All rights reserved.</span>
         <ul className="flex gap-4">
           {siteConfig.legalLinks.map(l => (

@@ -67,6 +67,13 @@ function parseCsvLine(line: string): string[] {
 }
 
 const nextConfig: NextConfig = {
+  // Next 16 unified caching model. Data fetches are excluded from
+  // prerenders unless wrapped in `'use cache'`. The site's data loaders
+  // (get-brand-config, get-nav-config, get-theme-vars, get-page) all
+  // opt in, so pages stay statically renderable; only the per-request
+  // <Analytics> island (which reads cookies()) is dynamic, gated by a
+  // Suspense boundary in src/app/layout.tsx.
+  cacheComponents: true,
   async redirects() {
     const r = await readRedirectsCsv()
     if (r.length > 0) {

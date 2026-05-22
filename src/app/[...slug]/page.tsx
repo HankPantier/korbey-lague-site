@@ -33,8 +33,17 @@ function slugToUrl(slug: string[]): string {
   return '/' + slug.join('/')
 }
 
+// Cache Components requires generateStaticParams to return at least one
+// entry. Use a placeholder when the content directory only has home.md
+// (the fresh-clone state, before any deliverable is unpacked); the page
+// handler maps it to a 404 below.
+const EMPTY_PLACEHOLDER = '__no_pages__'
+
 export async function generateStaticParams() {
   const slugs = await listPageSlugs()
+  if (slugs.length === 0) {
+    return [{ slug: [EMPTY_PLACEHOLDER] }]
+  }
   // Each slug like "services" or "services--virtual-cfo" — convert to slug[]
   // form. We use double-dash as URL segment separator in filenames, but the
   // Next.js dynamic [...slug] expects an array of single-segment strings.
@@ -46,6 +55,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
+  if (slug[0] === EMPTY_PLACEHOLDER) return { title: 'Not found' }
   try {
     const md = await getPageMarkdown(slugToUrl(slug))
     const manifest = parsePageMd(md)
@@ -90,6 +100,7 @@ function renderHeroBlock(manifest: Parameters<typeof extractHeroProps>[0]): Reac
 
 export default async function DynamicPage({ params }: Props) {
   const { slug } = await params
+  if (slug[0] === EMPTY_PLACEHOLDER) notFound()
   let md: string
   try {
     md = await getPageMarkdown(slugToUrl(slug))

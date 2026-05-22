@@ -1,8 +1,13 @@
 import type { MetadataRoute } from 'next'
+import { cacheLife } from 'next/cache'
 import { listPageSlugs } from '@/lib/content/get-page'
 import { siteConfig } from '../../site.config'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Sitemap is build-time data; without 'use cache' the new Date() calls
+  // below would make it per-request dynamic under cacheComponents: true.
+  'use cache'
+  cacheLife('max')
   const baseUrl = siteConfig.siteUrl.replace(/\/$/, '')
   const slugs = await listPageSlugs()
 

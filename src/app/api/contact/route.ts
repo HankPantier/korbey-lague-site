@@ -12,7 +12,8 @@ import { buildEmailSubject, buildEmailBody } from '@/lib/forms/email-template'
 import type { FormSubmitResponse, FormSubmitPayload, FieldDef, FormVariant } from '@/lib/forms/types'
 
 // Resend's SDK uses node fetch under the hood — Edge runtime won't work.
-export const runtime = 'nodejs'
+// Under cacheComponents: true the runtime is implicit (Node is default);
+// an explicit `runtime` export is rejected at build time.
 
 // Form schemas top out around 6 KB of legitimate input. 64 KB leaves headroom
 // for the largest custom-form payload while rejecting abuse early.

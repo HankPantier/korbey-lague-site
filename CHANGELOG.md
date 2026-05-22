@@ -49,8 +49,27 @@ The following defense-in-depth changes are summarized in **Fixed** above but wor
 - Generic error messages on unknown input
 - Four platform-wide security response headers
 
+### Performance — Cache Components / PPR (follow-up to the earlier deferral)
+- **`cacheComponents: true`** enabled in `next.config.ts`. Next 16's unified caching model: data fetches are excluded from prerenders unless wrapped in `'use cache'`, and dynamic islands (anything reading `cookies()` / `headers()` / per-request data) stream in via Suspense boundaries while the surrounding shell stays static.
+- All four content loaders converted to **`'use cache'` + `cacheLife('max')`**:
+  - `src/lib/brand/get-brand-config.ts`
+  - `src/lib/nav/get-nav-config.ts`
+  - `src/lib/theme/get-theme-vars.ts`
+  - `src/lib/content/get-page.ts` (both `getPageMarkdown` and `listPageSlugs`)
+  The prior manual in-memory cache pattern (`let cached: T | null = null; if (NODE_ENV === 'production' && cached) return cached`) is removed — Next's cache supersedes it.
+- **`<Analytics />` wrapped in `<Suspense fallback={null}>`** in `src/app/layout.tsx` so the `cookies()` read doesn't bubble dynamism up to the whole page.
+- **`Footer.tsx` marked `'use cache'`** so its `new Date().getFullYear()` copyright doesn't get treated as per-request data.
+- **`sitemap.ts` marked `'use cache'` + `cacheLife('max')`** for the same reason.
+- **`[...slug]` `generateStaticParams` placeholder.** Cache Components requires `generateStaticParams` to return at least one entry. When `content/pages/` only has `home.md` (the fresh-clone state), the function now returns a `__no_pages__` placeholder, and the page handler maps that to `notFound()`. Once a client unpacks a real deliverable, the actual slugs take over and the placeholder disappears.
+- **`runtime = 'nodejs'` removed from `/api/contact`.** Under Cache Components, route segment `runtime` config is rejected at build time (Node is the default and only setting; explicit export is disallowed).
+- **Route table outcome:**
+  - `/` flipped from `ƒ (Dynamic)` → **`◐ (Partial Prerender)`** — static shell + dynamic Analytics island.
+  - `/_not-found` same.
+  - `/[...slug]` placeholder is `○ (Static)`; runtime fallback for un-prerendered slugs stays `ƒ` (expected). Real client pages from the deliverable will each be `◐`.
+  - `/sitemap.xml` flipped from `ƒ` → **`○ (Static)`**.
+  - `/api/contact` stays `ƒ` (correct for POST endpoint).
+
 ### Deferred
-- **PPR / Cache Components** (`cacheComponents: true` in `next.config.ts`). Next 16's unified flag would recover static page rendering (currently `/` and `[...slug]` build as `ƒ (Dynamic)` because the analytics layout reads `cookies()`), but enabling it requires adding `'use cache'` to every data loader (`get-brand-config.ts`, `get-nav-config.ts`, and the page-data fetches) to retain prerendering. Wider blast radius than the cost/benefit justifies for this template's traffic profile (per-client low-traffic marketing sites on Fluid Compute). Revisit when traffic justifies, or when migrating to the Cache Components model template-wide.
 - **CSP header.** Bundling a working Content-Security-Policy with Google Tag Manager, Google Maps embeds, next/image, and Resend requires per-source tuning of `script-src` / `frame-src` / `connect-src` and a Report-Only deploy first to catch violations. Worth a dedicated follow-up.
 - **`secondary-fg / secondary` contrast pair** ships at 4.47 : 1 vs. the 4.5 : 1 AA threshold. Pre-existing palette tuning issue surfaced by the new contrast verifier; not caused by any change in this pass.
 - **react-markdown in `FaqAccordion.tsx` client bundle.** Same fix pattern as Form (pre-render markdown to React nodes server-side, pass as ReactNode prop). Lower priority than Form because the FAQ block ships on fewer pages.

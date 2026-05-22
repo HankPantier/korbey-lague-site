@@ -48,7 +48,7 @@ The route is covered by `src/app/api/contact/route.test.ts` (vitest, 8 cases). M
 
 `src/components/analytics/Analytics.tsx` is an async Server Component that reads the visitor's consent state via `next/headers`'s `cookies()`. This is intentional: SSR-correct rendering of the consent banner is a requirement for the design-brief integration (see below), and rendering the GA/GTM `<Script>` server-side via `@next/third-parties` gets SPA pageview tracking on App Router navigations for free.
 
-The cost is real: reading `cookies()` makes the root layout async-dependent on per-request state, which flips `/` and `[...slug]` from `○ (Static)` to `ƒ (Dynamic)` in the build output. For this template's traffic profile (per-client low-traffic marketing sites on Fluid Compute), this is acceptable. See **Deferred: PPR** in `CHANGELOG.md` for the recovery path when traffic justifies the wider refactor.
+Reading `cookies()` would normally bubble dynamism up the tree and force every page dynamic. The fix (now in place) is **Cache Components + Suspense**: `<Analytics>` is wrapped in a `<Suspense fallback={null}>` boundary in `src/app/layout.tsx`, which isolates the dynamic-ness. Under `cacheComponents: true` (set in `next.config.ts`), Next prerenders the static shell at build time and streams the Analytics island per request. Build output reflects this — `/` shows `◐ (Partial Prerender)` rather than `ƒ (Dynamic)`.
 
 ### Behavior matrix
 
@@ -85,6 +85,41 @@ To add a new persistent chrome element that should ship in the brief:
 3. Add a descriptive paragraph in the same file noting selectors, slots, and the token contract Claude.ai Design should respect.
 
 To target child slots from `content/design-overrides.css`, give them `data-slot="<name>"` attributes (e.g. `<button data-slot="accept">`). Designs then target via `[data-component="..."] [data-slot="..."]`.
+
+## Caching model (Cache Components)
+
+`next.config.ts` sets `cacheComponents: true`, opting into Next 16's unified caching model. The rules:
+
+- **Data-fetching functions are excluded from prerenders by default.** Any `async` server-side data fetch (file read, db query, fetch call) that runs during render makes the route dynamic — unless wrapped in `'use cache'`.
+- **`'use cache'` at the top of an async function** caches its return value across requests, using the function ID + serialized args as the cache key. `cacheLife('max')` tells Next this is build-time data that effectively never expires.
+- **Per-request reads bubble up.** `cookies()`, `headers()`, `searchParams`, and `new Date()` (in a non-cached scope) all force their containing component into dynamic rendering. The remedy is either (a) cache the component / wrap it in `'use cache'`, or (b) wrap the dynamic island in a `<Suspense>` boundary so the rest of the tree can still prerender.
+
+### Where `'use cache'` is applied in this repo
+
+| File | Why |
+|---|---|
+| `src/lib/brand/get-brand-config.ts` | `content/brand.json` is build-time data. |
+| `src/lib/nav/get-nav-config.ts` | `content/nav.json` same. |
+| `src/lib/theme/get-theme-vars.ts` | `content/design.json` same. |
+| `src/lib/content/get-page.ts` (`getPageMarkdown` + `listPageSlugs`) | Page markdown and the slug list are read from disk per-build, not per-request. |
+| `src/app/sitemap.ts` | Uses `new Date()` for `lastModified`; without `'use cache'` the sitemap would be per-request dynamic. |
+| `src/components/footer/Footer.tsx` | Uses `new Date().getFullYear()` for copyright; same reason. |
+
+### Where Suspense isolates dynamism
+
+| Location | Why |
+|---|---|
+| `src/app/layout.tsx` around `<Analytics />` | `Analytics` reads `cookies()` per request to gate GA/GTM script injection. Suspense lets the shell ship static, streams the island. |
+
+### Catchall route placeholder
+
+`[...slug]/page.tsx`'s `generateStaticParams` must return at least one entry under Cache Components. When `content/pages/` only contains `home.md` (the fresh-clone state, before a deliverable is unpacked), the function returns a `__no_pages__` placeholder; the page handler maps that to `notFound()`. Once a client unpacks pages, real slugs take over and the placeholder disappears from the prerender set.
+
+### When adding a new data loader
+
+If the data is build-time constant (file from `content/`, JSON config, etc.), add `'use cache'` + `cacheLife('max')` to the loader function. If it's per-request (reads `cookies()` / `headers()` / `searchParams`), don't cache it — and if it's used inside a layout or shared component, wrap the consumer in `<Suspense>` so it doesn't dynamic-ize the whole route.
+
+If you add a route segment config (`export const runtime = 'nodejs'`, `export const dynamic = '...'`), the build will fail under Cache Components. Remove the export; the runtime is implicit (Node by default).
 
 ## Theming + WCAG
 

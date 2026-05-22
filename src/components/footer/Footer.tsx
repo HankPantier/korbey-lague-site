@@ -9,6 +9,10 @@ import { getNavConfig } from '@/lib/nav/get-nav-config'
 import { siteConfig } from '../../../site.config'
 
 export async function Footer() {
+  // 'use cache' makes the footer's render eligible for prerendering under
+  // cacheComponents: true. new Date() below is otherwise treated as
+  // per-request data and would force the whole page dynamic.
+  'use cache'
   const brand = await getBrandConfig()
   const nav = await getNavConfig()
   const year = new Date().getFullYear()

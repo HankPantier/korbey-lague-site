@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
+import { Suspense } from 'react'
 import { Public_Sans } from 'next/font/google'
 import './globals.css'
 import { NavBar } from '@/components/nav/NavBar'
@@ -66,7 +67,13 @@ export default async function RootLayout({
         <NavBar brand={brand} nav={nav} />
         {children}
         <Footer />
-        <Analytics />
+        {/* Suspense island: <Analytics> reads cookies(), which is per-request.
+            Wrapping it here keeps the rest of the tree prerenderable under
+            cacheComponents: true — the shell ships static, the analytics
+            slot streams in at request time. */}
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   )

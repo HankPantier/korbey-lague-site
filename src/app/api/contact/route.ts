@@ -99,9 +99,11 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
   }
 
   const brand = await getBrandConfig()
-  const recipient = brand.contact.email
+  // Prefer the per-client override in site.config.ts; fall back to the
+  // firm's public contact address in brand.json.
+  const recipient = siteConfig.forms.toEmail || brand.contact.email
   if (!recipient) {
-    return jsonError(500, 'Firm email not configured in brand.json')
+    return jsonError(500, 'Firm email not configured (siteConfig.forms.toEmail or brand.contact.email)')
   }
 
   const validated = parseResult.data
@@ -121,7 +123,7 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
   const resend = new Resend(apiKey)
   try {
     const result = await resend.emails.send({
-      from: siteConfig.formFromEmail || 'onboarding@resend.dev',
+      from: siteConfig.forms.fromEmail || 'onboarding@resend.dev',
       to: recipient,
       subject,
       text,

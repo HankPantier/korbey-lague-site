@@ -1,12 +1,18 @@
 /**
- * SocialIcon — renders a platform-specific icon.
+ * SocialIcon — renders a platform-specific brand icon.
  *
- * lucide-react v1 does not ship branded social icons (LinkedIn, Facebook, etc.).
- * We use inline SVG paths for the common platforms and fall back to lucide's
- * Globe for anything unrecognised. When lucide eventually ships branded icons
- * this file can be swapped out without touching any consumer.
+ * Uses @icons-pack/react-simple-icons for the brand marks. LinkedIn is the
+ * exception: Simple Icons removed it at LinkedIn's request, so it stays as
+ * an inline SVG here. Swap that block out if you ever switch to a library
+ * that ships a LinkedIn mark (e.g. react-icons' Fa set).
  */
 import { Globe } from 'lucide-react'
+import {
+  SiFacebook,
+  SiX,
+  SiInstagram,
+  SiYoutube,
+} from '@icons-pack/react-simple-icons'
 import type { SocialLink } from '@/lib/brand/types'
 
 type SvgIconProps = { className?: string }
@@ -14,54 +20,17 @@ type SvgIconProps = { className?: string }
 function LinkedinIcon({ className }: SvgIconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  )
-}
-
-function FacebookIcon({ className }: SvgIconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  )
-}
-
-function TwitterXIcon({ className }: SvgIconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  )
-}
-
-function InstagramIcon({ className }: SvgIconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.01" fill="currentColor" strokeWidth="2" />
-    </svg>
-  )
-}
-
-function YoutubeIcon({ className }: SvgIconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-      <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
     </svg>
   )
 }
 
 const ICON_MAP: Record<SocialLink['platform'], React.ComponentType<SvgIconProps>> = {
   linkedin: LinkedinIcon,
-  facebook: FacebookIcon,
-  twitter: TwitterXIcon,
-  instagram: InstagramIcon,
-  youtube: YoutubeIcon,
+  facebook: ({ className }) => <SiFacebook className={className} aria-hidden="true" />,
+  twitter: ({ className }) => <SiX className={className} aria-hidden="true" />,
+  instagram: ({ className }) => <SiInstagram className={className} aria-hidden="true" />,
+  youtube: ({ className }) => <SiYoutube className={className} aria-hidden="true" />,
   other: ({ className }) => <Globe className={className} strokeWidth={1.75} aria-hidden="true" />,
 }
 

@@ -204,6 +204,41 @@ Notes:
 - After editing, run `npm run dev` or `npm run build` to pick up changes.
 - Wildcards / regex sources are NOT currently supported — page-level redirects only. (Next.js supports them via the `:path*` syntax if you need it; extend `next.config.ts` to handle that.)
 
+## Form / email setup
+
+Forms ship with two paths: the built-in Resend-backed `/api/contact` route, or an external POST target (Formspree, Zapier, your CRM webhook, etc.). Pick one per client.
+
+### Path A — built-in Resend
+
+1. Get an API key at [resend.com](https://resend.com) → API Keys.
+2. Add it to `.env.local` (and to Vercel's project env vars for prod):
+   ```
+   RESEND_API_KEY="re_..."
+   ```
+3. Edit the `forms` block in `site.config.ts`:
+   ```ts
+   forms: {
+     endpoint: '',                        // leave blank to use built-in route
+     fromEmail: 'noreply@clientdomain.com', // must be a Resend-verified address in prod
+     toEmail: '',                         // blank = use brand.contact.email
+   }
+   ```
+4. Recipient default is `brand.contact.email` in `content/brand.json`. Set `forms.toEmail` only if submissions should go somewhere other than the firm's public contact address.
+
+If `RESEND_API_KEY` is missing or blank, the route returns 503 and the client form falls back to a `mailto:` link automatically — the form stays functional even before Resend is wired up.
+
+### Path B — external endpoint
+
+Set `forms.endpoint` to the service URL and `Form.tsx` will POST submissions there directly, skipping `/api/contact` entirely:
+
+```ts
+forms: {
+  endpoint: 'https://formspree.io/f/xyzabc',
+  fromEmail: '',
+  toEmail: '',
+}
+```
+
 ## Designing the visual look (Claude.ai Design handoff)
 
 The 21 block components define the *shape* of every page. Their actual visual treatment — colors, gradients, shadows, custom corner radii, spacing nuance — is fed in via two files:

@@ -316,9 +316,9 @@ export function Form({
     setSubmitting(true)
 
     // If a custom external endpoint is set, POST there and call it good.
-    if (siteConfig.formEndpoint) {
+    if (siteConfig.forms.endpoint) {
       try {
-        const res = await fetch(siteConfig.formEndpoint, {
+        const res = await fetch(siteConfig.forms.endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(fields),

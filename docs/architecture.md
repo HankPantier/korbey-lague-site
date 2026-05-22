@@ -1,0 +1,118 @@
+# Architecture notes
+
+This document captures the *why* behind the subsystems added or restructured during the 2026-05-22 audit + features pass. The README covers the operational *how*; this is the design rationale for anyone debugging or extending these areas.
+
+## Forms + email
+
+### Configuration shape
+
+`site.config.ts` exposes a typed `forms: { endpoint, fromEmail, toEmail, serviceOptions }` block. The choice of where each value lives:
+
+| Value | Lives in | Why |
+|---|---|---|
+| `RESEND_API_KEY` | `.env.local` / Vercel env | It's a secret; never commit to git. |
+| `forms.fromEmail` | `site.config.ts` | Per-client config; not secret but tied to the firm's verified Resend domain. |
+| `forms.toEmail` | `site.config.ts` (optional) | Override for the recipient. Blank → falls back to `brand.contact.email` from `content/brand.json`. |
+| `forms.endpoint` | `site.config.ts` (optional) | When set, `Form.tsx` POSTs there directly and skips `/api/contact` entirely (Formspree / Zapier / CRM webhook). |
+| `forms.serviceOptions` | `site.config.ts` | Dropdown values for the `quote` form variant — accounting-firm specific list per client. |
+| `brand.contact.email` | `content/brand.json` | Public-facing contact address; also used as the default form recipient. |
+
+The split is deliberate: secrets in env, per-client config in `site.config.ts`, brand-data the public sees in `content/brand.json`.
+
+### Graceful degradation
+
+If `RESEND_API_KEY` is missing or blank, `/api/contact` returns 503 and the client `Form` component falls back to a `mailto:` link reading the recipient from `document.body.dataset.contactEmail` (surfaced by the root layout). The form stays functional even before Resend is wired up — useful during initial client setup.
+
+### Server vs client split
+
+`Form.tsx` is a server component that pre-renders the optional markdown `intro` and `sidebar_content` and passes them as React nodes to the new `FormFields.tsx` client component. This keeps `react-markdown` and `remark-gfm` out of the contact/quote/newsletter/custom route client bundles (~60 KB gzipped saved). When extending the form, follow the same pattern: any markdown rendering belongs in the server wrapper.
+
+### Security model for `/api/contact`
+
+Layered defenses, in order of execution:
+
+1. **Missing API key → 503.** Signals client fallback path.
+2. **`Content-Length > 64 KB` → 413.** Legitimate payloads top out around 6 KB; early reject before parsing.
+3. **Malformed JSON → 400.**
+4. **Unknown form variant → generic `Invalid request` 400.** The variant string goes to `console.error`, never to the response (no info leak).
+5. **Zod validation per variant.** 400 with `fieldErrors`.
+6. **Recipient resolution.** `siteConfig.forms.toEmail` overrides `brand.contact.email`. 500 if both blank.
+7. **CR/LF strip on replyTo.** Defense in depth — Zod already rejects CR/LF in email format, but the strip protects if a future schema loosens.
+8. **Resend rejection → 502.**
+
+The route is covered by `src/app/api/contact/route.test.ts` (vitest, 8 cases). Mocks Resend via a real `class` so `new Resend(apiKey)` works under vitest's mock factory hoisting.
+
+## Analytics + cookie consent
+
+### Why a server component reads `cookies()`
+
+`src/components/analytics/Analytics.tsx` is an async Server Component that reads the visitor's consent state via `next/headers`'s `cookies()`. This is intentional: SSR-correct rendering of the consent banner is a requirement for the design-brief integration (see below), and rendering the GA/GTM `<Script>` server-side via `@next/third-parties` gets SPA pageview tracking on App Router navigations for free.
+
+The cost is real: reading `cookies()` makes the root layout async-dependent on per-request state, which flips `/` and `[...slug]` from `○ (Static)` to `ƒ (Dynamic)` in the build output. For this template's traffic profile (per-client low-traffic marketing sites on Fluid Compute), this is acceptable. See **Deferred: PPR** in `CHANGELOG.md` for the recovery path when traffic justifies the wider refactor.
+
+### Behavior matrix
+
+| GA4_ID | GTM_ID | Consent | Result |
+|---|---|---|---|
+| unset | unset | (any) | No banner, no scripts. Site stays clean. |
+| set | unset | undecided | `<ConsentBanner>` renders. |
+| set | unset | accepted | `<GoogleAnalytics gaId={...}>` renders. |
+| set | unset | declined | Nothing renders. |
+| unset | set | undecided | Banner. |
+| unset | set | accepted | `<GoogleTagManager gtmId={...}>`. |
+| set | set | accepted | **GTM wins.** GA4 is NOT loaded separately (GTM can load GA4 itself + any other tags). |
+
+### Consent withdrawal
+
+The footer's "Cookie preferences" link (`src/components/footer/FooterCookiePrefsLink.tsx`) clears the `analytics-consent` cookie and reloads the page. Satisfies GDPR's right-to-withdraw requirement when the banner is shipped enabled.
+
+### Accept/Decline flow
+
+`ConsentBanner.tsx` writes the cookie client-side and calls `useRouter().refresh()` from `next/navigation`. The refresh re-runs the server tree against the new cookie state — `Analytics` then renders the appropriate `<Script>` tag (or nothing on decline) in the next paint. No full reload, scroll position preserved, no static asset re-fetch.
+
+### `_cookie-preview` escape hatch
+
+`scripts/export-design-brief.ts` sends `Cookie: _cookie-preview=1` on its chrome-capture fetch. `Analytics.tsx` reads this cookie and force-renders the banner even when no analytics ID is configured, so the brief can capture banner markup before a real GA/GTM ID exists per-client. The escape hatch is exclusively for the brief script; production traffic never sees that cookie.
+
+## Design-brief integration
+
+The brief (`scripts/export-design-brief.ts`) captures live rendered HTML from a running dev server. Block-level samples come from `data-block="..."` attributes; persistent chrome (navbar, footer, consent banner) comes from `data-component="..."` attributes. The regex in `fetchRenderedMarkup` matches outer `<section|header|aside|footer|nav>` tags carrying either attribute.
+
+To add a new persistent chrome element that should ship in the brief:
+
+1. Give its outer element a stable `data-component="<id>"` attribute on a matching outer tag.
+2. Add `<id>` to the ordering array in `export-design-brief.ts`'s chrome-rendering block (currently `['navbar', 'footer', 'cookie-consent']`).
+3. Add a descriptive paragraph in the same file noting selectors, slots, and the token contract Claude.ai Design should respect.
+
+To target child slots from `content/design-overrides.css`, give them `data-slot="<name>"` attributes (e.g. `<button data-slot="accept">`). Designs then target via `[data-component="..."] [data-slot="..."]`.
+
+## Theming + WCAG
+
+`scripts/generate-theme.ts` produces `src/styles/theme.css` from `content/brand.json` + `content/design.json`. After computing the palette, it verifies a set of foreground/background pairs against WCAG AA (4.5 : 1) and prints warnings for failures. The site still renders on a failed pair — the verifier is a soft alert, not a build gate, because brand palettes are externally driven and stopping the build mid-deliverable would be worse than shipping a warning.
+
+When adding a new color combination to the site, add its pair to `REQUIRED_PAIRS` in `generate-theme.ts`. For combinations that use Tailwind's `/N` opacity syntax, approximate the rendered color via `chroma.mix(bg, fg, N/100, 'rgb')` — that's what the new footer `text-background/90` pair does.
+
+## Security headers
+
+Set in `next.config.ts`'s `headers()` function, applied to `/:path*`:
+
+- `X-Content-Type-Options: nosniff` — prevents MIME-type sniffing.
+- `X-Frame-Options: SAMEORIGIN` — prevents clickjacking via iframe.
+- `Referrer-Policy: strict-origin-when-cross-origin` — limits referrer leakage.
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()` — denies feature access by default.
+
+CSP is intentionally not yet set — see `CHANGELOG.md`'s Deferred section. When you add CSP, deploy in `Content-Security-Policy-Report-Only` mode first and watch the report endpoint for violations from GTM, Google Maps, next/image, and Resend before flipping to enforce mode.
+
+## Per-client clone workflow
+
+The template is designed to be cloned per client (not consumed as a shared dependency). Each client clone:
+
+1. `git clone … <client-slug>-site`
+2. `npm install`
+3. `npm run unpack ~/Downloads/<client>-content-package.zip`
+4. Edit `site.config.ts` for `siteUrl`, `legalLinks`, `forms.*`.
+5. Set `RESEND_API_KEY` (+ optional `NEXT_PUBLIC_GA4_ID` / `NEXT_PUBLIC_GTM_ID`) in `.env.local`.
+6. `npm run dev`, verify, commit.
+7. Optionally: `npm run export-brief` → Claude.ai Design → save `content/design-overrides.css`.
+
+Re-running `npm run unpack` with a fresh deliverable overwrites `content/` and regenerates `src/styles/theme.css`. Hand-edits to `content/design-overrides.css`, `site.config.ts`, and source code are preserved.

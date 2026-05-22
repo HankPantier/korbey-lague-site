@@ -369,3 +369,9 @@ You don't need to re-export to *use* an existing `design-overrides.css` — just
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs on every push and pull request to `main`. It executes lint → `tsc --noEmit` → `npm test` → `npm run build` on Node 20. A red CI status almost always means: an env mismatch (Node version), a typecheck regression, or a parser-test failure caused by an `md-utils` change.
+
+## Further reading
+
+- **[`CHANGELOG.md`](./CHANGELOG.md)** — recent changes grouped by Added / Changed / Fixed / Security / Deferred.
+- **[`docs/architecture.md`](./docs/architecture.md)** — design rationale for forms + email, analytics + consent, design-brief integration, theming + WCAG, and the security model. Read this before extending those subsystems.
+- **[`docs/superpowers/specs/`](./docs/superpowers/specs/)** — historical design specs for major features (analytics + consent currently).

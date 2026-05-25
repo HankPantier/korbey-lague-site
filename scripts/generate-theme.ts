@@ -54,6 +54,32 @@ function setLightness(hex: string, targetL: number): string {
   }
 }
 
+/**
+ * Helper: Nudge a surface (background) color's lightness until it reaches the
+ * WCAG contrast `minRatio` against the given foreground, preserving hue +
+ * saturation. Darkens when the foreground is the lighter of the pair, lightens
+ * otherwise — so it always converges (contrast grows without bound toward the
+ * opposite extreme). A no-op when the pair already passes.
+ *
+ * Why: client brand palettes are externally driven and a borderline surface
+ * (e.g. a mid-gray `secondary`) can ship just under AA. This auto-corrects the
+ * shipped surface by an imperceptible amount instead of failing the audit.
+ */
+function ensureContrast(bgHex: string, fgHex: string, minRatio = 4.5): string {
+  try {
+    if (chroma.contrast(bgHex, fgHex) >= minRatio) return bgHex
+    const darkenBg = chroma(fgHex).luminance() > chroma(bgHex).luminance()
+    const startL = Math.round(chroma(bgHex).get('hsl.l') * 100)
+    for (let l = startL; l >= 0 && l <= 100; darkenBg ? l-- : l++) {
+      const candidate = setLightness(bgHex, l)
+      if (chroma.contrast(candidate, fgHex) >= minRatio) return candidate
+    }
+    return setLightness(bgHex, darkenBg ? 0 : 100)
+  } catch {
+    return bgHex
+  }
+}
+
 async function main() {
   try {
     // 1. Read brand.json and design.json
@@ -87,6 +113,13 @@ async function main() {
       palette.nearBlack
     )
 
+    // Auto-correct any brand surface that ships just under WCAG AA against its
+    // chosen foreground. No-op for pairs that already pass (primary / accent
+    // here); nudges a borderline `secondary` by an imperceptible amount.
+    const primaryBg = ensureContrast(palette.primary, primaryFg)
+    const secondaryBg = ensureContrast(palette.secondary, secondaryFg)
+    const accentBg = ensureContrast(palette.complementary, accentFg)
+
     // Derive muted colors. nearBlack → ~40% L gives a mid-gray for body-secondary
     // text. nearWhite → ~95% L gives an off-white muted surface. nearWhite →
     // ~90% L gives a light-gray border.
@@ -109,9 +142,9 @@ async function main() {
 
     const REQUIRED_PAIRS: Array<{ name: string; bg: string; fg: string; minRatio: number }> = [
       { name: 'foreground / background',         bg: palette.nearWhite,     fg: palette.nearBlack, minRatio: 4.5 },
-      { name: 'primary-fg / primary',            bg: palette.primary,       fg: primaryFg,         minRatio: 4.5 },
-      { name: 'secondary-fg / secondary',        bg: palette.secondary,     fg: secondaryFg,       minRatio: 4.5 },
-      { name: 'accent-fg / accent',              bg: palette.complementary, fg: accentFg,          minRatio: 4.5 },
+      { name: 'primary-fg / primary',            bg: primaryBg,             fg: primaryFg,         minRatio: 4.5 },
+      { name: 'secondary-fg / secondary',        bg: secondaryBg,           fg: secondaryFg,       minRatio: 4.5 },
+      { name: 'accent-fg / accent',              bg: accentBg,              fg: accentFg,          minRatio: 4.5 },
       { name: 'muted-fg / muted',                bg: muted,                 fg: mutedForeground,   minRatio: 4.5 },
       { name: 'footer muted text (text-bg/90)',  bg: palette.nearBlack,     fg: footerMutedText,   minRatio: 4.5 },
     ]
@@ -133,12 +166,13 @@ async function main() {
  * Edit brand.json / design.json and rerun the script instead of editing this file. */
 
 @theme {
-  /* Palette → shadcn semantic CSS variables (HSL space-separated) */
-  --color-primary: hsl(${toHslTokens(palette.primary)});
+  /* Palette → shadcn semantic CSS variables (HSL space-separated).
+   * Surface tokens use the AA-corrected backgrounds (see ensureContrast). */
+  --color-primary: hsl(${toHslTokens(primaryBg)});
   --color-primary-foreground: hsl(${toHslTokens(primaryFg)});
-  --color-secondary: hsl(${toHslTokens(palette.secondary)});
+  --color-secondary: hsl(${toHslTokens(secondaryBg)});
   --color-secondary-foreground: hsl(${toHslTokens(secondaryFg)});
-  --color-accent: hsl(${toHslTokens(palette.complementary)});
+  --color-accent: hsl(${toHslTokens(accentBg)});
   --color-accent-foreground: hsl(${toHslTokens(accentFg)});
   --color-background: hsl(${toHslTokens(palette.nearWhite)});
   --color-foreground: hsl(${toHslTokens(palette.nearBlack)});
@@ -192,11 +226,11 @@ async function main() {
 
 :root {
   /* Duplicate in :root for shadcn components that read vars directly */
-  --color-primary: hsl(${toHslTokens(palette.primary)});
+  --color-primary: hsl(${toHslTokens(primaryBg)});
   --color-primary-foreground: hsl(${toHslTokens(primaryFg)});
-  --color-secondary: hsl(${toHslTokens(palette.secondary)});
+  --color-secondary: hsl(${toHslTokens(secondaryBg)});
   --color-secondary-foreground: hsl(${toHslTokens(secondaryFg)});
-  --color-accent: hsl(${toHslTokens(palette.complementary)});
+  --color-accent: hsl(${toHslTokens(accentBg)});
   --color-accent-foreground: hsl(${toHslTokens(accentFg)});
   --color-background: hsl(${toHslTokens(palette.nearWhite)});
   --color-foreground: hsl(${toHslTokens(palette.nearBlack)});

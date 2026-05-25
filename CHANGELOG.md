@@ -2,6 +2,19 @@
 
 All notable changes to this template are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project loosely follows semver — though as a per-client template, "release" means "checkpoint on `main`" rather than a published package version.
 
+## [Unreleased] — 2026-05-24 deferred-items cleanup
+
+Clears the three items left in the 2026-05-22 "Deferred" list below.
+
+### Fixed
+- **`secondary-fg / secondary` contrast now passes WCAG AA.** Was 4.47 : 1, under the 4.5 : 1 threshold. `scripts/generate-theme.ts` gains an `ensureContrast()` step that nudges a brand *surface* token's lightness (preserving hue + saturation) until it meets AA against its chosen foreground — a no-op for pairs that already pass. For the default palette this shifts `--color-secondary` from `hsl(210 5% 45%)` to `hsl(210 5% 44%)`, an imperceptible change that lifts the pair to **4.59 : 1**. Generic by design: any future client palette with a borderline surface is auto-corrected instead of shipping an audit failure. The `REQUIRED_PAIRS` verifier now checks the corrected surfaces.
+
+### Changed
+- **`react-markdown` removed from the FaqAccordion client bundle.** `FaqAccordion.tsx` is now a server wrapper that pre-renders each answer's markdown to a React node and passes it to the new `FaqAccordionClient.tsx` (`'use client'`), which keeps only the interactive Radix accordion. Mirrors the `Form.tsx` / `FormFields.tsx` split. `react-markdown` + `remark-gfm` no longer ship in any client bundle.
+
+### Performance
+- **Image CLS sweep — verified, no code change required.** Audited every `next/image` usage in `LogoBar`, `TeamGrid`, `ContentCards`, and `ChecklistSection`. All already render with `fill` inside space-reserving containers (`h-12`, `aspect-[4/5]`, `aspect-video`, `aspect-[4/3]`), so layout space is reserved before the image loads — no cumulative layout shift. Closed as verified.
+
 ## [Unreleased] — 2026-05-22 audit + features pass
 
 ### Added
@@ -85,7 +98,7 @@ The following defense-in-depth changes are summarized in **Fixed** above but wor
   - `extraOrigins: string[]` — additional origins added to `script-src`, `style-src`, `connect-src`, `img-src`, and `frame-src` all at once. Example: `['https://*.calendly.com', 'https://*.stripe.com']`. Per-directive control requires editing `buildCsp()` directly.
 
 ### Deferred
-*(nothing currently deferred; all audit items shipped)*
-- **`secondary-fg / secondary` contrast pair** ships at 4.47 : 1 vs. the 4.5 : 1 AA threshold. Pre-existing palette tuning issue surfaced by the new contrast verifier; not caused by any change in this pass.
-- **react-markdown in `FaqAccordion.tsx` client bundle.** Same fix pattern as Form (pre-render markdown to React nodes server-side, pass as ReactNode prop). Lower priority than Form because the FAQ block ships on fewer pages.
-- **Image aspect-ratio sweep** across LogoBar, TeamGrid, ContentCards, ChecklistSection. Without measured CLS impact, deferred to a CLS-driven follow-up.
+These three items were carried out of this pass and **all resolved in the 2026-05-24 deferred-items cleanup** (see the section above):
+- **`secondary-fg / secondary` contrast pair** shipped at 4.47 : 1 vs. the 4.5 : 1 AA threshold. → Fixed (now 4.59 : 1).
+- **react-markdown in `FaqAccordion.tsx` client bundle.** → Fixed (server/client split).
+- **Image aspect-ratio sweep** across LogoBar, TeamGrid, ContentCards, ChecklistSection. → Verified already CLS-safe; no change needed.

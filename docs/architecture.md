@@ -27,6 +27,8 @@ If `RESEND_API_KEY` is missing or blank, `/api/contact` returns 503 and the clie
 
 `Form.tsx` is a server component that pre-renders the optional markdown `intro` and `sidebar_content` and passes them as React nodes to the new `FormFields.tsx` client component. This keeps `react-markdown` and `remark-gfm` out of the contact/quote/newsletter/custom route client bundles (~60 KB gzipped saved). When extending the form, follow the same pattern: any markdown rendering belongs in the server wrapper.
 
+The same split applies to the FAQ block: `FaqAccordion.tsx` (server) pre-renders each answer's markdown to a React node and hands the array to `FaqAccordionClient.tsx` (`'use client'`), which owns only the interactive Radix accordion. It's the canonical pattern for any block that needs both markdown rendering and client interactivity — render markdown in the server wrapper, pass `ReactNode`s to the client island. The remaining markdown-rendering blocks (`TeamGrid`, `ContentCards`, `ProcessSteps`, etc.) are already pure server components, so `react-markdown` ships in zero client bundles.
+
 ### Security model for `/api/contact`
 
 Layered defenses, in order of execution:
@@ -124,6 +126,8 @@ If you add a route segment config (`export const runtime = 'nodejs'`, `export co
 ## Theming + WCAG
 
 `scripts/generate-theme.ts` produces `src/styles/theme.css` from `content/brand.json` + `content/design.json`. After computing the palette, it verifies a set of foreground/background pairs against WCAG AA (4.5 : 1) and prints warnings for failures. The site still renders on a failed pair — the verifier is a soft alert, not a build gate, because brand palettes are externally driven and stopping the build mid-deliverable would be worse than shipping a warning.
+
+Before that verification, each brand *surface* token (`primary`, `secondary`, `accent`) passes through `ensureContrast(bg, fg)`, which nudges the surface's lightness — preserving hue + saturation — until it meets AA against its chosen foreground. It darkens when the foreground is the lighter of the pair and lightens otherwise, so it always converges; it's a no-op for pairs that already pass. This auto-corrects the common case of a borderline mid-tone surface (the default palette's `secondary` shipped at 4.47 : 1 and is nudged from 45% → 44% lightness to reach 4.59 : 1) without a human editing `brand.json`. The verifier still runs afterward and warns if anything *else* (e.g. a foreground/background or muted pair it doesn't auto-correct) is below threshold. `ensureContrast` only adjusts the semantic surface tokens (`--color-secondary` etc.); the exact brand-hex tokens (`--color-primary-hex`, `--color-complementary`) are left untouched.
 
 When adding a new color combination to the site, add its pair to `REQUIRED_PAIRS` in `generate-theme.ts`. For combinations that use Tailwind's `/N` opacity syntax, approximate the rendered color via `chroma.mix(bg, fg, N/100, 'rgb')` — that's what the new footer `text-background/90` pair does.
 

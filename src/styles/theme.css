@@ -2,10 +2,11 @@
  * Edit brand.json / design.json and rerun the script instead of editing this file. */
 
 @theme {
-  /* Palette → shadcn semantic CSS variables (HSL space-separated) */
+  /* Palette → shadcn semantic CSS variables (HSL space-separated).
+   * Surface tokens use the AA-corrected backgrounds (see ensureContrast). */
   --color-primary: hsl(209 100% 22%);
   --color-primary-foreground: hsl(36 24% 96%);
-  --color-secondary: hsl(210 5% 45%);
+  --color-secondary: hsl(210 5% 44%);
   --color-secondary-foreground: hsl(36 24% 96%);
   --color-accent: hsl(9 60% 45%);
   --color-accent-foreground: hsl(36 24% 96%);
@@ -63,7 +64,7 @@
   /* Duplicate in :root for shadcn components that read vars directly */
   --color-primary: hsl(209 100% 22%);
   --color-primary-foreground: hsl(36 24% 96%);
-  --color-secondary: hsl(210 5% 45%);
+  --color-secondary: hsl(210 5% 44%);
   --color-secondary-foreground: hsl(36 24% 96%);
   --color-accent: hsl(9 60% 45%);
   --color-accent-foreground: hsl(36 24% 96%);

@@ -3,6 +3,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { pageUrlToFilename } from '../src/lib/content/get-page'
+import { parsePageMd } from '../src/lib/assembly/parse-page-md'
 
 type Finding = { severity: 'error' | 'warning'; file: string; message: string }
 
@@ -46,6 +47,18 @@ async function main() {
     for (const file of files) {
       const raw = await fs.readFile(path.join(pagesDir, file), 'utf-8')
       const { data, content } = matter(raw)
+
+      // Frontmatter shape — Zod-validate via parsePageMd. Catches deliverable
+      // typos (e.g. faq_block in the wrong shape) before they ship.
+      try {
+        parsePageMd(raw)
+      } catch (err) {
+        findings.push({
+          severity: 'error',
+          file: `pages/${file}`,
+          message: `frontmatter invalid: ${err instanceof Error ? err.message : String(err)}`,
+        })
+      }
 
       // Frontmatter: hero_image field
       if (typeof data.hero_image === 'string' && data.hero_image) {

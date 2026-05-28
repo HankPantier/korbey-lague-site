@@ -1,8 +1,13 @@
 import type { NextConfig } from 'next'
 import { withBotId } from 'botid/next/config'
+import nextBundleAnalyzer from '@next/bundle-analyzer'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { siteConfig } from './site.config'
+
+const withBundleAnalyzer = nextBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 /**
  * Build the Content-Security-Policy header value.
@@ -171,4 +176,7 @@ const nextConfig: NextConfig = {
 // origin, already covered by script-src 'self' / connect-src 'self' in
 // buildCsp() above — no CSP change needed. It only adds rewrites, so the
 // redirects()/headers() above are untouched.
-export default withBotId(nextConfig)
+//
+// withBundleAnalyzer is a no-op unless ANALYZE=true; when on it emits an
+// interactive bundle report (run `npm run analyze`).
+export default withBundleAnalyzer(withBotId(nextConfig))

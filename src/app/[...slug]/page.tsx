@@ -101,14 +101,16 @@ function renderHeroBlock(manifest: Parameters<typeof extractHeroProps>[0]): Reac
 export default async function DynamicPage({ params }: Props) {
   const { slug } = await params
   if (slug[0] === EMPTY_PLACEHOLDER) notFound()
-  let md: string
+  let manifest: ReturnType<typeof parsePageMd>
   try {
-    md = await getPageMarkdown(slugToUrl(slug))
-  } catch {
+    const md = await getPageMarkdown(slugToUrl(slug))
+    manifest = parsePageMd(md)
+  } catch (err) {
+    // Missing file OR malformed frontmatter (Zod). The validate-deliverable
+    // script catches the latter at CI time; the runtime fallback is notFound.
+    console.error('[page] Failed to load/parse:', err)
     notFound()
   }
-
-  const manifest = parsePageMd(md)
   const brand = await getBrandConfig()
 
   return (

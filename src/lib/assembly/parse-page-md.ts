@@ -5,6 +5,7 @@
  */
 
 import matter from 'gray-matter'
+import { PageFrontmatterSchema } from './page-frontmatter-schema'
 
 export type PageSection = {
   blockId: string
@@ -66,7 +67,11 @@ function trimMetadataTrailer(body: string): string {
 
 export function parsePageMd(markdown: string): PageManifest {
   const parsed = matter(markdown)
-  const fm = parsed.data as Record<string, unknown>
+  // Validate the frontmatter shape via Zod. Throws on type mismatches (e.g.
+  // `faq_block: "broken"` instead of an array) so the validate-deliverable
+  // script can fail CI before a malformed deliverable ships. Missing fields
+  // fall back to safe defaults — old deliverables keep building.
+  const fm = PageFrontmatterSchema.parse(parsed.data)
   const body = trimMetadataTrailer(parsed.content)
 
   /**
@@ -127,28 +132,22 @@ export function parsePageMd(markdown: string): PageManifest {
     : sections
 
   return {
-    title: String(fm.title ?? ''),
-    url: String(fm.url ?? '/'),
-    meta_title: String(fm.meta_title ?? ''),
-    meta_description: String(fm.meta_description ?? ''),
-    target_keyword: String(fm.target_keyword ?? ''),
-    canonical_url: String(fm.canonical_url ?? ''),
-    schema_markup: String(fm.schema_markup ?? 'WebPage'),
-    hero_block: String(fm.hero ?? fm.hero_block ?? 'page-header'),
-    hero_variant: typeof fm.hero_variant === 'string' ? fm.hero_variant : undefined,
-    hero_image: typeof fm.hero_image === 'string' ? fm.hero_image : undefined,
-    hero_subhead:
-      typeof fm.hero_subhead === 'string' && fm.hero_subhead.trim()
-        ? fm.hero_subhead.trim()
-        : undefined,
-    answer_block: typeof fm.answer_block === 'string' ? fm.answer_block : undefined,
-    eeat_signals: Array.isArray(fm.eeat_signals) ? (fm.eeat_signals as string[]) : undefined,
-    internal_links: Array.isArray(fm.internal_links)
-      ? (fm.internal_links as InternalLink[])
-      : undefined,
-    faq_block: Array.isArray(fm.faq_block) ? (fm.faq_block as FaqItem[]) : undefined,
-    llm_citation_note:
-      typeof fm.llm_citation_note === 'string' ? fm.llm_citation_note : undefined,
+    title: fm.title,
+    url: fm.url,
+    meta_title: fm.meta_title,
+    meta_description: fm.meta_description,
+    target_keyword: fm.target_keyword,
+    canonical_url: fm.canonical_url,
+    schema_markup: fm.schema_markup,
+    hero_block: fm.hero ?? fm.hero_block ?? 'page-header',
+    hero_variant: fm.hero_variant,
+    hero_image: fm.hero_image,
+    hero_subhead: fm.hero_subhead?.trim() || undefined,
+    answer_block: fm.answer_block,
+    eeat_signals: fm.eeat_signals,
+    internal_links: fm.internal_links,
+    faq_block: fm.faq_block,
+    llm_citation_note: fm.llm_citation_note,
     sections: filteredSections,
   }
 }

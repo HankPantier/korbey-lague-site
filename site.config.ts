@@ -39,6 +39,19 @@ export type FormsConfig = {
   // Never commit secrets here. See .env.example.
 }
 
+export type BookingConfig = {
+  /**
+   * 'calendly' loads Calendly's official inline widget (best UX; requires
+   * `https://*.calendly.com` in csp.extraOrigins).
+   * 'iframe' embeds the booking URL as a plain iframe — lighter CSP impact
+   * (still need frame-src for the provider's origin).
+   * 'none' renders nothing; use for clients who don't book online.
+   */
+  provider: 'calendly' | 'iframe' | 'none'
+  /** Full booking URL, e.g. https://calendly.com/firmname/discovery-call. */
+  url: string
+}
+
 export type CspConfig = {
   /**
    * 'enforce'      — sends the Content-Security-Policy header (browsers
@@ -70,6 +83,7 @@ export type SiteConfig = {
   legalLinks: { label: string; url: string }[]
   forms: FormsConfig
   csp: CspConfig
+  booking: BookingConfig
 }
 
 export const siteConfig: SiteConfig = {
@@ -99,5 +113,12 @@ export const siteConfig: SiteConfig = {
     // site loads clean. See docs/how-to-new-site.md, step 7.
     mode: 'report-only',
     extraOrigins: [],
+  },
+  booking: {
+    // Defaults to off so a fresh clone doesn't render a broken widget.
+    // When the client provides a Calendly URL, set `provider: 'calendly'` and
+    // add `'https://*.calendly.com'` to csp.extraOrigins.
+    provider: 'none',
+    url: '',
   },
 }

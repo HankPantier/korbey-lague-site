@@ -563,3 +563,24 @@ export function extractContentTableProps(section: PageSection): ContentTableProp
     caption: parsed?.caption,
   }
 }
+
+// ---------------------------------------------------------------------------
+// Booking
+// ---------------------------------------------------------------------------
+
+export type BookingProps = {
+  heading?: string
+  intro?: string
+}
+
+/**
+ * Booking pulls the URL + provider from site.config.ts, not the page markdown.
+ * The section only carries an optional heading + intro to render above the
+ * embed; the body of the section (if any) is ignored.
+ */
+export function extractBookingProps(section: PageSection): BookingProps {
+  return {
+    heading: section.heading.trim() || undefined,
+    intro: section.content.trim() || undefined,
+  }
+}

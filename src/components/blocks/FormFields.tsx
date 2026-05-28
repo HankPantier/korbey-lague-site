@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/select'
 import type { FormProps } from '@/lib/assembly/extract-block-props'
 import type { FieldDef, FormSubmitResponse } from '@/lib/forms/types'
+import { trackLead } from '@/lib/analytics/track-event'
 import {
   buildCustomFormSchema,
   contactFormSchema,
@@ -331,6 +332,7 @@ export function FormFields({
         })
         if (!res.ok) throw new Error('Submit failed')
         setSubmitted(true)
+        trackLead({ method: 'form_submit', variant })
       } catch {
         setGeneralError('Something went wrong — please try again.')
       } finally {
@@ -344,11 +346,13 @@ export function FormFields({
     const outcome = await submitToApi(variant, fields, { hp: honeypot, t: mountedAt.current }, customFields)
     if (outcome.kind === 'ok') {
       setSubmitted(true)
+      trackLead({ method: 'form_submit', variant })
     } else if (outcome.kind === 'fallback-mailto') {
       const recipient = document.body.dataset.contactEmail ?? ''
       const firmName = document.body.dataset.firmName ?? 'the team'
       openMailtoFallback(fields, firmName, recipient)
       setSubmitted(true)
+      trackLead({ method: 'mailto_fallback', variant })
     } else if (outcome.kind === 'field-errors') {
       setFieldErrors(outcome.errors)
     } else {

@@ -27,6 +27,13 @@ vi.mock('@/lib/brand/get-brand-config', () => ({
   }),
 }))
 
+// Mock Vercel BotID. Same deferred-lookup trick as Resend so the per-test
+// mockResolvedValue takes effect despite vi.mock hoisting.
+const checkBotIdMock = vi.fn()
+vi.mock('botid/server', () => ({
+  checkBotId: (...args: unknown[]) => checkBotIdMock(...args),
+}))
+
 // Import after mocks are registered so the route picks up the mocked Resend.
 import { POST } from './route'
 
@@ -46,6 +53,7 @@ function makeRequest(body: unknown, headers: Record<string, string> = {}): Reque
 beforeEach(() => {
   vi.stubEnv('RESEND_API_KEY', 're_test_key_for_unit_tests')
   sendMock.mockReset().mockResolvedValue({ data: { id: 'msg_test' }, error: null })
+  checkBotIdMock.mockReset().mockResolvedValue({ isBot: false })
 })
 
 afterEach(() => {
@@ -161,5 +169,84 @@ describe('POST /api/contact', () => {
     expect(res.status).toBe(400)
     const body = await res.json()
     expect(body.error).toBe('Invalid JSON body')
+  })
+
+  it('covertly drops a honeypot hit (top-level hp) without emailing', async () => {
+    const res = await POST(makeRequest({
+      variant: 'contact',
+      fields: { name: 'Bot', email: 'b@b.com', message: 'spammy message here' },
+      hp: 'http://spam.example',
+    }))
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ ok: true })
+    expect(sendMock).not.toHaveBeenCalled()
+  })
+
+  it('covertly drops a honeypot hit via the website field name', async () => {
+    const res = await POST(makeRequest({
+      variant: 'contact',
+      fields: { name: 'Bot', email: 'b@b.com', message: 'spammy message here', website: 'filled' },
+    }))
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ ok: true })
+    expect(sendMock).not.toHaveBeenCalled()
+  })
+
+  it('covertly drops a submission that arrives faster than a human', async () => {
+    const res = await POST(makeRequest({
+      variant: 'contact',
+      fields: {
+        name: 'Speedy',
+        email: 'fast@example.com',
+        message: 'A perfectly valid looking message body.',
+      },
+      t: Date.now(), // submitted ~0ms after "mount"
+    }))
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ ok: true })
+    expect(sendMock).not.toHaveBeenCalled()
+  })
+
+  it('covertly drops a link-flood message', async () => {
+    const res = await POST(makeRequest({
+      variant: 'contact',
+      fields: {
+        name: 'Linker',
+        email: 'l@example.com',
+        message: 'http://a.com http://b.com http://c.com http://d.com http://e.com',
+      },
+    }))
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ ok: true })
+    expect(sendMock).not.toHaveBeenCalled()
+  })
+
+  it('still delivers a lightly-suspicious message but flags the subject', async () => {
+    const res = await POST(makeRequest({
+      variant: 'contact',
+      fields: {
+        name: 'Maybe',
+        email: 'maybe@example.com',
+        message: 'Please review http://a.com and http://b.com and www.c.com — thanks!',
+      },
+    }))
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ ok: true })
+    expect(sendMock).toHaveBeenCalledOnce()
+    expect(sendMock.mock.calls[0][0].subject).toContain('[likely spam]')
+  })
+
+  it('returns 403 and does not email when BotID flags the request', async () => {
+    checkBotIdMock.mockResolvedValueOnce({ isBot: true })
+    const res = await POST(makeRequest({
+      variant: 'contact',
+      fields: {
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+        message: 'Hello, I have a genuine question about your services.',
+      },
+    }))
+    expect(res.status).toBe(403)
+    expect(sendMock).not.toHaveBeenCalled()
   })
 })

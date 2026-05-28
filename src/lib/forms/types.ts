@@ -33,6 +33,10 @@ export type FormSubmitPayload = {
   fields: Record<string, string>
   /** Required when variant === 'custom'; the server rebuilds the validation schema from these defs. */
   fieldDefs?: FieldDef[]
+  /** Honeypot value. Lives at the top level (not in `fields`) so the Zod schemas, which strip unknown keys, never discard it before the spam check runs. Always empty for humans. */
+  hp?: string
+  /** Form-mount epoch ms, used by the timing trap. Top-level for the same reason as `hp`. */
+  t?: number
 }
 
 export type FormSubmitResponse =

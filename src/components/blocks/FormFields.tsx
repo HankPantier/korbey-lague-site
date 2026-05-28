@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
@@ -49,16 +49,19 @@ type SubmitOutcome =
 async function submitToApi(
   variant: FormProps['variant'],
   fields: Record<string, string>,
+  meta: { hp: string; t: number },
   customFields?: FieldDef[]
 ): Promise<SubmitOutcome | { kind: 'fallback-mailto' }> {
   const res = await fetch('/api/contact', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ variant, fields, fieldDefs: customFields }),
+    body: JSON.stringify({ variant, fields, fieldDefs: customFields, hp: meta.hp, t: meta.t }),
   })
 
-  // 503 → Resend not configured. Signal the caller to fall back to mailto.
-  if (res.status === 503) return { kind: 'fallback-mailto' }
+  // 503 → Resend not configured. 403 → BotID blocked (or a rare false
+  // positive). Either way, fall back to mailto so a real visitor still has a
+  // path to reach the firm; a bot won't drive a mail client.
+  if (res.status === 503 || res.status === 403) return { kind: 'fallback-mailto' }
 
   let data: FormSubmitResponse | null = null
   try {
@@ -260,6 +263,13 @@ export function FormFields({
   const [generalError, setGeneralError] = useState<string | null>(null)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [honeypot, setHoneypot] = useState('')
+  // Stamped on mount (in an effect, to keep render pure); feeds the server's
+  // timing trap — a submit faster than the threshold is a bot signal. Stays 0
+  // until the effect runs, which the server treats as a soft-pass.
+  const mountedAt = useRef(0)
+  useEffect(() => {
+    mountedAt.current = Date.now()
+  }, [])
 
   // Custom-variant field state — one entry per declared field
   const [customValues, setCustomValues] = useState<Record<string, string>>(() => {
@@ -331,7 +341,7 @@ export function FormFields({
 
     // Otherwise hit the built-in /api/contact route. On 503 (Resend not
     // configured) fall back to mailto: so the form stays functional.
-    const outcome = await submitToApi(variant, fields, customFields)
+    const outcome = await submitToApi(variant, fields, { hp: honeypot, t: mountedAt.current }, customFields)
     if (outcome.kind === 'ok') {
       setSubmitted(true)
     } else if (outcome.kind === 'fallback-mailto') {

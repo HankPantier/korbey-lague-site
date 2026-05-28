@@ -92,7 +92,12 @@ export const siteConfig: SiteConfig = {
     ],
   },
   csp: {
-    mode: 'enforce',
+    // Start new clients in 'report-only' so first-deploy CSP violations (incl.
+    // anything from new third-party embeds, and a sanity check that Vercel
+    // BotID's same-origin challenge isn't blocked) surface in the browser
+    // console without blocking content. Flip to 'enforce' once the deployed
+    // site loads clean. See docs/how-to-new-site.md, step 7.
+    mode: 'report-only',
     extraOrigins: [],
   },
 }

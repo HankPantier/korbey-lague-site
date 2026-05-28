@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { checkBotId } from 'botid/server'
 import { Resend } from 'resend'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { siteConfig } from '../../../../site.config'
@@ -8,6 +9,11 @@ import {
   newsletterFormSchema,
   buildCustomFormSchema,
 } from '@/lib/forms/schemas'
+import {
+  isHoneypotFilled,
+  isSubmittedTooFast,
+  scoreContent,
+} from '@/lib/forms/spam'
 import { buildEmailSubject, buildEmailBody } from '@/lib/forms/email-template'
 import type { FormSubmitResponse, FormSubmitPayload, FieldDef, FormVariant } from '@/lib/forms/types'
 
@@ -45,6 +51,15 @@ function jsonError(
   return NextResponse.json({ ok: false, error, fieldErrors }, { status })
 }
 
+/**
+ * Covert success: returned when a spam heuristic (honeypot / timing / link
+ * flood) trips. We respond exactly like a real success but send no email, so
+ * the spammer gets no signal that the submission was dropped.
+ */
+function covertOk(): NextResponse<FormSubmitResponse> {
+  return NextResponse.json({ ok: true })
+}
+
 function flattenFieldErrors(formatted: Record<string, string[] | undefined>): Record<string, string> {
   const out: Record<string, string> = {}
   for (const [k, v] of Object.entries(formatted)) {
@@ -76,6 +91,26 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
   const { variant, fields, fieldDefs } = payload ?? {}
   if (!variant || typeof fields !== 'object' || fields === null) {
     return jsonError(400, 'Missing variant or fields')
+  }
+
+  // Anti-spam layers 1 + 2 (free, local): honeypot + timing trap. A real
+  // browser leaves the honeypot empty and takes longer than MIN_SUBMIT_MS to
+  // fill the form. On a trip we return a covert success (no email) rather than
+  // an error, so the bot gets nothing to adapt against.
+  // Check both vectors: our client's top-level `hp`, and a `website` key inside
+  // `fields` (the hidden input's name) that a form-scraping bot would fill. Our
+  // real client strips `website` from `fields`, so its presence is itself a tell.
+  const websiteField = (fields as Record<string, unknown>).website
+  if (
+    isHoneypotFilled(payload.hp) ||
+    isHoneypotFilled(typeof websiteField === 'string' ? websiteField : undefined)
+  ) {
+    console.warn('[contact] Honeypot tripped; dropping submission')
+    return covertOk()
+  }
+  if (isSubmittedTooFast(payload.t, Date.now())) {
+    console.warn('[contact] Submission faster than a human; dropping')
+    return covertOk()
   }
 
   // Pick the right schema for the variant
@@ -120,6 +155,16 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
   const validated = parseResult.data
   const submitterName = typeof validated.name === 'string' ? validated.name : undefined
 
+  // Anti-spam layer 3 (free, local): content heuristics. A link flood is
+  // hard-dropped covertly; anything else suspicious is flagged but still
+  // delivered (subject prefix + body note) so the firm never loses a real lead
+  // to a false positive.
+  const content = scoreContent(validated)
+  if (content.drop) {
+    console.warn('[contact] Content hard-drop:', content.reasons.join('; '))
+    return covertOk()
+  }
+
   // Coerce values to strings for the email body
   const stringFields: Record<string, string> = {}
   for (const [k, v] of Object.entries(validated)) {
@@ -127,8 +172,12 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
     stringFields[k] = typeof v === 'string' ? v : String(v)
   }
 
-  const subject = buildEmailSubject(variant as FormVariant, brand.firm.name, submitterName)
-  const text = buildEmailBody(stringFields, variant === 'custom' ? (fieldDefs as FieldDef[]) : undefined)
+  const baseSubject = buildEmailSubject(variant as FormVariant, brand.firm.name, submitterName)
+  const subject = content.flag ? `[likely spam] ${baseSubject}` : baseSubject
+  let text = buildEmailBody(stringFields, variant === 'custom' ? (fieldDefs as FieldDef[]) : undefined)
+  if (content.flag) {
+    text = `⚠ Flagged by spam heuristics: ${content.reasons.join('; ')}\n\n${text}`
+  }
   // Zod's .email() accepts the address shape but does not reject CR/LF, which
   // an attacker could use to inject mail headers (Bcc:, Subject:) downstream.
   // Strip them defensively before handing off to Resend.
@@ -136,6 +185,15 @@ export async function POST(req: Request): Promise<NextResponse<FormSubmitRespons
     typeof validated.email === 'string'
       ? validated.email.replace(/[\r\n]+/g, '').trim()
       : undefined
+
+  // Anti-spam layer 4 (strongest): Vercel BotID invisible challenge. Runs last
+  // so the free local checks reject obvious spam before any (potentially
+  // billable) Deep Analysis call. Inert in local dev / off-Vercel (isBot:false).
+  const verification = await checkBotId()
+  if (verification.isBot) {
+    console.warn('[contact] BotID classified request as a bot')
+    return jsonError(403, 'Request blocked')
+  }
 
   const resend = new Resend(apiKey)
   try {

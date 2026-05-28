@@ -42,7 +42,26 @@ Layered defenses, in order of execution:
 7. **CR/LF strip on replyTo.** Defense in depth — Zod already rejects CR/LF in email format, but the strip protects if a future schema loosens.
 8. **Resend rejection → 502.**
 
-The route is covered by `src/app/api/contact/route.test.ts` (vitest, 8 cases). Mocks Resend via a real `class` so `new Resend(apiKey)` works under vitest's mock factory hoisting.
+The route is covered by `src/app/api/contact/route.test.ts` (vitest). Mocks Resend (and BotID) via a real `class`/deferred-lookup factory so the SDKs work under vitest's mock factory hoisting.
+
+### Spam / abuse defenses
+
+Four independent layers protect the built-in Resend path, in cheapest-first order so free local checks reject obvious spam before the (potentially billable) BotID call:
+
+| Layer | Where | Trip response | Notes |
+|---|---|---|---|
+| 1. Honeypot | `route.ts` via `isHoneypotFilled` (`src/lib/forms/spam.ts`) | **covert 200** `{ok:true}`, no send | Checks both the top-level `hp` our client sends and a `website` key inside `fields` (the hidden input's name) that a form-scraping bot would fill. Our client strips `website` from `fields`, so its presence is itself a tell. |
+| 2. Timing trap | `route.ts` via `isSubmittedTooFast` | **covert 200** | Client stamps form-mount time as `t`; a submit faster than `MIN_SUBMIT_MS` (3s) is a bot. Missing/stale/future `t` soft-passes (never blocks a legit edge case). |
+| 3. Content heuristics | `route.ts` via `scoreContent` | **drop**→covert 200; **flag**→deliver with `[likely spam]` subject + body note | Link density + spam-keyword list. Defaults to *flag-not-drop* because losing a real CPA lead to a false positive is worse than a flagged inbox; only a link flood (≥`URL_DROP_THRESHOLD`) hard-drops. |
+| 4. Vercel BotID | `route.ts` via `checkBotId()` (`botid/server`) | **403** → client falls back to `mailto:` | Invisible challenge against headless/Playwright bots. Wired by `withBotId()` in `next.config.ts` + `initBotId({ protect: [{ path: '/api/contact', method: 'POST' }] })` in `src/instrumentation-client.ts`. |
+
+**Why covert success for layers 1–3:** returning a fake `{ok:true}` (rather than an error) denies spammers any signal to tune against. Layer 4 returns 403 per Vercel's documented pattern; the client (`FormFields.tsx`) maps **both 403 and 503 to the `mailto:` fallback**, so a rare false-positive human still reaches the firm while a bot won't drive a mail client.
+
+**`hp`/`t` live at the payload top level**, not inside `fields`, because the Zod schemas strip unknown keys — they'd be discarded before the spam check otherwise.
+
+**BotID specifics:** Basic mode is free on all plans and **inert in local dev / off-Vercel** (`checkBotId()` returns `isBot:false`), so the layer ships enabled by default without breaking dev or non-Vercel hosts. Deep Analysis (Pro/Enterprise) is an opt-in dashboard toggle — no code change. The challenge is served same-origin (withBotId rewrites), so the existing CSP (`script-src 'self'` / `connect-src 'self'`) already permits it — no `extraOrigins` needed. **External-endpoint clients** (`siteConfig.forms.endpoint` set) bypass `/api/contact` entirely, so these server-side layers don't apply; spam handling is the external provider's job, and the client-side honeypot still runs.
+
+Pure helpers in `src/lib/forms/spam.ts` are unit-tested in `spam.test.ts`; the layered route behavior is covered in `route.test.ts`.
 
 ## Analytics + cookie consent
 

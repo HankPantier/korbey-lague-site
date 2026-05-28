@@ -229,6 +229,19 @@ Forms ship with two paths: the built-in Resend-backed `/api/contact` route, or a
 
 If `RESEND_API_KEY` is missing or blank, the route returns 503 and the client form falls back to a `mailto:` link automatically — the form stays functional even before Resend is wired up.
 
+#### Spam protection (built-in, on by default)
+
+The built-in route layers four defenses with no per-client setup:
+
+1. **Honeypot** — a hidden field bots fill and humans don't.
+2. **Timing trap** — submissions faster than 3 seconds are dropped.
+3. **Content heuristics** — link-flood messages are dropped; lightly suspicious ones are still delivered with a `[likely spam]` subject prefix so you can filter (never silently lost).
+4. **Vercel BotID** — an invisible CAPTCHA that blocks headless/scripted bots. It works automatically once deployed on Vercel (Basic mode is free), is inert in local dev, and needs no keys. To strengthen it, enable **BotID Deep Analysis** in the Vercel dashboard → Firewall → Rules (Pro/Enterprise).
+
+Layers 1–3 respond with a covert "success" so spammers get no feedback; a BotID block (403) and an unconfigured Resend (503) both fall back to the `mailto:` link, so a real visitor always has a path through. Tune thresholds/keywords in `src/lib/forms/spam.ts`. See `docs/architecture.md#spam--abuse-defenses` for the full rationale.
+
+> Note: spam protection applies to the built-in Resend route only. If you set `forms.endpoint` (Path B below), submissions go straight to your external provider, which handles its own spam filtering.
+
 ### Path B — external endpoint
 
 Set `forms.endpoint` to the service URL and `Form.tsx` will POST submissions there directly, skipping `/api/contact` entirely:
@@ -372,6 +385,7 @@ You don't need to re-export to *use* an existing `design-overrides.css` — just
 
 ## Further reading
 
+- **[`docs/how-to-new-site.md`](./docs/how-to-new-site.md)** — start-to-finish runbook for spinning up and deploying a new client site.
 - **[`CHANGELOG.md`](./CHANGELOG.md)** — recent changes grouped by Added / Changed / Fixed / Security / Deferred.
 - **[`docs/architecture.md`](./docs/architecture.md)** — design rationale for forms + email, analytics + consent, design-brief integration, theming + WCAG, and the security model. Read this before extending those subsystems.
 - **[`docs/superpowers/specs/`](./docs/superpowers/specs/)** — historical design specs for major features (analytics + consent currently).

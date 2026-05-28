@@ -2,6 +2,22 @@
 
 All notable changes to this template are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project loosely follows semver — though as a per-client template, "release" means "checkpoint on `main`" rather than a published package version.
 
+## [Unreleased] — 2026-05-25 form spam protection
+
+Layered spam / bogus-entry defenses on the built-in Resend contact route, all **on by default** in every client clone. Rate limiting was intentionally left out of this pass (see Deferred).
+
+### Added
+- **Vercel BotID** (`botid`) — invisible CAPTCHA against headless/Playwright bots. `next.config.ts` is wrapped with `withBotId()`; `src/instrumentation-client.ts` calls `initBotId({ protect: [{ path: '/api/contact', method: 'POST' }] })`; the route calls `checkBotId()` and returns 403 on a bot. Basic mode is free, inert in local dev / off-Vercel, served same-origin so no CSP change is needed. Deep Analysis is an opt-in Vercel dashboard toggle.
+- **`src/lib/forms/spam.ts`** — pure, unit-tested heuristics: server-side honeypot (`isHoneypotFilled`), timing trap (`isSubmittedTooFast`, 3s minimum), and content scoring (`scoreContent` — link density + spam-keyword list). Covered by `src/lib/forms/spam.test.ts`.
+- **`/api/contact` spam layers** in cheapest-first order: honeypot → timing → content → BotID, ahead of the Resend send. Honeypot/timing/link-flood return a **covert `{ok:true}`** (no email, no signal to spammers); lightly suspicious content is still delivered with a `[likely spam]` subject prefix + body note so no real lead is lost. New `route.test.ts` cases cover each layer.
+
+### Changed
+- **`FormSubmitPayload`** gained top-level `hp` (honeypot) and `t` (form-mount timestamp) fields — kept out of `fields` so the Zod schemas (which strip unknown keys) don't discard them before the spam check.
+- **`FormFields.tsx`** now sends `hp` + `t` with each built-in submission and treats a **403 like a 503** → `mailto:` fallback, so a rare false-positive human still reaches the firm.
+
+### Deferred
+- **Rate limiting** — skipped for now. Future options: Vercel WAF rate rules (no app code) or Upstash Redis (Marketplace) + `@upstash/ratelimit` for durable per-IP limits on Fluid/serverless.
+
 ## [Unreleased] — 2026-05-24 deferred-items cleanup
 
 Clears the three items left in the 2026-05-22 "Deferred" list below.

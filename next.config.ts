@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { withBotId } from 'botid/next/config'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { siteConfig } from './site.config'
@@ -159,4 +160,9 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+// withBotId injects same-origin proxy rewrites for the BotID challenge so
+// ad-blockers / CSP don't weaken it. The challenge JS + fetch stay on our own
+// origin, already covered by script-src 'self' / connect-src 'self' in
+// buildCsp() above — no CSP change needed. It only adds rewrites, so the
+// redirects()/headers() above are untouched.
+export default withBotId(nextConfig)

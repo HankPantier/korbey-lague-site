@@ -2,6 +2,57 @@
 
 All notable changes to this template are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project loosely follows semver — though as a per-client template, "release" means "checkpoint on `main`" rather than a published package version.
 
+## [Unreleased] — 2026-05-28 agent-readiness pass
+
+Compared the codebase against the "agent-ready website" best-practices
+([suganthan.com/blog/how-to-make-website-agent-ready](https://suganthan.com/blog/how-to-make-website-agent-ready))
+and closed the three real gaps. Most of the article's checklist was already
+satisfied (per-page JSON-LD, OG / Twitter card metadata, canonical URLs,
+semantic HTML + Microdata, dynamic sitemap, CLS-safe layout).
+
+### Added
+- **Default `public/robots.txt`** with explicit `Allow:` rules for GPTBot,
+  ClaudeBot, anthropic-ai, PerplexityBot, CCBot, OAI-SearchBot, and
+  Google-Extended, plus a `Sitemap:` line. Fresh clones are no longer blank
+  to AI bots; the Phase I deliverable's `robots.txt` overwrites this default
+  when unpacked.
+- **Markdown endpoint** for every page. `src/proxy.ts` (Next 16's renamed
+  middleware) rewrites `<page>.md` URLs to a new optional-catch-all route
+  handler `src/app/api/md/[[...slug]]/route.ts` that serves `text/markdown`.
+  Frontmatter is preserved (machine-readable metadata) and block annotations
+  (`<!-- block: ... -->`) are stripped via the new pure helper
+  `src/lib/content/strip-block-annotations.ts` (7 vitest cases). The proxy
+  also appends a per-URL `Link: <foo.md>; rel="alternate";
+  type="text/markdown"` header on every HTML page response so agents can
+  discover the markdown via a `curl -I`.
+- **Global `Link` headers** in `next.config.ts`:
+  `</llms.txt>; rel="describedby"; type="text/markdown"` and
+  `</sitemap.xml>; rel="sitemap"`.
+
+### Changed
+- `docs/architecture.md` — new "Agent readiness" section documents the
+  layered design (robots.txt default + Link headers + .md endpoint + the
+  deliberately-out-of-scope items: OpenAPI / WebMCP / MCP server card stay
+  *off* so `/api/contact` isn't advertised to the bots the BotID layer is
+  there to block).
+- `docs/how-to-new-site.md` — step 2 notes the robots.txt default + overwrite
+  behavior; step 5 includes optional `curl -I` checks for the Link headers
+  and the `.md` endpoint.
+- `README.md` — new "Agent readiness" section linking the deeper doc.
+
+### Tests
+- `strip-block-annotations.test.ts` (7) — pure helper edges.
+- `src/app/api/md/[[...slug]]/route.test.ts` (2) — handler returns
+  `text/markdown` w/ frontmatter + stripped annotations on hit; `404` on miss.
+- `src/proxy.test.ts` (4) — rewrite branch for `.md` URLs (incl. `/index.md`
+  → `/api/md` and slug shapes); Link-header branch for HTML pages.
+- Total: **125 → 138 tests** across 7 test files.
+
+### Out of scope (recorded)
+- Sitewide `Organization` JSON-LD in the root layout, and a
+  `/.well-known/agent.json` (A2A) — Tier 2 items in the analysis; can be
+  added in a later pass.
+
 ## [Unreleased] — 2026-05-25 form spam protection
 
 Layered spam / bogus-entry defenses on the built-in Resend contact route, all **on by default** in every client clone. Rate limiting was intentionally left out of this pass (see Deferred).

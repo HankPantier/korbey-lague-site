@@ -199,6 +199,47 @@ What it does NOT block: inline `<script>` injection, because `'unsafe-inline'` a
 
 If the violations are in a directive other than the five `extraOrigins` covers (e.g. `worker-src`, `media-src`, `manifest-src`), edit `buildCsp()` in `next.config.ts` directly.
 
+## Agent readiness
+
+The site is built to be readable by LLM crawlers / AI agents as well as humans. Four layers cooperate, none of which need per-client setup:
+
+### `robots.txt`
+
+A template default ships at `public/robots.txt` with explicit `Allow:` blocks for the known AI crawlers (GPTBot, ClaudeBot, anthropic-ai, PerplexityBot, CCBot, OAI-SearchBot, Google-Extended) plus a `Sitemap:` line. A fresh clone is therefore never "blank" to AI bots. When the Phase I deliverable is unpacked, **its `public/robots.txt` overwrites the template default** — clients who want to tighten access edit that file (or the deliverable generator).
+
+### `Link` headers — site-wide and per-page
+
+Set in `next.config.ts`'s `headers()`, applied to `/:path*`:
+
+- `Link: </llms.txt>; rel="describedby"; type="text/markdown"` — RFC 8288 hint pointing agents at the LLM-crawler narrative shipped in the deliverable
+- `Link: </sitemap.xml>; rel="sitemap"` — sitemap discovery via header (in addition to robots.txt)
+
+A per-URL `Link: <foo.md>; rel="alternate"; type="text/markdown"` is appended by `src/proxy.ts` for every HTML page response, telling agents the markdown companion exists at `<page>.md`. The two static and one dynamic Link header all compose into the same response (RFC 8288 permits multiple Link headers).
+
+### Markdown endpoint (`<page>.md`)
+
+The content already lives as markdown at `content/pages/*.md`; the agent-readiness pass simply *serves* it.
+
+- **`src/proxy.ts`** (formerly "middleware" — Next 16 renamed the convention) intercepts any URL ending in `.md`, except `/_next/*`, `/api/*`, and other static-asset extensions. It rewrites `/index.md` → `/api/md` and `/services/virtual-cfo.md` → `/api/md/services/virtual-cfo`. Rewrite preserves the visible URL — the browser address bar still shows `.md`.
+- **`src/app/api/md/[[...slug]]/route.ts`** is an optional-catch-all GET handler that calls `getPageMarkdown(url)` (already `'use cache' + cacheLife('max')`), runs `stripBlockAnnotations`, and responds with `Content-Type: text/markdown; charset=utf-8` plus a long `s-maxage`. Optional catch-all lets one handler serve both the home page and any subpage.
+- **`src/lib/content/strip-block-annotations.ts`** removes the assembly-layer HTML comments (`<!-- block: feature-grid | variant: 3-col -->`) that are noise to a reader. Frontmatter is *kept* — agents get the machine-readable `title`, `canonical_url`, `schema_markup`, etc. without the HTML cruft.
+
+Why not `Accept: text/markdown` content negotiation on the same URL? Two reasons. (1) PPR + per-request `Accept`-header branching needs Suspense gymnastics to stay statically prerenderable. (2) `.md` URLs are explicit, cacheable, and discoverable in a `curl -I` response via the Link header — no header detection needed.
+
+### Existing structured data (unchanged, kept for SEO)
+
+- `src/components/layout/SchemaScript.tsx` emits per-page JSON-LD: `WebPage` by default, `LocalBusiness` w/ `PostalAddress` when the page frontmatter sets `schema_markup: LocalBusiness`, and a separate `FAQPage` blob when the FAQ block is present.
+- Microdata `itemScope` / `itemType` on people (`TeamGrid`) and addresses (`ContactInfo`).
+- `generateMetadata()` in the two page handlers emits canonical URLs, OG, and Twitter Card metadata.
+
+JSON-LD has weak evidence as an agent-citation signal (multiple AI systems strip it at runtime), so we don't add more — but it's free SEO that we keep. The higher-leverage move for agents is the **markdown endpoint** above.
+
+### Deliberately out of scope
+
+- **OpenAPI / `rel="service-desc"` for `/api/contact`** — would advertise the contact route to bots, undermining the BotID + spam-layer work in the previous pass. Not added.
+- **WebMCP / `navigator.modelContext.provideContext`** — no actionable agent tools on a marketing site; the contact form is the only action and we *don't* want agents driving it.
+- **`/.well-known/mcp/server-card.json`** — we don't run an MCP server.
+
 ## Per-client clone workflow
 
 The template is designed to be cloned per client (not consumed as a shared dependency). Each client clone:

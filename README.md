@@ -363,6 +363,19 @@ You don't need to re-export to *use* an existing `design-overrides.css` — just
 - **SEO files:** `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`, `public/llms-full.txt` are served as-is. Edit directly.
 - **Images:** drop logo/team/hero photos into `public/content-assets/`. Reference them in the .md frontmatter or JSON configs by filename (e.g., `hero_image: hero-office.jpg` → served at `/content-assets/hero-office.jpg`).
 
+## Agent readiness (LLM crawlers / AI agents)
+
+Every page is also served as raw markdown at `<page>.md` (e.g. `/index.md`,
+`/services/virtual-cfo.md`) for agents that prefer markdown over HTML —
+frontmatter preserved, block annotations stripped. The HTML response advertises
+the markdown companion via a `Link: rel="alternate"; type="text/markdown"`
+header, and the site root advertises `Link: </llms.txt>; rel="describedby"`
+plus `Link: </sitemap.xml>; rel="sitemap"`. A template default `public/robots.txt`
+ships with explicit Allow rules for GPTBot, ClaudeBot, PerplexityBot, CCBot,
+anthropic-ai, OAI-SearchBot, and Google-Extended; the Phase I deliverable's
+own `robots.txt` overwrites it when unpacked. See
+[`docs/architecture.md`](./docs/architecture.md#agent-readiness) for the design rationale.
+
 ## Available scripts
 
 | Command | What it does |

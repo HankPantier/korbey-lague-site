@@ -48,6 +48,11 @@ overwrites `content/` and `public/` and regenerates `src/styles/theme.css`. Your
 hand-edits to `site.config.ts`, `content/design-overrides.css`, and source code are
 left untouched.
 
+> The template ships a default `public/robots.txt` (with explicit Allow rules for
+> GPTBot / ClaudeBot / PerplexityBot / etc.). The deliverable's own `robots.txt`
+> **overwrites** it when unpacked. If the client wants to tighten or loosen AI-crawler
+> access, edit `public/robots.txt` after this step.
+
 ---
 
 ## 3. Configure `site.config.ts`
@@ -100,6 +105,12 @@ Check:
 - Any configured redirect 301s (dev console logs `Loaded N redirect(s)` at startup).
 - Submit the contact form — with `RESEND_API_KEY` set it emails; without it, opens a
   `mailto:`. (BotID does nothing locally — that's expected; it's verified post-deploy.)
+- **Agent-readiness sanity** (optional but quick):
+  ```bash
+  curl -I http://localhost:3000/                  # expect Link: rel=describedby + rel=sitemap + rel=alternate
+  curl http://localhost:3000/index.md             # expect text/markdown with frontmatter, no <!-- block: ... --> comments
+  curl http://localhost:3000/services/virtual-cfo.md  # same, for any unpacked subpage
+  ```
 
 Then run the quality gate before committing:
 

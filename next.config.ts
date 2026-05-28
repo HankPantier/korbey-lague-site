@@ -146,6 +146,12 @@ const nextConfig: NextConfig = {
       { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
       { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
       { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+      // Agent-discovery hints (RFC 8288): point well-known agent crawlers at the
+      // llms.txt summary and the sitemap. Per-page `Link: rel=alternate;
+      // type=text/markdown` for the .md companion is added by src/proxy.ts since
+      // it varies by URL.
+      { key: 'Link', value: '</llms.txt>; rel="describedby"; type="text/markdown"' },
+      { key: 'Link', value: '</sitemap.xml>; rel="sitemap"' },
     ]
     const mode = siteConfig.csp.mode
     if (mode !== 'off') {

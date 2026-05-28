@@ -26,10 +26,17 @@ starting point, not a shared dependency.
 ```bash
 git clone https://github.com/HankPantier/CountingFiveTemplate.git <client-slug>-site
 cd <client-slug>-site
-npm install
 ```
 
 Pick a folder name that fits the client (e.g. `korbey-lague-site`).
+
+**Shortcut:** instead of running steps 2 + 5 (`npm install` then `npm run unpack <zip>`) separately, you can collapse them with:
+
+```bash
+npm run new-client ~/Downloads/content-package.zip
+```
+
+This installs deps, unpacks the deliverable, runs `validate`, and commits the unpacked state in one go. Re-run-safe: each step is idempotent.
 
 ---
 
@@ -182,11 +189,16 @@ Your `site.config.ts`, `content/design-overrides.css`, and source changes surviv
 |---|---|
 | `npm run dev` | Dev server |
 | `npm run build` / `npm run start` | Production build / serve |
+| `npm run analyze` | Production build with the bundle analyzer (`ANALYZE=true`) |
 | `npm run unpack <zip>` | Unpack a Phase I deliverable + regenerate theme |
-| `npm run validate` | Sanity-check a deliverable |
+| `npm run new-client <zip>` | One-shot: install + unpack + validate + initial commit |
+| `npm run validate` | Sanity-check a deliverable (frontmatter, files, image refs) |
 | `npm run export-brief` | Generate the Claude.ai design brief |
+| `npm run design-preview` | Watch `content/` + auto-re-export the brief on change |
 | `npx tsx scripts/generate-theme.ts` | Regenerate `theme.css` from brand/design JSON |
 | `npm run lint` / `npm test` | Lint / vitest suite |
+
+In dev, visit `/showcase` to see every block rendered with realistic sample content — useful for reviewing the visual vocabulary before unpacking real content, and for the Claude.ai design handoff. The route returns 404 in production.
 
 **Stuck?** See the Troubleshooting section in [`README.md`](../README.md#troubleshooting)
 (homepage 404, missing blocks, wrong theme colors, broken images, Vercel-only build

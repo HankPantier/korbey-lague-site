@@ -14,6 +14,8 @@
     "unpack": "tsx scripts/unpack-deliverable.ts",
     "export-brief": "tsx scripts/export-design-brief.ts",
     "validate": "tsx scripts/validate-deliverable.ts",
+    "new-client": "tsx scripts/new-client.ts",
+    "design-preview": "tsx scripts/design-preview.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"

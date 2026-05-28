@@ -2,6 +2,82 @@
 
 All notable changes to this template are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project loosely follows semver — though as a per-client template, "release" means "checkpoint on `main`" rather than a published package version.
 
+## [Unreleased] — 2026-05-28 product-polish pass (7 batches)
+
+Sweep through the 18-item analysis covering functionality, structure, and
+design workflow. Each batch landed in its own commit; this is the umbrella
+note. Visitor-facing wins are in Batches 2, 4, 5; operator workflow wins
+in Batches 6, 7; foundation in Batch 1; brand schema bump in Batch 3.
+
+### Added
+- **`generate_lead` GA4/GTM event** fired from `FormFields` on every
+  successful form submission (real submit + mailto-fallback path,
+  differentiated by `method`). Bots/honeypot trips are not tracked.
+- **Booking block** (`<!-- block: booking -->`) that embeds the client's
+  Calendly via the official inline widget or a lighter `<iframe>`, gated
+  by a new `siteConfig.booking` config. Renders nothing until wired.
+- **Programmatic favicon + Apple touch icon** (`src/app/icon.tsx` and
+  `apple-icon.tsx`) — initials on `brand.palette.primary`. Zero-config
+  branded favicons in every client clone, no static asset required.
+- **Auto-generated OG images** via `/api/og/[[...slug]]/route.tsx` (next/og
+  `ImageResponse`); branded 1200×630 PNG built from page title + brand
+  colors. Replaces the per-deliverable `/og-images/<slug>.png` convention.
+- **Branded 404** at `src/app/not-found.tsx` — renders the firm's primary
+  nav as recovery links + a back-to-home CTA.
+- **Insights blog** at `/insights` + `/insights/[slug]` with full
+  BlogPosting JSON-LD, Article OG type, and per-post canonical/published
+  metadata. Posts live in `content/posts/*.md`. Empty-state UX when no
+  posts exist — fresh clones don't crash.
+- **RSS 2.0 feed** at `/feed.xml`; global `Link: rel=alternate` header
+  added to `next.config.ts` so feed readers + agents auto-discover it.
+- **ResourceList lead-magnet block** (`<!-- block: resource-list -->`)
+  with a card grid of downloads and an inline newsletter signup CTA.
+  Files in `public/resources/`; ungated by design.
+- **Dev-only block showcase** at `/showcase` — renders every block in
+  the registry with realistic sample content. `notFound()` in production.
+- **`npm run new-client <zip>`** — one-shot bootstrap: install + unpack +
+  validate + initial commit. Idempotent.
+- **`npm run design-preview`** — watches `content/` + `site.config.ts`
+  and re-runs `export-brief` so the Claude.ai handoff brief stays fresh.
+- **`npm run analyze`** — production build with `@next/bundle-analyzer`
+  (gated by `ANALYZE=true`); no-op for regular builds.
+
+### Changed
+- **`BlockRenderer` refactored** to a typed `BLOCK_REGISTRY` map
+  (`src/components/assembly/block-registry.tsx`). Same behavior, much
+  thinner dispatch — adding a new block is one registry entry instead of
+  edits across three locations. Same `UnknownBlockPlaceholder` fallback
+  for unregistered ids.
+- **`parsePageMd` now validates frontmatter via Zod** (`PageFrontmatterSchema`),
+  catching the kind of type-shape errors (`faq_block: "broken"`) the old
+  `String(x ?? '')` casts silently swallowed.
+- **`/api/contact` page handler degradation:** wraps the load + parse in
+  a single `try/catch` so runtime parse failures become `notFound()`
+  rather than a 500.
+- **CI workflow runs `npm run validate`** between install and lint, so a
+  malformed deliverable fails CI before any other step.
+- **`BrandJson.logo`** gains optional `mark` / `stacked` / `horizontal` /
+  `monochrome` variants alongside `primary` / `footer`. Type-only;
+  existing deliverables keep building.
+- **`generateMetadata` in both page handlers** no longer references
+  `/og-images/*.png`; OG + Twitter images now point at the new
+  `/api/og/[[...slug]]` route.
+- **`sitemap.ts`** includes `/insights` + per-post URLs when at least
+  one post exists.
+
+### Tests
+- New: `page-frontmatter-schema` (6), `track-event` (5),
+  `post-frontmatter-schema` (4), `block-registry` smoke (23 — registry
+  size lock + one per block).
+- **138 → 176 tests** across 11 files.
+
+### Notes
+- The previous `/og-images/<slug>.png` deliverable convention is no
+  longer used by `generateMetadata`. Clients with a hand-crafted PNG
+  for a specific non-catch-all route can still drop a static
+  `opengraph-image.png` in that route's folder (Next file-based
+  convention picks it up over the route handler).
+
 ## [Unreleased] — 2026-05-28 agent-readiness pass
 
 Compared the codebase against the "agent-ready website" best-practices

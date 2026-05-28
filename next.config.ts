@@ -157,6 +157,7 @@ const nextConfig: NextConfig = {
       // it varies by URL.
       { key: 'Link', value: '</llms.txt>; rel="describedby"; type="text/markdown"' },
       { key: 'Link', value: '</sitemap.xml>; rel="sitemap"' },
+      { key: 'Link', value: '</feed.xml>; rel="alternate"; type="application/rss+xml"' },
     ]
     const mode = siteConfig.csp.mode
     if (mode !== 'off') {

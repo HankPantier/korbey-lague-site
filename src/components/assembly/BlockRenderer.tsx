@@ -30,6 +30,7 @@ import { ContentTable } from '@/components/blocks/ContentTable'
 import { ContactInfo } from '@/components/blocks/ContactInfo'
 import { MapBlock } from '@/components/blocks/Map'
 import { Booking } from '@/components/blocks/Booking'
+import { ResourceList } from '@/components/blocks/ResourceList'
 
 import {
   extractContentSplitProps,
@@ -51,6 +52,7 @@ import {
   extractFormProps,
   extractContentTableProps,
   extractBookingProps,
+  extractResourceListProps,
 } from '@/lib/assembly/extract-block-props'
 
 type BlockRendererProps = {
@@ -127,6 +129,8 @@ export function BlockRenderer({ section, manifest }: BlockRendererProps) {
     case 'booking':
       // Reads provider + URL from site.config.ts. Renders nothing if unset.
       return <Booking {...extractBookingProps(section)} />
+    case 'resource-list':
+      return <ResourceList {...extractResourceListProps(section)} />
     default:
       return <UnknownBlockPlaceholder section={section} />
   }

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { cacheLife } from 'next/cache'
 import { listPageSlugs } from '@/lib/content/get-page'
+import { listPostsMeta } from '@/lib/content/get-post'
 import { siteConfig } from '../../site.config'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -9,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   'use cache'
   cacheLife('max')
   const baseUrl = siteConfig.siteUrl.replace(/\/$/, '')
-  const slugs = await listPageSlugs()
+  const [slugs, posts] = await Promise.all([listPageSlugs(), listPostsMeta()])
 
   // listPageSlugs already excludes 'home' (it's served from app/page.tsx).
   // Each remaining slug is one URL segment with '--' as path separator.
@@ -27,6 +28,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     })),
   ]
+
+  // Only surface the /insights index + posts when at least one post exists —
+  // otherwise /insights is a no-content empty state and search engines should
+  // ignore it.
+  if (posts.length > 0) {
+    entries.push({
+      url: `${baseUrl}/insights`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    })
+    for (const p of posts) {
+      const parsed = p.frontmatter.date
+        ? new Date(p.frontmatter.date + 'T00:00:00Z')
+        : new Date()
+      entries.push({
+        url: `${baseUrl}/insights/${p.slug}`,
+        lastModified: Number.isNaN(parsed.getTime()) ? new Date() : parsed,
+        changeFrequency: 'monthly',
+        priority: 0.5,
+      })
+    }
+  }
 
   return entries
 }

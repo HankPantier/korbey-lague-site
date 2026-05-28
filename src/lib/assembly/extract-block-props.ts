@@ -584,3 +584,44 @@ export function extractBookingProps(section: PageSection): BookingProps {
     intro: section.content.trim() || undefined,
   }
 }
+
+// ---------------------------------------------------------------------------
+// ResourceList (lead magnet)
+// ---------------------------------------------------------------------------
+
+export type ResourceListProps = {
+  heading: string
+  intro?: string
+  resources: Array<{ title: string; url: string; description: string }>
+}
+
+/**
+ * Parses a section body whose bullets follow the convention:
+ *   - [Title](/resources/file.pdf) — Short description
+ *
+ * Any non-bullet prose that precedes the first bullet is used as `intro`.
+ */
+export function extractResourceListProps(section: PageSection): ResourceListProps {
+  const resources: ResourceListProps['resources'] = []
+  const introLines: string[] = []
+  const lineRe = /^\s*-\s+\[([^\]]+)\]\(([^)]+)\)(?:\s*[—–-]\s*(.+))?$/
+
+  for (const line of section.content.split('\n')) {
+    const m = line.match(lineRe)
+    if (m) {
+      resources.push({
+        title: m[1].trim(),
+        url: m[2].trim(),
+        description: (m[3] ?? '').trim(),
+      })
+    } else if (resources.length === 0 && line.trim()) {
+      introLines.push(line)
+    }
+  }
+
+  return {
+    heading: section.heading,
+    intro: introLines.join('\n').trim() || undefined,
+    resources,
+  }
+}

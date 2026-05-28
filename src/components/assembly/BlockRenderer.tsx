@@ -1,59 +1,15 @@
 /**
- * BlockRenderer.tsx
- * Stage 3 of the assembly pipeline: dispatch each parsed section to its
- * block component. Falls back to UnknownBlockPlaceholder for blocks not
- * yet implemented (16 of 21 as of M3.B).
+ * BlockRenderer — dispatches a parsed page section to its block component.
  *
- * Hero is NOT in the switch — it is page-level and rendered by PageLayout (M3.C).
+ * The dispatch table lives in `block-registry.tsx`; this file just looks up
+ * the entry and falls back to `UnknownBlockPlaceholder` for any blockId not
+ * yet implemented (so pages stay rendering during incremental delivery).
+ *
+ * Hero is NOT in the registry — it's page-level and rendered by PageLayout.
  */
 
 import type { PageSection, PageManifest } from '@/lib/assembly/parse-page-md'
-
-import { ContentSplit } from '@/components/blocks/ContentSplit'
-import { FeatureGrid } from '@/components/blocks/FeatureGrid'
-import { CtaBanner } from '@/components/blocks/CtaBanner'
-import { FaqAccordion } from '@/components/blocks/FaqAccordion'
-import { IntroText } from '@/components/blocks/IntroText'
-import { ServiceCards } from '@/components/blocks/ServiceCards'
-import { TeamGrid } from '@/components/blocks/TeamGrid'
-import { Testimonials } from '@/components/blocks/Testimonials'
-import { StatsBar } from '@/components/blocks/StatsBar'
-import { ContentProse } from '@/components/blocks/ContentProse'
-import { ChecklistSection } from '@/components/blocks/ChecklistSection'
-import { ProcessSteps } from '@/components/blocks/ProcessSteps'
-import { IndustryCards } from '@/components/blocks/IndustryCards'
-import { LogoBar } from '@/components/blocks/LogoBar'
-import { Pricing } from '@/components/blocks/Pricing'
-import { ContentCards } from '@/components/blocks/ContentCards'
-import { Form } from '@/components/blocks/Form'
-import { ContentTable } from '@/components/blocks/ContentTable'
-import { ContactInfo } from '@/components/blocks/ContactInfo'
-import { MapBlock } from '@/components/blocks/Map'
-import { Booking } from '@/components/blocks/Booking'
-import { ResourceList } from '@/components/blocks/ResourceList'
-
-import {
-  extractContentSplitProps,
-  extractFeatureGridProps,
-  extractCtaBannerProps,
-  extractFaqAccordionProps,
-  extractIntroTextProps,
-  extractServiceCardsProps,
-  extractTeamGridProps,
-  extractTestimonialsProps,
-  extractStatsBarProps,
-  extractContentProseProps,
-  extractChecklistSectionProps,
-  extractProcessStepsProps,
-  extractIndustryCardsProps,
-  extractLogoBarProps,
-  extractPricingProps,
-  extractContentCardsProps,
-  extractFormProps,
-  extractContentTableProps,
-  extractBookingProps,
-  extractResourceListProps,
-} from '@/lib/assembly/extract-block-props'
+import { BLOCK_REGISTRY } from './block-registry'
 
 type BlockRendererProps = {
   section: PageSection
@@ -61,9 +17,8 @@ type BlockRendererProps = {
 }
 
 /**
- * Placeholder rendered for any blockId that doesn't have a component yet.
- * Shows block metadata and a content preview so pages don't crash during
- * incremental delivery.
+ * Placeholder rendered for any blockId that doesn't have a registry entry.
+ * Shows the metadata + a content preview so pages don't crash mid-delivery.
  */
 function UnknownBlockPlaceholder({ section }: { section: PageSection }) {
   return (
@@ -83,55 +38,7 @@ function UnknownBlockPlaceholder({ section }: { section: PageSection }) {
 }
 
 export function BlockRenderer({ section, manifest }: BlockRendererProps) {
-  switch (section.blockId) {
-    case 'content-split':
-      return <ContentSplit {...extractContentSplitProps(section)} />
-    case 'feature-grid':
-      return <FeatureGrid {...extractFeatureGridProps(section)} />
-    case 'cta-banner':
-      return <CtaBanner {...extractCtaBannerProps(section)} />
-    case 'faq-accordion':
-      return <FaqAccordion {...extractFaqAccordionProps(section, manifest)} />
-    case 'intro-text':
-      return <IntroText {...extractIntroTextProps(section)} />
-    case 'service-cards':
-      return <ServiceCards {...extractServiceCardsProps(section)} />
-    case 'team-grid':
-      return <TeamGrid {...extractTeamGridProps(section)} />
-    case 'testimonials':
-      return <Testimonials {...extractTestimonialsProps(section)} />
-    case 'stats-bar':
-      return <StatsBar {...extractStatsBarProps(section)} />
-    case 'content-prose':
-      return <ContentProse {...extractContentProseProps(section)} />
-    case 'checklist-section':
-      return <ChecklistSection {...extractChecklistSectionProps(section)} />
-    case 'process-steps':
-      return <ProcessSteps {...extractProcessStepsProps(section)} />
-    case 'industry-cards':
-      return <IndustryCards {...extractIndustryCardsProps(section)} />
-    case 'logo-bar':
-      return <LogoBar {...extractLogoBarProps(section)} />
-    case 'pricing':
-      return <Pricing {...extractPricingProps(section)} />
-    case 'content-cards':
-      return <ContentCards {...extractContentCardsProps(section)} />
-    case 'form':
-      return <Form {...extractFormProps(section)} />
-    case 'content-table':
-      return <ContentTable {...extractContentTableProps(section)} />
-    case 'contact-info':
-      // Data-driven block — reads from content/brand.json. Only needs the heading.
-      return <ContactInfo heading={section.heading} />
-    case 'map':
-      // Data-driven block — reads address from content/brand.json.
-      return <MapBlock heading={section.heading} />
-    case 'booking':
-      // Reads provider + URL from site.config.ts. Renders nothing if unset.
-      return <Booking {...extractBookingProps(section)} />
-    case 'resource-list':
-      return <ResourceList {...extractResourceListProps(section)} />
-    default:
-      return <UnknownBlockPlaceholder section={section} />
-  }
+  const render = BLOCK_REGISTRY[section.blockId]
+  if (!render) return <UnknownBlockPlaceholder section={section} />
+  return render(section, manifest)
 }

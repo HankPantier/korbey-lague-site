@@ -52,5 +52,28 @@ export type BrandJson = {
      * client whose primary logo is already light/white.
      */
     footer?: string
+    /**
+     * Standalone mark / icon (no wordmark) for tight spaces. Used by the
+     * favicon generator at `src/app/icon.tsx` when present; falls back to
+     * `primary`, then to a brand-colored initial when neither is set.
+     */
+    mark?: string
+    /**
+     * Logo + tagline stacked vertically. Reserved for layouts that want a
+     * taller mark (e.g. centered hero treatments). No required consumer
+     * today — declared so designers can hand off a variant without a code
+     * change.
+     */
+    stacked?: string
+    /**
+     * Wide horizontal lockup. Reserved for header treatments that benefit
+     * from a wider mark than `primary`. No required consumer today.
+     */
+    horizontal?: string
+    /**
+     * Single-color version (typically monochrome black or white) for use
+     * on photography or saturated backgrounds. No required consumer today.
+     */
+    monochrome?: string
   }
 }

@@ -269,10 +269,18 @@ Why not `Accept: text/markdown` content negotiation on the same URL? Two reasons
 ### Existing structured data (unchanged, kept for SEO)
 
 - `src/components/layout/SchemaScript.tsx` emits per-page JSON-LD: `WebPage` by default, `LocalBusiness` w/ `PostalAddress` when the page frontmatter sets `schema_markup: LocalBusiness`, and a separate `FAQPage` blob when the FAQ block is present.
+- **`src/app/layout.tsx`** emits a sitewide `Organization` JSON-LD blob in every response (built from `brand.json` — name, url, logo, sameAs from social links, contactPoint, postal address). Sits alongside the page-level schema so the firm-as-entity record is available on every page.
+- Per-post `BlogPosting` JSON-LD on `/insights/[slug]` (see the [Insights blog](#insights-blog--rss--lead-magnet-block) section below).
 - Microdata `itemScope` / `itemType` on people (`TeamGrid`) and addresses (`ContactInfo`).
-- `generateMetadata()` in the two page handlers emits canonical URLs, OG, and Twitter Card metadata.
+- `generateMetadata()` in the page handlers emits canonical URLs, OG, and Twitter Card metadata.
 
 JSON-LD has weak evidence as an agent-citation signal (multiple AI systems strip it at runtime), so we don't add more — but it's free SEO that we keep. The higher-leverage move for agents is the **markdown endpoint** above.
+
+### A2A agent card
+
+`/.well-known/agent.json` (rewritten by `src/proxy.ts` to `/api/agent-card`) emits a structured agent-to-agent discovery card built from `brand.json` + `siteConfig.siteUrl`. Fields: `name`, `description`, `url`, `type: 'Organization'`, contact + address, `sameAs` (social links), and a `serves` array listing the agent-discoverable resources we already expose (`llms.txt`, sitemap, RSS feed, the `.md` page-companion endpoint).
+
+The A2A spec is still in flux; this emits a stable subset and is easy to update. The proxy rewrite stands in for a direct route handler at `src/app/.well-known/agent.json/` because Next has unreliable support for dot-prefixed app folders.
 
 ### Deliberately out of scope
 

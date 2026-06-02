@@ -445,6 +445,9 @@ own `robots.txt` overwrites it when unpacked. See
 
 - **[`docs/how-to-new-site.md`](./docs/how-to-new-site.md)** — start-to-finish runbook for spinning up and deploying a new client site.
 - **[`docs/blocks.md`](./docs/blocks.md)** — reference catalogue of all 22 blocks: annotation form, body convention, variants, and a working sample per block.
+- **[`docs/authoring-content.md`](./docs/authoring-content.md)** — non-technical guide for the firm/end-client: editing copy, adding team members, publishing blog posts, updating contact info. Drop the URL into a follow-up email after handoff.
+- **[`docs/upgrading.md`](./docs/upgrading.md)** — how to bring template improvements into an existing client clone (template-as-remote, conflict patterns, cadence).
+- **[`docs/security-incidents.md`](./docs/security-incidents.md)** — operational runbook for form failures, BotID over/under-blocking, CSP debugging, deploy failures, stale-content troubleshooting.
 - **[`CHANGELOG.md`](./CHANGELOG.md)** — recent changes grouped by Added / Changed / Fixed / Security / Deferred.
 - **[`docs/architecture.md`](./docs/architecture.md)** — design rationale for every subsystem (forms, conversion, agent readiness, caching, theming, build-time validation, block assembly, insights blog, per-page polish, etc.). Read this before extending those subsystems.
 - **[`docs/superpowers/specs/`](./docs/superpowers/specs/)** — historical design specs for major features (analytics + consent currently).

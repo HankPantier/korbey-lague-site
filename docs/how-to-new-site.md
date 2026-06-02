@@ -74,8 +74,10 @@ Open `site.config.ts` and set the per-client values:
 | `forms.fromEmail` | Resend sender. Must be a **verified-domain** address in production; `onboarding@resend.dev` works for dev/unverified. |
 | `forms.toEmail` | Recipient override. Blank → falls back to `brand.contact.email` from `content/brand.json` (the normal case). |
 | `forms.serviceOptions` | The dropdown values for the quote form — edit to the firm's actual services; keep `'Other'` last. |
+| `booking.provider` | `'calendly'`, `'iframe'`, or `'none'` (default). Drives the `<!-- block: booking -->` embed used on any page that has one. |
+| `booking.url` | Full booking URL (e.g. `https://calendly.com/firmname/discovery-call`). Required when `provider !== 'none'`. |
 | `csp.mode` | Ships as **`report-only`** for new clients (see step 7). Leave it until after the first clean deploy. |
-| `csp.extraOrigins` | Add any third-party embed origins the client uses (Calendly, Stripe, etc.). |
+| `csp.extraOrigins` | Third-party embed origins the client uses (Calendly, Stripe, etc.). **Calendly users:** add `'https://*.calendly.com'` here when `booking.provider = 'calendly'`, otherwise the embed will be blocked once CSP flips to enforce. |
 
 ---
 
@@ -94,6 +96,7 @@ NEXT_PUBLIC_GTM_ID="GTM-XXXXXX"   # …GTM (if both set, GTM wins)
 - **Spam protection needs no env vars.** The honeypot, timing trap, and content
   heuristics are always on; **Vercel BotID** activates automatically once deployed
   on Vercel and is inert locally. (See [architecture.md](./architecture.md#spam--abuse-defenses).)
+- **Lead tracking is automatic.** When GA4 or GTM is wired, every successful form submit fires a `generate_lead` event (`method: 'form_submit' \| 'mailto_fallback'`, `form_variant: 'contact' \| 'quote' \| 'newsletter' \| 'custom'`). Visible under GA4 → Reports → Engagement → Events.
 
 > Set these same variables in the Vercel project too (step 6) — `.env.local` is local only.
 
@@ -117,6 +120,15 @@ Check:
   curl -I http://localhost:3000/                  # expect Link: rel=describedby + rel=sitemap + rel=alternate
   curl http://localhost:3000/index.md             # expect text/markdown with frontmatter, no <!-- block: ... --> comments
   curl http://localhost:3000/services/virtual-cfo.md  # same, for any unpacked subpage
+  ```
+- **Polish sanity** (the new conversion + content surfaces):
+  ```bash
+  curl -o /tmp/icon.png http://localhost:3000/icon && file /tmp/icon.png   # → PNG image, 32×32
+  curl -o /tmp/og.png http://localhost:3000/api/og && file /tmp/og.png      # → 1200×630 PNG (branded share card)
+  curl http://localhost:3000/feed.xml | head -5                            # → valid RSS 2.0 (empty channel until posts exist)
+  # Browse:
+  open http://localhost:3000/insights                                       # → blog index (empty-state if no posts yet)
+  open http://localhost:3000/showcase                                       # → every block in the registry, dev-only
   ```
 
 Then run the quality gate before committing:
@@ -148,6 +160,8 @@ npm run dev
 re-running `unpack`. If Claude also returns refined tokens, overwrite
 `content/design.json` and run `npx tsx scripts/generate-theme.ts`.
 
+**Tight iteration loop:** for back-and-forth design rounds, run `npm run design-preview` in a second terminal alongside `npm run dev`. The watcher re-generates `design-brief.md` automatically whenever `content/` or `site.config.ts` changes, so the next paste into Claude.ai always reflects the latest state.
+
 ---
 
 ## 7. Deploy to Vercel
@@ -160,9 +174,11 @@ re-running `unpack`. If Claude also returns refined tokens, overwrite
 4. **Verify the deployed site** with DevTools open:
    - No CSP **violation** errors in the console (report-only logs them without
      blocking). BotID's challenge is served same-origin, so it should be clean.
-   - Submit the contact form from the live page → the firm receives the email.
+   - **If using Calendly**: load any page with the booking block and confirm the widget renders. If it's blocked, add `'https://*.calendly.com'` to `csp.extraOrigins` *before* flipping CSP to enforce in the next step.
+   - Submit the contact form from the live page → the firm receives the email **and** a `generate_lead` event appears in GA4 → Reports → Realtime within a minute.
    - Confirm a direct bot-style POST is blocked: `curl -X POST https://<site>/api/contact`
      with a JSON body should return **403** (no BotID challenge header = bot).
+   - **Spot-check the new routes**: `curl -I https://<site>/feed.xml` (RSS, `application/rss+xml`), `curl -o /tmp/og.png https://<site>/api/og` (1200×630 PNG), `curl -o /tmp/icon.png https://<site>/icon` (32×32 PNG), and open `/insights` (blog index — empty-state until posts exist).
 5. **Flip CSP to enforce**: set `csp.mode: 'enforce'` in `site.config.ts`, commit, redeploy.
 6. *(Optional, Pro/Enterprise)* Enable stronger bot detection: Vercel dashboard →
    **Firewall → Rules → Vercel BotID Deep Analysis**. No code change.

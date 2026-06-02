@@ -148,7 +148,7 @@ The path you passed doesn't exist. Use an absolute path or one relative to the r
 The deliverable didn't include `content/pages/home.md`. Re-check the package contents with `unzip -l <path-to-zip>`.
 
 **Blocks render as "Block not yet implemented" placeholders**
-The `.md` file references a block ID that the template's `BlockRenderer` doesn't have a case for. Open the dev console to see which ID is missing. All 21 blocks from the spec are implemented; an unknown ID likely means Claude emitted a typo. Fix the annotation in the `.md` file or re-run content generation in the admin tool.
+The `.md` file references a block ID that the template's `BlockRenderer` doesn't have a case for. Open the dev console to see which ID is missing. All 22 blocks from the spec are implemented; an unknown ID likely means Claude emitted a typo. Fix the annotation in the `.md` file or re-run content generation in the admin tool.
 
 **Theme colors look wrong (dark red where light gray should be)**
 `generate-theme.ts` didn't run, or it ran on a stale `brand.json`. Re-run `npm run unpack <zip>` to refresh both `content/` and `theme.css` in one shot.
@@ -269,6 +269,24 @@ forms: {
 }
 ```
 
+## Booking setup (Calendly / iframe scheduler)
+
+The Booking block (`<!-- block: booking -->`) embeds a scheduling widget on any page that includes the annotation. Drive it from `site.config.ts`:
+
+```ts
+booking: {
+  provider: 'calendly',   // 'calendly' | 'iframe' | 'none'
+  url: 'https://calendly.com/firmname/discovery-call',
+},
+```
+
+**Provider modes:**
+- `'calendly'` — loads Calendly's official inline widget via `next/script` (lazy-loaded). Best UX. **Requires `'https://*.calendly.com'` in `csp.extraOrigins`**, otherwise the embed is blocked once CSP flips from `report-only` to `enforce`.
+- `'iframe'` — embeds the URL as a plain `<iframe>`. Lighter CSP impact (no script tag), works with any iframe-friendly scheduler (Cal.com, SavvyCal, etc.); `frame-src` still needs the origin.
+- `'none'` (default) — renders nothing. Safe default so a fresh clone with a stray `<!-- block: booking -->` annotation doesn't show a broken widget.
+
+A successful "Book" click on the embed counts as a conversion in the provider's own analytics; if you also want a GA4 event from your end, wire it up in the widget's callback (Calendly emits `postMessage` events you can listen for).
+
 ## Analytics (Google Analytics / Google Tag Manager)
 
 The template ships with optional GA4 / GTM support, gated by a cookie consent banner so no scripts fire before the visitor accepts.
@@ -285,6 +303,15 @@ The template ships with optional GA4 / GTM support, gated by a cookie consent ba
 
 If both vars are set, **GTM wins** and GA4 is not loaded separately (GTM can load GA4 itself plus any other tags). If neither is set, no banner appears and nothing tracks — the site stays clean.
 
+### Lead tracking (automatic)
+
+Once GA4 or GTM is wired, **every successful form submission fires a `generate_lead` event** with two parameters:
+
+- `method` — `'form_submit'` for the normal path, `'mailto_fallback'` when the visitor was bumped to `mailto:` (Resend unconfigured, BotID 403, or external endpoint failure)
+- `form_variant` — `'contact' | 'quote' | 'newsletter' | 'custom'`
+
+Find it in GA4 → Reports → Engagement → Events (or in Realtime to test). Bots blocked by honeypot / timing / BotID are deliberately **not** tracked. See [`src/lib/analytics/track-event.ts`](./src/lib/analytics/track-event.ts) and [architecture.md](./docs/architecture.md#conversion--lead-tracking) for the rationale.
+
 ### Consent flow
 
 - Cookie: `analytics-consent=accepted|declined` (365-day expiry, `path=/`).
@@ -297,7 +324,7 @@ The consent banner is captured in the design brief alongside navbar + footer (`d
 
 ## Designing the visual look (Claude.ai Design handoff)
 
-The 21 block components define the *shape* of every page. Their actual visual treatment — colors, gradients, shadows, custom corner radii, spacing nuance — is fed in via two files:
+The 22 block components define the *shape* of every page. Their actual visual treatment — colors, gradients, shadows, custom corner radii, spacing nuance — is fed in via two files:
 
 - **`content/design.json`** — design tokens (palette, fonts, radius scale). Drives the generated `theme.css`.
 - **`content/design-overrides.css`** — block-specific CSS authored by Claude.ai Design (or you by hand). Loaded after `theme.css`, so any rule here wins.
@@ -326,7 +353,7 @@ npm run dev
 - Firm context (positioning, location, tagline)
 - Brand identity (palette, typography pairing, radius/spacing tokens)
 - The full CSS-variable contract (the names you can reference)
-- The 21-block vocabulary with their `data-block` selectors
+- The 22-block vocabulary with their `data-block` selectors
 - All page markdown (so Claude sees the actual content it's styling)
 - A standardized prompt asking for the two outputs (CSS overrides + optional refined `design.json`)
 
@@ -354,7 +381,7 @@ Every block has a `data-block="<id>"` attribute on its outer element. Use that a
 }
 ```
 
-The full list of available `data-block` values matches the 21 block IDs documented in `raw-docs/phaseII/component-library-spec.md` (in the onboarding repo). The brief script also lists them inline.
+The full list of available `data-block` values matches the 22 block IDs documented in `raw-docs/phaseII/component-library-spec.md` (in the onboarding repo). The brief script also lists them inline.
 
 ### Versioning
 
@@ -397,14 +424,17 @@ own `robots.txt` overwrites it when unpacked. See
 |---|---|
 | `npm run dev` | Start the Next.js dev server |
 | `npm run build` | Production build |
+| `npm run analyze` | Production build with the bundle analyzer (`ANALYZE=true`); writes interactive `*.html` reports to `.next/analyze/`. No-op for regular builds. |
 | `npm run start` | Run the production build |
 | `npm run lint` | Run ESLint |
-| `npm test` | Run the vitest suite (md-utils parser tests) |
+| `npm test` | Run the vitest suite |
 | `npm run test:watch` | Vitest in watch mode |
 | `npm run test:coverage` | Vitest with v8 coverage report |
-| `npm run validate` | Sanity-check a deliverable: required files present, image references resolve, page filenames round-trip through `pageUrlToFilename` |
+| `npm run validate` | Sanity-check a deliverable: required files present, image references resolve, page filenames round-trip, **and frontmatter shape parses via Zod**. CI runs this between install and lint. |
 | `npm run unpack <path>` | Unpack a Phase I deliverable (zip or folder) |
-| `npm run export-brief` | Generate a design brief markdown file to paste into Claude.ai Design |
+| `npm run new-client <zip>` | One-shot bootstrap from a fresh clone: install + unpack + validate + initial commit. Idempotent / re-run-safe. |
+| `npm run export-brief` | Generate a design-brief markdown file to paste into Claude.ai Design |
+| `npm run design-preview` | Watch `content/` + `site.config.ts` and re-run `export-brief` on change. Pairs with `npm run dev` in another terminal to tighten the design-handoff loop. |
 | `npx tsx scripts/generate-theme.ts` | Regenerate the theme CSS from current brand.json/design.json |
 
 ## Continuous integration
@@ -414,6 +444,7 @@ own `robots.txt` overwrites it when unpacked. See
 ## Further reading
 
 - **[`docs/how-to-new-site.md`](./docs/how-to-new-site.md)** — start-to-finish runbook for spinning up and deploying a new client site.
+- **[`docs/blocks.md`](./docs/blocks.md)** — reference catalogue of all 22 blocks: annotation form, body convention, variants, and a working sample per block.
 - **[`CHANGELOG.md`](./CHANGELOG.md)** — recent changes grouped by Added / Changed / Fixed / Security / Deferred.
-- **[`docs/architecture.md`](./docs/architecture.md)** — design rationale for forms + email, analytics + consent, design-brief integration, theming + WCAG, and the security model. Read this before extending those subsystems.
+- **[`docs/architecture.md`](./docs/architecture.md)** — design rationale for every subsystem (forms, conversion, agent readiness, caching, theming, build-time validation, block assembly, insights blog, per-page polish, etc.). Read this before extending those subsystems.
 - **[`docs/superpowers/specs/`](./docs/superpowers/specs/)** — historical design specs for major features (analytics + consent currently).

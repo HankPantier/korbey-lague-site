@@ -63,6 +63,22 @@ Four independent layers protect the built-in Resend path, in cheapest-first orde
 
 Pure helpers in `src/lib/forms/spam.ts` are unit-tested in `spam.test.ts`; the layered route behavior is covered in `route.test.ts`.
 
+## Conversion / lead tracking
+
+Two visitor-facing additions sit on the conversion path that matters most for a marketing site for professional services: **measure the lead**, and **give visitors a one-click way to book the call**.
+
+### `generate_lead` event
+
+`src/lib/analytics/track-event.ts` exposes a fire-and-forget `trackLead({ method, variant })` that no-ops when no tag manager is loaded (consent declined, env vars unset, SSR) and pushes to both `window.gtag` (GA4) and `window.dataLayer` (GTM) when present. Both wiring paths can coexist; if both are loaded we push to both.
+
+`FormFields` calls it on every successful submission path — the built-in `/api/contact` 200, the external-endpoint POST 200, and the mailto fallback (403/503). The `method` parameter (`'form_submit' | 'mailto_fallback'`) lets the firm tell channels apart in GA4 reports. **Honeypot / timing / BotID-blocked submissions are deliberately not tracked** — those are bots, not leads, and counting them would skew conversion metrics in the spammer's favor.
+
+### Booking block
+
+`src/components/blocks/Booking.tsx` is a content block (`<!-- block: booking -->`) that embeds Calendly's official inline widget — lazy-loaded via `next/script` — or a plain iframe, depending on `siteConfig.booking.provider`. URL + provider are *config*, not page markdown, so the same block can be dropped on any page without per-page wiring. Returns `null` when `provider === 'none'` (the default) so a fresh clone with a stray annotation stays harmless.
+
+Calendly's inline widget requires its origin in three CSP directives (`script-src`, `connect-src`, `frame-src`); the existing `siteConfig.csp.extraOrigins` covers all three at once with `'https://*.calendly.com'`. The `'iframe'` provider mode skips the script tag entirely (only `frame-src` is needed) — useful for Cal.com, SavvyCal, or any other iframe-friendly scheduler that some clients prefer.
+
 ## Analytics + cookie consent
 
 ### Why a server component reads `cookies()`
@@ -141,6 +157,30 @@ To target child slots from `content/design-overrides.css`, give them `data-slot=
 If the data is build-time constant (file from `content/`, JSON config, etc.), add `'use cache'` + `cacheLife('max')` to the loader function. If it's per-request (reads `cookies()` / `headers()` / `searchParams`), don't cache it — and if it's used inside a layout or shared component, wrap the consumer in `<Suspense>` so it doesn't dynamic-ize the whole route.
 
 If you add a route segment config (`export const runtime = 'nodejs'`, `export const dynamic = '...'`), the build will fail under Cache Components. Remove the export; the runtime is implicit (Node by default).
+
+## Build-time validation
+
+Two checks run before the build proper so deliverable / assembly errors fail loudly instead of silently breaking the rendered site.
+
+### Page + post frontmatter Zod schemas
+
+`src/lib/assembly/page-frontmatter-schema.ts` and `src/lib/content/post-frontmatter-schema.ts` validate frontmatter shape on the way through `parsePageMd` and `getPost`. The schemas match the parser's previous lenient behavior — missing fields default to safe values, unknown fields pass through — so deliverables that build today still build. The win is they reject *malformed* fields the old `String(x ?? '')` casts silently swallowed: `faq_block: "broken"` (string instead of an array of `{question, answer}`) used to render an empty FAQ accordion + empty FAQPage JSON-LD; now it fails the build with a clear Zod error pointing at the page filename.
+
+### `npm run validate` CI gate
+
+`scripts/validate-deliverable.ts` checks (1) required files present (`brand.json`, `design.json`, `nav.json`, `pages/home.md`, `robots.txt`), (2) image references resolve in `public/content-assets/`, (3) page filenames round-trip through `pageUrlToFilename`, and (4) every page's frontmatter parses cleanly via the Zod schema. CI runs this between `npm ci` and `npm run lint`, so a malformed deliverable fails before any other step — fast feedback, clear error message identifying the bad page.
+
+## Block assembly + registry
+
+The page-assembly pipeline runs in three stages:
+
+1. **`parsePageMd`** (`src/lib/assembly/parse-page-md.ts`) — Zod-validates frontmatter + splits the body into typed `PageSection`s on the `<!-- block: <id> -->` annotation pattern.
+2. **`extract<Block>Props`** (`src/lib/assembly/extract-block-props.ts`) — one per block; takes a `PageSection` (and the page-level manifest for blocks that need it, e.g. `extractFaqAccordionProps`) and returns typed component props.
+3. **`BlockRenderer`** + **`BLOCK_REGISTRY`** (`src/components/assembly/`) — dispatch by block id. Falls back to `UnknownBlockPlaceholder` for any unregistered id so pages keep rendering during incremental delivery.
+
+`BLOCK_REGISTRY` (`src/components/assembly/block-registry.tsx`) is a `Record<string, (section, manifest) => ReactNode>` keyed by block id. Adding a block is **one** registry entry plus the matching extractor — no edits to a switch statement, no three-file-change ritual. The 22-case smoke test (`block-registry.test.ts`) locks the registry size and invokes every entry with a minimal-but-valid section + manifest, catching extractor regressions cheaply without needing a browser env for a full mount.
+
+A complete reference of every block's annotation form, body convention, variants, and a sample lives in [`docs/blocks.md`](./blocks.md).
 
 ## Theming + WCAG
 
@@ -240,6 +280,50 @@ JSON-LD has weak evidence as an agent-citation signal (multiple AI systems strip
 - **WebMCP / `navigator.modelContext.provideContext`** — no actionable agent tools on a marketing site; the contact form is the only action and we *don't* want agents driving it.
 - **`/.well-known/mcp/server-card.json`** — we don't run an MCP server.
 
+## Per-page polish (favicon, OG, 404)
+
+Three small surfaces every visitor sees, all generated per request from brand config — zero per-client setup.
+
+### Programmatic favicon + Apple touch icon
+
+`src/app/icon.tsx` and `src/app/apple-icon.tsx` use `next/og`'s `ImageResponse` to render an initials-on-`brand.palette.primary` tile (32×32 and 180×180 respectively). Reads `brand.firm.name` + `brand.palette.primary` at request time; no static PNG required. Every fresh clone gets a branded favicon immediately. `brand.logo.mark` is declared on the `BrandJson` type as a future consumer — when designers ship a standalone mark, swapping initials for the mark is a small follow-up.
+
+### Auto OG share cards
+
+`src/app/api/og/[[...slug]]/route.tsx` returns a 1200×630 PNG built from brand colors + page title/description. One optional-catch-all route handler serves both `/api/og` (home) and any subpage `/api/og/services/virtual-cfo`. We can't use the file-based `opengraph-image.tsx` convention inside the existing `[...slug]` catch-all (Next forbids segments after a catch-all), so the route-handler form stands in. `generateMetadata` in both page handlers points `openGraph.images` + `twitter.images` at this route.
+
+The previous deliverable convention `public/og-images/<slug>.png` is no longer referenced by `generateMetadata`. Clients with a hand-crafted PNG for a *specific non-catch-all route* can still drop a static `opengraph-image.png` in that route's folder (Next file-based convention picks it up over the route handler).
+
+### Branded 404
+
+`src/app/not-found.tsx` replaces Next's generic 404 body with the firm's primary nav items rendered as recovery links + a "Back to *firm*" CTA. `NavBar` + `Footer` come from `layout.tsx`, so the 404 looks like the rest of the site without duplicating chrome.
+
+## Insights blog + RSS + lead-magnet block
+
+A self-contained content-marketing surface, zero-config for fresh clones (empty state until posts land), wired into the existing OG + agent-readiness infrastructure.
+
+### Posts loader
+
+`src/lib/content/get-post.ts` reads `content/posts/*.md`. `listPostSlugs` returns `[]` when the directory is absent (fresh-clone state), so the index page renders a friendly empty state instead of erroring. `getPost` reads + Zod-validates a single post via `PostFrontmatterSchema`. `listPostsMeta` reads every post's frontmatter (skipping bodies) for the index and the RSS feed, sorted newest-first by `date` (string compare works for ISO YYYY-MM-DD). All three are `'use cache' + cacheLife('max')` so prerenders stay static-friendly.
+
+### Routes
+
+- **`/insights`** — date-sorted card grid of all posts; falls back to "No posts published yet — check back soon" when empty.
+- **`/insights/[slug]`** — per-post page: header, optional hero image, server-rendered body (`react-markdown` + `remark-gfm`, no client bundle bloat), back-to-insights CTA. Uses the same `__no_posts__` placeholder pattern as `[...slug]` for Cache Components `generateStaticParams`.
+- **`/feed.xml`** — RSS 2.0 channel + items from `listPostsMeta`. Empty channel when no posts. A global `Link: </feed.xml>; rel="alternate"; type="application/rss+xml"` header in `next.config.ts` makes feed readers + agents auto-discover the feed.
+
+### Structured data
+
+Each post emits a `BlogPosting` JSON-LD blob inline (built from *validated* frontmatter, never raw user input — same `<script type="application/ld+json">` + `JSON.stringify` pattern as `SchemaScript.tsx`). Per-page OG comes from `/api/og/insights/<slug>` (the OG handler accepts arbitrary slugs).
+
+### Sitemap
+
+`src/app/sitemap.ts` includes `/insights` + every post URL **only when at least one post exists**, so search engines don't crawl an empty index.
+
+### `ResourceList` lead-magnet block
+
+`<!-- block: resource-list -->` renders downloadable resources (PDFs from `public/resources/`) as a card grid with a download button per item, then composes an inline `<Form variant="newsletter">` immediately below. Resources are **ungated by design** — visitors can grab files directly; the newsletter signup is the soft conversion ask, not a wall. Losing a real lead because a CPA firm hid a tax checklist behind an email gate is a worse outcome than the marginal email-list growth from forcing it. Clients who want strict gating can swap the inner form for a custom variant later. Markdown convention: one bullet per resource as `- [Title](/resources/file.pdf) — Description`.
+
 ## Per-client clone workflow
 
 The template is designed to be cloned per client (not consumed as a shared dependency). Each client clone:
@@ -253,3 +337,26 @@ The template is designed to be cloned per client (not consumed as a shared depen
 7. Optionally: `npm run export-brief` → Claude.ai Design → save `content/design-overrides.css`.
 
 Re-running `npm run unpack` with a fresh deliverable overwrites `content/` and regenerates `src/styles/theme.css`. Hand-edits to `content/design-overrides.css`, `site.config.ts`, and source code are preserved.
+
+## Operator workflow tooling
+
+Three helpers that don't change visitor-facing behavior but shorten the per-client setup loop and the design-handoff loop.
+
+### `/showcase` (dev-only)
+
+`src/app/showcase/page.tsx` renders every block in `BLOCK_REGISTRY` with realistic CPA-flavored sample content. `notFound()` in production. Useful for the Claude.ai handoff (designer sees every block exactly once) and for reviewing the visual vocabulary before any real content is unpacked. The route is at `/showcase` rather than `/__showcase` because Next treats `_`-prefixed folders as private and excludes them from routing.
+
+### `scripts/design-preview.ts`
+
+Watches `content/` + `site.config.ts` and re-runs `export-brief` (debounced 400ms, serial-queued) so `design-brief.md` stays fresh while you iterate on content. Pairs with `npm run dev` in another terminal. Next dev hot-reloads `content/design-overrides.css` automatically; this script handles the orthogonal need of keeping the *brief input* current for the next Claude.ai paste.
+
+### `scripts/new-client.ts`
+
+Collapses the 7-step bootstrap into a single command after `git clone`:
+
+```bash
+git clone … <slug>-site && cd <slug>-site
+npm run new-client ~/Downloads/content-package.zip
+```
+
+Runs install → unpack → validate → initial commit. Each step is idempotent (unpack overwrites cleanly, validate is read-only, commit no-ops when nothing's new), so the script is safe to re-run after a failure mid-way.

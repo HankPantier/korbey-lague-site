@@ -176,6 +176,15 @@ Two checks run before the build proper so deliverable / assembly errors fail lou
 
 Runs in CI after the build step (`npx playwright install --with-deps chromium` then `npm run test:e2e`). Locally, run the same after a one-time `npx playwright install chromium`.
 
+### Lighthouse CI (perf budgets)
+
+A separate workflow (`.github/workflows/lighthouse.yml`) runs Lighthouse CI on every PR against the production build (3 runs against `/` and `/insights`, desktop preset). Budgets live in `lighthouserc.json`:
+
+- **`error` thresholds (block the PR):** accessibility score ≥ 0.90, CLS ≤ 0.1.
+- **`warn` thresholds (surface in PR comments, don't block):** performance ≥ 0.85, best-practices ≥ 0.90, SEO ≥ 0.90, FCP ≤ 2000 ms, LCP ≤ 2500 ms, TBT ≤ 200 ms. (The SEO floor is intentionally relaxed for the template's empty-state CI; raise to 0.95 in client clones once real content lands.)
+
+Reports upload to `temporary-public-storage` and a viewable URL appears in the workflow output. Two-tier severity (error vs warn) is deliberate: a11y + CLS are non-negotiables; perf scores can drift with content size and don't deserve a hard block until budgets are tuned to a real client's content. Edit thresholds in `lighthouserc.json` per client as their content matures.
+
 ## Block assembly + registry
 
 The page-assembly pipeline runs in three stages:

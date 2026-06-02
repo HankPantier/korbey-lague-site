@@ -430,6 +430,8 @@ own `robots.txt` overwrites it when unpacked. See
 | `npm test` | Run the vitest suite |
 | `npm run test:watch` | Vitest in watch mode |
 | `npm run test:coverage` | Vitest with v8 coverage report |
+| `npm run test:e2e` | Run the Playwright smoke suite (production build, chromium-only). Requires `npx playwright install chromium` the first time. |
+| `npm run test:e2e:ui` | Same, in Playwright's interactive UI |
 | `npm run validate` | Sanity-check a deliverable: required files present, image references resolve, page filenames round-trip, **and frontmatter shape parses via Zod**. CI runs this between install and lint. |
 | `npm run unpack <path>` | Unpack a Phase I deliverable (zip or folder) |
 | `npm run new-client <zip>` | One-shot bootstrap from a fresh clone: install + unpack + validate + initial commit. Idempotent / re-run-safe. |

@@ -170,6 +170,12 @@ Two checks run before the build proper so deliverable / assembly errors fail lou
 
 `scripts/validate-deliverable.ts` checks (1) required files present (`brand.json`, `design.json`, `nav.json`, `pages/home.md`, `robots.txt`), (2) image references resolve in `public/content-assets/`, (3) page filenames round-trip through `pageUrlToFilename`, and (4) every page's frontmatter parses cleanly via the Zod schema. CI runs this between `npm ci` and `npm run lint`, so a malformed deliverable fails before any other step — fast feedback, clear error message identifying the bad page.
 
+### E2E smoke (Playwright)
+
+`e2e/smoke.spec.ts` covers the high-blast-radius surfaces against a production build: home renders + emits the sitewide Organization JSON-LD, branded 404, `/feed.xml` RSS shape, `/icon` + `/apple-icon` + `/api/og` MIME types, `/insights` empty state, `/.well-known/agent.json` JSON contract, per-page Link header, and the `.md` page-companion endpoint. Form submission, BotID classification, and Resend integration are NOT here — vitest covers them faster without a browser.
+
+Runs in CI after the build step (`npx playwright install --with-deps chromium` then `npm run test:e2e`). Locally, run the same after a one-time `npx playwright install chromium`.
+
 ## Block assembly + registry
 
 The page-assembly pipeline runs in three stages:

@@ -4,6 +4,13 @@ A start-to-finish runbook for turning the template + a Phase I deliverable into 
 deployed client site. Each client gets its **own clone** — the template is the
 starting point, not a shared dependency.
 
+> **Want to hand this off to an AI agent?** [`docs/setup.md`](./setup.md) is the
+> same flow rewritten as an agent playbook — clone the template, drop the zip,
+> tell Claude Code "follow `docs/setup.md` with the zip at `<path>`", and it
+> walks the entire setup to a green build (no commits, no deploy). Use this
+> human-readable doc for understanding *why*; use `setup.md` to delegate the
+> *doing*.
+>
 > Deeper references: [`README.md`](../README.md) (operational detail per topic),
 > [`docs/architecture.md`](./architecture.md) (the *why* behind each subsystem).
 

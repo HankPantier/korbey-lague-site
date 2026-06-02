@@ -447,6 +447,7 @@ own `robots.txt` overwrites it when unpacked. See
 ## Further reading
 
 - **[`docs/how-to-new-site.md`](./docs/how-to-new-site.md)** — start-to-finish runbook for spinning up and deploying a new client site.
+- **[`docs/setup.md`](./docs/setup.md)** — agent-actionable version of the same flow. Point an AI coding agent at your zip and the agent walks the whole setup to a green build (no commit / no deploy), with one consolidated question for per-client config.
 - **[`docs/blocks.md`](./docs/blocks.md)** — reference catalogue of all 22 blocks: annotation form, body convention, variants, and a working sample per block.
 - **[`docs/authoring-content.md`](./docs/authoring-content.md)** — non-technical guide for the firm/end-client: editing copy, adding team members, publishing blog posts, updating contact info. Drop the URL into a follow-up email after handoff.
 - **[`docs/upgrading.md`](./docs/upgrading.md)** — how to bring template improvements into an existing client clone (template-as-remote, conflict patterns, cadence).

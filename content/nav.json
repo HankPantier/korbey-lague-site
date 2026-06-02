@@ -1,7 +1,101 @@
 {
   "primary": [
-    { "label": "Services", "url": "/services" },
-    { "label": "About", "url": "/about" },
-    { "label": "Contact", "url": "/contact" }
+    {
+      "url": "/about",
+      "label": "About",
+      "children": [
+        {
+          "url": "/about/our-story",
+          "label": "Our Story"
+        },
+        {
+          "url": "/about/our-team",
+          "label": "Our Team"
+        }
+      ]
+    },
+    {
+      "url": "/services",
+      "label": "Services",
+      "children": [
+        {
+          "url": "/services/virtual-cfo-advisory",
+          "label": "Advisory & Virtual CFO"
+        },
+        {
+          "url": "/services/tax",
+          "label": "Tax"
+        },
+        {
+          "url": "/services/bookkeeping-payroll",
+          "label": "Bookkeeping & Payroll"
+        },
+        {
+          "url": "/services/financial-reporting",
+          "label": "Financial Reporting"
+        },
+        {
+          "url": "/industries/nonprofits",
+          "label": "Nonprofit Accounting"
+        },
+        {
+          "url": "/services/wealth-retirement-planning",
+          "label": "Wealth & Retirement Planning"
+        },
+        {
+          "url": "/services/business-startup-accounting",
+          "label": "Business Startup Accounting"
+        }
+      ]
+    },
+    {
+      "url": "/industries",
+      "label": "Industries / Who We Serve",
+      "children": [
+        {
+          "url": "/industries/healthcare-professionals",
+          "label": "Healthcare Professionals"
+        },
+        {
+          "url": "/industries/contractors-trades",
+          "label": "Contractors & Trades"
+        },
+        {
+          "url": "/industries/retail-manufacturing",
+          "label": "Retail & Manufacturing"
+        },
+        {
+          "url": "/industries/service-businesses",
+          "label": "Service Businesses"
+        },
+        {
+          "url": "/industries/family-businesses",
+          "label": "Closely Held Family Businesses"
+        }
+      ]
+    },
+    {
+      "url": "/resources",
+      "label": "Resources",
+      "children": [
+        {
+          "url": "/resources/articles",
+          "label": "Articles & Magazine"
+        },
+        {
+          "url": "/resources/refund-tracker",
+          "label": "Refund Tracker"
+        },
+        {
+          "url": "/resources/client-portal",
+          "label": "Client Portal"
+        }
+      ]
+    },
+    {
+      "url": "/contact",
+      "label": "Contact",
+      "children": []
+    }
   ]
 }

@@ -1,12 +1,73 @@
 {
+  "$comment": "Refined tokens for Korbey Lague PLLP. Changes from the original brief are minimal and conservative — palette hexes are untouched (brand). Refinements: (1) heading weights 600/800 added to the font import so headings can go heavier for a sharper, more modern voice; (2) radius scale tightened (lg 16px → 6px) to honor the 'sharp' shape system — the original 16px lg read too soft for a modern advisory firm; (3) near-black deepened slightly and given a hair less blue for cleaner body ink. Everything else matches the brief. See design-overrides.css for all expressive styling.",
+
+  "palette": {
+    "primary": "#632d54",
+    "secondary": "#a89d43",
+    "complementary": "#2c6e55",
+    "action": "#e8623f",
+    "nearBlack": "#181826",
+    "nearWhite": "#F6F7FA"
+  },
+
+  "semantic": {
+    "background": "#F6F7FA",
+    "foreground": "#181826",
+    "primary": "#632d54",
+    "primaryForeground": "#F6F7FA",
+    "secondary": "#a89d43",
+    "secondaryForeground": "#181826",
+    "accent": "#e7efe9",
+    "accentForeground": "#234c3c",
+    "muted": "#eef0f4",
+    "mutedForeground": "#5b5b6b",
+    "card": "#ffffff",
+    "cardForeground": "#181826",
+    "popover": "#ffffff",
+    "popoverForeground": "#181826",
+    "border": "#e1e3ea",
+    "input": "#d7dae2",
+    "ring": "#e8623f",
+    "destructive": "#c0392b",
+    "destructiveForeground": "#F6F7FA"
+  },
+
+  "directTokens": {
+    "action": "#e8623f",
+    "actionForeground": "#F6F7FA",
+    "primaryHex": "#632d54",
+    "nearBlack": "#181826",
+    "nearWhite": "#F6F7FA",
+    "complementary": "#2c6e55"
+  },
+
   "typography": {
     "headingFont": "Public Sans",
     "bodyFont": "Public Sans",
-    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap"
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap"
   },
-  "roundness": "pill",
-  "density": "balanced",
-  "visualFeel": "modern",
-  "spacing": { "xs": "4px", "sm": "8px", "md": "16px", "lg": "24px", "xl": "48px", "2xl": "96px" },
-  "radius": { "none": "0px", "sm": "4px", "md": "8px", "lg": "16px", "pill": "9999px" }
+
+  "shape": {
+    "roundness": "sharp",
+    "density": "balanced",
+    "feel": "modern"
+  },
+
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "48px",
+    "2xl": "96px"
+  },
+
+  "radius": {
+    "none": "0px",
+    "sm": "2px",
+    "md": "4px",
+    "lg": "6px",
+    "pill": "4px",
+    "default": "4px"
+  }
 }

@@ -1,0 +1,25 @@
+# This file controls 301 redirects for the live site.
+# Edit, add, or remove rows; changes take effect on the next `npm run build` (or `npm run dev`).
+# Format: old_url,new_url,status_code,reason
+# Lines starting with # are ignored by the Next.js redirect loader.
+old_url,new_url,status_code,reason
+/what-we-do,/services,301,redirected to new structure
+/what-we-do/virtual-cfo-services,/services/virtual-cfo-advisory,301,redirected to new structure
+/what-we-do/business-foundation-services,/services/business-startup-accounting,301,redirected to new structure
+/what-we-do/business-management-services,/services/virtual-cfo-advisory,301,consolidated into /services/virtual-cfo-advisory
+/what-we-do/accounting-system-setup,/services/virtual-cfo-advisory,301,consolidated into /services/virtual-cfo-advisory
+/what-we-do/business-metrics-and-performance-measurement,/services/virtual-cfo-advisory,301,consolidated into /services/virtual-cfo-advisory
+/what-we-do/tax,/services/tax,301,redirected to new structure
+/what-we-do/personal-tax,/services/tax/personal-tax,301,redirected to new structure
+/what-we-do/business-tax,/services/tax/business-tax,301,redirected to new structure
+/what-we-do/entity-type-analysis,/services/tax/business-tax,301,consolidated into /services/tax/business-tax
+/what-we-do/tax-notices-and-audit-representation,/services/tax/audit-representation,301,redirected to new structure
+/what-we-do/bookkeeping-and-payroll,/services/bookkeeping-payroll,301,redirected to new structure
+/what-we-do/bookkeeping,/services/bookkeeping-payroll,301,consolidated into /services/bookkeeping-payroll
+/what-we-do/payroll,/services/bookkeeping-payroll,301,consolidated into /services/bookkeeping-payroll
+/what-we-do/financial-reporting,/services/financial-reporting,301,redirected to new structure
+/what-we-do/financial-statement-preparation,/services/financial-reporting,301,consolidated into /services/financial-reporting
+/what-we-do/nonprofit-accounting,/industries/nonprofits,301,redirected to new structure
+/who-we-are,/about/our-team,301,redirected to new structure
+/meet-our-team/,/about/our-team,301,redirected to new structure
+/contact-us,/contact,301,redirected to new structure

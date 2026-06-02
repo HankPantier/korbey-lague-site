@@ -1,23 +1,58 @@
 {
   "firm": {
     "name": "Korbey Lague PLLP",
-    "tagline": "CPAs you can talk to",
-    "foundingYear": "1972"
+    "tagline": "Inspired by your success"
   },
   "contact": {
-    "address": { "street": "123 Main St", "city": "Tyngsborough", "state": "MA", "zip": "01879" },
-    "phone": "978-555-0100",
-    "email": "info@korbeylague.com"
+    "address": {
+      "street": "1 Pondview Pl",
+      "city": "Tyngsborough",
+      "state": "MA",
+      "zip": "01879"
+    },
+    "phone": "(978) 649-2155",
+    "fax": "(978) 649-2160",
+    "email": "info@korbeylague.com",
+    "hours": {
+      "Standard": "Mon–Thu 9:00am–3:00pm, Fri by appointment only",
+      "Tax Season": "Mon–Fri 9:00am–5:00pm, Sat 9:00am–Noon (Feb 1 – Apr 15)"
+    }
   },
   "palette": {
-    "primary": "#003B71",
-    "secondary": "#6C7278",
-    "complementary": "#B8422E",
-    "action": "#00C1DE",
-    "nearBlack": "#1A1C1E",
-    "nearWhite": "#F7F5F2"
+    "primary": "#632d54",
+    "secondary": "#a89d43",
+    "complementary": "#2c6e55",
+    "action": "#e8623f",
+    "nearBlack": "#1A1A2E",
+    "nearWhite": "#F5F7FA"
   },
-  "social": [],
-  "certifications": [],
-  "logo": { "primary": "", "alt": "Korbey Lague PLLP logo" }
+  "social": [
+    {
+      "platform": "other",
+      "url": "facebook: https://www.facebook.com/korbeylaguepllp/"
+    },
+    {
+      "platform": "other",
+      "url": "yelp: https://www.yelp.com/biz/korbey-lague-tyngsborough"
+    }
+  ],
+  "certifications": [
+    {
+      "src": "",
+      "alt": "AICPA (implied)"
+    },
+    {
+      "src": "",
+      "alt": "AICPA PFS Credential"
+    },
+    {
+      "src": "",
+      "alt": "Sage Intacct"
+    }
+  ],
+  "logo": {
+    "primary": "korbey-lague-logo.svg",
+    "mark": "korbey-lague-mark.svg",
+    "alt": "Korbey Lague PLLP logo"
+  }
 }

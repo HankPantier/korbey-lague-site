@@ -1,14 +1,266 @@
-/* design-overrides.css — per-client CSS authored or refined by Claude.ai Design.
- *
- * This file is loaded AFTER src/styles/theme.css, so any rules here override
- * the default block styling. Target blocks via the data-block attribute:
- *
- *   [data-block="hero"] { ... }
- *   [data-block="feature-grid"] h2 { ... }
- *
- * Cascade order: tailwindcss → theme.css → design-overrides.css. Use specific
- * selectors (data-block attribute + descendant) instead of !important.
- *
- * To regenerate: run `npm run export-brief`, paste the brief into Claude.ai
- * Design, save the returned CSS as this file, then `npm run dev`.
- */
+/* ============================================================================
+   design-overrides.css — Korbey Lague PLLP
+   Augments the generated theme. Direction: bold, modern & sharp. The logo's
+   stepped "staircase" mark becomes a recurring texture/accent. Coral (#e8623f)
+   is reserved for true CTAs only. Targets data-block / data-component selectors.
+   ============================================================================ */
+
+:root {
+  --kl-plum: var(--color-primary-hex, #632d54);
+  --kl-plum-deep: #3c1c33;
+  --kl-plum-ink: #2a1424;
+  --kl-olive: #a89d43;
+  --kl-green: var(--color-complementary, #2c6e55);
+  --kl-coral: var(--color-action, #e8623f);
+  --kl-coral-deep: #c9492a;
+  --kl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Staircase motif — fine descending texture for dark surfaces */
+  --kl-steps: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='%23a89d43' fill-opacity='0.36'%3E%3Crect x='0' y='0' width='8' height='8'/%3E%3Crect x='8' y='8' width='8' height='8'/%3E%3Crect x='16' y='16' width='8' height='8'/%3E%3Crect x='24' y='24' width='8' height='8'/%3E%3Crect x='32' y='32' width='8' height='8'/%3E%3Crect x='40' y='40' width='8' height='8'/%3E%3C/g%3E%3C/svg%3E");
+  /* Staircase motif — rising 4-step accent for section headings (plum, echoes the logo mark) */
+  --kl-stair: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cg fill='%23632d54'%3E%3Crect x='0' y='10' width='6' height='6'/%3E%3Crect x='8' y='7' width='6' height='6'/%3E%3Crect x='16' y='4' width='6' height='6'/%3E%3Crect x='24' y='0' width='6' height='6'/%3E%3C/g%3E%3C/svg%3E");
+  --kl-stair-olive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cg fill='%23a89d43'%3E%3Crect x='0' y='10' width='6' height='6'/%3E%3Crect x='8' y='7' width='6' height='6'/%3E%3Crect x='16' y='4' width='6' height='6'/%3E%3Crect x='24' y='0' width='6' height='6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --- Typography: sharper, more deliberate headings ------------------------ */
+.font-heading { letter-spacing: -0.018em; }
+[data-block] h1.font-heading { letter-spacing: -0.03em; }
+[data-block] h2.font-heading { font-weight: 700; }
+/* Section headings carry the brand plum (dark-surface blocks keep their light type) */
+[data-block]:not([data-block="cta-banner"]):not([data-block="stats-bar"]) h2.font-heading {
+  color: var(--kl-plum);
+}
+
+/* Recurring rising-staircase mark — sits inline, preceding the headline */
+[data-block] h2.font-heading::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+  margin-right: 12px;
+  vertical-align: 0.04em;
+  background: var(--kl-stair) left center / 30px 16px no-repeat;
+}
+
+/* --- Dark surfaces: gradient field + a single fading band of staircase ---- */
+[data-block="hero"],
+[data-block="page-header"],
+[data-block="cta-banner"],
+[data-block="stats-bar"] {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--kl-plum);
+  background-image: linear-gradient(135deg, var(--kl-plum) 0%, var(--kl-plum-deep) 58%, var(--kl-plum-ink) 100%);
+  border-bottom: 4px solid var(--kl-olive);
+}
+/* texture confined to the right edge, masked so it dissolves into the plum */
+[data-block="hero"]::before,
+[data-block="page-header"]::before,
+[data-block="cta-banner"]::before,
+[data-block="stats-bar"]::before,
+[data-component="footer"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(46%, 520px);
+  background: var(--kl-steps) right center / 44px 44px;
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 88%);
+  mask-image: linear-gradient(to left, #000 0%, transparent 88%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* keep block content above the texture */
+[data-block="hero"] > *,
+[data-block="page-header"] > *,
+[data-block="cta-banner"] > *,
+[data-block="stats-bar"] > *,
+[data-component="footer"] > * { position: relative; z-index: 1; }
+
+[data-block="cta-banner"] { border-bottom: none; border-top: 4px solid var(--kl-olive); }
+[data-block="cta-banner"] h2.font-heading::before {
+  background-image: var(--kl-stair-olive);
+}
+[data-block="hero"] h1.font-heading::before,
+[data-block="page-header"] h1.font-heading::before { display: none; }
+
+/* hero-split lives on light bg — frame the image placeholder with the motif */
+[data-block="hero-split"] .bg-muted\/40,
+[data-block="content-split"] .bg-muted,
+[data-block="hero-split"] [class*="rounded-lg"][class*="overflow-hidden"] {
+  background-color: #efe9ee;
+  background-image: var(--kl-steps);
+  background-size: 44px 44px;
+  box-shadow: inset 0 0 0 1px rgba(99, 45, 84, 0.12);
+}
+
+/* --- Cards: crisp edges, plum top-rule, lift on hover --------------------- */
+[data-block] [class*="bg-card"],
+[data-block="testimonials"] [class*="border"][class*="bg-card"] {
+  border-top: 3px solid var(--kl-plum);
+  border-radius: var(--radius-md, 4px);
+  transition: transform 0.25s var(--kl-ease), box-shadow 0.25s var(--kl-ease),
+    border-color 0.25s var(--kl-ease);
+}
+[data-block] [class*="bg-card"]:hover {
+  transform: translateY(-4px);
+  border-top-color: var(--kl-olive);
+  box-shadow: 0 14px 32px -12px rgba(42, 20, 36, 0.28) !important;
+}
+
+/* --- Process steps: square markers + olive connector (motif, not circles) - */
+[data-block="process-steps"] li > div[class*="rounded-full"] {
+  border-radius: 2px !important;
+  background-color: var(--kl-plum) !important;
+  box-shadow: 4px 4px 0 0 rgba(168, 157, 67, 0.55);
+}
+[data-block="process-steps"] [class*="absolute"][class*="top-6"] {
+  background-color: var(--kl-olive) !important;
+  opacity: 0.5;
+}
+/* Keep the section heading on a single line where there's room to (the
+   inline staircase mark + a long headline otherwise orphans the last word).
+   Gated to desktop so narrow viewports still wrap instead of overflowing. */
+@media (min-width: 1024px) {
+  [data-block="process-steps"] h2.font-heading { white-space: nowrap; }
+}
+
+/* --- Checklist: confirmation green (coral is reserved for CTAs) ----------- */
+[data-block="checklist-section"] svg.lucide-check {
+  color: var(--kl-green) !important;
+}
+
+/* --- Stats bar: olive numerals on the shared plum field ------------------- */
+[data-block="stats-bar"] { color: var(--color-near-white, #F6F7FA); }
+[data-block="stats-bar"] [class*="text-4xl"],
+[data-block="stats-bar"] [class*="text-5xl"],
+[data-block="stats-bar"] [class*="font-bold"] {
+  color: var(--kl-olive);
+}
+
+/* --- FAQ accordion: plum-tinted dividers, no underline hover -------------- */
+[data-block="faq-accordion"] .border-b { border-color: rgba(99, 45, 84, 0.16); }
+[data-block="faq-accordion"] button[class*="hover:underline"]:hover {
+  text-decoration: none;
+  color: var(--kl-plum);
+}
+[data-block="faq-accordion"] button[data-state="open"] { color: var(--kl-plum); }
+[data-block="faq-accordion"] svg.lucide-chevron-down { color: var(--kl-olive); }
+
+/* --- Coral CTA treatment: true calls-to-action only ----------------------- */
+[data-block="cta-banner"] .prose a,
+[data-component="navbar"] a[href="/contact"],
+[data-block="form"] button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--kl-coral);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-md, 4px);
+  box-shadow: 4px 4px 0 0 var(--kl-plum);
+  transition: transform 0.18s var(--kl-ease), box-shadow 0.18s var(--kl-ease),
+    background-color 0.18s var(--kl-ease);
+}
+[data-block="cta-banner"] .prose a {
+  display: block;
+  width: fit-content;
+  margin: 2.25rem auto 0;
+  white-space: nowrap;
+}
+[data-block="cta-banner"] .prose a:hover,
+[data-component="navbar"] a[href="/contact"]:hover,
+[data-block="form"] button[type="submit"]:hover {
+  background: var(--kl-coral-deep);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--kl-plum);
+}
+
+/* --- Forms: sharp inputs, coral focus ring ------------------------------- */
+[data-block="form"] input,
+[data-block="form"] textarea,
+[data-block="form"] select {
+  border-radius: var(--radius-md, 4px);
+  transition: border-color 0.15s var(--kl-ease), box-shadow 0.15s var(--kl-ease);
+}
+[data-block="form"] input:focus,
+[data-block="form"] textarea:focus,
+[data-block="form"] select:focus {
+  border-color: var(--kl-coral);
+  box-shadow: 0 0 0 3px rgba(232, 98, 63, 0.18);
+  outline: none;
+}
+
+/* --- Contact info: olive icon accents over plum -------------------------- */
+[data-block="contact-info"] svg.lucide { color: var(--kl-plum); }
+
+/* --- Light feature panels: off-white field, centered --------------------- */
+[data-block="form"],
+[data-block="contact-info"] {
+  max-width: 62rem;
+  background: #f4eff3;
+  border-top: 3px solid var(--kl-plum);
+}
+[data-block="form"] header,
+[data-block="contact-info"] header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+[data-block="form"] form { margin-left: auto; margin-right: auto; }
+[data-block="contact-info"] .grid {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- NavBar: scroll surface + olive active underline + CTA --------------- */
+[data-component="navbar"] { border-bottom: 1px solid transparent; }
+[data-component="navbar"] a[aria-current="page"],
+[data-component="navbar"] [data-active] {
+  color: var(--kl-plum) !important;
+  text-decoration-color: var(--kl-olive) !important;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}
+/* Main-nav trigger: drop the loud green (accent) fill on hover/open/focus —
+   the olive underline already signals active. Subtle plum tint + plum text. */
+[data-component="navbar"] button.group:hover,
+[data-component="navbar"] button.group:focus,
+[data-component="navbar"] button.group[data-state="open"] {
+  background-color: rgba(99, 45, 84, 0.06) !important;
+  color: var(--kl-plum) !important;
+}
+/* Dropdown active item: white text on the accent fill (the inherited plum
+   above is unreadable on green). Scoped to the popover so bar links stay plum. */
+[data-component="navbar"] [class*="bg-popover"] a[aria-current="page"] {
+  color: #fff !important;
+}
+
+/* --- Footer: white wordmark on the dark field + olive hovers -------------- */
+[data-component="footer"] {
+  position: relative;
+  overflow: hidden;
+  /* Sit flush against the final section (cancels the component's mt-16). */
+  margin-top: 0;
+}
+[data-component="footer"] img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.92;
+}
+[data-component="footer"] a:hover { color: var(--kl-olive); }
+
+/* --- Cookie consent: sharp card with plum top-rule ----------------------- */
+[data-component="cookie-consent"] {
+  border-radius: var(--radius-md, 4px);
+  border-top: 3px solid var(--kl-plum);
+}
+[data-component="cookie-consent"] [data-slot="accept"] {
+  background: var(--kl-plum);
+  color: #fff;
+}

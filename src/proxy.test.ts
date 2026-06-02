@@ -32,4 +32,11 @@ describe('proxy', () => {
       '</index.md>; rel="alternate"; type="text/markdown"'
     )
   })
+
+  it('rewrites `/.well-known/agent.json` to the agent-card handler', () => {
+    const res = proxy(makeReq('/.well-known/agent.json'))
+    expect(res.headers.get('x-middleware-rewrite')).toBe(
+      'http://localhost/api/agent-card'
+    )
+  })
 })

@@ -42,6 +42,42 @@ export default async function RootLayout({
 }) {
   const [brand, nav] = await Promise.all([getBrandConfig(), getNavConfig()])
 
+  // Site-wide Organization JSON-LD. Page-level WebPage / LocalBusiness /
+  // FAQPage / BlogPosting are emitted by SchemaScript + the post page; this
+  // adds the firm-as-entity record once per request so the same Organization
+  // node is available everywhere. Sources are all from brand.json — never raw
+  // user input — so the JSON.stringify embed pattern is safe (see also
+  // SchemaScript.tsx for the same approach).
+  const orgSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: brand.firm.name,
+    url: siteConfig.siteUrl,
+    description: brand.firm.tagline,
+    foundingDate: brand.firm.foundingYear,
+    logo: brand.logo.primary
+      ? new URL(`/content-assets/${brand.logo.primary}`, siteConfig.siteUrl).toString()
+      : undefined,
+    sameAs: brand.social.map((s) => s.url).filter(Boolean),
+    contactPoint: brand.contact.phone
+      ? {
+          '@type': 'ContactPoint',
+          telephone: brand.contact.phone,
+          email: brand.contact.email,
+          contactType: 'customer service',
+        }
+      : undefined,
+    address: brand.contact.address
+      ? {
+          '@type': 'PostalAddress',
+          streetAddress: brand.contact.address.street,
+          addressLocality: brand.contact.address.city,
+          addressRegion: brand.contact.address.state,
+          postalCode: brand.contact.address.zip,
+        }
+      : undefined,
+  }
+
   return (
     <html
       lang="en"
@@ -58,6 +94,10 @@ export default async function RootLayout({
         data-contact-email={brand.contact.email ?? ''}
         data-firm-name={brand.firm.name}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-background focus:text-foreground focus:rounded-md focus:px-4 focus:py-2 focus:shadow-lg focus:outline focus:outline-2 focus:outline-cyan-500"

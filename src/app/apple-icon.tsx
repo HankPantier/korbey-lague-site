@@ -1,15 +1,19 @@
 import { ImageResponse } from 'next/og'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
+import { loadMarkDataUrl } from '@/lib/brand/load-mark-data-url'
 
 export const size = { width: 180, height: 180 }
 export const contentType = 'image/png'
 
 /**
- * Apple touch icon — larger sibling of `src/app/icon.tsx`. Same brand-color +
- * initials approach; iOS home-screen + Apple share UI use this.
+ * Apple touch icon — larger sibling of `src/app/icon.tsx`. Uses
+ * `brand.logo.mark` when present, otherwise the initials tile fallback. iOS
+ * home-screen + Apple share UI use this.
  */
 export default async function AppleIcon() {
   const brand = await getBrandConfig()
+  const markDataUrl = await loadMarkDataUrl(brand.logo.mark)
+
   const initials = brand.firm.name
     .split(/\s+/)
     .filter(Boolean)
@@ -28,14 +32,29 @@ export default async function AppleIcon() {
           alignItems: 'center',
           justifyContent: 'center',
           background: brand.palette.primary,
-          color: brand.palette.nearWhite,
-          fontSize: initials.length > 1 ? 96 : 120,
-          fontWeight: 700,
-          letterSpacing: -3,
           fontFamily: 'sans-serif',
         }}
       >
-        {initials || '·'}
+        {markDataUrl ? (
+          <img
+            src={markDataUrl}
+            alt=""
+            width={size.width - 32}
+            height={size.height - 32}
+            style={{ objectFit: 'contain' }}
+          />
+        ) : (
+          <span
+            style={{
+              color: brand.palette.nearWhite,
+              fontSize: initials.length > 1 ? 96 : 120,
+              fontWeight: 700,
+              letterSpacing: -3,
+            }}
+          >
+            {initials || '·'}
+          </span>
+        )}
       </div>
     ),
     { ...size }

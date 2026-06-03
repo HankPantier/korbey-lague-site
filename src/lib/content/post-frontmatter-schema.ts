@@ -13,7 +13,14 @@ export const PostFrontmatterSchema = z
   .object({
     title: z.string().min(1, 'post title is required'),
     excerpt: z.string().default(''),
-    date: z.string().default(''),
+    // YAML parses an unquoted `date: 2026-06-03` as a Date object — coerce it
+    // back to the YYYY-MM-DD string the consumers expect. A hard string
+    // requirement here took down every page that touches listPostsMeta
+    // (feed.xml prerender fails → whole build exits).
+    date: z.preprocess(
+      (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v),
+      z.string().default('')
+    ),
     author: z.string().optional(),
     image: z.string().optional(),
     image_alt: z.string().optional(),

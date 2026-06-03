@@ -25,6 +25,8 @@ At Korbey Lague PLLP, clients don't get handed off to whoever's available. You w
 <!-- block: content-split | variant: image-right -->
 ## Kelsey Korbey, CPA — Founder & Managing Partner
 
+![Kelsey Korbey, CPA, Founder and Managing Partner of Korbey Lague PLLP](kelsey-korbey-avatar.svg)
+
 Kelsey Korbey built this firm around a simple conviction: business owners deserve accounting support that doesn't disappear after Tax Day.
 
 A licensed CPA with years of experience in public accounting, Kelsey founded Korbey Lague PLLP in Tyngsborough, MA after seeing too many small and mid-size businesses get shuffled through transactional tax prep shops — firms that were reachable in March and gone by May. That pattern left clients without guidance during the moments that actually mattered: hiring decisions, equipment purchases, entity changes, and planning for next year's tax liability.
@@ -39,15 +41,19 @@ She is a member of the AICPA and brings a service philosophy to every client eng
 ## Our Advisory & Accounting Staff
 
 **Ron Lague, CPA, PFS**
+photo: ron-lague-avatar.svg
 Ron holds both a CPA license and the Personal Financial Specialist (PFS) designation from the AICPA — a credential awarded exclusively to CPAs who meet rigorous standards in personal financial planning. That combination means Ron isn't just looking at your tax return; he's thinking about how your business finances connect to your personal wealth picture. Clients navigating business transitions, retirement planning, or complex investment structures benefit directly from that dual lens.
 
 **Jackie Estes, MBA**
+photo: jackie-estes-avatar.svg
 Jackie brings an MBA-grounded perspective to the firm's bookkeeping and advisory work. Her background spans financial operations and business analysis, and she's particularly effective with clients who are scaling — businesses that have outgrown spreadsheets but aren't yet ready for a full-time finance hire. Jackie works closely with clients on Sage Intacct, the firm's cloud accounting platform of choice for clients who need real-time financial visibility.
 
 **Mike Riordan, MBA**
+photo: mike-riordan-avatar.svg
 Mike rounds out the advisory team with an MBA and a background in operational finance. He supports clients across the firm's service tiers, with a focus on helping business owners understand what their numbers are actually telling them — not just what happened last quarter, but what it means for decisions happening right now.
 
 **Richard DelGaudio, CPA**
+photo: richard-delgaudio-avatar.svg
 Richard is a licensed CPA who supports tax compliance and accounting work across the firm's client base. His attention to detail and technical grounding make him a reliable resource for clients with complex tax situations, including those in construction, healthcare, and multi-entity structures.
 
 ---

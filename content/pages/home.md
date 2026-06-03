@@ -13,6 +13,10 @@ og_image: https://www.korbeylague.com/og-images/home.png
 twitter_card: summary_large_image
 hero: hero
 hero_variant: image
+# Brand-tinted placeholder until the firm supplies real office photography —
+# swap by dropping the photo into public/content-assets/ and updating this line.
+hero_image: hero-home.png
+hero_image_alt: The Korbey Lague PLLP office in Tyngsborough, Massachusetts
 ---
 
 <!-- block: intro-text | variant: centered -->

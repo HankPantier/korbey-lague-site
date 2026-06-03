@@ -383,3 +383,24 @@ npm run new-client ~/Downloads/content-package.zip
 ```
 
 Runs install → unpack → validate → initial commit. Each step is idempotent (unpack overwrites cleanly, validate is read-only, commit no-ops when nothing's new), so the script is safe to re-run after a failure mid-way.
+
+## Images
+
+Authored image references resolve through one helper,
+`src/lib/assembly/resolve-image.ts` (`resolveImageSrc`): a bare filename becomes
+`/content-assets/<file>` (served from `public/content-assets/`), while an
+`http(s)` URL or an absolute path is passed through unchanged. Every block
+component and the insights pages call it instead of hardcoding the asset path.
+
+Single-image blocks (`content-split`, `checklist-section`, `cta-banner`) accept
+the image as the first Markdown image in the body; `extractLeadingImage`
+(`md-utils.ts`) lifts it out and strips it from the rendered prose, with the
+`| image:` comment attribute kept as a fallback. Hero images come from
+`hero_image` / `hero_image_alt` frontmatter. Per-item blocks (`team-grid`,
+`service-cards`, `content-cards`, `logo-bar`) carry per-item refs through the
+same resolver.
+
+Remote images are enabled by `images.remotePatterns` in `next.config.ts`. The
+CSP `img-src` directive already includes `https:`, so remote origins are not
+blocked — the trade-off is that any HTTPS image origin is permitted, which is
+the standard posture for author-supplied images and low-risk for `img-src`.

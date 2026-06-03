@@ -212,8 +212,15 @@ Insights live in `content/posts/`. Each post is a single Markdown file.
 3. **`slug`** becomes the URL: `/insights/short-url-friendly-slug`. Keep it
    short and stable — once published, changing it breaks any inbound link.
 
-4. **If you include an `image:`** entry, the file has to exist at
-   `public/content-assets/<filename>`. Upload via GitHub's file uploader.
+4. **`image:`** in the frontmatter sets the post's hero image. The file must
+   exist at `public/content-assets/<filename>` — upload it via GitHub's file
+   uploader — or use a full `https://` URL instead of a filename. The
+   `hero_image_alt:` frontmatter key sets the alt text for the hero.
+
+   To include an image **inside a block body** (on regular pages, not just posts),
+   write a Markdown image as the first line of the block body:
+   `![descriptive alt text](filename.png)`. The same filename/URL rules apply.
+   The older `| image: <file>` comment attribute still works as a fallback.
 
 5. **`tags`** are not displayed yet but are searchable in the file and useful
    for future filtering.

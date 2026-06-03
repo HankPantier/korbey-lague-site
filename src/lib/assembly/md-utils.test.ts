@@ -162,6 +162,35 @@ describe('parseIconTitleDescriptionList', () => {
     expect(result).toHaveLength(1)
     expect(result[0].icon).toBe('Globe')
   })
+
+  it('reads an icon: line under an H3 chunk heading', () => {
+    const body = `### Healthcare Professionals\nicon: Stethoscope\n\nPractice owners face billing complexity.\n\n### Contractors\n\nJob costing and bonding requirements.`
+    const result = parseIconTitleDescriptionList(body)
+    expect(result).toHaveLength(2)
+    expect(result[0]).toEqual({
+      icon: 'Stethoscope',
+      title: 'Healthcare Professionals',
+      description: 'Practice owners face billing complexity.',
+    })
+    // No icon: line → CheckCircle default, body untouched
+    expect(result[1].icon).toBe('CheckCircle')
+    expect(result[1].description).toBe('Job costing and bonding requirements.')
+  })
+
+  it('reads an icon: line under a bold-paragraph chunk title', () => {
+    const body = `**Family Businesses**\nicon: Building2\nSuccession and gifting strategy.`
+    const result = parseIconTitleDescriptionList(body)
+    expect(result).toHaveLength(1)
+    expect(result[0].icon).toBe('Building2')
+    expect(result[0].description).toBe('Succession and gifting strategy.')
+  })
+
+  it('ignores an icon: line that is not the first line of a chunk', () => {
+    const body = `### Title\nProse first.\nicon: Hammer\nMore prose.`
+    const result = parseIconTitleDescriptionList(body)
+    expect(result[0].icon).toBe('CheckCircle')
+    expect(result[0].description).toContain('icon: Hammer')
+  })
 })
 
 // ---------------------------------------------------------------------------

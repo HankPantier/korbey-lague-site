@@ -63,4 +63,9 @@ describe('PageFrontmatterSchema', () => {
       PageFrontmatterSchema.parse({ title: 123 })
     ).toThrow()
   })
+
+  it('accepts an optional hero_image_alt string', () => {
+    const fm = PageFrontmatterSchema.parse({ hero_image_alt: 'Team in the office' })
+    expect(fm.hero_image_alt).toBe('Team in the office')
+  })
 })

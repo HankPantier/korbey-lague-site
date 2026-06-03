@@ -1,10 +1,10 @@
 'use client'
 
 /**
- * FooterCookiePrefsLink — clears the analytics-consent cookie and reloads,
- * which re-renders <Analytics> server-side with no cookie set and brings
- * the consent banner back. Satisfies the GDPR right-to-withdraw when the
- * banner is shipped enabled.
+ * FooterCookiePrefsLink — clears the analytics-consent cookie and reloads;
+ * the client-side <Analytics> re-reads document.cookie on the fresh load,
+ * finds no decision, and brings the consent banner back. Satisfies the GDPR
+ * right-to-withdraw when the banner is shipped enabled.
  */
 export function FooterCookiePrefsLink() {
   return (

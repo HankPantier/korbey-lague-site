@@ -1,10 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 
 const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365
+
+type ConsentBannerProps = {
+  /**
+   * Render with inline display:none. Used by <Analytics> for the SSR /
+   * pre-cookie-read state so the markup is present in plain SSR HTML (the
+   * design-brief script captures it by regex) without flashing at visitors
+   * who already decided. Inline style (not a class) so it can't lose a
+   * specificity fight with the layout classes below.
+   */
+  hidden?: boolean
+  onDecision: (value: 'accepted' | 'declined') => void
+}
 
 /**
  * ConsentBanner — sticky bottom card with Accept / Decline.
@@ -15,22 +26,20 @@ const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365
  * design-overrides.css can target precisely without inspecting our
  * internals.
  *
- * On Accept/Decline we write the cookie and call router.refresh(), which
- * re-runs the server tree against the new cookie state without a full
- * page reload — the <Analytics> server component then renders the GA/GTM
- * script tag (or nothing, on decline) in the next paint.
+ * On Accept/Decline we write the consent cookie and report the decision up
+ * to <Analytics>, which swaps this banner for the GA/GTM script (accept) or
+ * nothing (decline) — pure client state, no server round-trip needed.
  */
-export function ConsentBanner() {
-  const router = useRouter()
-
+export function ConsentBanner({ hidden = false, onDecision }: ConsentBannerProps) {
   const setConsent = (value: 'accepted' | 'declined') => {
     document.cookie = `analytics-consent=${value}; path=/; max-age=${ONE_YEAR_SECONDS}; samesite=lax`
-    router.refresh()
+    onDecision(value)
   }
 
   return (
     <aside
       data-component="cookie-consent"
+      style={hidden ? { display: 'none' } : undefined}
       className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 max-w-2xl w-[calc(100%-2rem)] bg-background border border-border rounded-lg shadow-lg p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between"
     >
       <p data-slot="message" className="text-sm text-foreground">

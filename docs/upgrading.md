@@ -239,10 +239,45 @@ What the pass changes (all `src/`-only — "take template's" applies):
    `rm package-lock.json && npm install` if the lock conflicts).
 
 After merging: `npm install`, build, deploy, then confirm a gibberish URL on
-the live site returns 404 (and the homepage still 200s). If your clone
-customized `Analytics.tsx`/`ConsentBanner.tsx`, port your customizations onto
-the template's new client-side versions rather than keeping the old
-server-side files — the old design re-triggers the 500s.
+the live site returns 404 (and the homepage still 200s).
+
+**If your clone customized the consent banner or analytics wiring:**
+
+Resolve the merge by taking the template's new files, then re-apply your
+customizations on top. Keeping the clone's old server-side `Analytics.tsx`
+re-triggers the 500s — that file is the bug.
+
+- **CSS-only customizations survive untouched.** The banner's selector
+  contract is unchanged: `[data-component="cookie-consent"]` and the
+  `message` / `accept` / `decline` `data-slot`s are all still there, with the
+  same default classes. Anything done properly in
+  `content/design-overrides.css` keeps working with zero changes.
+- **Copy changes** (banner message, button labels, privacy link) port 1:1 —
+  the JSX around them in `ConsentBanner.tsx` is structurally the same.
+- **Code-level customizations** must adapt to the new shape:
+  - `Analytics.tsx` is `'use client'` and reads `document.cookie` via
+    `useSyncExternalStore`. Do **not** reintroduce `next/headers`'s
+    `cookies()` — anywhere reachable from the root layout — until
+    vercel/next.js#86251 is fixed in a stable release.
+  - `ConsentBanner` no longer calls `useRouter().refresh()`. It takes an
+    `onDecision('accepted' | 'declined')` callback and a `hidden` prop;
+    after writing the cookie it reports the decision up and `<Analytics>`
+    swaps in GA/GTM (or nothing) as pure client state.
+  - **Keep the `hidden` prop wired to an inline `display:none`.** It is what
+    keeps the banner in SSR markup (the design-brief script captures it from
+    plain HTML) without flashing at visitors who already decided. Don't
+    replace it with a CSS class — utility-class specificity fights make that
+    unreliable — and don't render `null` instead, or the brief capture
+    breaks.
+  - If you renamed the `analytics-consent` cookie, update it in THREE
+    places: `readConsentCookie` in `Analytics.tsx`, the write in
+    `ConsentBanner.tsx`, and the clear in `FooterCookiePrefsLink.tsx`.
+
+After porting, verify the consent flow end to end on a build with a real (or
+test) `NEXT_PUBLIC_GA4_ID`: banner visible on first visit → Accept hides it
+and mounts the GA tag → reload keeps it hidden → footer "Cookie preferences"
+brings it back → Decline mounts nothing. And `curl` any page: the SSR HTML
+must contain `data-component="cookie-consent"` with `display:none`.
 
 ---
 

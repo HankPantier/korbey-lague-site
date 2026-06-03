@@ -8,7 +8,8 @@ canonical_url: https://korbeylague.com/
 schema_markup: LocalBusiness
 hero: hero
 hero_variant: image
-hero_image: hero-office.jpg
+hero_image: hero-office.png
+hero_image_alt: The Korbey Lague office in Tyngsborough
 ---
 
 <!-- block: intro-text | variant: centered -->
@@ -23,8 +24,10 @@ Korbey Lague PLLP has been the CPA firm of choice for closely held businesses ac
 - Briefcase: **Advisory & Virtual CFO** — Financial oversight on a fractional basis.
 - ChartLine: **Audit & Assurance** — For nonprofits, foundations, and closely held companies.
 
-<!-- block: content-split | variant: image-right | image: team-photo.jpg -->
+<!-- block: content-split | variant: image-right -->
 ## Built on Relationships, Not Transactions
+
+![The Korbey Lague partner team in their Tyngsborough office](team-photo.png)
 
 When you call us, you get the partner who knows your business — not a rotating cast of associates. That's been our promise for fifty years and it's not changing.
 

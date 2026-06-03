@@ -873,4 +873,10 @@ describe('extractLeadingImage', () => {
     expect(r.src).toBeUndefined()
     expect(r.body).toBe('[Label](/url)\n\nBody')
   })
+
+  it('leaves an image embedded inside a prose sentence untouched', () => {
+    const r = extractLeadingImage('See our ![workflow](diagram.png) in action.\n\nMore.')
+    expect(r.src).toBeUndefined()
+    expect(r.body).toBe('See our ![workflow](diagram.png) in action.\n\nMore.')
+  })
 })

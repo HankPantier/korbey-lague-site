@@ -142,7 +142,12 @@ const nextConfig: NextConfig = {
   // content). CSP img-src already permits `https:` (see buildCsp above), so no
   // CSP change is needed. Local images live under public/content-assets/.
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: '**' }],
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' },
+      // http sources are fetched server-side by the image optimizer and
+      // re-served from our origin, so they don't cause browser mixed content.
+      { protocol: 'http', hostname: '**' },
+    ],
   },
   async redirects() {
     const r = await readRedirectsCsv()

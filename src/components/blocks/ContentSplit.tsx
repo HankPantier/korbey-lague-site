@@ -12,6 +12,7 @@ import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 export type { ContentSplitProps }
 
 export function ContentSplit({ variant, heading, body, image, image_alt, cta }: ContentSplitProps) {
+  const imgSrc = resolveImageSrc(image)
   return (
     <Section dataBlock="content-split">
       <div
@@ -38,9 +39,9 @@ export function ContentSplit({ variant, heading, body, image, image_alt, cta }: 
           )}
         </div>
         <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-          {resolveImageSrc(image) ? (
+          {imgSrc ? (
             <Image
-              src={resolveImageSrc(image)!}
+              src={imgSrc}
               alt={image_alt}
               fill
               className="object-cover"

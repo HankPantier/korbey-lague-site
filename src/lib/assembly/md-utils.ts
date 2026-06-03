@@ -93,7 +93,8 @@ export function extractLeadingImage(body: string): {
   body: string
 } {
   // ![alt](src) — src stops at whitespace or ')'; an optional "title" is ignored.
-  const re = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/
+  // Anchored to whole lines so an image embedded inside a prose sentence is not extracted.
+  const re = /^[ \t]*!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)[ \t]*$/m
   const m = body.match(re)
   if (!m || m.index === undefined) return { body }
   const alt = m[1].trim() || undefined

@@ -21,6 +21,7 @@ export function ChecklistSection({
 }: ChecklistSectionProps) {
   // 2-column layout when 5+ items in standalone mode
   const useDoubleCol = variant === 'standalone' && items.length >= 5
+  const imgSrc = resolveImageSrc(image)
 
   const checklist = (
     <div>
@@ -67,9 +68,9 @@ export function ChecklistSection({
         <div className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
           {checklist}
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-            {resolveImageSrc(image) ? (
+            {imgSrc ? (
               <Image
-                src={resolveImageSrc(image)!}
+                src={imgSrc}
                 alt={image_alt ?? heading}
                 fill
                 className="object-cover"

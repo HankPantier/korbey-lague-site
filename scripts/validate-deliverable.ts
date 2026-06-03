@@ -113,6 +113,22 @@ async function main() {
           })
         }
       }
+
+      // Body `photo:` lines (team-grid / service-cards / content-cards convention)
+      const photoLinePattern = /^\s*photo:\s*(\S+)\s*$/gim
+      while ((m = photoLinePattern.exec(content)) !== null) {
+        const src = m[1].trim()
+        // Skip external URLs
+        if (src.startsWith('http://') || src.startsWith('https://')) continue
+        referencedImages.add(src)
+        if (!(await exists(path.join(assetsDir, src)))) {
+          findings.push({
+            severity: 'warning',
+            file: `pages/${file}`,
+            message: `photo reference "${src}" missing in public/content-assets/`,
+          })
+        }
+      }
     }
   }
 

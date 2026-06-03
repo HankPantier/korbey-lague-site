@@ -22,8 +22,21 @@ Body content here…
 
 - **`block`** — the block id from the table below. Required.
 - **`variant`** — one of the block's documented variants. Optional; the block has a default.
-- **`image`** — filename in `public/content-assets/`. Used by blocks that take a hero / aside image.
+- **`image`** — filename in `public/content-assets/`. Used by blocks that take a hero / aside image. **Preferred: use a Markdown image instead** (see below).
 - **`query`** — Pexels search query the deliverable used when sourcing the image. Preserved for introspection; never consumed by the renderer.
+
+**Including an image (preferred):** write a standard Markdown image as the first line of the block body. Alt text and source come from one line, and the source may be a local filename **or** a full `https://` URL:
+
+```markdown
+<!-- block: content-split | variant: image-right -->
+## Built on Relationships
+
+![Our team in the office](team-photo.png)
+
+When you call us, you get the partner who knows your business…
+```
+
+Local filenames resolve under `public/content-assets/`. The `| image: <file>` comment attribute still works as a fallback. Remote `https://` URLs work with no extra configuration.
 
 The parser also tolerates *extra* whitespace and attribute order, but the canonical form above is what the deliverable emits.
 
@@ -463,7 +476,9 @@ Fractional CFO services — forecasting, KPIs, board-ready reports.
 ```
 
 A `### Title` plus its paragraph make one card. To make a card link to a sub-page,
-trail a markdown link: `[**Learn more →**](/services/cfo)`.
+trail a markdown link: `[**Learn more →**](/services/cfo)`. Each card also accepts an
+optional image: place a Markdown image (`![alt](file.png)`) or a `photo: <file>` line
+under the `### Title` heading, the same way `content-cards` handles per-card images.
 
 ---
 

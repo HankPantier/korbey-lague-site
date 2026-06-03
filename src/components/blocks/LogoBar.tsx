@@ -1,6 +1,7 @@
 import { Section } from './Section'
 import Image from 'next/image'
 import Link from 'next/link'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 import type { LogoBarProps } from '@/lib/assembly/extract-block-props'
 
 export type { LogoBarProps }
@@ -23,7 +24,7 @@ export function LogoBar({ heading, logos }: LogoBarProps) {
             <div className="relative h-12 w-auto min-w-[80px] max-w-[140px] grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
               {logo.src ? (
                 <Image
-                  src={`/content-assets/${logo.src}`}
+                  src={resolveImageSrc(logo.src)!}
                   alt={logo.alt}
                   fill
                   className="object-contain"

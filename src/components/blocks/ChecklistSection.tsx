@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { ChecklistSectionProps } from '@/lib/assembly/extract-block-props'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export type { ChecklistSectionProps }
 
@@ -20,6 +21,7 @@ export function ChecklistSection({
 }: ChecklistSectionProps) {
   // 2-column layout when 5+ items in standalone mode
   const useDoubleCol = variant === 'standalone' && items.length >= 5
+  const imgSrc = resolveImageSrc(image)
 
   const checklist = (
     <div>
@@ -66,9 +68,9 @@ export function ChecklistSection({
         <div className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
           {checklist}
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-            {image ? (
+            {imgSrc ? (
               <Image
-                src={`/content-assets/${image}`}
+                src={imgSrc}
                 alt={image_alt ?? heading}
                 fill
                 className="object-cover"

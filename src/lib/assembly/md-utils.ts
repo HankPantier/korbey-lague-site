@@ -82,6 +82,30 @@ export function extractTrailingCta(body: string): {
 }
 
 /**
+ * Pull the first standalone Markdown image (`![alt](src)`) out of a body and
+ * return it alongside the body with that image removed (so it doesn't also
+ * render inside the prose). `src` may be a local filename or a full URL —
+ * resolution is the caller's job via resolveImageSrc(). Never throws.
+ */
+export function extractLeadingImage(body: string): {
+  src?: string
+  alt?: string
+  body: string
+} {
+  // ![alt](src) — src stops at whitespace or ')'; an optional "title" is ignored.
+  // Anchored to whole lines so an image embedded inside a prose sentence is not extracted.
+  const re = /^[ \t]*!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)[ \t]*$/m
+  const m = body.match(re)
+  if (!m || m.index === undefined) return { body }
+  const alt = m[1].trim() || undefined
+  const src = m[2].trim()
+  const cleaned = (body.slice(0, m.index) + body.slice(m.index + m[0].length))
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+  return { src, alt, body: cleaned }
+}
+
+/**
  * Parse a list where each line is "- Icon: **Title** — Description".
  * Also accepts en-dash (–) or double-hyphen (--) as the separator.
  * Skips lines that don't match the pattern.
@@ -270,10 +294,24 @@ export function parseFaqList(body: string): Array<{ question: string; answer: st
  */
 export function parseH3CardList(body: string): {
   intro?: string
-  cards: Array<{ title: string; description: string; url?: string }>
+  cards: Array<{ title: string; description: string; url?: string; image?: string }>
 } {
   const { intro, chunks } = parseTitleBodyChunks(body)
-  const cards = chunks.map(({ title, body: rest }) => {
+  const cards = chunks.map(({ title, body: rawRest }) => {
+    // A card image may be a leading markdown image or a `photo:` line.
+    let image: string | undefined
+    let rest = rawRest
+    const leading = extractLeadingImage(rest)
+    if (leading.src) {
+      image = leading.src
+      rest = leading.body
+    } else {
+      const photoMatch = rest.match(/^\s*photo:\s*(\S+)\s*$/im)
+      if (photoMatch) {
+        image = photoMatch[1].trim()
+        rest = rest.replace(photoMatch[0], '').trim()
+      }
+    }
     // Pop trailing link as card url
     const ctaMatch = rest.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/)
     if (ctaMatch) {
@@ -281,9 +319,10 @@ export function parseH3CardList(body: string): {
         title,
         description: rest.slice(0, ctaMatch.index).trimEnd(),
         url: ctaMatch[2],
+        image,
       }
     }
-    return { title, description: rest }
+    return { title, description: rest, image }
   })
   return { intro, cards }
 }

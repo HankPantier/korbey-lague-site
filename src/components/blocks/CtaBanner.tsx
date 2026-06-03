@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import type { CtaBannerProps } from '@/lib/assembly/extract-block-props'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export type { CtaBannerProps }
 
@@ -16,10 +17,7 @@ export function CtaBanner({
   background_asset,
   cta_primary,
 }: CtaBannerProps) {
-  const bgSrc =
-    variant === 'image-bg' && background_asset
-      ? `/content-assets/${background_asset}`
-      : undefined
+  const bgSrc = variant === 'image-bg' ? resolveImageSrc(background_asset) : undefined
 
   return (
     <Section

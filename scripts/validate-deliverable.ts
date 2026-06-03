@@ -60,16 +60,19 @@ async function main() {
         })
       }
 
-      // Frontmatter: hero_image field
+      // Frontmatter: hero_image field (skip remote URLs)
       if (typeof data.hero_image === 'string' && data.hero_image) {
         const img = data.hero_image
-        referencedImages.add(img)
-        if (!(await exists(path.join(assetsDir, img)))) {
-          findings.push({
-            severity: 'warning',
-            file: `pages/${file}`,
-            message: `hero_image "${img}" missing in public/content-assets/`,
-          })
+        const isRemote = img.startsWith('http://') || img.startsWith('https://')
+        if (!isRemote) {
+          referencedImages.add(img)
+          if (!(await exists(path.join(assetsDir, img)))) {
+            findings.push({
+              severity: 'warning',
+              file: `pages/${file}`,
+              message: `hero_image "${img}" missing in public/content-assets/`,
+            })
+          }
         }
       }
 
@@ -107,6 +110,22 @@ async function main() {
             severity: 'warning',
             file: `pages/${file}`,
             message: `markdown image "${src}" missing in public/content-assets/`,
+          })
+        }
+      }
+
+      // Body `photo:` lines (team-grid / service-cards / content-cards convention)
+      const photoLinePattern = /^\s*photo:\s*(\S+)\s*$/gim
+      while ((m = photoLinePattern.exec(content)) !== null) {
+        const src = m[1].trim()
+        // Skip external URLs
+        if (src.startsWith('http://') || src.startsWith('https://')) continue
+        referencedImages.add(src)
+        if (!(await exists(path.join(assetsDir, src)))) {
+          findings.push({
+            severity: 'warning',
+            file: `pages/${file}`,
+            message: `photo reference "${src}" missing in public/content-assets/`,
           })
         }
       }

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Section } from './Section'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export type HeroProps = {
   variant: 'image' | 'video' | 'slider' | 'image-right' | 'image-left'
@@ -15,7 +16,7 @@ export type HeroProps = {
 export function Hero({ image, headline, subheadline, cta_primary, cta_secondary }: HeroProps) {
   // For M3, all hero variants render the image variant.
   // Slider/video come in M4.
-  const bgSrc = image ? `/content-assets/${image}` : undefined
+  const bgSrc = resolveImageSrc(image)
 
   return (
     <Section as="header" fullBleed bg="primary" className="relative overflow-hidden !py-0" dataBlock="hero">

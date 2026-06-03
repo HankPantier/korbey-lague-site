@@ -42,6 +42,11 @@ function hexToRgb(hex: string): [number, number, number] {
   return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]
 }
 
+function isPositiveInt(s: string): boolean {
+  const n = Number(s)
+  return Number.isInteger(n) && n > 0
+}
+
 function solidPng(width: number, height: number, rgb: [number, number, number]): Buffer {
   const sig = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])
   const ihdr = Buffer.alloc(13)
@@ -78,6 +83,12 @@ async function write(file: string, w: number, h: number, hex: string): Promise<v
 async function main(): Promise<void> {
   const [, , file, w, h, hex] = process.argv
   if (file && w && h && hex) {
+    if (!isPositiveInt(w) || !isPositiveInt(h)) {
+      throw new Error(`Invalid dimensions: width and height must be positive integers (got ${w}×${h})`)
+    }
+    if (!/^#?[0-9a-fA-F]{6}$/.test(hex)) {
+      throw new Error(`Invalid hex color: ${hex} (expected #RRGGBB)`)
+    }
     await write(file, Number(w), Number(h), hex)
     return
   }

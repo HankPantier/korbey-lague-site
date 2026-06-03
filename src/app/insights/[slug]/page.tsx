@@ -10,6 +10,7 @@ import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getPost, listPostSlugs } from '@/lib/content/get-post'
 import { siteConfig } from '../../../../site.config'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -93,9 +94,7 @@ export default async function PostPage({ params }: Props) {
       : { '@type': 'Organization', name: brand.firm.name },
     publisher: { '@type': 'Organization', name: brand.firm.name },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
-    image: post.frontmatter.image
-      ? `/content-assets/${post.frontmatter.image}`
-      : undefined,
+    image: resolveImageSrc(post.frontmatter.image),
   }
 
   return (
@@ -133,7 +132,7 @@ export default async function PostPage({ params }: Props) {
         <Section className="max-w-4xl mx-auto !pt-0">
           <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden">
             <Image
-              src={`/content-assets/${post.frontmatter.image}`}
+              src={resolveImageSrc(post.frontmatter.image)!}
               alt={post.frontmatter.image_alt ?? post.frontmatter.title}
               fill
               className="object-cover"

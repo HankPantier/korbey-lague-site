@@ -42,6 +42,7 @@ export const PageFrontmatterSchema = z
     hero_block: z.string().optional(),
     hero_variant: z.string().optional(),
     hero_image: z.string().optional(),
+    hero_image_alt: z.string().optional(),
     hero_subhead: z.string().optional(),
 
     answer_block: z.string().optional(),

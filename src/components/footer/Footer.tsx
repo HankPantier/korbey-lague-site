@@ -7,6 +7,7 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getNavConfig } from '@/lib/nav/get-nav-config'
 import { siteConfig } from '../../../site.config'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export async function Footer() {
   // 'use cache' makes the footer's render eligible for prerendering under
@@ -25,7 +26,7 @@ export async function Footer() {
           <Link href="/" className="inline-flex items-center" aria-label={`${brand.firm.name} home`}>
             {brand.logo.footer ? (
               <Image
-                src={`/content-assets/${brand.logo.footer}`}
+                src={resolveImageSrc(brand.logo.footer)!}
                 alt={brand.logo.alt}
                 width={160}
                 height={32}
@@ -33,7 +34,7 @@ export async function Footer() {
               />
             ) : brand.logo.primary ? (
               <Image
-                src={`/content-assets/${brand.logo.primary}`}
+                src={resolveImageSrc(brand.logo.primary)!}
                 alt={brand.logo.alt}
                 width={160}
                 height={32}

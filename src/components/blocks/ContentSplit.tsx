@@ -7,10 +7,12 @@ import remarkGfm from 'remark-gfm'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
 import type { ContentSplitProps } from '@/lib/assembly/extract-block-props'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export type { ContentSplitProps }
 
 export function ContentSplit({ variant, heading, body, image, image_alt, cta }: ContentSplitProps) {
+  const imgSrc = resolveImageSrc(image)
   return (
     <Section dataBlock="content-split">
       <div
@@ -37,9 +39,9 @@ export function ContentSplit({ variant, heading, body, image, image_alt, cta }: 
           )}
         </div>
         <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-          {image ? (
+          {imgSrc ? (
             <Image
-              src={`/content-assets/${image}`}
+              src={imgSrc}
               alt={image_alt}
               fill
               className="object-cover"

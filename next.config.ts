@@ -138,6 +138,17 @@ const nextConfig: NextConfig = {
   // <Analytics> island (which reads cookies()) is dynamic, gated by a
   // Suspense boundary in src/app/layout.tsx.
   cacheComponents: true,
+  // Allow next/image to optimize author-supplied remote images (image: URLs in
+  // content). CSP img-src already permits `https:` (see buildCsp above), so no
+  // CSP change is needed. Local images live under public/content-assets/.
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' },
+      // http sources are fetched server-side by the image optimizer and
+      // re-served from our origin, so they don't cause browser mixed content.
+      { protocol: 'http', hostname: '**' },
+    ],
+  },
   async redirects() {
     const r = await readRedirectsCsv()
     if (r.length > 0) {

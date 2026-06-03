@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { HeroSplitProps } from '@/lib/assembly/extract-block-props'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export type { HeroSplitProps }
 
@@ -16,7 +17,7 @@ export function HeroSplit({
   image_alt,
 }: HeroSplitProps) {
   const imageFirst = variant === 'image-left'
-  const imgSrc = image ? `/content-assets/${image}` : undefined
+  const imgSrc = resolveImageSrc(image)
 
   const textColumn = (
     <div className="flex flex-col justify-center gap-6">

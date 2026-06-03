@@ -5,6 +5,7 @@ import { Section } from '@/components/blocks/Section'
 import { Card, CardContent } from '@/components/ui/card'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { listPostsMeta } from '@/lib/content/get-post'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export async function generateMetadata(): Promise<Metadata> {
   const brand = await getBrandConfig()
@@ -50,7 +51,7 @@ export default async function InsightsIndex() {
                   {p.frontmatter.image && (
                     <div className="relative w-full aspect-video bg-muted">
                       <Image
-                        src={`/content-assets/${p.frontmatter.image}`}
+                        src={resolveImageSrc(p.frontmatter.image)!}
                         alt={p.frontmatter.image_alt ?? p.frontmatter.title}
                         fill
                         className="object-cover"

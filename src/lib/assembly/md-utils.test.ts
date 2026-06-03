@@ -15,6 +15,7 @@ import {
   parseLogoList,
   parseContentCardList,
   splitOnSidebarMarker,
+  extractLeadingImage,
 } from './md-utils'
 
 // ---------------------------------------------------------------------------
@@ -813,5 +814,69 @@ describe('splitOnSidebarMarker', () => {
     const result = splitOnSidebarMarker('')
     expect(result.intro).toBe('')
     expect(result.sidebar).toBeUndefined()
+  })
+})
+
+// ---------------------------------------------------------------------------
+// parseH3CardList image capture
+// ---------------------------------------------------------------------------
+describe('parseH3CardList image capture', () => {
+  it('captures a leading markdown image per card', () => {
+    const body = '### Tax Prep\n![Tax desk](tax.jpg)\nYear-round planning.\n\n### Audit\nAssurance work.'
+    const { cards } = parseH3CardList(body)
+    expect(cards[0].image).toBe('tax.jpg')
+    expect(cards[0].description).toBe('Year-round planning.')
+    expect(cards[1].image).toBeUndefined()
+  })
+
+  it('captures a `photo:` line per card', () => {
+    const body = '### Payroll\nphoto: payroll.jpg\nOn-time every cycle.'
+    const { cards } = parseH3CardList(body)
+    expect(cards[0].image).toBe('payroll.jpg')
+    expect(cards[0].description).toBe('On-time every cycle.')
+  })
+})
+
+// ---------------------------------------------------------------------------
+// extractLeadingImage
+// ---------------------------------------------------------------------------
+describe('extractLeadingImage', () => {
+  it('returns body unchanged when there is no image', () => {
+    const r = extractLeadingImage('Just some prose.\n\nMore prose.')
+    expect(r.src).toBeUndefined()
+    expect(r.alt).toBeUndefined()
+    expect(r.body).toBe('Just some prose.\n\nMore prose.')
+  })
+
+  it('pulls a leading image and strips it from the body', () => {
+    const r = extractLeadingImage('![Our team](team-photo.jpg)\n\nWhen you call us…')
+    expect(r.src).toBe('team-photo.jpg')
+    expect(r.alt).toBe('Our team')
+    expect(r.body).toBe('When you call us…')
+  })
+
+  it('captures a URL src and empty alt', () => {
+    const r = extractLeadingImage('![](https://cdn.example.com/x.png)\n\nBody')
+    expect(r.src).toBe('https://cdn.example.com/x.png')
+    expect(r.alt).toBeUndefined()
+    expect(r.body).toBe('Body')
+  })
+
+  it('extracts an image that is not on the first line and collapses the gap', () => {
+    const r = extractLeadingImage('Intro line.\n\n![alt](pic.png)\n\nTail.')
+    expect(r.src).toBe('pic.png')
+    expect(r.body).toBe('Intro line.\n\nTail.')
+  })
+
+  it('ignores a plain link (not an image)', () => {
+    const r = extractLeadingImage('[Label](/url)\n\nBody')
+    expect(r.src).toBeUndefined()
+    expect(r.body).toBe('[Label](/url)\n\nBody')
+  })
+
+  it('leaves an image embedded inside a prose sentence untouched', () => {
+    const r = extractLeadingImage('See our ![workflow](diagram.png) in action.\n\nMore.')
+    expect(r.src).toBeUndefined()
+    expect(r.body).toBe('See our ![workflow](diagram.png) in action.\n\nMore.')
   })
 })

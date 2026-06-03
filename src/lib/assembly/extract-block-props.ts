@@ -8,6 +8,7 @@
 import type { PageSection, PageManifest } from './parse-page-md'
 import {
   extractTrailingCta,
+  extractLeadingImage,
   parseIconTitleDescriptionList,
   parseFaqList,
   parseH3CardList,
@@ -67,13 +68,15 @@ export type ContentSplitProps = {
 }
 
 export function extractContentSplitProps(section: PageSection): ContentSplitProps {
-  const { body, cta } = extractTrailingCta(section.content)
+  const img = extractLeadingImage(section.content)
+  const { body, cta } = extractTrailingCta(img.body)
+  const image = img.src ?? section.image ?? ''
   return {
     variant: (section.variant as 'image-right' | 'image-left') ?? 'image-right',
     heading: section.heading,
     body,
-    image: section.image ?? '',
-    image_alt: section.heading,  // fallback alt text
+    image,
+    image_alt: img.alt ?? section.heading,
     cta,
   }
 }
@@ -121,12 +124,13 @@ export type CtaBannerProps = {
 }
 
 export function extractCtaBannerProps(section: PageSection): CtaBannerProps {
-  const { body, cta } = extractTrailingCta(section.content)
+  const img = extractLeadingImage(section.content)
+  const { body, cta } = extractTrailingCta(img.body)
   return {
     variant: (section.variant as 'color-bg' | 'image-bg') ?? 'color-bg',
     heading: section.heading,
     body: body.trim() || undefined,
-    background_asset: section.image,
+    background_asset: img.src ?? section.image,
     cta_primary: cta,
   }
 }
@@ -326,15 +330,17 @@ export type ChecklistSectionProps = {
 }
 
 export function extractChecklistSectionProps(section: PageSection): ChecklistSectionProps {
-  const { body, cta } = extractTrailingCta(section.content)
+  const img = extractLeadingImage(section.content)
+  const { body, cta } = extractTrailingCta(img.body)
   const { intro, items } = parseSimpleBulletList(body)
+  const image = img.src ?? section.image
   return {
     variant: (section.variant as ChecklistSectionProps['variant']) ?? 'standalone',
     heading: section.heading,
     intro,
     items,
-    image: section.image,
-    image_alt: section.image ? section.heading : undefined,
+    image,
+    image_alt: image ? (img.alt ?? section.heading) : undefined,
     cta,
   }
 }
@@ -480,7 +486,7 @@ export function extractHeroSplitProps(manifest: PageManifest): HeroSplitProps {
     cta_primary: undefined,
     cta_secondary: undefined,
     image: manifest.hero_image ?? '',
-    image_alt: headline,
+    image_alt: manifest.hero_image_alt ?? headline,
   }
 }
 

@@ -47,8 +47,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   if (slug[0] === EMPTY_PLACEHOLDER) return { title: 'Not found' }
+  const md = await getPageMarkdown(slugToUrl(slug))
+  if (!md) return { title: 'Not found' }
   try {
-    const md = await getPageMarkdown(slugToUrl(slug))
     const manifest = parsePageMd(md)
     const ogUrl = `/api/og/${slug.join('/')}`
     return {
@@ -93,14 +94,18 @@ function renderHeroBlock(manifest: Parameters<typeof extractHeroProps>[0]): Reac
 export default async function DynamicPage({ params }: Props) {
   const { slug } = await params
   if (slug[0] === EMPTY_PLACEHOLDER) notFound()
+  // Missing page → null → clean notFound(). Must NOT be a thrown error:
+  // see getPageMarkdown's docstring for why a throw across the 'use cache'
+  // boundary turns unknown-URL 404s into 500s under cacheComponents.
+  const md = await getPageMarkdown(slugToUrl(slug))
+  if (!md) notFound()
   let manifest: ReturnType<typeof parsePageMd>
   try {
-    const md = await getPageMarkdown(slugToUrl(slug))
     manifest = parsePageMd(md)
   } catch (err) {
-    // Missing file OR malformed frontmatter (Zod). The validate-deliverable
-    // script catches the latter at CI time; the runtime fallback is notFound.
-    console.error('[page] Failed to load/parse:', err)
+    // Malformed frontmatter (Zod). The validate-deliverable script catches
+    // this at CI time; the runtime fallback is notFound.
+    console.error('[page] Failed to parse:', err)
     notFound()
   }
   const brand = await getBrandConfig()

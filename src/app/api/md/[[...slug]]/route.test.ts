@@ -19,7 +19,13 @@ vi.mock('@/lib/content/get-page', () => ({
         '',
       ].join('\n')
     }
-    throw Object.assign(new Error('ENOENT'), { code: 'ENOENT' })
+    // New loader contract: a missing page is a cacheable null, NOT a thrown
+    // ENOENT (throws across the 'use cache' boundary escalate 404s to 500s
+    // under cacheComponents — see get-page.ts).
+    if (url === '/explodes') {
+      throw new Error('disk on fire') // non-ENOENT: genuine unexpected error
+    }
+    return null
   }),
 }))
 
@@ -49,8 +55,14 @@ describe('GET /api/md/[[...slug]] — agent-facing markdown endpoint', () => {
     expect(body).toContain('## ')
   })
 
-  it('returns 404 for a slug that does not exist', async () => {
+  it('returns 404 for a slug that does not exist (loader returns null)', async () => {
     const res = await call(['nope', 'does-not-exist'])
+    expect(res.status).toBe(404)
+    expect(res.headers.get('Content-Type')).toContain('text/plain')
+  })
+
+  it('returns 404 when the loader throws an unexpected error', async () => {
+    const res = await call(['explodes'])
     expect(res.status).toBe(404)
     expect(res.headers.get('Content-Type')).toContain('text/plain')
   })

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { notFound } from 'next/navigation'
 import { getPageMarkdown } from '@/lib/content/get-page'
 import { parsePageMd } from '@/lib/assembly/parse-page-md'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
@@ -17,6 +18,9 @@ import {
 
 export async function generateMetadata(): Promise<Metadata> {
   const md = await getPageMarkdown('/')
+  // home.md missing means the deliverable hasn't been unpacked yet — there's
+  // no page to describe. notFound() keeps it a 404 rather than a crash.
+  if (!md) notFound()
   const manifest = parsePageMd(md)
   return {
     title: manifest.meta_title || manifest.title,
@@ -56,6 +60,7 @@ function renderHeroBlock(manifest: Parameters<typeof extractHeroProps>[0]): Reac
 
 export default async function HomePage() {
   const md = await getPageMarkdown('/')
+  if (!md) notFound()
   const manifest = parsePageMd(md)
   const brand = await getBrandConfig()
 

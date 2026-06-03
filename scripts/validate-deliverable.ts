@@ -60,16 +60,19 @@ async function main() {
         })
       }
 
-      // Frontmatter: hero_image field
+      // Frontmatter: hero_image field (skip remote URLs)
       if (typeof data.hero_image === 'string' && data.hero_image) {
         const img = data.hero_image
-        referencedImages.add(img)
-        if (!(await exists(path.join(assetsDir, img)))) {
-          findings.push({
-            severity: 'warning',
-            file: `pages/${file}`,
-            message: `hero_image "${img}" missing in public/content-assets/`,
-          })
+        const isRemote = img.startsWith('http://') || img.startsWith('https://')
+        if (!isRemote) {
+          referencedImages.add(img)
+          if (!(await exists(path.join(assetsDir, img)))) {
+            findings.push({
+              severity: 'warning',
+              file: `pages/${file}`,
+              message: `hero_image "${img}" missing in public/content-assets/`,
+            })
+          }
         }
       }
 

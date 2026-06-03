@@ -15,6 +15,7 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
 import { MobileNav } from './MobileNav'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 import type { BrandJson } from '@/lib/brand/types'
 import type { NavJson } from '@/lib/nav/types'
 
@@ -61,7 +62,7 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
         <Link href="/" className="flex items-center gap-2" aria-label={`${brand.firm.name} home`}>
           {brand.logo.primary ? (
             <Image
-              src={`/content-assets/${brand.logo.primary}`}
+              src={resolveImageSrc(brand.logo.primary)!}
               alt={brand.logo.alt}
               width={160}
               height={32}

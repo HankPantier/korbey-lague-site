@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 import type { TeamGridProps } from '@/lib/assembly/extract-block-props'
 
 export type { TeamGridProps }
@@ -37,7 +38,7 @@ export function TeamGrid({ variant, heading, intro, members }: TeamGridProps) {
               <div className="relative aspect-[4/5] bg-muted shrink-0">
                 {member.photo ? (
                   <Image
-                    src={`/content-assets/${member.photo}`}
+                    src={resolveImageSrc(member.photo)!}
                     alt={member.photo_alt ?? `Photo of ${member.name}`}
                     fill
                     className="object-cover"

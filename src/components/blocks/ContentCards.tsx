@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { cn } from '@/lib/utils'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 import type { ContentCardsProps } from '@/lib/assembly/extract-block-props'
 
 function toISODate(input: string): string {
@@ -47,7 +48,7 @@ export function ContentCards({ variant, heading, intro, cards, cta }: ContentCar
               {card.image && (
                 <div className="relative w-full aspect-video overflow-hidden">
                   <Image
-                    src={`/content-assets/${card.image}`}
+                    src={resolveImageSrc(card.image)!}
                     alt={card.title}
                     fill
                     className="object-cover"

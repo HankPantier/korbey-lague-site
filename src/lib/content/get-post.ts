@@ -85,3 +85,22 @@ export async function listPostsMeta(): Promise<PostMeta[]> {
     return db.localeCompare(da)
   })
 }
+
+/**
+ * Up to three related posts for the detail page: tag-overlap matches first,
+ * padded with the most recent remaining posts. Excludes the current slug.
+ */
+export async function relatedPosts(slug: string, tags?: string[]): Promise<PostMeta[]> {
+  'use cache'
+  cacheLife('max')
+  const others = (await listPostsMeta()).filter((p) => p.slug !== slug)
+  if (others.length === 0) return []
+  const tagSet = new Set((tags ?? []).map((t) => t.toLowerCase()))
+  const scored = others.map((p) => ({
+    post: p,
+    shared: (p.frontmatter.tags ?? []).filter((t) => tagSet.has(t.toLowerCase())).length,
+  }))
+  const matched = scored.filter((s) => s.shared > 0).sort((a, b) => b.shared - a.shared)
+  const rest = scored.filter((s) => s.shared === 0)
+  return [...matched, ...rest].slice(0, 3).map((s) => s.post)
+}

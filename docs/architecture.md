@@ -208,13 +208,13 @@ Two checks run before the build proper so deliverable / assembly errors fail lou
 
 ### E2E smoke (Playwright)
 
-`e2e/smoke.spec.ts` covers the high-blast-radius surfaces against a production build: home renders + emits the sitewide Organization JSON-LD, branded 404, `/feed.xml` RSS shape, `/icon` + `/apple-icon` + `/api/og` MIME types, `/insights` empty state, `/.well-known/agent.json` JSON contract, per-page Link header, and the `.md` page-companion endpoint. Form submission, BotID classification, and Resend integration are NOT here — vitest covers them faster without a browser.
+`e2e/smoke.spec.ts` covers the high-blast-radius surfaces against a production build: home renders + emits the sitewide Organization JSON-LD, branded 404, `/feed.xml` RSS shape, `/icon` + `/apple-icon` + `/api/og` MIME types, `/resources` empty state, `/.well-known/agent.json` JSON contract, per-page Link header, and the `.md` page-companion endpoint. Form submission, BotID classification, and Resend integration are NOT here — vitest covers them faster without a browser.
 
 Runs in CI after the build step (`npx playwright install --with-deps chromium` then `npm run test:e2e`). Locally, run the same after a one-time `npx playwright install chromium`.
 
 ### Lighthouse CI (perf budgets)
 
-A separate workflow (`.github/workflows/lighthouse.yml`) runs Lighthouse CI on every PR against the production build (3 runs against `/` and `/insights`, desktop preset). Budgets live in `lighthouserc.json`:
+A separate workflow (`.github/workflows/lighthouse.yml`) runs Lighthouse CI on every PR against the production build (3 runs against `/` and `/resources`, desktop preset). Budgets live in `lighthouserc.json`:
 
 - **`error` thresholds (block the PR):** accessibility score ≥ 0.90, CLS ≤ 0.1.
 - **`warn` thresholds (surface in PR comments, don't block):** performance ≥ 0.85, best-practices ≥ 0.90, SEO ≥ 0.90, FCP ≤ 2000 ms, LCP ≤ 2500 ms, TBT ≤ 200 ms. (The SEO floor is intentionally relaxed for the template's empty-state CI; raise to 0.95 in client clones once real content lands.)
@@ -321,7 +321,7 @@ Why not `Accept: text/markdown` content negotiation on the same URL? Two reasons
 
 - `src/components/layout/SchemaScript.tsx` emits per-page JSON-LD: `WebPage` by default, `LocalBusiness` w/ `PostalAddress` when the page frontmatter sets `schema_markup: LocalBusiness`, and a separate `FAQPage` blob when the FAQ block is present.
 - **`src/app/layout.tsx`** emits a sitewide `Organization` JSON-LD blob in every response (built from `brand.json` — name, url, logo, sameAs from social links, contactPoint, postal address). Sits alongside the page-level schema so the firm-as-entity record is available on every page.
-- Per-post `BlogPosting` JSON-LD on `/insights/[slug]` (see the [Insights blog](#insights-blog--rss--lead-magnet-block) section below).
+- Per-post `BlogPosting` JSON-LD on `/resources/[slug]` (see the [Resources blog](#resources-blog--rss--lead-magnet-block) section below).
 - Microdata `itemScope` / `itemType` on people (`TeamGrid`) and addresses (`ContactInfo`).
 - `generateMetadata()` in the page handlers emits canonical URLs, OG, and Twitter Card metadata.
 
@@ -357,7 +357,7 @@ The previous deliverable convention `public/og-images/<slug>.png` is no longer r
 
 `src/app/not-found.tsx` replaces Next's generic 404 body with the firm's primary nav items rendered as recovery links + a "Back to *firm*" CTA. `NavBar` + `Footer` come from `layout.tsx`, so the 404 looks like the rest of the site without duplicating chrome.
 
-## Insights blog + RSS + lead-magnet block
+## Resources blog + RSS + lead-magnet block
 
 A self-contained content-marketing surface, zero-config for fresh clones (empty state until posts land), wired into the existing OG + agent-readiness infrastructure.
 
@@ -367,17 +367,17 @@ A self-contained content-marketing surface, zero-config for fresh clones (empty 
 
 ### Routes
 
-- **`/insights`** — date-sorted card grid of all posts; falls back to "No posts published yet — check back soon" when empty.
-- **`/insights/[slug]`** — per-post page: header, optional hero image, server-rendered body (`react-markdown` + `remark-gfm`, no client bundle bloat), back-to-insights CTA. Uses the same `__no_posts__` placeholder pattern as `[...slug]` for Cache Components `generateStaticParams`.
+- **`/resources`** — date-sorted card grid of all posts; falls back to "No posts published yet — check back soon" when empty.
+- **`/resources/[slug]`** — per-post page: header, optional hero image, server-rendered body (`react-markdown` + `remark-gfm`, no client bundle bloat), back-to-resources CTA. Uses the same `__no_posts__` placeholder pattern as `[...slug]` for Cache Components `generateStaticParams`.
 - **`/feed.xml`** — RSS 2.0 channel + items from `listPostsMeta`. Empty channel when no posts. A global `Link: </feed.xml>; rel="alternate"; type="application/rss+xml"` header in `next.config.ts` makes feed readers + agents auto-discover the feed.
 
 ### Structured data
 
-Each post emits a `BlogPosting` JSON-LD blob inline (built from *validated* frontmatter, never raw user input — same `<script type="application/ld+json">` + `JSON.stringify` pattern as `SchemaScript.tsx`). Per-page OG comes from `/api/og/insights/<slug>` (the OG handler accepts arbitrary slugs).
+Each post emits a `BlogPosting` JSON-LD blob inline (built from *validated* frontmatter, never raw user input — same `<script type="application/ld+json">` + `JSON.stringify` pattern as `SchemaScript.tsx`). Per-page OG comes from `/api/og/resources/<slug>` (the OG handler accepts arbitrary slugs).
 
 ### Sitemap
 
-`src/app/sitemap.ts` includes `/insights` + every post URL **only when at least one post exists**, so search engines don't crawl an empty index.
+`src/app/sitemap.ts` includes `/resources` + every post URL **only when at least one post exists**, so search engines don't crawl an empty index.
 
 ### `ResourceList` lead-magnet block
 
@@ -426,7 +426,7 @@ Authored image references resolve through one helper,
 `src/lib/assembly/resolve-image.ts` (`resolveImageSrc`): a bare filename becomes
 `/content-assets/<file>` (served from `public/content-assets/`), while an
 `http(s)` URL or an absolute path is passed through unchanged. Every block
-component and the insights pages call it instead of hardcoding the asset path.
+component and the resources pages call it instead of hardcoding the asset path.
 
 Single-image blocks (`content-split`, `checklist-section`, `cta-banner`) accept
 the image as the first Markdown image in the body; `extractLeadingImage`

@@ -19,8 +19,17 @@ export const PostFrontmatterSchema = z
     image_alt: z.string().optional(),
     tags: z.array(z.string()).optional(),
     slug: z.string().optional(),
-    /** Override canonical URL — usually unset; derived from /insights/<slug>. */
+    /** Override canonical URL — usually unset; derived from /resources/<slug>. */
     canonical_url: z.string().optional(),
+    /** SEO/AIO fields written by the onboarding draft generator. All optional. */
+    meta_title: z.string().optional(),
+    meta_description: z.string().optional(),
+    target_keyword: z.string().optional(),
+    secondary_keywords: z.array(z.string()).optional(),
+    /** 2-3 sentence direct answer to the post's core question (AIO). */
+    answer_block: z.string().optional(),
+    /** JSON-LD @type override: BlogPosting (default), Article, FAQPage. */
+    schema_markup: z.string().optional(),
   })
   .passthrough()
 

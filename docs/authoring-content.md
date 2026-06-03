@@ -209,7 +209,7 @@ Insights live in `content/posts/`. Each post is a single Markdown file.
    bullet lists, and ## subheadings all work.
    ```
 
-3. **`slug`** becomes the URL: `/insights/short-url-friendly-slug`. Keep it
+3. **`slug`** becomes the URL: `/resources/short-url-friendly-slug`. Keep it
    short and stable — once published, changing it breaks any inbound link.
 
 4. **`image:`** in the frontmatter sets the post's hero image. The file must
@@ -226,7 +226,7 @@ Insights live in `content/posts/`. Each post is a single Markdown file.
    for future filtering.
 
 6. Save the file. Within ~60 seconds, the post is live at
-   `/insights/<slug>`, sorted in date order on `/insights`, and listed in
+   `/resources/<slug>`, sorted in date order on `/resources`, and listed in
    the RSS feed at `/feed.xml`.
 
 A working sample post is in `samples/posts/` you can copy and edit.

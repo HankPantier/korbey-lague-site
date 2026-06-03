@@ -154,6 +154,9 @@ const nextConfig: NextConfig = {
     if (r.length > 0) {
       console.log(`[next.config] Loaded ${r.length} redirect(s) from content/redirects.csv`)
     }
+    // The blog section was renamed /insights → /resources; keep old URLs
+    // working for any links indexed before the rename.
+    r.push({ source: '/insights/:path*', destination: '/resources/:path*', permanent: true })
     return r
   },
   async headers() {

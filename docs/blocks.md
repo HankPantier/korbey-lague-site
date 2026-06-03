@@ -129,25 +129,25 @@ Source: `src/components/blocks/ContactInfo.tsx`.
 ## `content-cards`
 
 Generic linked teaser cards — used for blog posts, news, or resource teasers when
-they're embedded into a regular page (the `/insights` index uses its own renderer).
+they're embedded into a regular page (the `/resources` index uses its own renderer).
 
 ```markdown
 <!-- block: content-cards | variant: 3-col -->
-## Recent insights
+## Recent resources
 
 Optional intro paragraph here.
 
 ### Year-end tax tips
 Date: 2026-11-04
-URL: /insights/year-end-tips
+URL: /resources/year-end-tips
 Excerpt: A quick rundown of what to handle before December 31.
 
 ### Choosing a CFO
 Date: 2026-10-22
-URL: /insights/hiring-a-cfo
+URL: /resources/hiring-a-cfo
 Excerpt: Signs your business needs strategic financial leadership.
 
-[**Browse all insights →**](/insights)
+[**Browse all resources →**](/resources)
 ```
 
 Each card is `### Title` followed by an inline-attribute block (`Date:`, `URL:`,
@@ -437,7 +437,7 @@ The parser also accepts plain numbered lists (`1.` …) and Markdown headings �
 
 Lead-magnet downloads + a newsletter signup right below. Resources are ungated; the
 newsletter is the soft conversion ask. See
-[`architecture.md → Insights blog`](./architecture.md#insights-blog--rss--lead-magnet-block)
+[`architecture.md → Resources blog`](./architecture.md#resources-blog--rss--lead-magnet-block)
 for the design rationale.
 
 ```markdown

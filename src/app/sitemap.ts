@@ -29,12 +29,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ]
 
-  // Only surface the /insights index + posts when at least one post exists —
-  // otherwise /insights is a no-content empty state and search engines should
+  // Only surface the /resources index + posts when at least one post exists —
+  // otherwise /resources is a no-content empty state and search engines should
   // ignore it.
   if (posts.length > 0) {
     entries.push({
-      url: `${baseUrl}/insights`,
+      url: `${baseUrl}/resources`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ? new Date(p.frontmatter.date + 'T00:00:00Z')
         : new Date()
       entries.push({
-        url: `${baseUrl}/insights/${p.slug}`,
+        url: `${baseUrl}/resources/${p.slug}`,
         lastModified: Number.isNaN(parsed.getTime()) ? new Date() : parsed,
         changeFrequency: 'monthly',
         priority: 0.5,

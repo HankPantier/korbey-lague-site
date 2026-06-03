@@ -3,7 +3,7 @@ import { listPostsMeta } from '@/lib/content/get-post'
 import { siteConfig } from '../../../site.config'
 
 /**
- * RSS 2.0 feed for /insights. Reads cached frontmatter only (no body), so
+ * RSS 2.0 feed for /resources. Reads cached frontmatter only (no body), so
  * lightweight even with many posts. Returns 200 with an empty `<channel>`
  * (no items) when no posts exist — RSS readers handle that gracefully.
  */
@@ -26,12 +26,12 @@ function rfc822(iso: string): string {
 export async function GET(): Promise<Response> {
   const [brand, posts] = await Promise.all([getBrandConfig(), listPostsMeta()])
   const base = siteConfig.siteUrl.replace(/\/$/, '')
-  const channelTitle = `${brand.firm.name} — Insights`
-  const channelDesc = `Tax, advisory, and accounting insights from ${brand.firm.name}.`
+  const channelTitle = `${brand.firm.name} — Resources`
+  const channelDesc = `Tax, advisory, and accounting resources from ${brand.firm.name}.`
 
   const items = posts
     .map((p) => {
-      const url = p.frontmatter.canonical_url || `${base}/insights/${p.slug}`
+      const url = p.frontmatter.canonical_url || `${base}/resources/${p.slug}`
       const pubDate = rfc822(p.frontmatter.date || '')
       return [
         '    <item>',
@@ -52,7 +52,7 @@ export async function GET(): Promise<Response> {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(channelTitle)}</title>
-    <link>${escapeXml(`${base}/insights`)}</link>
+    <link>${escapeXml(`${base}/resources`)}</link>
     <description>${escapeXml(channelDesc)}</description>
     <language>en-us</language>
     <atom:link href="${escapeXml(`${base}/feed.xml`)}" rel="self" type="application/rss+xml" />

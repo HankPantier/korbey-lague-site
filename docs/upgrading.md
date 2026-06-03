@@ -167,6 +167,55 @@ exactly which template state landed.
 
 ---
 
+## Migration notes for specific template passes
+
+Dated notes for template passes that need more than the generic conflict
+guidance above. Check here before syncing a clone across one of these dates.
+
+### 2026-06-03 — Image system (`cb1cd29..fce57bd`)
+
+This pass made images first-class across every block: the preferred authoring
+method is now a standard Markdown image (`![alt text](file-or-url)`) as the
+first line of a block body, with URL support, `hero_image_alt:` frontmatter,
+per-card images on `service-cards`, and a shared resolver
+(`src/lib/assembly/resolve-image.ts`). See `docs/blocks.md` and the Images
+section of `docs/architecture.md` for the full authoring reference.
+
+**Backward compatible — no content changes required.** The `| image:` comment
+attribute, `photo:` lines, and filename-based `hero_image:` all keep working
+exactly as before; the new syntax just takes priority when present.
+
+Three things to check when merging this pass into a clone:
+
+1. **`content/pages/home.md` conflicts — keep yours.** The template's home.md
+   changed only to demo the new syntax (placeholder `.png` refs +
+   `hero_image_alt`). Standard `git checkout --ours content/` applies. The
+   merge also adds `public/content-assets/.gitkeep` and two solid-color
+   placeholder PNGs (`hero-office.png`, `team-photo.png`); they're harmless
+   next to the client's real assets and safe to delete if unreferenced.
+
+2. **One real rendering change — spot-check visually.** A *standalone*
+   `![image](...)` line inside a `content-split`, `cta-banner`, or
+   `checklist-section` body is now promoted to the block's image and removed
+   from the prose (previously it rendered inline via ReactMarkdown). Likewise
+   a `photo:` line under a `service-cards` `###` heading was literal
+   description text before and now becomes the card image. Both are usually
+   improvements, but if a client's content hits either pattern, eyeball those
+   pages after the merge. Images embedded *within* a prose sentence are left
+   in the prose, as before.
+
+3. **New validation warnings may appear.** `npm run validate` now also checks
+   `photo:` line references and skips remote URLs. New warnings after the
+   merge mean images that were *already broken in production* — fix the
+   content or upload the missing files; warnings don't fail the build.
+
+Remote image URLs need no per-client setup: `images.remotePatterns` in
+`next.config.ts` and the CSP `img-src` directive already allow them. If a
+clone has a customized `next.config.ts`, take the template's `images:` block
+during conflict resolution.
+
+---
+
 ## Cadence
 
 A reasonable rhythm: **once a quarter** for routine improvements, **as-needed**

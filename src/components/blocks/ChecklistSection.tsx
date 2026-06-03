@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { ChecklistSectionProps } from '@/lib/assembly/extract-block-props'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export type { ChecklistSectionProps }
 
@@ -66,9 +67,9 @@ export function ChecklistSection({
         <div className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
           {checklist}
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-            {image ? (
+            {resolveImageSrc(image) ? (
               <Image
-                src={`/content-assets/${image}`}
+                src={resolveImageSrc(image)!}
                 alt={image_alt ?? heading}
                 fill
                 className="object-cover"

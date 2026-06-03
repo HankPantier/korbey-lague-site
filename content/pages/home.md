@@ -33,6 +33,8 @@ Our services include year-round bookkeeping, tax planning and preparation, virtu
 <!-- block: content-split | variant: image-right -->
 ## Serving Tyngsborough and the Businesses That Power It
 
+![Downtown Tyngsborough, Massachusetts, home of Korbey Lague PLLP](split-tyngsborough.png)
+
 Korbey Lague PLLP is based in Tyngsborough, MA — and that's not incidental. This firm was built here, by people who live and work in this community. The business owners we serve aren't abstractions in a client database. They're contractors running crews across the Merrimack Valley, medical professionals with practices in Middlesex County, and founders building something new right down the road.
 
 Proximity matters. When you call, someone who already knows your business picks up. When something changes in Massachusetts tax law that affects your industry, you hear from us before it costs you money.

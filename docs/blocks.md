@@ -269,9 +269,22 @@ Three lines on each of our services.
 - ChartLine: **Audit & Assurance** — For nonprofits, foundations, and closely held companies.
 ```
 
-Each bullet is `- <IconName>: **Title** — Description`. Icons come from `lucide-react`
-(case-insensitive name match). The icon-less form `- **Title** — Description` is also
-accepted.
+Each bullet is `- <IconName>: **Title** — Description`. Icons come from the curated
+`ICON_MAP` in `src/components/blocks/Icon.tsx` (~64 lucide-react names, PascalCase);
+unknown names fall back to a plain square. The icon-less form `- **Title** — Description`
+is also accepted (defaults to `CheckCircle`).
+
+The `### Title` chunk format (what Phase I generation emits) can pick its icon with an
+`icon:` line directly under the heading — same convention as `photo:` in content-cards:
+
+```markdown
+### Healthcare Professionals
+icon: Stethoscope
+
+Practice owners face billing complexity…
+```
+
+Without an `icon:` line, chunks default to `CheckCircle`.
 
 ---
 

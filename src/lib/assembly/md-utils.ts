@@ -140,13 +140,35 @@ export function parseIconTitleDescriptionList(
 
   // Fallback: Phase I content generator commonly emits feature/industry lists
   // as "**Title**\nDescription" paragraphs instead of icon-bullets. Pick those
-  // up via parseTitleBodyChunks so the blocks aren't empty.
+  // up via parseTitleBodyChunks so the blocks aren't empty. A chunk may pick
+  // its icon with an `icon: Name` line directly under the heading (mirrors the
+  // `photo:`/`query:` convention in content-cards); otherwise CheckCircle.
   const { chunks } = parseTitleBodyChunks(body)
-  return chunks.map(({ title, body: description }) => ({
-    icon: 'CheckCircle',
-    title: title.trim(),
-    description: description.trim(),
-  }))
+  return chunks.map(({ title, body: chunkBody }) => {
+    const { icon, body: description } = extractIconLine(chunkBody)
+    return {
+      icon: icon ?? 'CheckCircle',
+      title: title.trim(),
+      description: description.trim(),
+    }
+  })
+}
+
+/**
+ * Pull an `icon: PascalName` line off the start of a chunk body (the first
+ * non-empty line only — an "icon:" deeper in prose is left alone). Returns
+ * the icon name and the body with that line removed. Pure, never throws.
+ */
+export function extractIconLine(body: string): { icon?: string; body: string } {
+  const lines = body.split('\n')
+  const firstIdx = lines.findIndex(l => l.trim() !== '')
+  if (firstIdx === -1) return { body }
+  const m = lines[firstIdx].match(/^icon:\s*([A-Za-z][A-Za-z0-9]*)\s*$/)
+  if (!m) return { body }
+  const rest = [...lines.slice(0, firstIdx), ...lines.slice(firstIdx + 1)]
+    .join('\n')
+    .replace(/^\n+/, '')
+  return { icon: m[1], body: rest }
 }
 
 /**

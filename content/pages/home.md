@@ -20,7 +20,7 @@ hero_image_alt: The Korbey Lague PLLP office in Tyngsborough, Massachusetts
 <!-- block: intro-text | variant: centered -->
 ## Year-Round Advisory, Not Just April Deadlines
 
-Most CPA firms show up in March and go quiet by May. Korbey Lague PLLP works differently. We're a Tyngsborough-based accounting and advisory firm that stays engaged with your business every month of the year — because the decisions that shape your financial health don't wait for tax season. Today.
+Most CPA firms show up in March and go quiet by May. Korbey Lague PLLP works differently. We're a Tyngsborough-based accounting and advisory firm that stays engaged with your business every month of the year — because the decisions that shape your financial health don't wait for tax season.
 
 Whether you need help managing cash flow in August, planning a major equipment purchase in October, or understanding what your numbers actually mean in February, we're reachable, responsive, and already familiar with your situation. No scrambling to catch up. No explaining your business from scratch every spring.
 

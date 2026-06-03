@@ -11,6 +11,10 @@ import { getPost, listPostSlugs, relatedPosts } from '@/lib/content/get-post'
 import { siteConfig } from '../../../../site.config'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { resolveImageSrc } from '@/lib/assembly/resolve-image'
+import {
+  renderGeneratedPage,
+  generatedPageMetadata,
+} from '@/components/assembly/GeneratedMarkdownPage'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -30,7 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (slug === EMPTY_PLACEHOLDER) return { title: 'Not found' }
   try {
     const post = await getPost(slug)
-    if (!post) return { title: 'Not found' }
+    if (!post) {
+      // Not a post — the deliverable may ship a real page at /resources/<slug>
+      // (client portal, refund tracker, …) that this route shadows.
+      const pageMeta = await generatedPageMetadata(`/resources/${slug}`, `resources/${slug}`)
+      return pageMeta ?? { title: 'Not found' }
+    }
     const url = post.frontmatter.canonical_url || `${siteConfig.siteUrl.replace(/\/$/, '')}/resources/${post.slug}`
     const ogUrl = `/api/og/resources/${post.slug}`
     const description = post.frontmatter.meta_description || post.frontmatter.excerpt
@@ -74,7 +83,14 @@ export default async function PostPage({ params }: Props) {
   // 'use cache' boundary would escalate to a 500 under cacheComponents —
   // see getPageMarkdown in get-page.ts for the rationale.
   const post = await getPost(slug)
-  if (!post) notFound()
+  if (!post) {
+    // This dynamic route out-specifies the [...slug] catch-all, so generated
+    // pages living under /resources/* (portal, trackers) would 404 without
+    // this fallback. Posts win when both exist.
+    const generated = await renderGeneratedPage(`/resources/${slug}`)
+    if (generated) return generated
+    notFound()
+  }
 
   const [brand, related] = await Promise.all([
     getBrandConfig(),

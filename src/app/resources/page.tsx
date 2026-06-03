@@ -60,13 +60,14 @@ export default async function ResourcesIndex() {
                     </div>
                   )}
                   <CardContent className="flex-1 pt-5 pb-5">
-                    {p.frontmatter.date && (
-                      <time
-                        dateTime={p.frontmatter.date}
-                        className="text-xs text-muted-foreground mb-2 block"
-                      >
-                        {formatDate(p.frontmatter.date)}
-                      </time>
+                    {(p.frontmatter.date || p.frontmatter.author) && (
+                      <p className="text-xs text-muted-foreground mb-2">
+                        {p.frontmatter.date && (
+                          <time dateTime={p.frontmatter.date}>{formatDate(p.frontmatter.date)}</time>
+                        )}
+                        {p.frontmatter.date && p.frontmatter.author && ' · '}
+                        {p.frontmatter.author && <span>{p.frontmatter.author}</span>}
+                      </p>
                     )}
                     <h2 className="font-heading text-lg font-semibold leading-snug">
                       <Link

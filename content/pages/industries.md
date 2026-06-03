@@ -15,7 +15,7 @@ hero: page-header
 ---
 
 <!-- block: intro-text | variant: centered -->
-## Built for the Businesses Others Overlook
+## Built for Businesses Others Overlook
 
 Most CPA firms will take any client who walks through the door. Korbey Lague PLLP made a different call. Over the years, we've built deep working knowledge in a handful of industries where the financial complexity is real, the stakes are high, and a generalist approach tends to fall short.
 

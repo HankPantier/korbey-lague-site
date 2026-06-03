@@ -82,6 +82,29 @@ export function extractTrailingCta(body: string): {
 }
 
 /**
+ * Pull the first standalone Markdown image (`![alt](src)`) out of a body and
+ * return it alongside the body with that image removed (so it doesn't also
+ * render inside the prose). `src` may be a local filename or a full URL —
+ * resolution is the caller's job via resolveImageSrc(). Never throws.
+ */
+export function extractLeadingImage(body: string): {
+  src?: string
+  alt?: string
+  body: string
+} {
+  // ![alt](src) — src stops at whitespace or ')'; an optional "title" is ignored.
+  const re = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/
+  const m = body.match(re)
+  if (!m || m.index === undefined) return { body }
+  const alt = m[1].trim() || undefined
+  const src = m[2].trim()
+  const cleaned = (body.slice(0, m.index) + body.slice(m.index + m[0].length))
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+  return { src, alt, body: cleaned }
+}
+
+/**
  * Parse a list where each line is "- Icon: **Title** — Description".
  * Also accepts en-dash (–) or double-hyphen (--) as the separator.
  * Skips lines that don't match the pattern.

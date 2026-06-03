@@ -15,6 +15,7 @@ import {
   parseLogoList,
   parseContentCardList,
   splitOnSidebarMarker,
+  extractLeadingImage,
 } from './md-utils'
 
 // ---------------------------------------------------------------------------
@@ -813,5 +814,43 @@ describe('splitOnSidebarMarker', () => {
     const result = splitOnSidebarMarker('')
     expect(result.intro).toBe('')
     expect(result.sidebar).toBeUndefined()
+  })
+})
+
+// ---------------------------------------------------------------------------
+// extractLeadingImage
+// ---------------------------------------------------------------------------
+describe('extractLeadingImage', () => {
+  it('returns body unchanged when there is no image', () => {
+    const r = extractLeadingImage('Just some prose.\n\nMore prose.')
+    expect(r.src).toBeUndefined()
+    expect(r.alt).toBeUndefined()
+    expect(r.body).toBe('Just some prose.\n\nMore prose.')
+  })
+
+  it('pulls a leading image and strips it from the body', () => {
+    const r = extractLeadingImage('![Our team](team-photo.jpg)\n\nWhen you call us…')
+    expect(r.src).toBe('team-photo.jpg')
+    expect(r.alt).toBe('Our team')
+    expect(r.body).toBe('When you call us…')
+  })
+
+  it('captures a URL src and empty alt', () => {
+    const r = extractLeadingImage('![](https://cdn.example.com/x.png)\n\nBody')
+    expect(r.src).toBe('https://cdn.example.com/x.png')
+    expect(r.alt).toBeUndefined()
+    expect(r.body).toBe('Body')
+  })
+
+  it('extracts an image that is not on the first line and collapses the gap', () => {
+    const r = extractLeadingImage('Intro line.\n\n![alt](pic.png)\n\nTail.')
+    expect(r.src).toBe('pic.png')
+    expect(r.body).toBe('Intro line.\n\nTail.')
+  })
+
+  it('ignores a plain link (not an image)', () => {
+    const r = extractLeadingImage('[Label](/url)\n\nBody')
+    expect(r.src).toBeUndefined()
+    expect(r.body).toBe('[Label](/url)\n\nBody')
   })
 })

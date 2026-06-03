@@ -1,20 +1,10 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
-import { getPageMarkdown, listPageSlugs } from '@/lib/content/get-page'
-import { parsePageMd } from '@/lib/assembly/parse-page-md'
-import { getBrandConfig } from '@/lib/brand/get-brand-config'
-import { PageLayout } from '@/components/layout/PageLayout'
-import { BlockRenderer } from '@/components/assembly/BlockRenderer'
-import { SchemaScript } from '@/components/layout/SchemaScript'
-import { Hero } from '@/components/blocks/Hero'
-import { HeroSplit } from '@/components/blocks/HeroSplit'
-import { PageHeader } from '@/components/blocks/PageHeader'
+import { listPageSlugs } from '@/lib/content/get-page'
 import {
-  extractHeroProps,
-  extractHeroSplitProps,
-  extractPageHeaderProps,
-} from '@/lib/assembly/extract-block-props'
+  renderGeneratedPage,
+  generatedPageMetadata,
+} from '@/components/assembly/GeneratedMarkdownPage'
 
 type Props = {
   params: Promise<{ slug: string[] }>
@@ -47,77 +37,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   if (slug[0] === EMPTY_PLACEHOLDER) return { title: 'Not found' }
-  const md = await getPageMarkdown(slugToUrl(slug))
-  if (!md) return { title: 'Not found' }
-  try {
-    const manifest = parsePageMd(md)
-    const ogUrl = `/api/og/${slug.join('/')}`
-    return {
-      title: manifest.meta_title || manifest.title,
-      description: manifest.meta_description,
-      alternates: { canonical: manifest.canonical_url || undefined },
-      // OG + Twitter images come from /api/og/[[...slug]] — branded per page,
-      // generated from frontmatter, no per-page PNG required.
-      openGraph: {
-        title: manifest.meta_title || manifest.title,
-        description: manifest.meta_description,
-        url: manifest.canonical_url || undefined,
-        type: 'website',
-        images: [{ url: ogUrl, width: 1200, height: 630 }],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: manifest.meta_title || manifest.title,
-        description: manifest.meta_description,
-        images: [ogUrl],
-      },
-    }
-  } catch {
-    return { title: 'Not found' }
-  }
-}
-
-function renderHeroBlock(manifest: Parameters<typeof extractHeroProps>[0]): ReactNode {
-  switch (manifest.hero_block) {
-    case 'hero':
-      return <Hero {...extractHeroProps(manifest)} />
-    case 'hero-split':
-      return <HeroSplit {...extractHeroSplitProps(manifest)} />
-    case 'page-header':
-      return <PageHeader {...extractPageHeaderProps(manifest)} />
-    default:
-      // Unknown hero_block — fall back to PageHeader for safety
-      return <PageHeader {...extractPageHeaderProps(manifest)} />
-  }
+  const meta = await generatedPageMetadata(slugToUrl(slug), slug.join('/'))
+  return meta ?? { title: 'Not found' }
 }
 
 export default async function DynamicPage({ params }: Props) {
   const { slug } = await params
   if (slug[0] === EMPTY_PLACEHOLDER) notFound()
-  // Missing page → null → clean notFound(). Must NOT be a thrown error:
-  // see getPageMarkdown's docstring for why a throw across the 'use cache'
-  // boundary turns unknown-URL 404s into 500s under cacheComponents.
-  const md = await getPageMarkdown(slugToUrl(slug))
-  if (!md) notFound()
-  let manifest: ReturnType<typeof parsePageMd>
-  try {
-    manifest = parsePageMd(md)
-  } catch (err) {
-    // Malformed frontmatter (Zod). The validate-deliverable script catches
-    // this at CI time; the runtime fallback is notFound.
-    console.error('[page] Failed to parse:', err)
-    notFound()
-  }
-  const brand = await getBrandConfig()
-
-  return (
-    <>
-      <SchemaScript manifest={manifest} brand={brand} />
-      <PageLayout hero={renderHeroBlock(manifest)}>
-        {manifest.sections.map((section, i) => (
-          <BlockRenderer key={i} section={section} manifest={manifest} />
-        ))}
-      </PageLayout>
-    </>
-  )
+  // Missing/malformed page → null → clean notFound(). Must NOT be a thrown
+  // error: see getPageMarkdown's docstring for why a throw across the
+  // 'use cache' boundary turns unknown-URL 404s into 500s.
+  const rendered = await renderGeneratedPage(slugToUrl(slug))
+  if (!rendered) notFound()
+  return rendered
 }

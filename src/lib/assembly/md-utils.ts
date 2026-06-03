@@ -293,10 +293,24 @@ export function parseFaqList(body: string): Array<{ question: string; answer: st
  */
 export function parseH3CardList(body: string): {
   intro?: string
-  cards: Array<{ title: string; description: string; url?: string }>
+  cards: Array<{ title: string; description: string; url?: string; image?: string }>
 } {
   const { intro, chunks } = parseTitleBodyChunks(body)
-  const cards = chunks.map(({ title, body: rest }) => {
+  const cards = chunks.map(({ title, body: rawRest }) => {
+    // A card image may be a leading markdown image or a `photo:` line.
+    let image: string | undefined
+    let rest = rawRest
+    const leading = extractLeadingImage(rest)
+    if (leading.src) {
+      image = leading.src
+      rest = leading.body
+    } else {
+      const photoMatch = rest.match(/^\s*photo:\s*(\S+)\s*$/im)
+      if (photoMatch) {
+        image = photoMatch[1].trim()
+        rest = rest.replace(photoMatch[0], '').trim()
+      }
+    }
     // Pop trailing link as card url
     const ctaMatch = rest.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/)
     if (ctaMatch) {
@@ -304,9 +318,10 @@ export function parseH3CardList(body: string): {
         title,
         description: rest.slice(0, ctaMatch.index).trimEnd(),
         url: ctaMatch[2],
+        image,
       }
     }
-    return { title, description: rest }
+    return { title, description: rest, image }
   })
   return { intro, cards }
 }

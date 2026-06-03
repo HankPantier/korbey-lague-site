@@ -4,6 +4,8 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
+import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 import type { ServiceCardsProps } from '@/lib/assembly/extract-block-props'
 
 export type { ServiceCardsProps }
@@ -30,9 +32,20 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
         {cards.map((card, i) => (
           <Card
             key={i}
-            className="h-full flex flex-col"
+            className="h-full flex flex-col overflow-hidden"
             style={{ boxShadow: 'var(--shadow-card, 0 2px 8px rgba(0,59,113,0.08))' }}
           >
+            {card.image && (
+              <div className="relative w-full aspect-video overflow-hidden">
+                <Image
+                  src={resolveImageSrc(card.image)!}
+                  alt={card.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+            )}
             <CardHeader className="pb-2">
               <h3
                 className="font-heading text-xl font-semibold text-foreground"

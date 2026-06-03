@@ -818,6 +818,26 @@ describe('splitOnSidebarMarker', () => {
 })
 
 // ---------------------------------------------------------------------------
+// parseH3CardList image capture
+// ---------------------------------------------------------------------------
+describe('parseH3CardList image capture', () => {
+  it('captures a leading markdown image per card', () => {
+    const body = '### Tax Prep\n![Tax desk](tax.jpg)\nYear-round planning.\n\n### Audit\nAssurance work.'
+    const { cards } = parseH3CardList(body)
+    expect(cards[0].image).toBe('tax.jpg')
+    expect(cards[0].description).toBe('Year-round planning.')
+    expect(cards[1].image).toBeUndefined()
+  })
+
+  it('captures a `photo:` line per card', () => {
+    const body = '### Payroll\nphoto: payroll.jpg\nOn-time every cycle.'
+    const { cards } = parseH3CardList(body)
+    expect(cards[0].image).toBe('payroll.jpg')
+    expect(cards[0].description).toBe('On-time every cycle.')
+  })
+})
+
+// ---------------------------------------------------------------------------
 // extractLeadingImage
 // ---------------------------------------------------------------------------
 describe('extractLeadingImage', () => {

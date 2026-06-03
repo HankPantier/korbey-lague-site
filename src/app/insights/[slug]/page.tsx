@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (slug === EMPTY_PLACEHOLDER) return { title: 'Not found' }
   try {
     const post = await getPost(slug)
+    if (!post) return { title: 'Not found' }
     const url = post.frontmatter.canonical_url || `${siteConfig.siteUrl.replace(/\/$/, '')}/insights/${post.slug}`
     const ogUrl = `/api/og/insights/${post.slug}`
     return {
@@ -68,12 +69,11 @@ export default async function PostPage({ params }: Props) {
   const { slug } = await params
   if (slug === EMPTY_PLACEHOLDER) notFound()
 
-  let post: Awaited<ReturnType<typeof getPost>>
-  try {
-    post = await getPost(slug)
-  } catch {
-    notFound()
-  }
+  // Missing post → null → clean notFound(). A throw across getPost's
+  // 'use cache' boundary would escalate to a 500 under cacheComponents —
+  // see getPageMarkdown in get-page.ts for the rationale.
+  const post = await getPost(slug)
+  if (!post) notFound()
 
   const brand = await getBrandConfig()
   const canonical =

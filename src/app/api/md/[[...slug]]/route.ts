@@ -21,6 +21,12 @@ export async function GET(
   const url = slug && slug.length > 0 ? '/' + slug.join('/') : '/'
   try {
     const md = await getPageMarkdown(url)
+    if (!md) {
+      return new NextResponse('Not found', {
+        status: 404,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      })
+    }
     return new NextResponse(stripBlockAnnotations(md), {
       status: 200,
       headers: {

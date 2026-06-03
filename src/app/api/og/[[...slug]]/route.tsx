@@ -27,9 +27,12 @@ export async function GET(
   let subline = brand.firm.tagline ?? ''
   try {
     const url = slug && slug.length > 0 ? '/' + slug.join('/') : '/'
-    const manifest = parsePageMd(await getPageMarkdown(url))
-    heading = manifest.meta_title || manifest.title || heading
-    subline = manifest.meta_description || subline
+    const md = await getPageMarkdown(url)
+    if (md) {
+      const manifest = parsePageMd(md)
+      heading = manifest.meta_title || manifest.title || heading
+      subline = manifest.meta_description || subline
+    }
   } catch {
     /* fall back to brand */
   }

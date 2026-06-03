@@ -214,6 +214,36 @@ Remote image URLs need no per-client setup: `images.remotePatterns` in
 clone has a customized `next.config.ts`, take the template's `images:` block
 during conflict resolution.
 
+### 2026-06-03 — Unknown-URL 404 fix (pull this one promptly)
+
+**Every deployed client site currently returns HTTP 500 for unknown URLs**
+(mistyped links, stale backlinks, crawler probes) instead of the branded 404.
+Root cause is upstream vercel/next.js#86251 — `notFound()` for an unlisted
+dynamic param under `cacheComponents` breaks when the root layout reads
+`cookies()` — which this template triggered via the server-side consent
+island. Soft-500s on every bad URL are an SEO problem, so prioritize this
+sync.
+
+What the pass changes (all `src/`-only — "take template's" applies):
+
+1. **Consent is now read client-side.** `Analytics.tsx` is a client component
+   reading `document.cookie`; the root layout has no `cookies()` island and
+   every page prerenders fully static. Visible behavior is unchanged
+   (banner → accept/decline → GA/GTM; footer "Cookie preferences" still
+   withdraws). The banner ships hidden in SSR markup so design-brief capture
+   keeps working.
+2. **Content loaders return `null` for missing files** instead of throwing
+   ENOENT across the `'use cache'` boundary (`getPageMarkdown`, `getPost`);
+   page/route handlers translate null into 404s.
+3. **Next 16.2.6 → 16.2.7** (`package.json` + lockfile; run
+   `rm package-lock.json && npm install` if the lock conflicts).
+
+After merging: `npm install`, build, deploy, then confirm a gibberish URL on
+the live site returns 404 (and the homepage still 200s). If your clone
+customized `Analytics.tsx`/`ConsentBanner.tsx`, port your customizations onto
+the template's new client-side versions rather than keeping the old
+server-side files — the old design re-triggers the 500s.
+
 ---
 
 ## Cadence

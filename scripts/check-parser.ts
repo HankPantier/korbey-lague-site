@@ -3,6 +3,7 @@ import { parsePageMd } from '../src/lib/assembly/parse-page-md'
 
 async function main() {
   const md = await getPageMarkdown('/')
+  if (!md) throw new Error('content/pages/home.md not found — unpack a deliverable first')
   const manifest = parsePageMd(md)
   console.log('title:', manifest.title)
   console.log('hero_block:', manifest.hero_block, manifest.hero_variant)

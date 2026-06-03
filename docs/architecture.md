@@ -81,11 +81,35 @@ Calendly's inline widget requires its origin in three CSP directives (`script-sr
 
 ## Analytics + cookie consent
 
-### Why a server component reads `cookies()`
+### Why consent is read client-side (and NOT via `cookies()`)
 
-`src/components/analytics/Analytics.tsx` is an async Server Component that reads the visitor's consent state via `next/headers`'s `cookies()`. This is intentional: SSR-correct rendering of the consent banner is a requirement for the design-brief integration (see below), and rendering the GA/GTM `<Script>` server-side via `@next/third-parties` gets SPA pageview tracking on App Router navigations for free.
+`src/components/analytics/Analytics.tsx` is a client component that reads the
+visitor's consent state from `document.cookie` via `useSyncExternalStore`. It
+was originally an async Server Component reading `next/headers`'s `cookies()`
+inside a Suspense island — that design was **deliberately removed** on
+2026-06-03 for two reasons:
 
-Reading `cookies()` would normally bubble dynamism up the tree and force every page dynamic. The fix (now in place) is **Cache Components + Suspense**: `<Analytics>` is wrapped in a `<Suspense fallback={null}>` boundary in `src/app/layout.tsx`, which isolates the dynamic-ness. Under `cacheComponents: true` (set in `next.config.ts`), Next prerenders the static shell at build time and streams the Analytics island per request. Build output reflects this — `/` shows `◐ (Partial Prerender)` rather than `ƒ (Dynamic)`.
+1. **It escalated every unknown-URL 404 into a 500.** Upstream bug
+   vercel/next.js#86251 (unfixed in stable 16.x as of 2026-06): with
+   `cacheComponents: true`, a `notFound()` thrown for an *unlisted* dynamic
+   param — i.e. any mistyped URL on a site whose `generateStaticParams`
+   returns real slugs — fails during the runtime prerender whenever the root
+   layout contains a Suspense-wrapped `cookies()` read (`Invalid revalidate
+   configuration provided: 0 < 1` + `DYNAMIC_SERVER_USAGE`). The fresh-clone
+   template never showed it because its placeholder param keeps the route on
+   the plain dynamic path; every real client site hit it. Do not reintroduce
+   request APIs (`cookies()`/`headers()`) into the root layout until that bug
+   is fixed in a stable release.
+2. **The layout is now fully static.** With no per-request island, every page
+   prerenders completely — build output shows no `DYNAMIC_SERVER_USAGE`
+   digests at all, and there is no per-request streaming hole.
+
+SSR correctness for the design brief is preserved by a different trick: the
+banner is **always present in SSR markup, hidden with an inline
+`display:none`**, until the client-side cookie read decides — reveal
+(undecided + an analytics ID configured), swap in GA/GTM (accepted), or
+unmount (declined). Visitors who already decided never see a flash; the
+brief's regex still finds the markup in plain HTML.
 
 ### Behavior matrix
 
@@ -105,11 +129,19 @@ The footer's "Cookie preferences" link (`src/components/footer/FooterCookiePrefs
 
 ### Accept/Decline flow
 
-`ConsentBanner.tsx` writes the cookie client-side and calls `useRouter().refresh()` from `next/navigation`. The refresh re-runs the server tree against the new cookie state — `Analytics` then renders the appropriate `<Script>` tag (or nothing on decline) in the next paint. No full reload, scroll position preserved, no static asset re-fetch.
+`ConsentBanner.tsx` writes the cookie client-side and notifies `<Analytics>`
+through its `onDecision` callback (which pokes the `useSyncExternalStore`
+store). `Analytics` re-renders immediately with the GA/GTM tag (accept) or
+nothing (decline) — pure client state, no server round-trip, no reload,
+scroll position preserved.
 
-### `_cookie-preview` escape hatch
+### `_cookie-preview` escape hatch (now inert)
 
-`scripts/export-design-brief.ts` sends `Cookie: _cookie-preview=1` on its chrome-capture fetch. `Analytics.tsx` reads this cookie and force-renders the banner even when no analytics ID is configured, so the brief can capture banner markup before a real GA/GTM ID exists per-client. The escape hatch is exclusively for the brief script; production traffic never sees that cookie.
+`scripts/export-design-brief.ts` still sends `Cookie: _cookie-preview=1` on
+its chrome-capture fetch, but the cookie no longer does anything: the banner
+markup is *always* in SSR output (hidden), even with no analytics IDs
+configured, so the brief's regex capture works unconditionally. The header is
+harmless and kept for compatibility with older clones' scripts.
 
 ## Design-brief integration
 
@@ -144,9 +176,13 @@ To target child slots from `content/design-overrides.css`, give them `data-slot=
 
 ### Where Suspense isolates dynamism
 
-| Location | Why |
-|---|---|
-| `src/app/layout.tsx` around `<Analytics />` | `Analytics` reads `cookies()` per request to gate GA/GTM script injection. Suspense lets the shell ship static, streams the island. |
+Currently nowhere — the repo has **no per-request server islands**. The
+former example (`<Analytics />` reading `cookies()` behind Suspense in the
+root layout) was removed on 2026-06-03; consent is now read client-side (see
+"Analytics + cookie consent" above for why, incl. vercel/next.js#86251). If
+you add a per-request read, wrap it in `<Suspense>` per the rules above —
+but keep request APIs out of the **root layout** until that upstream bug is
+fixed in a stable release.
 
 ### Catchall route placeholder
 

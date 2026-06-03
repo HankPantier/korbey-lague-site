@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
-import { Suspense } from 'react'
 import { Public_Sans } from 'next/font/google'
 import './globals.css'
 import { NavBar } from '@/components/nav/NavBar'
@@ -107,13 +106,13 @@ export default async function RootLayout({
         <NavBar brand={brand} nav={nav} />
         {children}
         <Footer />
-        {/* Suspense island: <Analytics> reads cookies(), which is per-request.
-            Wrapping it here keeps the rest of the tree prerenderable under
-            cacheComponents: true — the shell ships static, the analytics
-            slot streams in at request time. */}
-        <Suspense fallback={null}>
-          <Analytics />
-        </Suspense>
+        {/* <Analytics> is a client component that reads consent from
+            document.cookie — deliberately NOT a server cookies() island.
+            Keeping the layout free of request APIs makes every page fully
+            prerenderable AND avoids vercel/next.js#86251 (cookies() in the
+            root layout turns unknown-URL 404s into 500s under
+            cacheComponents). See Analytics.tsx for the full rationale. */}
+        <Analytics />
       </body>
     </html>
   )

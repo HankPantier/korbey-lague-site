@@ -34,14 +34,25 @@ export async function listPostSlugs(): Promise<string[]> {
 }
 
 /**
- * Read a single post by slug. Throws ENOENT if the file is missing; the page
- * handler catches and notFound()s.
+ * Read a single post by slug. Returns null when the file is missing; the page
+ * handler translates null into notFound(). Missing-file must be a return
+ * value, not a throw, because errors thrown inside a 'use cache' scope are
+ * not cacheable and escalate unknown-slug requests from 404 to 500 under
+ * cacheComponents' runtime prerender — see getPageMarkdown in get-page.ts
+ * for the full rationale. Malformed frontmatter (Zod) still throws: that's a
+ * genuine content bug, caught by `npm run validate` at CI time.
  */
-export async function getPost(slug: string): Promise<Post> {
+export async function getPost(slug: string): Promise<Post | null> {
   'use cache'
   cacheLife('max')
   const filePath = path.join(POSTS_DIR(), `${slug}.md`)
-  const raw = await fs.readFile(filePath, 'utf-8')
+  let raw: string
+  try {
+    raw = await fs.readFile(filePath, 'utf-8')
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === 'ENOENT') return null
+    throw err
+  }
   const parsed = matter(raw)
   const frontmatter = PostFrontmatterSchema.parse(parsed.data)
   return {

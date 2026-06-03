@@ -9,8 +9,8 @@ import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 
 export async function generateMetadata(): Promise<Metadata> {
   const brand = await getBrandConfig()
-  const title = `Insights | ${brand.firm.name}`
-  const description = `Tax, advisory, and accounting insights from ${brand.firm.name}.`
+  const title = `Resources | ${brand.firm.name}`
+  const description = `Tax, advisory, and accounting resources from ${brand.firm.name}.`
   return {
     title,
     description,
@@ -26,13 +26,13 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
 }
 
-export default async function InsightsIndex() {
+export default async function ResourcesIndex() {
   const posts = await listPostsMeta()
 
   return (
     <>
       <Section dataBlock="page-header" className="text-center">
-        <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">Insights</h1>
+        <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground">Resources</h1>
         <p className="mt-3 max-w-2xl mx-auto text-foreground/70 leading-relaxed">
           Practical advice and seasonal updates from our team.
         </p>
@@ -70,7 +70,7 @@ export default async function InsightsIndex() {
                     )}
                     <h2 className="font-heading text-lg font-semibold leading-snug">
                       <Link
-                        href={`/insights/${p.slug}`}
+                        href={`/resources/${p.slug}`}
                         className="hover:text-primary focus-visible:outline-none focus-visible:underline"
                       >
                         {p.frontmatter.title}

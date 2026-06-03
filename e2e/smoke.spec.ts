@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test'
  * Smoke tests against the production build. Covers the surfaces that have
  * the highest "if-this-breaks-the-template-is-broken" weight: every-page
  * routes (home, 404), the generated polish (favicon / OG / RSS / agent
- * card), and the new content marketing surfaces (insights index, showcase).
+ * card), and the new content marketing surfaces (resources index, showcase).
  *
  * Form submission, BotID classification, and Resend integration are covered
  * by vitest route tests — those don't need a browser and run far faster.
@@ -54,10 +54,10 @@ test('/api/og returns a 1200x630 PNG share card', async ({ request }) => {
   expect(res.headers()['content-type']).toMatch(/image\/png/)
 })
 
-test('/insights renders the index (empty state in fresh-clone)', async ({ page }) => {
-  const res = await page.goto('/insights')
+test('/resources renders the index (empty state in fresh-clone)', async ({ page }) => {
+  const res = await page.goto('/resources')
   expect(res?.status()).toBe(200)
-  await expect(page.getByRole('heading', { name: /insights/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /resources/i })).toBeVisible()
 })
 
 test('/.well-known/agent.json returns a structured A2A card', async ({ request }) => {

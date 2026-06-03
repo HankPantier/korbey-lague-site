@@ -134,7 +134,7 @@ Check:
   curl -o /tmp/og.png http://localhost:3000/api/og && file /tmp/og.png      # → 1200×630 PNG (branded share card)
   curl http://localhost:3000/feed.xml | head -5                            # → valid RSS 2.0 (empty channel until posts exist)
   # Browse:
-  open http://localhost:3000/insights                                       # → blog index (empty-state if no posts yet)
+  open http://localhost:3000/resources                                       # → blog index (empty-state if no posts yet)
   open http://localhost:3000/showcase                                       # → every block in the registry, dev-only
   ```
 
@@ -185,7 +185,7 @@ re-running `unpack`. If Claude also returns refined tokens, overwrite
    - Submit the contact form from the live page → the firm receives the email **and** a `generate_lead` event appears in GA4 → Reports → Realtime within a minute.
    - Confirm a direct bot-style POST is blocked: `curl -X POST https://<site>/api/contact`
      with a JSON body should return **403** (no BotID challenge header = bot).
-   - **Spot-check the new routes**: `curl -I https://<site>/feed.xml` (RSS, `application/rss+xml`), `curl -o /tmp/og.png https://<site>/api/og` (1200×630 PNG), `curl -o /tmp/icon.png https://<site>/icon` (32×32 PNG), and open `/insights` (blog index — empty-state until posts exist).
+   - **Spot-check the new routes**: `curl -I https://<site>/feed.xml` (RSS, `application/rss+xml`), `curl -o /tmp/og.png https://<site>/api/og` (1200×630 PNG), `curl -o /tmp/icon.png https://<site>/icon` (32×32 PNG), and open `/resources` (blog index — empty-state until posts exist).
 5. **Flip CSP to enforce**: set `csp.mode: 'enforce'` in `site.config.ts`, commit, redeploy.
 6. *(Optional, Pro/Enterprise)* Enable stronger bot detection: Vercel dashboard →
    **Firewall → Rules → Vercel BotID Deep Analysis**. No code change.

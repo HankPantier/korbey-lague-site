@@ -5,7 +5,7 @@
       "startServerReadyPattern": "Ready",
       "url": [
         "http://localhost:3000/",
-        "http://localhost:3000/insights"
+        "http://localhost:3000/resources"
       ],
       "numberOfRuns": 3,
       "settings": {

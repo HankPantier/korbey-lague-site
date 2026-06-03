@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm'
 import { Section } from '@/components/blocks/Section'
 import { Button } from '@/components/ui/button'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
-import { getPost, listPostSlugs } from '@/lib/content/get-post'
+import { getPost, listPostSlugs, relatedPosts } from '@/lib/content/get-post'
 import { siteConfig } from '../../../../site.config'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { resolveImageSrc } from '@/lib/assembly/resolve-image'
@@ -31,15 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const post = await getPost(slug)
     if (!post) return { title: 'Not found' }
-    const url = post.frontmatter.canonical_url || `${siteConfig.siteUrl.replace(/\/$/, '')}/insights/${post.slug}`
-    const ogUrl = `/api/og/insights/${post.slug}`
+    const url = post.frontmatter.canonical_url || `${siteConfig.siteUrl.replace(/\/$/, '')}/resources/${post.slug}`
+    const ogUrl = `/api/og/resources/${post.slug}`
+    const description = post.frontmatter.meta_description || post.frontmatter.excerpt
     return {
-      title: post.frontmatter.title,
-      description: post.frontmatter.excerpt,
+      title: post.frontmatter.meta_title || post.frontmatter.title,
+      description,
       alternates: { canonical: url },
       openGraph: {
         title: post.frontmatter.title,
-        description: post.frontmatter.excerpt,
+        description,
         url,
         type: 'article',
         publishedTime: post.frontmatter.date || undefined,
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       twitter: {
         card: 'summary_large_image',
         title: post.frontmatter.title,
-        description: post.frontmatter.excerpt,
+        description,
         images: [ogUrl],
       },
     }
@@ -75,19 +76,25 @@ export default async function PostPage({ params }: Props) {
   const post = await getPost(slug)
   if (!post) notFound()
 
-  const brand = await getBrandConfig()
+  const [brand, related] = await Promise.all([
+    getBrandConfig(),
+    relatedPosts(post.slug, post.frontmatter.tags),
+  ])
   const canonical =
     post.frontmatter.canonical_url ||
-    `${siteConfig.siteUrl.replace(/\/$/, '')}/insights/${post.slug}`
+    `${siteConfig.siteUrl.replace(/\/$/, '')}/resources/${post.slug}`
 
   // BlogPosting JSON-LD — built from validated frontmatter only, never raw
   // user input, so the same dangerouslySetInnerHTML pattern as
-  // src/components/layout/SchemaScript.tsx is safe here.
+  // src/components/layout/SchemaScript.tsx is safe here. schema_markup lets
+  // the onboarding draft generator promote a post to Article/FAQPage;
+  // answer_block doubles as the AIO-friendly abstract.
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@type': post.frontmatter.schema_markup || 'BlogPosting',
     headline: post.frontmatter.title,
-    description: post.frontmatter.excerpt || undefined,
+    description: post.frontmatter.meta_description || post.frontmatter.excerpt || undefined,
+    abstract: post.frontmatter.answer_block || undefined,
     datePublished: post.frontmatter.date || undefined,
     author: post.frontmatter.author
       ? { '@type': 'Person', name: post.frontmatter.author }
@@ -104,8 +111,8 @@ export default async function PostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Section dataBlock="page-header" className="max-w-3xl mx-auto">
-        <Link href="/insights" className="text-sm text-foreground/60 hover:text-primary">
-          ← Back to Insights
+        <Link href="/resources" className="text-sm text-foreground/60 hover:text-primary">
+          ← Back to Resources
         </Link>
         {post.frontmatter.date && (
           <time
@@ -156,10 +163,50 @@ export default async function PostPage({ params }: Props) {
 
         <div className="mt-12 pt-8 border-t border-border text-center">
           <Button asChild variant="outline">
-            <Link href="/insights">More insights →</Link>
+            <Link href="/resources">More resources →</Link>
           </Button>
         </div>
       </Section>
+
+      {related.length > 0 && (
+        <Section className="max-w-5xl mx-auto">
+          <h2 className="font-heading text-2xl font-semibold text-foreground text-center">
+            Related reading
+          </h2>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((p) => (
+              <li key={p.slug} className="rounded-lg border border-border bg-card overflow-hidden">
+                {p.frontmatter.image && (
+                  <div className="relative w-full aspect-video bg-muted">
+                    <Image
+                      src={resolveImageSrc(p.frontmatter.image)!}
+                      alt={p.frontmatter.image_alt ?? p.frontmatter.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+                <div className="p-5">
+                  <h3 className="font-heading text-base font-semibold leading-snug">
+                    <Link
+                      href={`/resources/${p.slug}`}
+                      className="hover:text-primary focus-visible:outline-none focus-visible:underline"
+                    >
+                      {p.frontmatter.title}
+                    </Link>
+                  </h3>
+                  {p.frontmatter.excerpt && (
+                    <p className="mt-2 text-sm text-foreground/70 leading-relaxed line-clamp-3">
+                      {p.frontmatter.excerpt}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
     </>
   )
 }

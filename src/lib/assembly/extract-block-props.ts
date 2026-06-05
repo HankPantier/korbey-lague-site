@@ -213,7 +213,13 @@ export type ServiceCardsProps = {
   variant: '2-col' | '3-col'
   heading: string
   intro?: string
-  cards: Array<{ title: string; description: string; url?: string; image?: string }>
+  cards: Array<{
+    title: string
+    description: string
+    url?: string
+    image?: string
+    icon?: string
+  }>
 }
 
 export function extractServiceCardsProps(section: PageSection): ServiceCardsProps {

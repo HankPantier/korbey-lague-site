@@ -316,7 +316,13 @@ export function parseFaqList(body: string): Array<{ question: string; answer: st
  */
 export function parseH3CardList(body: string): {
   intro?: string
-  cards: Array<{ title: string; description: string; url?: string; image?: string }>
+  cards: Array<{
+    title: string
+    description: string
+    url?: string
+    image?: string
+    icon?: string
+  }>
 } {
   const { intro, chunks } = parseTitleBodyChunks(body)
   const cards = chunks.map(({ title, body: rawRest }) => {
@@ -334,6 +340,13 @@ export function parseH3CardList(body: string): {
         rest = rest.replace(photoMatch[0], '').trim()
       }
     }
+    // Optional `icon: Name` line — same syntax feature-grid chunks use.
+    let icon: string | undefined
+    const iconMatch = rest.match(/^\s*icon:\s*([A-Za-z][A-Za-z0-9]*)\s*$/im)
+    if (iconMatch) {
+      icon = iconMatch[1]
+      rest = rest.replace(iconMatch[0], '').trim()
+    }
     // Pop trailing link as card url
     const ctaMatch = rest.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/)
     if (ctaMatch) {
@@ -342,9 +355,10 @@ export function parseH3CardList(body: string): {
         description: rest.slice(0, ctaMatch.index).trimEnd(),
         url: ctaMatch[2],
         image,
+        icon,
       }
     }
-    return { title, description: rest, image }
+    return { title, description: rest, image, icon }
   })
   return { intro, cards }
 }

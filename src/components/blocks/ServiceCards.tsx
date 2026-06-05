@@ -1,5 +1,6 @@
 import { Section } from './Section'
 import { InlineProse } from './InlineProse'
+import { Icon } from './Icon'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -47,6 +48,17 @@ export function ServiceCards({ variant, heading, intro, cards }: ServiceCardsPro
               </div>
             )}
             <CardHeader className="pb-2">
+              {card.icon && !card.image && (
+                <div
+                  className="mb-1 flex items-center justify-center w-12 h-12 rounded-lg"
+                  style={{
+                    backgroundColor:
+                      'color-mix(in srgb, var(--color-action) 14%, transparent)',
+                  }}
+                >
+                  <Icon name={card.icon} className="h-6 w-6" />
+                </div>
+              )}
               <h3
                 className="font-heading text-xl font-semibold text-foreground"
               >

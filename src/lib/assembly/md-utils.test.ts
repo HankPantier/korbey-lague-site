@@ -385,6 +385,28 @@ describe('parseH3CardList', () => {
     expect(result.cards).toHaveLength(1)
     expect(result.cards[0].title).toBe('Empty Card')
   })
+
+  it('pops an icon: line as card icon', () => {
+    const body = `### Cash Flow Forecasting\nicon: TrendingUp\nKnow what's coming before it arrives.`
+    const result = parseH3CardList(body)
+    expect(result.cards[0].icon).toBe('TrendingUp')
+    expect(result.cards[0].description).toBe("Know what's coming before it arrives.")
+  })
+
+  it('handles icon: alongside photo: and trailing CTA', () => {
+    const body = `### Estate Planning\nicon: Scale\nphoto: estate.jpg\nComplex planning for families.\n[Learn More](/estate-planning)`
+    const result = parseH3CardList(body)
+    expect(result.cards[0].icon).toBe('Scale')
+    expect(result.cards[0].image).toBe('estate.jpg')
+    expect(result.cards[0].url).toBe('/estate-planning')
+    expect(result.cards[0].description).toBe('Complex planning for families.')
+  })
+
+  it('leaves icon undefined when absent', () => {
+    const body = `### Plain Card\nNo icon here.`
+    const result = parseH3CardList(body)
+    expect(result.cards[0].icon).toBeUndefined()
+  })
 })
 
 // ---------------------------------------------------------------------------

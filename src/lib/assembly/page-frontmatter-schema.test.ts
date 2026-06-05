@@ -68,4 +68,17 @@ describe('PageFrontmatterSchema', () => {
     const fm = PageFrontmatterSchema.parse({ hero_image_alt: 'Team in the office' })
     expect(fm.hero_image_alt).toBe('Team in the office')
   })
+
+  it('coerces null string fields like missing ones (YAML empty values)', () => {
+    // `meta_description:` with no value parses from YAML as null, not undefined.
+    const fm = PageFrontmatterSchema.parse({
+      title: 'A',
+      meta_description: null,
+      canonical_url: null,
+      hero_image: null,
+    })
+    expect(fm.meta_description).toBe('')
+    expect(fm.canonical_url).toBe('')
+    expect(fm.hero_image).toBeUndefined()
+  })
 })

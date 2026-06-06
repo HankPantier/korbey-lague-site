@@ -41,7 +41,7 @@ No commitment. No jargon. Just a clear picture of where your business stands tod
 
 Tell us about your business and we'll be in touch within one business day.
 
----SIDEBAR---
+sidebar:
 
 **Or call us directly:**
 (978) 555-0100

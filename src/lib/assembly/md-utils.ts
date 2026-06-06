@@ -341,8 +341,10 @@ export function parseH3CardList(body: string): {
       }
     }
     // Optional `icon: Name` line — same syntax feature-grid chunks use.
+    // Lowercase-only marker (no /i) so prose like "Icon: a symbol of trust"
+    // on its own line can't be swallowed as metadata.
     let icon: string | undefined
-    const iconMatch = rest.match(/^\s*icon:\s*([A-Za-z][A-Za-z0-9]*)\s*$/im)
+    const iconMatch = rest.match(/^\s*icon:\s*([A-Za-z][A-Za-z0-9]*)\s*$/m)
     if (iconMatch) {
       icon = iconMatch[1]
       rest = rest.replace(iconMatch[0], '').trim()

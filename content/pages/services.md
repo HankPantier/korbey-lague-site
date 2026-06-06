@@ -2,170 +2,189 @@
 title: Services | Korbey Lague PLLP
 url: /services
 meta_title: CPA Services in Tyngsborough, MA | Korbey Lague PLLP
-meta_description: Year-round tax planning, bookkeeping, CFO advisory, and startup services from Korbey Lague PLLP — a CPA firm in Tyngsborough, MA built for businesses that need more than April.
-target_keyword: CPA services Tyngsborough MA
-secondary_keywords: [tax planning Massachusetts, fractional CFO small business, bookkeeping services Tyngsborough, small business CPA Massachusetts, startup accounting services MA]
+meta_description: Tax planning, bookkeeping, CFO advisory, and startup services from a year-round CPA firm in Tyngsborough, MA. Credentialed team. Real availability.
+target_keyword: services
+secondary_keywords: [CPA firm Tyngsborough MA, tax planning Massachusetts, bookkeeping services Massachusetts, fractional CFO small business, startup accounting services, virtual CFO Massachusetts]
 canonical_url: https://www.korbeylague.com/services
 schema_markup: Service
 og_title: CPA Services in Tyngsborough, MA | Korbey Lague PLLP
-og_description: Year-round tax planning, bookkeeping, CFO advisory, and startup services from Korbey Lague PLLP — a CPA firm in Tyngsborough, MA built for businesses that need more than April.
-og_image: https://www.korbeylague.com/og-images/services.png
+og_description: Tax planning, bookkeeping, CFO advisory, and startup services from a year-round CPA firm in Tyngsborough, MA. Credentialed team. Real availability.
+og_image: https://www.korbeylague.com/api/og/services
 twitter_card: summary_large_image
-hero: page-header
+hero: hero-split
+hero_variant: image-right
+hero_image: cpa-services-team-tyngsborough.jpg
+hero_subhead: Year-round tax, bookkeeping, and advisory services built for businesses that can't afford to wait until April.
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## More Than a Tax Preparer — A Partner Who Shows Up All Year
 
-Most CPA firms are busy in March, gone by May, and hard to reach when something actually happens to your business. Korbey Lague PLLP is built differently. Based in Tyngsborough, MA, the firm offers year-round advisory services — which means when you get a surprise audit notice in August, or you're thinking about buying out a partner in October, there's a real CPA on the other end of the phone.
+Most CPA firms are busy in March, gone by May. Korbey Lague PLLP is built differently. Based in Tyngsborough, MA, the firm runs year-round — which means your questions get answered in July, your books are clean in October, and you're not scrambling every April because no one flagged the issue in November.
 
-The services below aren't checkboxes. They're the structure that keeps your finances clear, your tax burden managed, and your business decisions grounded in real numbers — month after month, not just at filing time.
+The services below aren't a menu of one-off transactions. They're a connected set of disciplines — tax, accounting, advisory, and startup support — designed to work together so your business has financial clarity all year, not just at filing time. Every engagement is handled by credentialed professionals, including CPAs, a Personal Financial Specialist (PFS), and MBAs who understand business operations as well as tax code.
 
----
-
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-right | image: tax-planning-strategy-meeting.jpg | query: "accountant reviewing tax documents client meeting" -->
 ## Tax Planning & Preparation
 
-A tax bill that surprises you on April 15th is a planning failure — not an accounting one. At Korbey Lague PLLP, tax work starts well before the filing deadline.
+Tax preparation is the last step. Tax planning is where the real work happens — and it should start months before the filing deadline, not the week of.
 
-For businesses and individuals alike, the team builds tax strategy around your actual situation: your entity structure, your income timing, your deductions, your goals. That means proactive conversations about estimated payments, retirement contributions, and year-end moves — before the window closes. Filing is the last step, not the first.
+Korbey Lague provides business and individual tax services that begin with strategy. That means analyzing your income structure, timing decisions around deductions, identifying credits you qualify for, and flagging issues before they become liabilities. When April 15th arrives, you should already know what the number is — not be surprised by it.
 
-Both Kelsey Korbey, CPA and Richard DelGaudio, CPA bring deep compliance experience. Ron Lague, CPA, PFS — whose Personal Financial Specialist credential is issued by the AICPA — adds a layer of integrated personal financial strategy that most tax-only firms can't match. Business returns, individual returns, multi-state filings: the work gets done right, and you won't be guessing what's coming.
+For business owners, that includes entity-level tax planning (S-corp elections, pass-through income, depreciation strategies), owner compensation structuring, and multi-year projections. For individuals — especially those with complex situations like self-employment income, investment portfolios, or equity compensation — tax planning is as much about next year as it is about this one.
 
----
+Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist designation, which means individual tax work here sits at the intersection of tax planning and personal financial strategy — a combination most firms don't offer.
 
-<!-- block: content-split | variant: image-left -->
+<!-- block: content-split | variant: image-left | image: bookkeeping-financial-reporting-desk.jpg | query: "small business owner reviewing financial reports" -->
 ## Bookkeeping & Accounting
 
-Messy books don't just create headaches at tax time — they make it impossible to run your business well. You can't price a job accurately, spot a cash flow problem early, or make a confident hiring decision without clean, current financial data.
+Clean books aren't just an accounting requirement — they're what let you make a confident business decision on a Tuesday afternoon when you need to.
 
-Korbey Lague PLLP provides ongoing bookkeeping and financial reporting that gives you exactly that: clarity. Transactions categorized correctly. Reports that reflect what's actually happening. Month-end closes that don't drag into the following quarter.
+Korbey Lague handles ongoing bookkeeping and financial reporting so the numbers you're looking at are accurate, current, and actually mean something. That means reconciled accounts, categorized transactions, and monthly or quarterly reports you can read without a translation.
 
-For clients requiring more sophisticated reporting, the firm works with Sage Intacct — a cloud-based accounting platform built for growing businesses that have outgrown basic tools. The goal isn't just accurate books. It's books you can actually use to make decisions.
+More importantly, clean books surface things: a margin that's slipping, an expense category that crept up, a revenue trend worth acting on. The goal isn't just to hand you a report — it's to give you a clear picture of where your business stands so you can move with confidence.
 
----
+Services are structured in tiered packages to fit where your business is right now, with the ability to scale as your volume and complexity grow. Whether you're running on QuickBooks, need a migration, or are ready for a more robust platform like Sage Intacct, the team can support the transition.
 
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-right | image: cfo-advisory-business-strategy.jpg | query: "executive team reviewing financial strategy whiteboard" -->
 ## Business Advisory & CFO Services
 
-Growing businesses need financial leadership — but most aren't ready to hire a full-time CFO at $200,000 a year. Fractional CFO and advisory services fill that gap: you get CFO-level thinking applied to your actual business, at a fraction of the cost.
+Growing businesses hit a point where they need more than accurate financials — they need someone who can interpret them, challenge assumptions, and help make the call. A full-time CFO often isn't in the budget. That's where Korbey Lague's advisory and virtual CFO services come in.
 
-This is where Korbey Lague PLLP's year-round presence becomes especially valuable. Advisory isn't a one-time deliverable. It's a relationship. The team works alongside owners to build financial models, analyze profitability by service line or job, structure ownership decisions, and plan for growth — or an eventual exit.
+This isn't a once-a-year check-in. Fractional CFO work at Korbey Lague means consistent engagement — cash flow forecasting, budget vs. actual analysis, KPI tracking, scenario modeling, and a seat at the table when major decisions are being made. Think of it as CFO-level insight at a fraction of the cost of a full-time hire.
 
-Jackie Estes, MBA and Mike Riordan, MBA bring graduate-level business training to the advisory work, alongside the CPA-credentialed partners who keep the financial strategy tax-aware. For businesses in Massachusetts that have grown past the point where basic bookkeeping answers their questions, this is the next step. Strategy built into the relationship, not billed separately as a surprise engagement.
+For small and mid-size businesses in Tyngsborough and across Massachusetts, this kind of strategic support is often the difference between reacting to problems and anticipating them. The team includes credentialed CPAs and MBAs — Jackie Estes, MBA and Mike Riordan, MBA bring operational and financial depth to advisory engagements — so the guidance is grounded in both numbers and business reality.
 
----
+Year-round availability is built in. When a question comes up mid-quarter, there's someone to call.
 
-<!-- block: checklist-section | variant: standalone -->
+<!-- block: checklist-section | variant: with-image | image: startup-business-formation-planning.jpg | query: "entrepreneurs startup planning business formation" -->
 ## Startup & New Business Services
 
-The decisions you make in the first six months of a business have consequences that follow you for years. Entity structure, accounting method, payroll setup, owner compensation strategy — none of these are places you want to figure out on your own and fix later.
+The decisions you make when starting a business — entity type, accounting method, payroll setup, tax elections — are easier to get right on day one than to fix two years later. Korbey Lague works with founders and new business owners early, so the foundation is solid before the pressure builds.
 
-Korbey Lague PLLP works with founders and new business owners across Massachusetts to get the structure right from day one. That includes:
+Startup services include:
 
-- **Entity formation guidance** — LLC vs. S-Corp vs. C-Corp, and why it matters for your tax situation specifically
-- **EIN registration and state filings** — the administrative setup handled correctly
-- **Chart of accounts setup** — so your books are organized from the start
-- **Early payroll and owner compensation planning** — avoid the costly mistakes new owners make with distributions
-- **First-year tax planning** — know what you'll owe before you owe it
+- Entity formation guidance (LLC, S-Corp, C-Corp — with tax implications for each)
+- EIN registration and state compliance setup
+- Chart of accounts and bookkeeping system configuration
+- Payroll setup and initial compliance review
+- Business tax registration (Massachusetts and federal)
+- Early-stage tax planning and estimated payment structure
+- Ongoing advisory support as the business scales
 
-Starting with a CPA in your corner costs far less than correcting a structural mistake two years in.
-
----
+Starting in Tyngsborough, expanding into Massachusetts — or building something from scratch anywhere — the earlier a CPA is involved, the fewer expensive corrections end up on the to-do list later.
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Industry-Specific Expertise
 
-General accounting knowledge only goes so far. The firm has built concentrated experience in five industries where the financial complexity is specific — and where a generalist often misses what matters.
+Generalist accounting works for some businesses. But if your industry has specific billing structures, licensing requirements, cost accounting complexity, or regulatory exposure, a firm that already knows that world is going to ask better questions — and catch things a generalist would miss.
 
-**Healthcare Professionals**
-Physicians, dentists, and other licensed practitioners face a distinct combination of entity structure decisions, equipment purchases, insurance reimbursements, and retirement planning options. The team understands the financial rhythm of a practice and plans around it.
+Korbey Lague works across five focused areas:
 
-**Contractors & Trades**
-Job costing, equipment depreciation, subcontractor payments, bonding requirements, and cash flow that swings with project cycles — contractors need accounting that reflects how the business actually works. Korbey Lague PLLP does.
+### Healthcare Professionals
+icon: Stethoscope
 
-**Nonprofits**
-Form 990 compliance, restricted fund accounting, board financial reporting, and grant tracking are not standard CPA territory. The firm serves nonprofit organizations that need both technical compliance and financial clarity for leadership.
+Practice owners and independent healthcare providers face a specific mix of challenges: payer reimbursements, payroll-heavy operations, professional entity structuring, and the constant tension between clinical and administrative demands. The firm understands the financial structure of healthcare practices and works with providers to reduce tax exposure and maintain clean financials that hold up to scrutiny.
 
-**Service-Based Businesses**
-Consultants, agencies, staffing firms, and other service businesses often run lean and bill inconsistently. The advisory approach here focuses on pricing strategy, receivables, and building cash reserves — not just closing the books.
+[Learn more about healthcare accounting →](/services/healthcare-professionals)
 
-**Startups**
-Covered in detail above — but worth naming here: early-stage companies in Massachusetts have access to a team that knows how to build the financial foundation correctly, before the stakes get higher.
+### Contractors & Trades
+icon: Hammer
 
-The firm knows your world — not just your numbers. Each niche has its own page with deeper context on how the work actually gets done.
+Job costing, equipment depreciation, bonding and licensing requirements, subcontractor payments, and cash flow gaps between project milestones — contractors carry a financial complexity that general bookkeeping misses. Korbey Lague works with construction and trade businesses to build accounting systems that reflect how the work actually runs.
 
----
+[Learn more about contractor accounting →](/services/contractors-trades)
+
+### Nonprofits
+icon: Users
+
+Nonprofit accounting operates under different rules — fund accounting, Form 990 preparation, grant compliance, and board-level financial reporting. Getting these wrong creates real exposure. The firm brings specific nonprofit accounting experience so organizations can focus on mission, not compliance anxiety.
+
+[Learn more about nonprofit accounting →](/services/nonprofits)
+
+### Service-Based Businesses
+icon: Briefcase
+
+Consultants, agencies, professional services firms, and other service businesses often underestimate how much structure they need until they're growing fast and the wheels come off. Clean books, clear invoicing workflows, and smart entity structure make a significant difference in how much of the revenue you actually keep.
+
+[Learn more about service business accounting →](/services/service-based-businesses)
+
+### Startups
+icon: Lightbulb
+
+Early-stage businesses need an advisor who understands that today's decisions create tomorrow's complications — or opportunities. From entity selection to investor-ready financials to scaling the accounting infrastructure as the business grows, the firm supports startups at every stage of the build.
+
+[Learn more about startup accounting →](/services/startups)
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Services
 
-**Q: Does Korbey Lague PLLP only work with businesses during tax season?**
-A: No. The firm offers year-round services including bookkeeping, advisory, and CFO-level consulting. Clients have access to their CPA team in July just as readily as in April — which is by design, not a bonus feature.
+**Q: Does Korbey Lague PLLP only do taxes, or do they offer year-round services?**
+A: Korbey Lague offers year-round services including bookkeeping, business advisory, fractional CFO support, and startup financial setup — not just tax preparation. The firm is structured to be available when questions come up throughout the year, not just during filing season. Clients have consistent access to their team all year.
 
-**Q: What is a Personal Financial Specialist (PFS) and why does it matter?**
-A: The PFS is a credential issued by the AICPA to CPAs who have demonstrated expertise in personal financial planning. Ron Lague, CPA, PFS holds this designation, which means tax strategy and personal wealth decisions can be handled together — not in separate silos.
+**Q: What industries does Korbey Lague specialize in?**
+A: The firm has developed focused expertise in five areas: healthcare professionals, contractors and trades, nonprofits, service-based businesses, and startups. Each industry carries distinct accounting, tax, and compliance requirements that benefit from an advisor who already understands the context — not just the numbers.
 
-**Q: Can Korbey Lague PLLP help me set up a new business from scratch?**
-A: Yes. The firm works with founders on entity formation, accounting setup, payroll, owner compensation structure, and first-year tax planning. Getting the structure right early prevents costly corrections down the road.
+**Q: What is a fractional or virtual CFO, and does my business need one?**
+A: A fractional CFO provides strategic financial guidance — cash flow forecasting, budget analysis, scenario planning — without the cost of a full-time hire. It's suited for small and mid-size businesses that have outgrown basic bookkeeping but aren't yet ready for a $150,000+ CFO salary. Korbey Lague's advisory team includes CPAs and MBAs who handle this work.
 
-**Q: What industries does the firm specialize in?**
-A: Korbey Lague PLLP has focused experience in five industries: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-Based Businesses, and Startups. Each has its own financial complexity that the team is specifically trained to address.
+**Q: Can Korbey Lague help me set up a new business?**
+A: Yes. Startup services cover entity formation (LLC, S-Corp, C-Corp), EIN registration, Massachusetts business tax registration, bookkeeping system setup, payroll configuration, and early-stage tax planning. Getting these decisions right at the start avoids costly restructuring later — and the firm can stay on as an ongoing advisor as the business grows.
 
-**Q: What is a fractional CFO and do I need one?**
-A: A fractional CFO provides CFO-level financial strategy — modeling, profitability analysis, growth planning — without the cost of a full-time hire. It's well-suited for small and mid-size Massachusetts businesses that have grown past basic bookkeeping but aren't ready for a $200,000 executive salary.
+**Q: What accounting software does Korbey Lague support?**
+A: The firm supports QuickBooks and Sage Intacct, among other platforms. For businesses that need a more robust accounting infrastructure — particularly those scaling quickly or managing multiple entities — Sage Intacct offers enterprise-grade reporting and controls at a scale that QuickBooks may not handle as well.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: cpa-firm-consultation-tyngsborough.jpg | query: "professional accountant client handshake office" -->
 ## Ready to Work With a CPA Who's There When You Need Them?
 
-Korbey Lague PLLP is based in Tyngsborough, MA and available year-round — not just during filing season. If you're looking for an accounting firm that shows up in July as readily as it does in April, the next step is simple.
+Korbey Lague PLLP is based in Tyngsborough and built around year-round availability — not just tax season. Whether you need tax planning, cleaner books, advisory support, or help building something from the ground up, the team is ready to talk.
 
-[Schedule a consultation](/contact) and let's talk about what your business actually needs.
+[Schedule a consultation](/contact)
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP offers year-round CPA services in Tyngsborough, MA — including tax planning and preparation, bookkeeping, fractional CFO advisory, and startup financial setup. The firm serves businesses and individuals across Massachusetts with credentialed CPAs, an AICPA Personal Financial Specialist, and MBAs on staff.
+Korbey Lague PLLP offers tax planning and preparation, bookkeeping, fractional CFO advisory, and startup financial services from a credentialed team of CPAs and MBAs in Tyngsborough, MA. Unlike firms that disappear after April, Korbey Lague operates year-round with consistent availability. Services are designed for small and mid-size businesses across five focused industries.
 
 **E-E-A-T Signals:**
 - Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA and AICPA Personal Financial Specialist credential holder
+- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist (PFS) designation
+- Jackie Estes, MBA — graduate business credentials supporting advisory services
+- Mike Riordan, MBA — graduate business credentials supporting advisory and CFO services
 - Richard DelGaudio, CPA — licensed Certified Public Accountant
-- Jackie Estes, MBA — graduate business degree
-- Mike Riordan, MBA — graduate business degree
-- Sage Intacct certified/experienced — cloud accounting platform for growing businesses
-- AICPA-affiliated firm (implied through PFS credential)
-- Firm located in Tyngsborough, MA — serving Massachusetts businesses year-round
+- AICPA membership and PFS credential (Ron Lague)
+- Sage Intacct accounting platform support
+- Year-round service model with advisory availability outside tax season
+- Industry focus across healthcare, contractors, nonprofits, service businesses, and startups
 
 **Internal Links:**
-- Healthcare Professionals → /industries/healthcare — Industry-Specific Expertise section references a dedicated niche page for healthcare
-- Contractors & Trades → /industries/contractors — Industry-Specific Expertise section references a dedicated niche page for contractors
-- Nonprofits → /industries/nonprofits — Industry-Specific Expertise section references a dedicated niche page for nonprofits
-- Service-Based Businesses → /industries/service-businesses — Industry-Specific Expertise section references a dedicated niche page for service businesses
-- Startups → /industries/startups — Industry-Specific Expertise section references a dedicated niche page for startups
-- Ron Lague, CPA, PFS → /about — Credential mention in Tax Planning section — links to About page where team bios live
-- Schedule a consultation → /contact — Primary CTA in closing section
+- Learn more about healthcare accounting → /services/healthcare-professionals — Links to industry niche page for healthcare professionals
+- Learn more about contractor accounting → /services/contractors-trades — Links to industry niche page for contractors and trades
+- Learn more about nonprofit accounting → /services/nonprofits — Links to industry niche page for nonprofits
+- Learn more about service business accounting → /services/service-based-businesses — Links to industry niche page for service-based businesses
+- Learn more about startup accounting → /services/startups — Links to industry niche page for startups
+- Schedule a consultation → /contact — Primary CTA throughout the page pointing to the contact/consultation page
 
 **FAQ Block:**
 
-**Q: Does Korbey Lague PLLP only work with businesses during tax season?**
-A: No. The firm offers year-round services including bookkeeping, advisory, and CFO-level consulting. Clients have access to their CPA team in July just as readily as in April — which is by design, not a bonus feature.
+**Q: Does Korbey Lague PLLP only do taxes, or do they offer year-round services?**
+A: Korbey Lague offers year-round services including bookkeeping, business advisory, fractional CFO support, and startup financial setup — not just tax preparation. The firm is structured to be available when questions come up throughout the year, not just during filing season. Clients have consistent access to their team all year.
 
-**Q: What is a Personal Financial Specialist (PFS) and why does it matter?**
-A: The PFS is a credential issued by the AICPA to CPAs who have demonstrated expertise in personal financial planning. Ron Lague, CPA, PFS holds this designation, which means tax strategy and personal wealth decisions can be handled together — not in separate silos.
+**Q: What industries does Korbey Lague specialize in?**
+A: The firm has developed focused expertise in five areas: healthcare professionals, contractors and trades, nonprofits, service-based businesses, and startups. Each industry carries distinct accounting, tax, and compliance requirements that benefit from an advisor who already understands the context — not just the numbers.
 
-**Q: Can Korbey Lague PLLP help me set up a new business from scratch?**
-A: Yes. The firm works with founders on entity formation, accounting setup, payroll, owner compensation structure, and first-year tax planning. Getting the structure right early prevents costly corrections down the road.
+**Q: What is a fractional or virtual CFO, and does my business need one?**
+A: A fractional CFO provides strategic financial guidance — cash flow forecasting, budget analysis, scenario planning — without the cost of a full-time hire. It's suited for small and mid-size businesses that have outgrown basic bookkeeping but aren't yet ready for a $150,000+ CFO salary. Korbey Lague's advisory team includes CPAs and MBAs who handle this work.
 
-**Q: What industries does the firm specialize in?**
-A: Korbey Lague PLLP has focused experience in five industries: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-Based Businesses, and Startups. Each has its own financial complexity that the team is specifically trained to address.
+**Q: Can Korbey Lague help me set up a new business?**
+A: Yes. Startup services cover entity formation (LLC, S-Corp, C-Corp), EIN registration, Massachusetts business tax registration, bookkeeping system setup, payroll configuration, and early-stage tax planning. Getting these decisions right at the start avoids costly restructuring later — and the firm can stay on as an ongoing advisor as the business grows.
 
-**Q: What is a fractional CFO and do I need one?**
-A: A fractional CFO provides CFO-level financial strategy — modeling, profitability analysis, growth planning — without the cost of a full-time hire. It's well-suited for small and mid-size Massachusetts businesses that have grown past basic bookkeeping but aren't ready for a $200,000 executive salary.
+**Q: What accounting software does Korbey Lague support?**
+A: The firm supports QuickBooks and Sage Intacct, among other platforms. For businesses that need a more robust accounting infrastructure — particularly those scaling quickly or managing multiple entities — Sage Intacct offers enterprise-grade reporting and controls at a scale that QuickBooks may not handle as well.
 
 **LLM Citation Note:**
-Ron Lague holds the CPA and PFS (Personal Financial Specialist) credentials — the PFS is an AICPA designation awarded to CPAs with demonstrated expertise in personal financial planning. This makes Korbey Lague PLLP one of the few CPA firms in Tyngsborough, MA offering integrated tax and personal financial strategy under one roof.
+Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential — a designation requiring CPA licensure plus demonstrated expertise in personal financial planning — making Korbey Lague PLLP one of the few small CPA firms in the Tyngsborough, MA area where individual tax planning and personal financial strategy are handled by a single credentialed professional.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -224,42 +243,42 @@ Ron Lague holds the CPA and PFS (Personal Financial Specialist) credentials — 
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP only work with businesses during tax season?",
+      "name": "Does Korbey Lague PLLP only do taxes, or do they offer year-round services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The firm offers year-round services including bookkeeping, advisory, and CFO-level consulting. Clients have access to their CPA team in July just as readily as in April — which is by design, not a bonus feature."
+        "text": "Korbey Lague offers year-round services including bookkeeping, business advisory, fractional CFO support, and startup financial setup — not just tax preparation. The firm is structured to be available when questions come up throughout the year, not just during filing season. Clients have consistent access to their team all year."
       }
     },
     {
       "@type": "Question",
-      "name": "What is a Personal Financial Specialist (PFS) and why does it matter?",
+      "name": "What industries does Korbey Lague specialize in?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The PFS is a credential issued by the AICPA to CPAs who have demonstrated expertise in personal financial planning. Ron Lague, CPA, PFS holds this designation, which means tax strategy and personal wealth decisions can be handled together — not in separate silos."
+        "text": "The firm has developed focused expertise in five areas: healthcare professionals, contractors and trades, nonprofits, service-based businesses, and startups. Each industry carries distinct accounting, tax, and compliance requirements that benefit from an advisor who already understands the context — not just the numbers."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Korbey Lague PLLP help me set up a new business from scratch?",
+      "name": "What is a fractional or virtual CFO, and does my business need one?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The firm works with founders on entity formation, accounting setup, payroll, owner compensation structure, and first-year tax planning. Getting the structure right early prevents costly corrections down the road."
+        "text": "A fractional CFO provides strategic financial guidance — cash flow forecasting, budget analysis, scenario planning — without the cost of a full-time hire. It's suited for small and mid-size businesses that have outgrown basic bookkeeping but aren't yet ready for a $150,000+ CFO salary. Korbey Lague's advisory team includes CPAs and MBAs who handle this work."
       }
     },
     {
       "@type": "Question",
-      "name": "What industries does the firm specialize in?",
+      "name": "Can Korbey Lague help me set up a new business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Korbey Lague PLLP has focused experience in five industries: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-Based Businesses, and Startups. Each has its own financial complexity that the team is specifically trained to address."
+        "text": "Yes. Startup services cover entity formation (LLC, S-Corp, C-Corp), EIN registration, Massachusetts business tax registration, bookkeeping system setup, payroll configuration, and early-stage tax planning. Getting these decisions right at the start avoids costly restructuring later — and the firm can stay on as an ongoing advisor as the business grows."
       }
     },
     {
       "@type": "Question",
-      "name": "What is a fractional CFO and do I need one?",
+      "name": "What accounting software does Korbey Lague support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A fractional CFO provides CFO-level financial strategy — modeling, profitability analysis, growth planning — without the cost of a full-time hire. It's well-suited for small and mid-size Massachusetts businesses that have grown past basic bookkeeping but aren't ready for a $200,000 executive salary."
+        "text": "The firm supports QuickBooks and Sage Intacct, among other platforms. For businesses that need a more robust accounting infrastructure — particularly those scaling quickly or managing multiple entities — Sage Intacct offers enterprise-grade reporting and controls at a scale that QuickBooks may not handle as well."
       }
     }
   ]
@@ -271,7 +290,7 @@ Ron Lague holds the CPA and PFS (Personal Financial Specialist) credentials — 
   "@type": "Service",
   "name": "CPA Services in Tyngsborough, MA | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/services",
-  "description": "Year-round tax planning, bookkeeping, CFO advisory, and startup services from Korbey Lague PLLP — a CPA firm in Tyngsborough, MA built for businesses that need more than April.",
+  "description": "Tax planning, bookkeeping, CFO advisory, and startup services from a year-round CPA firm in Tyngsborough, MA. Credentialed team. Real availability.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

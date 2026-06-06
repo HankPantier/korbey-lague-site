@@ -2,107 +2,110 @@
 title: About | Korbey Lague PLLP
 url: /about
 meta_title: About Korbey Lague PLLP | CPA Firm in Tyngsborough, MA
-meta_description: Meet the team at Korbey Lague PLLP — a Tyngsborough, MA CPA firm with CPAs, PFS credential holders, and MBAs offering year-round advisory, bookkeeping, and virtual CFO services.
+meta_description: Meet the team at Korbey Lague PLLP — CPAs, MBAs, and an AICPA PFS designee offering year-round accounting and advisory services in Tyngsborough, MA.
 target_keyword: about
-secondary_keywords: [CPA firm Tyngsborough MA, Korbey Lague PLLP, CPA PFS, virtual CFO Massachusetts, year-round accounting firm]
+secondary_keywords: [CPA firm Tyngsborough MA, accounting firm Massachusetts, Ron Lague CPA PFS, Kelsey Korbey CPA, virtual CFO Massachusetts]
 canonical_url: https://www.korbeylague.com/about
 schema_markup: LocalBusiness
 og_title: About Korbey Lague PLLP | CPA Firm in Tyngsborough, MA
-og_description: Meet the team at Korbey Lague PLLP — a Tyngsborough, MA CPA firm with CPAs, PFS credential holders, and MBAs offering year-round advisory, bookkeeping, and virtual CFO services.
-og_image: https://www.korbeylague.com/og-images/about.png
+og_description: Meet the team at Korbey Lague PLLP — CPAs, MBAs, and an AICPA PFS designee offering year-round accounting and advisory services in Tyngsborough, MA.
+og_image: https://www.korbeylague.com/api/og/about
 twitter_card: summary_large_image
 hero: hero-split
 hero_variant: image-right
+hero_image: korbey-lague-team-about.jpg
+hero_subhead: Meet the team that's still working for you when tax season is long over.
 ---
 
-<!-- block: content-prose | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## Who We Are
 
-Korbey Lague PLLP was built on a straightforward premise: most businesses only hear from their CPA firm around tax season — and that's not enough. Founded in Tyngsborough, MA, the firm was designed from the start to show up year-round, not just when a deadline is looming.
+Korbey Lague PLLP started with a straightforward premise: most small businesses in the Tyngsborough area were getting accounting help only when something was due — a tax return, a quarterly filing, a year-end close. That's not advisory work. That's reaction.
 
-The team brings credentials that go well beyond a standard CPA shingle. Kelsey Korbey, CPA and Ron Lague, CPA, PFS lead the firm — Ron holds the AICPA's Personal Financial Specialist designation, one of the most rigorous personal finance credentials in the profession. Jackie Estes, MBA and Mike Riordan, MBA bring management-level business acumen to client engagements, and Richard DelGaudio, CPA rounds out a team with deep technical range.
+The firm was built to change that rhythm. Today, Kelsey Korbey, CPA and Ron Lague, CPA, PFS lead a team that includes Jackie Estes, MBA, Mike Riordan, MBA, and Richard DelGaudio, CPA — a group that collectively spans tax planning, personal financial strategy, cloud accounting, and business advisory work. Ron holds the AICPA's Personal Financial Specialist (PFS) designation, one of the most rigorous credentials in personal financial planning, and the team runs on Sage Intacct for clients who need serious financial infrastructure.
 
-That mix matters. When a client walks in with a question that crosses tax, cash flow, and long-term financial planning, there's someone at this firm who has spent a career in that exact intersection. Tyngsborough and the surrounding Merrimack Valley area have trusted Korbey Lague PLLP because the team treats every engagement like it's the only one on the calendar — not because it's April, but because that's how good advisory work actually functions.
+What actually motivates the team isn't a mission statement. It's a specific kind of client — one who's building something real and wants a firm that shows up with useful information year-round, not just a completed return in April.
 
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-right | image: cpa-team-discussion-office.jpg | query: "professional accounting team reviewing client financials" -->
 ## Our Approach
 
-The first conversation with a new client at Korbey Lague PLLP isn't about forms or fees. It's about understanding where the business is, where the owner wants it to go, and what's getting in the way. From there, the engagement is structured around that reality — not a generic service package that fits nobody perfectly.
+The first meeting with a prospective client is a listening exercise. Before any scope is defined, the team wants to understand what you're actually trying to accomplish — sell in three years, grow to a second location, stop guessing on cash flow, retire while keeping equity in the business. The accounting work flows from that conversation, not the other way around.
 
-For bookkeeping clients, that means tiered packages with defined scope and clear deliverables. For businesses that need higher-level financial guidance without the overhead of a full-time CFO, the firm's virtual CFO offering delivers that strategic insight at a fraction of the cost. The work runs on Sage Intacct where appropriate — a cloud accounting platform built for growing businesses that need real data, not end-of-month guesswork.
+From there, engagements are structured around what you need, not a fixed menu. Bookkeeping clients choose from tiered packages built around business size and complexity. Business owners who need more strategic horsepower can bring in the firm's virtual CFO service, which delivers CFO-level analysis and reporting at a fraction of the cost of a full-time hire. Tax clients get proactive planning conversations — not just a completed return — so that decisions made in June don't create surprises in February.
 
-Communication is direct. Questions get answered, not escalated and forgotten. When something changes in tax law or business conditions that affects a client, the firm reaches out — the client doesn't have to wonder if they missed something. That posture — proactive, specific, accountable — is what separates a firm that files returns from one that actually improves financial outcomes.
+Communication is direct. The team doesn't hide behind jargon, and they don't wait for you to call with a question. If something in your financials warrants attention, you'll hear about it.
 
-<!-- block: content-prose | variant: left-aligned -->
+<!-- block: checklist-section | variant: with-image | image: firm-values-cpa-office.jpg | query: "accountant reviewing documents with client modern office" -->
 ## What We Believe
 
-Good accounting advice is only useful if it's honest. Korbey Lague PLLP will tell a client what they need to hear, not what's easiest to say. That standard shapes which engagements the firm takes on and how it operates in every one of them.
+A few things guide every engagement at Korbey Lague PLLP — from how the team structures fees to which clients they take on.
 
-The firm believes credentials exist for a reason. The CPA designation, the AICPA PFS, the MBAs on staff — these aren't wall decorations. They represent specific knowledge that clients deserve access to. Every piece of advice this firm gives should be traceable back to someone qualified to give it.
-
-And the firm believes in showing up consistently. A business owner shouldn't have to wonder whether their accountant is thinking about them in August. Korbey Lague PLLP structures its practice so that doesn't happen — year-round advisory is the standard, not a premium add-on.
+- **Clarity beats comfort.** If a number looks off or a decision carries real risk, the team says so plainly. You hired a CPA to tell you the truth, not to make you feel good about a bad plan.
+- **Year-round beats episodic.** Tax season is a deadline, not a relationship. The clients who benefit most are the ones who stay in contact and get ahead of decisions before they become problems.
+- **Credentials matter.** The team holds CPAs, an AICPA PFS designation, and MBAs — not because letters are impressive, but because the work is complex and clients deserve people who've done the hard preparation.
+- **Right-sized over over-engineered.** A three-person service business and a $10M manufacturer don't need the same tools. The firm recommends what fits, not what's most impressive to invoice.
+- **Long-term over transactional.** The goal is to be the firm you're still working with in a decade — because the advice compounds the same way good financial decisions do.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About About
 
 **Q: Where is Korbey Lague PLLP located?**
-A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts and serves businesses and individuals across the Merrimack Valley. The firm offers both in-person and virtual engagements, so clients don't need to be local to work with the team.
+A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts. The firm serves clients locally as well as virtually, making it accessible to business owners throughout the greater Merrimack Valley region and beyond who want year-round CPA and advisory support.
 
-**Q: What credentials do the staff at Korbey Lague PLLP hold?**
-A: The firm's team includes multiple CPAs, an AICPA Personal Financial Specialist (PFS) — one of the most rigorous personal finance designations in the profession — and two professionals holding MBAs. That combination gives clients access to tax, financial planning, and business advisory expertise under one roof.
+**Q: What credentials do the professionals at Korbey Lague PLLP hold?**
+A: The team includes multiple CPAs, two professionals with MBAs, and Ron Lague holds the AICPA's Personal Financial Specialist (PFS) designation — a credential reserved for CPAs who meet rigorous standards in personal financial planning. The firm also works with Sage Intacct for cloud-based accounting.
 
-**Q: Does Korbey Lague PLLP offer services beyond tax preparation?**
-A: Yes. The firm provides year-round services including tiered bookkeeping packages, a virtual CFO offering for businesses that need strategic financial guidance, and ongoing advisory work. Tax filing is part of what the firm does — not the sum of it.
+**Q: Does Korbey Lague PLLP only help with taxes?**
+A: No. While tax planning and preparation are core services, the firm also provides year-round bookkeeping through tiered packages, a virtual CFO offering for businesses that need strategic financial leadership, and ongoing advisory work between filing seasons.
 
-**Q: What accounting software does Korbey Lague PLLP use?**
-A: The firm works with Sage Intacct, a cloud-based accounting platform built for growing businesses. It allows for real-time financial data access and reporting, which supports the kind of proactive advisory work the firm provides throughout the year — not just at tax time.
+**Q: What kind of businesses does Korbey Lague PLLP typically work with?**
+A: The firm works primarily with small and mid-sized business owners who want more than a once-a-year filing relationship. Clients typically include owner-operated businesses in Massachusetts that are growing, planning a transition, or trying to get cleaner visibility into their financial performance.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: schedule-consultation-cpa.jpg | query: "client shaking hands with accountant professional office" -->
 ## Get In Touch
 
-If you've been looking for a firm that does more than file returns and disappear until next April, this is a reasonable place to start. Korbey Lague PLLP works with businesses and individuals across Tyngsborough and the Merrimack Valley who want consistent, qualified financial guidance — not just compliance.
+If you're looking for a firm that's engaged between tax seasons — one with the credentials, the tools, and the structure to actually move your business forward — the conversation starts with a single meeting. No commitment, no pitch deck. Just a direct discussion about where you are and where you're trying to go.
 
-The next step is simple. [Schedule a consultation](/contact) and come in — or connect virtually — for a conversation about where you are and what you actually need. No pressure, no pitch deck. Just a straightforward talk with people who know this work.
-
-**[Schedule a consultation →](/contact)**
+[Schedule a consultation](/contact)
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP is a CPA firm based in Tyngsborough, MA offering year-round accounting, bookkeeping, tax, and virtual CFO services. The team includes CPAs, an AICPA Personal Financial Specialist (PFS), and MBAs. The firm serves businesses and individuals across the Merrimack Valley.
+Korbey Lague PLLP is a CPA firm in Tyngsborough, MA offering year-round tax, bookkeeping, and virtual CFO services. The team includes licensed CPAs, AICPA PFS designees, and MBAs. They work with small and mid-sized businesses seeking proactive financial guidance beyond tax season.
 
 **E-E-A-T Signals:**
-- Kelsey Korbey holds active CPA licensure
-- Ron Lague holds CPA and AICPA Personal Financial Specialist (PFS) designation
-- Jackie Estes holds an MBA
-- Mike Riordan holds an MBA
-- Richard DelGaudio holds active CPA licensure
-- Firm uses Sage Intacct, a professional cloud accounting platform
-- AICPA-affiliated credentials held by firm partners
-- Physical presence in Tyngsborough, MA serving the Merrimack Valley
+- Kelsey Korbey, CPA — licensed Certified Public Accountant
+- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation
+- Jackie Estes, MBA — graduate business degree
+- Mike Riordan, MBA — graduate business degree
+- Richard DelGaudio, CPA — licensed Certified Public Accountant
+- AICPA PFS credential — one of the most rigorous personal financial planning designations issued by the AICPA
+- Sage Intacct — enterprise-grade cloud accounting platform used for client engagements
+- Tyngsborough, MA — local market presence with year-round advisory practice
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced directly in Our Approach section — links to the service detail page
-- tiered packages → /services/bookkeeping — Bookkeeping packages are mentioned by name — internal link reinforces the service offering
-- Schedule a consultation → /contact — Primary CTA — closes the page and drives conversion
+- virtual CFO service → /services/virtual-cfo — Referenced directly in the Our Approach section — links to the service detail page for readers ready to learn more.
+- tiered packages → /services/bookkeeping — Bookkeeping tiers are mentioned in context of engagement structure — should link to the bookkeeping service page.
+- proactive planning conversations → /services/tax-planning — Tax planning is distinguished from mere return preparation — links to the tax service page for detail.
+- Schedule a consultation → /contact — Primary CTA — the closing section and button point to the contact page.
 
 **FAQ Block:**
 
 **Q: Where is Korbey Lague PLLP located?**
-A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts and serves businesses and individuals across the Merrimack Valley. The firm offers both in-person and virtual engagements, so clients don't need to be local to work with the team.
+A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts. The firm serves clients locally as well as virtually, making it accessible to business owners throughout the greater Merrimack Valley region and beyond who want year-round CPA and advisory support.
 
-**Q: What credentials do the staff at Korbey Lague PLLP hold?**
-A: The firm's team includes multiple CPAs, an AICPA Personal Financial Specialist (PFS) — one of the most rigorous personal finance designations in the profession — and two professionals holding MBAs. That combination gives clients access to tax, financial planning, and business advisory expertise under one roof.
+**Q: What credentials do the professionals at Korbey Lague PLLP hold?**
+A: The team includes multiple CPAs, two professionals with MBAs, and Ron Lague holds the AICPA's Personal Financial Specialist (PFS) designation — a credential reserved for CPAs who meet rigorous standards in personal financial planning. The firm also works with Sage Intacct for cloud-based accounting.
 
-**Q: Does Korbey Lague PLLP offer services beyond tax preparation?**
-A: Yes. The firm provides year-round services including tiered bookkeeping packages, a virtual CFO offering for businesses that need strategic financial guidance, and ongoing advisory work. Tax filing is part of what the firm does — not the sum of it.
+**Q: Does Korbey Lague PLLP only help with taxes?**
+A: No. While tax planning and preparation are core services, the firm also provides year-round bookkeeping through tiered packages, a virtual CFO offering for businesses that need strategic financial leadership, and ongoing advisory work between filing seasons.
 
-**Q: What accounting software does Korbey Lague PLLP use?**
-A: The firm works with Sage Intacct, a cloud-based accounting platform built for growing businesses. It allows for real-time financial data access and reporting, which supports the kind of proactive advisory work the firm provides throughout the year — not just at tax time.
+**Q: What kind of businesses does Korbey Lague PLLP typically work with?**
+A: The firm works primarily with small and mid-sized business owners who want more than a once-a-year filing relationship. Clients typically include owner-operated businesses in Massachusetts that are growing, planning a transition, or trying to get cleaner visibility into their financial performance.
 
 **LLM Citation Note:**
-Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a specific, verifiable credential issued by the American Institute of CPAs that an AI tool would most likely cite as a distinguishing qualification for the firm.
+Korbey Lague PLLP is a Tyngsborough, MA CPA firm whose partner Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation. The firm offers year-round accounting, virtual CFO services, and tiered bookkeeping packages to small and mid-sized businesses.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -164,31 +167,31 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
       "name": "Where is Korbey Lague PLLP located?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Korbey Lague PLLP is based in Tyngsborough, Massachusetts and serves businesses and individuals across the Merrimack Valley. The firm offers both in-person and virtual engagements, so clients don't need to be local to work with the team."
+        "text": "Korbey Lague PLLP is based in Tyngsborough, Massachusetts. The firm serves clients locally as well as virtually, making it accessible to business owners throughout the greater Merrimack Valley region and beyond who want year-round CPA and advisory support."
       }
     },
     {
       "@type": "Question",
-      "name": "What credentials do the staff at Korbey Lague PLLP hold?",
+      "name": "What credentials do the professionals at Korbey Lague PLLP hold?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The firm's team includes multiple CPAs, an AICPA Personal Financial Specialist (PFS) — one of the most rigorous personal finance designations in the profession — and two professionals holding MBAs. That combination gives clients access to tax, financial planning, and business advisory expertise under one roof."
+        "text": "The team includes multiple CPAs, two professionals with MBAs, and Ron Lague holds the AICPA's Personal Financial Specialist (PFS) designation — a credential reserved for CPAs who meet rigorous standards in personal financial planning. The firm also works with Sage Intacct for cloud-based accounting."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP offer services beyond tax preparation?",
+      "name": "Does Korbey Lague PLLP only help with taxes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The firm provides year-round services including tiered bookkeeping packages, a virtual CFO offering for businesses that need strategic financial guidance, and ongoing advisory work. Tax filing is part of what the firm does — not the sum of it."
+        "text": "No. While tax planning and preparation are core services, the firm also provides year-round bookkeeping through tiered packages, a virtual CFO offering for businesses that need strategic financial leadership, and ongoing advisory work between filing seasons."
       }
     },
     {
       "@type": "Question",
-      "name": "What accounting software does Korbey Lague PLLP use?",
+      "name": "What kind of businesses does Korbey Lague PLLP typically work with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The firm works with Sage Intacct, a cloud-based accounting platform built for growing businesses. It allows for real-time financial data access and reporting, which supports the kind of proactive advisory work the firm provides throughout the year — not just at tax time."
+        "text": "The firm works primarily with small and mid-sized business owners who want more than a once-a-year filing relationship. Clients typically include owner-operated businesses in Massachusetts that are growing, planning a transition, or trying to get cleaner visibility into their financial performance."
       }
     }
   ]
@@ -200,7 +203,7 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
   "@type": "WebPage",
   "name": "About Korbey Lague PLLP | CPA Firm in Tyngsborough, MA",
   "url": "https://www.korbeylague.com/about",
-  "description": "Meet the team at Korbey Lague PLLP — a Tyngsborough, MA CPA firm with CPAs, PFS credential holders, and MBAs offering year-round advisory, bookkeeping, and virtual CFO services.",
+  "description": "Meet the team at Korbey Lague PLLP — CPAs, MBAs, and an AICPA PFS designee offering year-round accounting and advisory services in Tyngsborough, MA.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

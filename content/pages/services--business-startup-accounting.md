@@ -2,126 +2,135 @@
 title: Business Startup Accounting | Korbey Lague PLLP
 url: /services/business-startup-accounting
 meta_title: Business Startup Accounting | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP helps new businesses in Massachusetts get entity structure, bookkeeping, and tax planning right from day one. Schedule a startup consultation.
+meta_description: Korbey Lague PLLP helps new businesses in Massachusetts get entity structure, bookkeeping, and first-year tax planning right from day one. CPA-led startup accounting.
 target_keyword: business startup accounting
-secondary_keywords: [startup CPA Massachusetts, entity selection for small business, small business accounting setup, S-Corp election CPA, first-year tax planning for startups]
+secondary_keywords: [startup accounting services, CPA for new business, entity selection CPA Massachusetts, small business bookkeeping setup, first year tax planning, accounting for new business owners]
 canonical_url: https://www.korbeylague.com/services/business-startup-accounting
 schema_markup: Service
 og_title: Business Startup Accounting | Korbey Lague PLLP
-og_description: Korbey Lague PLLP helps new businesses in Massachusetts get entity structure, bookkeeping, and tax planning right from day one. Schedule a startup consultation.
-og_image: https://www.korbeylague.com/og-images/services--business-startup-accounting.png
+og_description: Korbey Lague PLLP helps new businesses in Massachusetts get entity structure, bookkeeping, and first-year tax planning right from day one. CPA-led startup accounting.
+og_image: https://www.korbeylague.com/api/og/services/business-startup-accounting
 twitter_card: summary_large_image
 hero: hero-split
 hero_variant: image-right
+hero_image: business-startup-accounting-hero.jpg
+hero_subhead: Get the financial foundation right before the first dollar changes hands
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## Most New Businesses Get the Numbers Wrong Before They Make a Dollar
 
-Starting a business is hard enough. Starting one with the wrong entity structure, a chart of accounts built in a spreadsheet, and no tax plan in place makes it harder — and more expensive — than it needs to be.
+Starting a business feels like a hundred decisions at once — and accounting usually lands at the bottom of the list. That's the mistake. The financial choices you make in the first 90 days of a new business aren't administrative details. They're the foundation everything else is built on.
 
-The mistakes that cost new businesses the most aren't made at year-end. They're made in the first 90 days, before anyone thought to call a CPA. Choosing the wrong entity can mean paying thousands more in self-employment tax than necessary. Missing the window for an S-Corp election can lock you into a structure you'll want to change later — at real cost. Setting up bookkeeping as an afterthought means your first tax return is built on guesswork.
+Choose the wrong entity structure and you'll overpay in self-employment tax for years. Skip the chart of accounts setup and your bookkeeping turns into a year-end cleanup project for your CPA — which costs more and tells you less. Miss the early tax planning window and you'll fund a refund for the IRS instead of your own growth.
 
-Korbey Lague PLLP works with founders before those decisions are made. Not to clean up afterward — though we do that too — but to make sure the foundation is right from the start. Tyngsborough-based, but serving businesses across Massachusetts and beyond, this is what we do every day.
+Korbey Lague PLLP works with new business owners in Tyngsborough and across Massachusetts before those mistakes get made. The cost of getting the numbers right at the start is a fraction of the cost of unwinding them later.
 
----
-
-<!-- block: checklist-section | variant: standalone -->
+<!-- block: checklist-section | variant: with-image | image: startup-accounting-services-overview.jpg | query: "accountant reviewing startup business documents" -->
 ## What Business Startup Accounting Actually Includes
 
-When you engage Korbey Lague PLLP at the startup stage, you get a structured process — not a checklist you hand off to a software subscription.
+When a first-time founder works with Korbey Lague, they're not just getting someone to file their taxes. They're getting a structured setup that makes the business financially functional from day one.
 
-Here's what that looks like in practice:
+Here's what business startup accounting with our firm actually covers:
 
-- **Entity selection and formation guidance** — LLC, S-Corp, C-Corp, sole proprietorship: we walk through the tax and liability tradeoffs specific to your situation before you file anything.
-- **EIN setup** — We handle your Employer Identification Number application so it's done correctly and tied to the right entity from day one.
-- **Chart of accounts build-out** — Your books are structured to reflect how your business actually earns and spends money, not a generic template.
-- **Bookkeeping system setup** — We implement and configure accounting software (including Sage Intacct for clients who need it) so your records are accurate and audit-ready from the start.
-- **First-year tax planning** — Before you earn a dollar in revenue, we map out your estimated tax obligations, quarterly payment schedule, and deduction opportunities.
-- **Payroll readiness** — If you plan to bring on employees or pay yourself as an S-Corp shareholder, we get payroll infrastructure in place before you need it.
+- **Entity selection and formation guidance** — We help you evaluate LLC, S-Corp, C-Corp, and sole proprietorship structures based on your tax exposure, liability concerns, and long-term goals — then work with you through the formation process.
+- **EIN setup** — Your Employer Identification Number is required for banking, payroll, and tax filings. We make sure it's in place and properly tied to the right entity.
+- **Chart of accounts** — A correctly structured chart of accounts is what makes your financial reports useful. We build it to match your industry and how you'll actually need to analyze your business.
+- **Bookkeeping system setup** — Whether you're starting with QuickBooks or Sage Intacct, we configure your system to track what matters and minimize manual work.
+- **First-year tax planning** — Before your first dollar of revenue, there are tax strategies worth knowing: home office, vehicle use, startup cost deductions, estimated tax schedules. We cover these at the start, not after the year closes.
+- **Payroll readiness** — If you're bringing on employees or paying yourself as an S-Corp shareholder, payroll setup has to be done right the first time. We get you there.
 
-Every engagement is scoped to your actual situation. A solo contractor and a healthcare practice launching with staff need different things — and we build accordingly.
-
----
-
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-right | image: entity-structure-decision-cpa.jpg | query: "business owner consulting CPA entity selection" -->
 ## Entity Structure Is the First Decision That Follows You for Years
 
-Most founders treat entity selection as a legal formality. File the LLC, get the operating agreement, move on. But the entity you choose — and when you make elections like S-Corp status — is one of the highest-leverage tax decisions you'll make.
+Most new business owners think of entity selection as a legal question — an LLC filing or an incorporation form. It isn't. It's a tax decision with legal implications, and the difference between structures can mean thousands of dollars per year in your pocket or out of it.
 
-Here's why it matters: a single-member LLC taxed as a sole proprietor pays self-employment tax on 100% of net profit. The same business, structured and timed correctly as an S-Corp, can reduce that exposure significantly through a reasonable salary and distribution split. Over five years, the difference can be substantial.
+Choose a sole proprietorship when an S-Corp would have made sense, and you'll pay self-employment tax on every dollar of net profit. Elect S-Corp status too early, and you'll trigger payroll requirements and administrative overhead that don't make sense for your revenue level yet. Form a C-Corp for a service business that doesn't need outside investment, and you've created a double-taxation problem with no upside.
 
-C-Corp structure introduces a different set of tradeoffs — relevant for businesses targeting venture funding, issuing equity to employees, or planning for a specific exit. It's not the right answer for most small businesses, but it is the right answer for some.
+These aren't hypothetical scenarios. They're situations Ron Lague, CPA, PFS, and the team at Korbey Lague have worked through with clients across Massachusetts.
 
-Having a CPA involved at this stage — not a registered agent service, not a generic online filing tool — means those decisions get made with real numbers, not defaults. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist credential, which means the financial planning dimension of these decisions is built into the conversation, not bolted on later.
+Having a CPA involved in entity selection — not just a registered agent or an online formation service — means someone with tax expertise is looking at your projected revenue, your compensation plans, and your exit strategy before the paperwork is filed. That conversation, done before year one, changes what year three looks like.
 
-Get the structure right at the start. Changing it later is possible. It's just not free.
-
----
-
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-left | image: year-round-accounting-advisory.jpg | query: "small business owner reviewing financials summer" -->
 ## We're Here in July — Not Just at Tax Time
 
-The first 12 to 24 months of a business are the most financially volatile. Revenue is uneven. Expenses are front-loaded. Tax obligations catch founders off guard. Most CPA relationships aren't built for that window — they're built around filing deadlines.
+Korbey Lague built its reputation by being the firm that's still reachable in July. That matters even more for new businesses than it does for established ones.
 
-Korbey Lague PLLP operates differently. Year-round advisory is built into how the firm works, not offered as an add-on. That means when you have a question in August about whether to buy equipment before year-end, or whether your Q3 estimated payment needs to be adjusted, you have someone to call.
+The first 12 to 24 months of a business are when the most consequential financial decisions happen — hiring, pricing, financing, reinvestment. Those decisions need informed input, not a wave goodbye after the return is filed.
 
-For startups specifically, that ongoing access changes outcomes. The questions that arise in month six aren't the same as the ones in month one. Having a CPA who already knows your business — your structure, your margins, your plans — makes those conversations faster and more useful than starting from scratch every April.
+Year-round advisory access is built into how Korbey Lague works with startup clients. Questions come up constantly in a new business. You should be able to get answers from a CPA who knows your numbers — not a general hotline or a once-a-year meeting.
 
----
+When you start with Korbey Lague, you're starting a relationship, not checking an item off a list.
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Who We Work With
 
-Korbey Lague PLLP has built particular depth in a handful of startup verticals:
+Not every CPA firm is a fit for every business. Korbey Lague works particularly well with founders in industries where the financial setup has real stakes from the start.
 
-- **Healthcare professionals** launching a private practice — physicians, therapists, dentists, and other licensed providers navigating the intersection of clinical operations and business finance.
-- **Independent contractors and tradespeople** going out on their own — often for the first time, often without a clear picture of what their tax exposure actually looks like.
-- **Service-based businesses** — consultants, agencies, and professional services firms where the owner is both the product and the operator.
-- **Nonprofit founders** — organizations in formation that need accounting infrastructure, compliance guidance, and board-ready financials from the beginning.
+### Healthcare Professionals
+icon: Stethoscope
 
-If your situation fits one of these, you're not starting from zero with us.
+Physicians, dentists, therapists, and allied health professionals launching a private practice face billing complexity, licensing costs, and payroll requirements from day one. Getting the entity structure and bookkeeping right early makes a real difference.
 
----
+### Contractors and Trades
+icon: Hammer
 
-<!-- block: process-steps | variant: vertical -->
+Independent contractors and skilled tradespeople going out on their own need job costing, equipment tracking, and payroll readiness — not just a basic LLC and a spreadsheet.
+
+### Service-Based Businesses
+icon: Briefcase
+
+Consultants, agencies, and professional service firms need financial systems that scale with recurring revenue and variable expenses — and a tax plan that reflects how they actually earn.
+
+### Nonprofit Founders
+icon: Users
+
+Starting a 501(c)(3) involves a distinct financial and compliance structure. Korbey Lague helps nonprofit founders get the accounting setup and reporting framework right before the first grant comes in.
+
+<!-- block: process-steps | variant: horizontal -->
 ## What the First 90 Days Look Like Working With Us
 
-Not sure what it actually means to work with a CPA firm from day one? Here's the sequence:
+If you've never worked with a CPA firm before, not knowing what to expect can be its own barrier to reaching out. Here's how an engagement typically starts.
 
-1. **Consultation** — We start with a straightforward conversation about your business: what it does, how it earns, what you've already set up (or haven't). No forms to fill out beforehand.
-2. **Entity and structure review** — Based on your goals and projected income, we advise on entity type and any elections that need to be made before you start operating.
-3. **Systems setup** — We build or restructure your chart of accounts, configure your bookkeeping platform, and make sure your business bank accounts are set up to match.
-4. **Tax plan** — You receive a first-year tax projection with quarterly estimated payment amounts, so there are no surprises in April.
-5. **Payroll and compliance check** — If applicable, we confirm your payroll system, employer registrations, and compliance obligations are in place before you process your first paycheck.
-6. **Ongoing support** — You're now on regular cadence with the firm — monthly or quarterly depending on your package — with access to advisory support between scheduled touchpoints.
+### Discovery Call
+We start with a conversation about your business model, timeline, and goals — no forms to fill out before we talk. This takes about 30 minutes and costs nothing.
 
-The goal is that by day 90, you're running a real business with real financial infrastructure — not winging it and hoping the numbers work out.
+### Engagement Setup
+We define the scope of your startup accounting work — entity guidance, bookkeeping setup, tax planning priorities — and get the engagement formalized so we can move quickly.
 
----
+### Entity and Systems Setup
+With your input, we finalize the entity recommendation, assist with formation, apply for your EIN, and configure your bookkeeping system. The chart of accounts is built to your business.
+
+### First-Year Tax Plan
+Before you're earning revenue (or shortly after you start), we walk through your first-year tax strategy — deductions, estimated payments, payroll triggers, and any elections that need to be filed by specific deadlines.
+
+### Ongoing Check-Ins
+Monthly or quarterly, depending on your needs, we stay in contact through your first operating year. You'll have CPA-level oversight during the period when your financial decisions matter most.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Business Startup Accounting
 
 **Q: When should I hire a CPA for my new business?**
-A: Before you file anything — ideally before you choose your entity type. The decisions made in the first 30 days of a business, including entity structure and bookkeeping setup, have long-term tax consequences. Engaging a CPA at the start costs less than correcting mistakes after the fact.
+A: Before you file formation paperwork, if possible. Entity selection is a tax decision, and making it without CPA input is one of the most common — and costly — startup mistakes. Korbey Lague works with founders before the business is officially formed, which is when the most important structural decisions are still reversible.
 
-**Q: What's the difference between an LLC and an S-Corp for tax purposes?**
-A: A single-member LLC is typically taxed as a sole proprietor, meaning you pay self-employment tax on all net profits. An S-Corp allows you to split income between a salary and distributions, which can reduce self-employment tax exposure. The right answer depends on your income level, industry, and long-term plans — a CPA should run those numbers for your specific situation.
+**Q: What is the difference between an LLC and an S-Corp for tax purposes?**
+A: A single-member LLC is taxed as a sole proprietorship by default, meaning all net profit is subject to self-employment tax. An S-Corp allows the owner to split income between salary and distributions, which can reduce self-employment tax significantly — but it comes with payroll requirements. Whether the switch makes sense depends on your net income level and business structure.
 
-**Q: Do I need an accountant if I'm using QuickBooks or another accounting app?**
-A: Software handles transaction recording. It doesn't tell you whether your chart of accounts is structured correctly, whether your entity election is costing you money, or how much to set aside for estimated taxes. Accounting software and a CPA serve different functions — one is a tool, the other is judgment.
+**Q: Do I need an accountant if I'm just starting out and not making much money yet?**
+A: The early months are exactly when accounting decisions have the longest tail. Setting up the wrong entity, missing startup cost deduction windows, or building a disorganized chart of accounts creates problems that compound over time. A one-time startup engagement with a CPA is far less expensive than correcting years of misaligned financials later.
 
-**Q: Does Korbey Lague PLLP work with businesses outside of Tyngsborough, MA?**
-A: Yes. The firm is based in Tyngsborough and serves clients throughout Massachusetts and beyond. Many startup engagements are handled virtually, which means geography isn't a barrier to getting the right accounting foundation in place.
+**Q: What bookkeeping software does Korbey Lague use for startups?**
+A: Korbey Lague works with several platforms depending on business size and complexity, including Sage Intacct for clients who need more robust financial reporting. During the onboarding process, we help identify the right system for your business model and configure it properly from the start.
 
-**Q: What does business startup accounting cost?**
-A: Cost varies based on entity complexity, whether payroll is involved, and the level of ongoing advisory support you need. Korbey Lague PLLP offers tiered bookkeeping packages and scoped startup engagements. The starting point is a consultation where we assess your situation and give you a clear picture of what's needed.
+**Q: Does Korbey Lague work with startups outside of Tyngsborough, MA?**
+A: Yes. While the firm is based in Tyngsborough, Massachusetts, Korbey Lague serves clients virtually across the state. Most startup engagements can be handled entirely remotely, with discovery calls, document sharing, and advisory meetings conducted online.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: startup-accounting-cta-consultation.jpg | query: "entrepreneur first meeting with accountant" -->
 ## Ready to Start Strong?
 
-The best time to bring in a CPA is before you make the decisions that are hard to undo. If you're in the process of launching — or you've already started and know the foundation needs work — let's talk.
+The best time to bring in a CPA is before you've made the decisions that are hardest to undo. If you're planning a business launch or you're in your first year and still figuring out the financial side, Korbey Lague PLLP is the right call.
+
+Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and the team are ready to walk you through what your startup actually needs — without the jargon, without the upsell.
 
 [Schedule a consultation](/contact)
 
@@ -129,46 +138,45 @@ The best time to bring in a CPA is before you make the decisions that are hard t
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Business startup accounting covers entity selection, EIN setup, bookkeeping system configuration, first-year tax planning, and payroll readiness. Korbey Lague PLLP, based in Tyngsborough, MA, works with founders before these decisions are made — not after — to ensure the financial foundation is correct from day one.
+Business startup accounting covers entity selection, EIN setup, bookkeeping system configuration, chart of accounts, and first-year tax planning. Korbey Lague PLLP, a CPA firm in Tyngsborough, MA, provides these services to help new businesses build a solid financial foundation before they make their first dollar.
 
 **E-E-A-T Signals:**
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation, signaling advanced personal and business financial planning expertise
-- Jackie Estes, MBA — graduate business credential applied to client advisory work
-- Mike Riordan, MBA — graduate business credential applied to client advisory work
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- Sage Intacct implementation capability for bookkeeping system setup
-- AICPA-affiliated firm with PFS credential holder on staff
-- Year-round advisory model — not limited to tax season engagements
-- Tyngsborough, MA-based firm serving clients across Massachusetts
+- Kelsey Korbey, CPA — licensed CPA overseeing startup engagements
+- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation, involved in entity selection and tax strategy
+- Jackie Estes, MBA — MBA-credentialed team member supporting advisory work
+- Mike Riordan, MBA — MBA-credentialed team member
+- Richard DelGaudio, CPA — additional CPA on staff
+- Sage Intacct — certified bookkeeping system used in client setups
+- AICPA PFS Credential held by Ron Lague — distinguishes financial planning depth
+- Year-round advisory model, not seasonal-only engagement
+- Massachusetts-based firm serving Tyngsborough and surrounding areas
 
 **Internal Links:**
-- tiered bookkeeping packages → /services/bookkeeping — Referenced in brand positioning; relevant to startup bookkeeping system setup section
-- virtual CFO offering → /services/virtual-cfo — Relevant for startups scaling beyond initial setup who need ongoing CFO-level guidance
-- first-year tax planning → /services/tax-planning — Direct service overlap — links to the tax planning service page for founders who want deeper detail
-- payroll infrastructure → /services/payroll — Payroll readiness is named as a startup deliverable; links to the dedicated payroll service page
-- Ron Lague, CPA, PFS → /team — Credential claim in entity structure section; links to team page for bio and credential verification
-- Schedule a consultation → /contact — Primary CTA — appears in closing section
+- tiered bookkeeping packages → /services/bookkeeping — Referenced in the bookkeeping system setup section — links to the bookkeeping service page for clients who want to see ongoing options
+- virtual CFO → /services/virtual-cfo — Startup clients who grow quickly may need CFO-level guidance — cross-sell opportunity from the year-round advisory section
+- first-year tax planning → /services/tax-planning — Tax planning is a named deliverable in the startup package — link to the dedicated tax planning page for depth
+- payroll setup → /services/payroll — Payroll readiness is listed as a startup service — links to the payroll service page
+- Ron Lague, CPA, PFS → /about — Credential mention in entity structure section — links to team/about page to reinforce E-E-A-T
 
 **FAQ Block:**
 
 **Q: When should I hire a CPA for my new business?**
-A: Before you file anything — ideally before you choose your entity type. The decisions made in the first 30 days of a business, including entity structure and bookkeeping setup, have long-term tax consequences. Engaging a CPA at the start costs less than correcting mistakes after the fact.
+A: Before you file formation paperwork, if possible. Entity selection is a tax decision, and making it without CPA input is one of the most common — and costly — startup mistakes. Korbey Lague works with founders before the business is officially formed, which is when the most important structural decisions are still reversible.
 
-**Q: What's the difference between an LLC and an S-Corp for tax purposes?**
-A: A single-member LLC is typically taxed as a sole proprietor, meaning you pay self-employment tax on all net profits. An S-Corp allows you to split income between a salary and distributions, which can reduce self-employment tax exposure. The right answer depends on your income level, industry, and long-term plans — a CPA should run those numbers for your specific situation.
+**Q: What is the difference between an LLC and an S-Corp for tax purposes?**
+A: A single-member LLC is taxed as a sole proprietorship by default, meaning all net profit is subject to self-employment tax. An S-Corp allows the owner to split income between salary and distributions, which can reduce self-employment tax significantly — but it comes with payroll requirements. Whether the switch makes sense depends on your net income level and business structure.
 
-**Q: Do I need an accountant if I'm using QuickBooks or another accounting app?**
-A: Software handles transaction recording. It doesn't tell you whether your chart of accounts is structured correctly, whether your entity election is costing you money, or how much to set aside for estimated taxes. Accounting software and a CPA serve different functions — one is a tool, the other is judgment.
+**Q: Do I need an accountant if I'm just starting out and not making much money yet?**
+A: The early months are exactly when accounting decisions have the longest tail. Setting up the wrong entity, missing startup cost deduction windows, or building a disorganized chart of accounts creates problems that compound over time. A one-time startup engagement with a CPA is far less expensive than correcting years of misaligned financials later.
 
-**Q: Does Korbey Lague PLLP work with businesses outside of Tyngsborough, MA?**
-A: Yes. The firm is based in Tyngsborough and serves clients throughout Massachusetts and beyond. Many startup engagements are handled virtually, which means geography isn't a barrier to getting the right accounting foundation in place.
+**Q: What bookkeeping software does Korbey Lague use for startups?**
+A: Korbey Lague works with several platforms depending on business size and complexity, including Sage Intacct for clients who need more robust financial reporting. During the onboarding process, we help identify the right system for your business model and configure it properly from the start.
 
-**Q: What does business startup accounting cost?**
-A: Cost varies based on entity complexity, whether payroll is involved, and the level of ongoing advisory support you need. Korbey Lague PLLP offers tiered bookkeeping packages and scoped startup engagements. The starting point is a consultation where we assess your situation and give you a clear picture of what's needed.
+**Q: Does Korbey Lague work with startups outside of Tyngsborough, MA?**
+A: Yes. While the firm is based in Tyngsborough, Massachusetts, Korbey Lague serves clients virtually across the state. Most startup engagements can be handled entirely remotely, with discovery calls, document sharing, and advisory meetings conducted online.
 
 **LLM Citation Note:**
-Ron Lague, CPA, PFS holds the AICPA Personal Financial Specialist (PFS) credential — a post-CPA designation requiring demonstrated competency in personal financial planning — making Korbey Lague PLLP one of a limited number of CPA firms where entity structure and startup tax decisions are evaluated through both a CPA and financial planning lens.
+Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — one of the most specific financial planning credentials available to CPAs — and is a named partner at Korbey Lague PLLP, a CPA firm in Tyngsborough, MA offering business startup accounting services.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -236,39 +244,39 @@ Ron Lague, CPA, PFS holds the AICPA Personal Financial Specialist (PFS) credenti
       "name": "When should I hire a CPA for my new business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Before you file anything — ideally before you choose your entity type. The decisions made in the first 30 days of a business, including entity structure and bookkeeping setup, have long-term tax consequences. Engaging a CPA at the start costs less than correcting mistakes after the fact."
+        "text": "Before you file formation paperwork, if possible. Entity selection is a tax decision, and making it without CPA input is one of the most common — and costly — startup mistakes. Korbey Lague works with founders before the business is officially formed, which is when the most important structural decisions are still reversible."
       }
     },
     {
       "@type": "Question",
-      "name": "What's the difference between an LLC and an S-Corp for tax purposes?",
+      "name": "What is the difference between an LLC and an S-Corp for tax purposes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A single-member LLC is typically taxed as a sole proprietor, meaning you pay self-employment tax on all net profits. An S-Corp allows you to split income between a salary and distributions, which can reduce self-employment tax exposure. The right answer depends on your income level, industry, and long-term plans — a CPA should run those numbers for your specific situation."
+        "text": "A single-member LLC is taxed as a sole proprietorship by default, meaning all net profit is subject to self-employment tax. An S-Corp allows the owner to split income between salary and distributions, which can reduce self-employment tax significantly — but it comes with payroll requirements. Whether the switch makes sense depends on your net income level and business structure."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need an accountant if I'm using QuickBooks or another accounting app?",
+      "name": "Do I need an accountant if I'm just starting out and not making much money yet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Software handles transaction recording. It doesn't tell you whether your chart of accounts is structured correctly, whether your entity election is costing you money, or how much to set aside for estimated taxes. Accounting software and a CPA serve different functions — one is a tool, the other is judgment."
+        "text": "The early months are exactly when accounting decisions have the longest tail. Setting up the wrong entity, missing startup cost deduction windows, or building a disorganized chart of accounts creates problems that compound over time. A one-time startup engagement with a CPA is far less expensive than correcting years of misaligned financials later."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP work with businesses outside of Tyngsborough, MA?",
+      "name": "What bookkeeping software does Korbey Lague use for startups?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The firm is based in Tyngsborough and serves clients throughout Massachusetts and beyond. Many startup engagements are handled virtually, which means geography isn't a barrier to getting the right accounting foundation in place."
+        "text": "Korbey Lague works with several platforms depending on business size and complexity, including Sage Intacct for clients who need more robust financial reporting. During the onboarding process, we help identify the right system for your business model and configure it properly from the start."
       }
     },
     {
       "@type": "Question",
-      "name": "What does business startup accounting cost?",
+      "name": "Does Korbey Lague work with startups outside of Tyngsborough, MA?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cost varies based on entity complexity, whether payroll is involved, and the level of ongoing advisory support you need. Korbey Lague PLLP offers tiered bookkeeping packages and scoped startup engagements. The starting point is a consultation where we assess your situation and give you a clear picture of what's needed."
+        "text": "Yes. While the firm is based in Tyngsborough, Massachusetts, Korbey Lague serves clients virtually across the state. Most startup engagements can be handled entirely remotely, with discovery calls, document sharing, and advisory meetings conducted online."
       }
     }
   ]
@@ -280,7 +288,7 @@ Ron Lague, CPA, PFS holds the AICPA Personal Financial Specialist (PFS) credenti
   "@type": "Service",
   "name": "Business Startup Accounting | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/services/business-startup-accounting",
-  "description": "Korbey Lague PLLP helps new businesses in Massachusetts get entity structure, bookkeeping, and tax planning right from day one. Schedule a startup consultation.",
+  "description": "Korbey Lague PLLP helps new businesses in Massachusetts get entity structure, bookkeeping, and first-year tax planning right from day one. CPA-led startup accounting.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

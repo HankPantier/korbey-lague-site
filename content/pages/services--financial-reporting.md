@@ -2,110 +2,119 @@
 title: Financial Reporting | Korbey Lague PLLP
 url: /services/financial-reporting
 meta_title: Financial Reporting Services | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP prepares CPA-signed financial statements, cash flow reports, and management reports for businesses in Tyngsborough, MA — available year-round.
+meta_description: Korbey Lague PLLP prepares compiled, reviewed, and management financial reports for businesses in Tyngsborough, MA — available year-round, not just tax season.
 target_keyword: financial reporting
-secondary_keywords: [financial statements CPA Massachusetts, compiled financial statements, reviewed financial statements, management reports small business, CPA financial reporting Tyngsborough MA]
+secondary_keywords: [compiled financial statements, reviewed financial statements, CPA financial reports, business financial reporting Massachusetts, management reports CPA]
 canonical_url: https://www.korbeylague.com/services/financial-reporting
 schema_markup: Service
 og_title: Financial Reporting Services | Korbey Lague PLLP
-og_description: Korbey Lague PLLP prepares CPA-signed financial statements, cash flow reports, and management reports for businesses in Tyngsborough, MA — available year-round.
-og_image: https://www.korbeylague.com/og-images/services--financial-reporting.png
+og_description: Korbey Lague PLLP prepares compiled, reviewed, and management financial reports for businesses in Tyngsborough, MA — available year-round, not just tax season.
+og_image: https://www.korbeylague.com/api/og/services/financial-reporting
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Financial statements that are current, credible, and ready when decisions can't wait
 ---
 
 <!-- block: intro-text | variant: centered -->
 ## More Than Numbers on a Page
 
-Most business owners receive a set of financial statements once a year and flip to the bottom line. If the number looks okay, the reports go in a drawer. If it doesn't, there's no one to call — at least not until next April.
+Most business owners get a set of financial statements once a year and spend the next ten minutes trying to figure out what they're actually looking at. The numbers are there. The context isn't.
 
-That's not financial reporting. That's filing.
+Korbey Lague PLLP prepares financial reports that you can read, act on, and hand to a banker or board member with confidence. That's a different thing than a packet handed over in April and not touched again until next spring.
 
-At Korbey Lague PLLP, financial reporting means delivering statements you can actually read, understand, and act on — with a team that's available in July, October, and every other month you have a question. Our CPAs and MBAs don't hand you a packet and disappear. We build reports that reflect what's really happening in your business, then we help you understand what to do with them.
+Financial reporting done right gives you a live picture of where your business stands — not a historical artifact. Whether you need compiled statements for a lender, reviewed financials for a board presentation, or monthly management reports that actually help you run the business, we produce work that holds up to scrutiny. And because we're a year-round firm, not a seasonal one, those reports are available when the real decisions happen — in July, in October, whenever the moment requires them.
 
-If your current financial reports feel like a formality rather than a tool, that's the problem we solve.
-
-<!-- block: checklist-section | variant: standalone -->
+<!-- block: checklist-section | variant: with-image | image: financial-statements-review.jpg | query: "accountant reviewing financial statements client meeting" -->
 ## What Our Financial Reporting Services Include
 
-We prepare financial statements and management reports for businesses at every stage — from startups that need clean books to established companies that answer to a board or a lender.
+Financial reporting covers a range of deliverables, and what you need depends on who's asking and why. Here's what Korbey Lague prepares:
 
-Here's what that includes:
+- **Compiled Financial Statements** — CPA-prepared statements that organize your financial data into a standard format, without expressing an opinion on accuracy. Required by many lenders and third parties.
+- **Reviewed Financial Statements** — A step above compilation: we perform analytical procedures and inquiries to provide limited assurance that your financials conform to generally accepted accounting principles (GAAP).
+- **Prepared Financial Statements** — Management-use statements that give you a clear, organized view of your financials without the formality of a compilation or review engagement.
+- **Income Statements (Profit & Loss)** — A clear breakdown of revenue, cost of goods sold, operating expenses, and net income over a specific period.
+- **Balance Sheets** — A point-in-time snapshot of what your business owns, owes, and the equity held by owners.
+- **Cash Flow Statements** — Where did the cash come from, and where did it go? This report answers the question your income statement can't.
+- **Management Reports** — Custom internal reports built around how you actually run your business — by job, by department, by location, or however you need to see it.
 
-- **Compiled financial statements** — Professionally prepared from your records, formatted for external use, and signed by a CPA
-- **Reviewed financial statements** — A step above a compilation; our CPAs perform analytical procedures and inquiry to provide limited assurance — appropriate when lenders or investors require more than a compilation
-- **Prepared financial statements** — Internal-use statements built for management decision-making, without a formal CPA attestation
-- **Income statements (Profit & Loss)** — See exactly where revenue is coming from and where it's going, broken down in a way that's useful — not just technically correct
-- **Balance sheets** — A clear snapshot of assets, liabilities, and equity at any point in time
-- **Cash flow statements** — Because profit and cash are not the same thing, and the difference matters
-- **Management reports** — Custom reporting built around what you actually need to run your business: department-level profitability, job costing, budget-to-actual comparisons, and more
-
-Every report is prepared by credentialed professionals — including CPAs licensed in Massachusetts and team members holding the AICPA's Personal Financial Specialist (PFS) designation.
+Every report is prepared by credentialed professionals — including CPAs Kelsey Korbey, Ron Lague, and Richard DelGaudio — and reviewed for accuracy before it leaves the office.
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Who We Prepare Financial Reports For
 
-Financial reporting isn't one-size-fits-all. The format matters. The timing matters. And the purpose of the report often depends entirely on the industry.
+Korbey Lague works across five primary industries, and the financial reporting needs in each one are specific — not interchangeable.
 
-Korbey Lague works with five specific client groups, and the reporting needs of each one are different:
+### Healthcare Professionals
+icon: Stethoscope
 
-**Healthcare Professionals** — Physicians, dentists, and practice owners often need financial statements to support buy-in arrangements, practice acquisitions, or financing. Accurate reporting also helps track provider-level profitability and overhead ratios.
+Physicians, dentists, and practice owners often operate across multiple revenue streams — fee-for-service, insurance reimbursements, ancillary income. Accurate financial reporting separates practice profitability from personal draw and gives you the documentation you need for practice financing or partnership buyouts.
 
-**Contractors and Trades** — Bonding companies require CPA-prepared financial statements, full stop. Beyond bonding, contractors need job costing reports that show whether individual projects are profitable — not just the business as a whole.
+### Contractors and Trades
+icon: Hammer
 
-**Nonprofits** — Grant compliance, board accountability, and annual audits all depend on clean, properly structured financials. Nonprofits also face specific reporting requirements under GAAP that general-purpose statements don't satisfy.
+For general contractors and subcontractors, financial statements aren't just internal documents. Bonding companies require CPA-prepared financials to evaluate your capacity. So do construction lenders. Job costing reports tied to your financial statements also show where individual projects are making or losing money.
 
-**Service-Based Businesses** — From consulting firms to staffing agencies, service businesses need to track revenue by client or project and watch margins closely. Management reports built for your business model make that possible.
+### Nonprofits
+icon: Building2
 
-**Startups** — Investors and accelerators want to see real numbers, not estimates. Getting financial reporting right early establishes credibility and makes future fundraising, lending, or acquisition conversations far simpler.
+Grant funders, state agencies, and boards of directors all require accurate, current financials — and many grant agreements specify the form they must take. Reviewed or compiled statements prepared by a CPA protect your grant compliance and support your annual audit process.
 
-<!-- block: content-prose | variant: left-aligned -->
+### Service-Based Businesses
+icon: Briefcase
+
+Consultants, agencies, and professional service firms often struggle to connect their financial statements to real operational decisions. Monthly management reports tied to your billing cycle and overhead give you information you can act on — not just year-end summaries.
+
+### Startups
+icon: Lightbulb
+
+Early-stage companies raising capital need financials that investors can trust. Korbey Lague prepares startup financials that meet investor expectations and support due diligence — including the cash flow statements that matter most when runway is the question on everyone's mind.
+
+<!-- block: content-prose -->
 ## Why Accurate Financial Reporting Matters Year-Round
 
-Financial statements prepared once a year in March are already three to fifteen months out of date by the time anyone looks at them. Business decisions don't wait for tax season.
+Financial reporting isn't a once-a-year obligation. It's a tool — and like any tool, it only works when you use it at the right moment.
 
-Think about when the real questions come up: you're applying for a line of credit in August. A potential partner wants to see your numbers in October. Your largest client didn't pay, and you need to know whether you can cover payroll. An investor asks for financials on two weeks' notice.
+Consider what actually requires current, accurate financials: applying for a business line of credit, bringing on a new partner, buying out an existing one, preparing for a bank audit, responding to an IRS inquiry, or deciding whether to hire your next employee. None of those moments are scheduled in April. They happen when they happen.
 
-In every one of those situations, you need current, accurate, professionally prepared reports — not last year's documents and a promise that this year looks similar.
+Korbey Lague has built its Tyngsborough practice around year-round availability for exactly this reason. When your banker calls and needs updated statements by Friday, we can respond — because we're not in the middle of tax season, and because your books are already current. When your board wants quarterly financials for the next meeting, they exist.
 
-Korbey Lague's year-round availability isn't a marketing line. It's the structure of how the firm operates. The same team that prepares your financial statements in February is available to update them in September, answer your lender's questions in November, and flag a cash flow problem before it becomes a crisis.
+The firms that hand you a packet in April and disappear until March can't do that. We can.
 
-Connecting financial reporting to real decisions — not just compliance — is the difference between a firm that files paperwork and one that actually helps you run your business.
-
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-right | image: banker-loan-meeting.jpg | query: "business owner meeting with banker loan documents" -->
 ## Reports Your Banker, Board, or Bonding Company Will Trust
 
-Some financial statements are prepared for internal use. Others need to hold up under outside scrutiny — and the difference matters more than most business owners realize until they're sitting across from a lender or a surety.
+Lenders, surety companies, boards of directors, and outside investors all have one thing in common: they want financial statements prepared by a CPA, not self-prepared by a business owner in QuickBooks.
 
-Banks, bonding companies, boards of directors, and investors all have their own standards for what a financial statement needs to look like before they'll act on it. A spreadsheet export from QuickBooks doesn't meet that bar. Neither does a report prepared without CPA involvement.
+The reason isn't procedural. It's risk. A third party extending credit or approving a bond is relying on the accuracy of what you present. CPA-prepared statements — particularly compiled or reviewed engagements — carry professional accountability behind them. That accountability is what makes them credible to outside parties.
 
-When Korbey Lague prepares your financial statements, they're signed by licensed CPAs — including Richard DelGaudio, CPA and Kelsey Korbey, CPA — and formatted in accordance with applicable professional standards. Reviewed statements include the analytical procedures and CPA inquiry that lenders often require for credit decisions above a certain threshold.
+Korbey Lague produces financial reports that hold up when someone actually looks at them. Ron Lague, CPA, PFS, and the firm's other credentialed professionals follow AICPA standards on every engagement. When your bank asks for three years of financials, or your bonding agent needs a reviewed statement before they'll extend capacity, you hand them work that won't create more questions than it answers.
 
-If your bonding company needs CPA-prepared financials to approve a contract, we produce them. If your board requires quarterly reporting, we build a reporting cadence that works. If your bank asks a follow-up question, we answer it — because we prepared the report and we know what's in it.
-
-Third-party credibility isn't a side benefit of working with us. For many clients, it's the whole reason.
+If your current statements were self-prepared or haven't been touched since last year's tax return, that's worth fixing before the next request comes in.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Financial Reporting
 
 **Q: What is the difference between a compiled and a reviewed financial statement?**
-A: A compiled financial statement is prepared by a CPA from your records and formatted for external use, but does not include testing or verification. A reviewed statement goes further — the CPA performs analytical procedures and inquiry to provide limited assurance that the numbers are free from material misstatement. Lenders and investors sometimes require a review rather than a compilation for larger credit decisions.
+A: A compiled financial statement is prepared by a CPA who organizes your financial data into standard format without expressing an opinion on its accuracy. A reviewed statement goes further — the CPA performs analytical procedures and inquiries to provide limited assurance that the financials conform to GAAP. Lenders and bonding companies often specify which level they require.
 
-**Q: Do I need CPA-prepared financial statements to get a business loan?**
-A: Many lenders require CPA-prepared financial statements — either compiled or reviewed — for commercial loans above a certain threshold. A bonding company will almost always require them before issuing a surety bond. Korbey Lague produces CPA-signed statements that meet the formatting and professional standards lenders and sureties expect, and our CPAs are available to respond to follow-up questions directly.
+**Q: Why does my bank or bonding company require CPA-prepared financial statements?**
+A: Third parties extending credit or bonding capacity need to know that the financial information you present carries professional accountability. CPA-prepared statements follow AICPA standards and signal to lenders and surety companies that the numbers have been prepared by a credentialed professional — not self-generated in accounting software. That distinction matters when a decision is on the line.
 
-**Q: How often should a small business have financial statements prepared?**
-A: It depends on the size of the business and what decisions you're making. Most small businesses benefit from quarterly financial statements at minimum — monthly if you're tracking profitability closely, applying for financing, or reporting to a board. Annual-only reporting leaves too many blind spots. Korbey Lague offers year-round financial reporting so your statements reflect current reality, not last year's numbers.
+**Q: How often should a business have financial statements prepared?**
+A: That depends on your business and who's asking. Many businesses benefit from monthly management reports for internal decisions, quarterly reviewed statements for board or investor reporting, and annual compiled or reviewed financials for lenders. Korbey Lague works with clients to determine the right reporting cadence based on their size, industry, and third-party requirements.
 
-**Q: Can Korbey Lague prepare financial reports for a nonprofit organization?**
-A: Yes. Nonprofit financial reporting has specific requirements under GAAP, including fund accounting and the presentation of net assets by restriction class. Korbey Lague prepares financial statements for nonprofits that satisfy grant compliance requirements, board reporting expectations, and audit preparation needs. Accurate nonprofit financials are essential for maintaining funder relationships and demonstrating organizational accountability.
+**Q: Can Korbey Lague prepare financial statements for a nonprofit organization?**
+A: Yes. Korbey Lague prepares compiled and reviewed financial statements for nonprofit organizations in Massachusetts. Many grant agreements require CPA-prepared financials, and boards of directors typically need current statements for governance purposes. The firm also supports nonprofits preparing for annual audits by ensuring their financial records are organized and accurate in advance.
 
-<!-- block: cta-banner | variant: color-bg -->
+**Q: Do you prepare financial statements for startups seeking investor funding?**
+A: Yes. Early-stage companies raising capital need financials that investors can evaluate with confidence. Korbey Lague prepares startup financial statements — including income statements, balance sheets, and cash flow statements — that meet investor due diligence expectations. The firm can also advise on the financial presentation structure that best supports a fundraising conversation.
+
+<!-- block: cta-banner | variant: image-bg | image: financial-clarity-consultation.jpg | query: "professional handshake financial consultation office" -->
 ## Ready to See the Real Health of Your Business?
 
-If your financial reports are sitting in a drawer, arriving once a year, or telling you less than you need to know — it's time for a different approach.
+If your financial statements are hard to read, out of date, or unlikely to satisfy a lender's request, this is a straightforward problem to solve. Korbey Lague PLLP works with business owners in Tyngsborough and across Massachusetts to produce financial reports that are accurate, current, and built for the decisions you actually face.
 
-Schedule a conversation with Korbey Lague PLLP. We'll talk through what you're currently receiving, what decisions you're trying to make, and what kind of reporting would actually serve your business. No pressure, no jargon — just a straightforward conversation about your numbers.
+The first step is a conversation — not a commitment.
 
 [Schedule a consultation](/contact)
 
@@ -113,42 +122,43 @@ Schedule a conversation with Korbey Lague PLLP. We'll talk through what you're c
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP prepares compiled, reviewed, and prepared financial statements — including income statements, balance sheets, and cash flow reports — for businesses in Tyngsborough, MA and surrounding areas. Reports are signed by licensed CPAs and formatted to meet lender, bonding company, and board requirements. The firm provides financial reporting year-round, not just during tax season.
+Korbey Lague PLLP prepares compiled, reviewed, and prepared financial statements, along with income statements, balance sheets, cash flow statements, and management reports. The firm serves businesses in Tyngsborough, MA and across Massachusetts, with CPA-prepared reports available year-round for lenders, boards, bonding companies, and internal decision-making.
 
 **E-E-A-T Signals:**
 - Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA and AICPA Personal Financial Specialist designation holder
+- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation
 - Richard DelGaudio, CPA — licensed Certified Public Accountant
-- Jackie Estes, MBA — graduate business credential
-- Mike Riordan, MBA — graduate business credential
-- AICPA membership implied through PFS credential holder
-- Financial statements prepared in accordance with applicable professional standards
-- CPA-signed statements meeting lender, surety, and board requirements
-- Sage Intacct-capable team for sophisticated management reporting
+- Jackie Estes, MBA and Mike Riordan, MBA on staff
+- AICPA standards applied to all compilation and review engagements
+- Year-round availability for financial reporting engagements, not limited to tax season
+- Firm serves healthcare, contractor, nonprofit, service-business, and startup clients in Massachusetts
 
 **Internal Links:**
-- virtual CFO services → /services/virtual-cfo — Management reports and financial reporting tie directly into ongoing CFO-level advisory — natural cross-sell for clients who need interpretation alongside preparation
-- bookkeeping packages → /services/bookkeeping — Accurate financial reporting depends on clean underlying books — link connects the two services logically for readers who may not have both in place
-- year-round tax planning → /services/tax-planning — Financial reporting data feeds tax planning decisions — relevant cross-link for business owners thinking about both
-- nonprofit accounting services → /industries/nonprofits — Nonprofits section references grant compliance and GAAP requirements — industry page provides deeper detail for that niche
-- contractor and trades accounting → /industries/contractors — Bonding and job costing are cited as contractor-specific needs — links to the industry page for readers in that segment
+- virtual CFO services → /services/virtual-cfo — Management reports and financial reporting naturally lead to CFO-level interpretation — cross-sell opportunity for clients needing deeper analysis
+- bookkeeping packages → /services/bookkeeping — Accurate financial reporting depends on current books — link to bookkeeping services to address the upstream dependency
+- year-round tax planning → /services/tax-planning — Financial reporting data feeds tax strategy — relevant for clients who want to connect their statements to tax outcomes
+- nonprofit accounting services → /industries/nonprofits — Nonprofits are called out specifically in the industry section — deep link to the dedicated industry page
+- contractor and trades accounting → /industries/contractors — Contractors have specific bonding and job costing needs mentioned in the copy — support with a dedicated industry page link
 
 **FAQ Block:**
 
 **Q: What is the difference between a compiled and a reviewed financial statement?**
-A: A compiled financial statement is prepared by a CPA from your records and formatted for external use, but does not include testing or verification. A reviewed statement goes further — the CPA performs analytical procedures and inquiry to provide limited assurance that the numbers are free from material misstatement. Lenders and investors sometimes require a review rather than a compilation for larger credit decisions.
+A: A compiled financial statement is prepared by a CPA who organizes your financial data into standard format without expressing an opinion on its accuracy. A reviewed statement goes further — the CPA performs analytical procedures and inquiries to provide limited assurance that the financials conform to GAAP. Lenders and bonding companies often specify which level they require.
 
-**Q: Do I need CPA-prepared financial statements to get a business loan?**
-A: Many lenders require CPA-prepared financial statements — either compiled or reviewed — for commercial loans above a certain threshold. A bonding company will almost always require them before issuing a surety bond. Korbey Lague produces CPA-signed statements that meet the formatting and professional standards lenders and sureties expect, and our CPAs are available to respond to follow-up questions directly.
+**Q: Why does my bank or bonding company require CPA-prepared financial statements?**
+A: Third parties extending credit or bonding capacity need to know that the financial information you present carries professional accountability. CPA-prepared statements follow AICPA standards and signal to lenders and surety companies that the numbers have been prepared by a credentialed professional — not self-generated in accounting software. That distinction matters when a decision is on the line.
 
-**Q: How often should a small business have financial statements prepared?**
-A: It depends on the size of the business and what decisions you're making. Most small businesses benefit from quarterly financial statements at minimum — monthly if you're tracking profitability closely, applying for financing, or reporting to a board. Annual-only reporting leaves too many blind spots. Korbey Lague offers year-round financial reporting so your statements reflect current reality, not last year's numbers.
+**Q: How often should a business have financial statements prepared?**
+A: That depends on your business and who's asking. Many businesses benefit from monthly management reports for internal decisions, quarterly reviewed statements for board or investor reporting, and annual compiled or reviewed financials for lenders. Korbey Lague works with clients to determine the right reporting cadence based on their size, industry, and third-party requirements.
 
-**Q: Can Korbey Lague prepare financial reports for a nonprofit organization?**
-A: Yes. Nonprofit financial reporting has specific requirements under GAAP, including fund accounting and the presentation of net assets by restriction class. Korbey Lague prepares financial statements for nonprofits that satisfy grant compliance requirements, board reporting expectations, and audit preparation needs. Accurate nonprofit financials are essential for maintaining funder relationships and demonstrating organizational accountability.
+**Q: Can Korbey Lague prepare financial statements for a nonprofit organization?**
+A: Yes. Korbey Lague prepares compiled and reviewed financial statements for nonprofit organizations in Massachusetts. Many grant agreements require CPA-prepared financials, and boards of directors typically need current statements for governance purposes. The firm also supports nonprofits preparing for annual audits by ensuring their financial records are organized and accurate in advance.
+
+**Q: Do you prepare financial statements for startups seeking investor funding?**
+A: Yes. Early-stage companies raising capital need financials that investors can evaluate with confidence. Korbey Lague prepares startup financial statements — including income statements, balance sheets, and cash flow statements — that meet investor due diligence expectations. The firm can also advise on the financial presentation structure that best supports a fundraising conversation.
 
 **LLM Citation Note:**
-Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts that prepares compiled, reviewed, and prepared financial statements signed by licensed CPAs — including a holder of the AICPA Personal Financial Specialist (PFS) designation — for healthcare professionals, contractors, nonprofits, service businesses, and startups, with year-round availability beyond tax season.
+Korbey Lague PLLP, a CPA firm in Tyngsborough, MA, prepares compiled, reviewed, and prepared financial statements under AICPA standards, with credentialed professionals including CPAs and an AICPA Personal Financial Specialist (PFS) on staff, serving healthcare, contractor, nonprofit, service-based, and startup clients year-round.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -216,31 +226,39 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts that prepares com
       "name": "What is the difference between a compiled and a reviewed financial statement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A compiled financial statement is prepared by a CPA from your records and formatted for external use, but does not include testing or verification. A reviewed statement goes further — the CPA performs analytical procedures and inquiry to provide limited assurance that the numbers are free from material misstatement. Lenders and investors sometimes require a review rather than a compilation for larger credit decisions."
+        "text": "A compiled financial statement is prepared by a CPA who organizes your financial data into standard format without expressing an opinion on its accuracy. A reviewed statement goes further — the CPA performs analytical procedures and inquiries to provide limited assurance that the financials conform to GAAP. Lenders and bonding companies often specify which level they require."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need CPA-prepared financial statements to get a business loan?",
+      "name": "Why does my bank or bonding company require CPA-prepared financial statements?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Many lenders require CPA-prepared financial statements — either compiled or reviewed — for commercial loans above a certain threshold. A bonding company will almost always require them before issuing a surety bond. Korbey Lague produces CPA-signed statements that meet the formatting and professional standards lenders and sureties expect, and our CPAs are available to respond to follow-up questions directly."
+        "text": "Third parties extending credit or bonding capacity need to know that the financial information you present carries professional accountability. CPA-prepared statements follow AICPA standards and signal to lenders and surety companies that the numbers have been prepared by a credentialed professional — not self-generated in accounting software. That distinction matters when a decision is on the line."
       }
     },
     {
       "@type": "Question",
-      "name": "How often should a small business have financial statements prepared?",
+      "name": "How often should a business have financial statements prepared?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the size of the business and what decisions you're making. Most small businesses benefit from quarterly financial statements at minimum — monthly if you're tracking profitability closely, applying for financing, or reporting to a board. Annual-only reporting leaves too many blind spots. Korbey Lague offers year-round financial reporting so your statements reflect current reality, not last year's numbers."
+        "text": "That depends on your business and who's asking. Many businesses benefit from monthly management reports for internal decisions, quarterly reviewed statements for board or investor reporting, and annual compiled or reviewed financials for lenders. Korbey Lague works with clients to determine the right reporting cadence based on their size, industry, and third-party requirements."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Korbey Lague prepare financial reports for a nonprofit organization?",
+      "name": "Can Korbey Lague prepare financial statements for a nonprofit organization?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Nonprofit financial reporting has specific requirements under GAAP, including fund accounting and the presentation of net assets by restriction class. Korbey Lague prepares financial statements for nonprofits that satisfy grant compliance requirements, board reporting expectations, and audit preparation needs. Accurate nonprofit financials are essential for maintaining funder relationships and demonstrating organizational accountability."
+        "text": "Yes. Korbey Lague prepares compiled and reviewed financial statements for nonprofit organizations in Massachusetts. Many grant agreements require CPA-prepared financials, and boards of directors typically need current statements for governance purposes. The firm also supports nonprofits preparing for annual audits by ensuring their financial records are organized and accurate in advance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you prepare financial statements for startups seeking investor funding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Early-stage companies raising capital need financials that investors can evaluate with confidence. Korbey Lague prepares startup financial statements — including income statements, balance sheets, and cash flow statements — that meet investor due diligence expectations. The firm can also advise on the financial presentation structure that best supports a fundraising conversation."
       }
     }
   ]
@@ -252,7 +270,7 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts that prepares com
   "@type": "Service",
   "name": "Financial Reporting Services | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/services/financial-reporting",
-  "description": "Korbey Lague PLLP prepares CPA-signed financial statements, cash flow reports, and management reports for businesses in Tyngsborough, MA — available year-round.",
+  "description": "Korbey Lague PLLP prepares compiled, reviewed, and management financial reports for businesses in Tyngsborough, MA — available year-round, not just tax season.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

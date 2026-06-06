@@ -2,175 +2,180 @@
 title: Bookkeeping & Payroll | Korbey Lague PLLP
 url: /services/bookkeeping-payroll
 meta_title: Bookkeeping & Payroll Services | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP offers year-round bookkeeping and payroll services for businesses in Tyngsborough, MA. CPA-reviewed, compliance-focused, built to scale.
+meta_description: Korbey Lague PLLP offers year-round bookkeeping and payroll services in Tyngsborough, MA. Accurate books, compliant payroll, and CPA-level oversight for local businesses.
 target_keyword: bookkeeping & payroll
-secondary_keywords: [small business bookkeeping Massachusetts, payroll services Tyngsborough MA, CPA bookkeeping services, payroll compliance filing, bookkeeping for contractors, nonprofit bookkeeping]
+secondary_keywords: [bookkeeping services Tyngsborough MA, payroll processing Massachusetts, small business bookkeeping CPA, payroll compliance services, nonprofit bookkeeping, contractor payroll services]
 canonical_url: https://www.korbeylague.com/services/bookkeeping-payroll
 schema_markup: Service
 og_title: Bookkeeping & Payroll Services | Korbey Lague PLLP
-og_description: Korbey Lague PLLP offers year-round bookkeeping and payroll services for businesses in Tyngsborough, MA. CPA-reviewed, compliance-focused, built to scale.
-og_image: https://www.korbeylague.com/og-images/services--bookkeeping-payroll.png
+og_description: Korbey Lague PLLP offers year-round bookkeeping and payroll services in Tyngsborough, MA. Accurate books, compliant payroll, and CPA-level oversight for local businesses.
+og_image: https://www.korbeylague.com/api/og/services/bookkeeping-payroll
 twitter_card: summary_large_image
-hero: page-header
+hero: hero-split
+hero_variant: image-right
+hero_image: business-owner-bookkeeping-consultation.jpg
+hero_subhead: Accurate books and reliable payroll, handled year-round by a CPA team that knows your business.
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## More Than Recordkeeping — A Financial Foundation You Can Build On
 
-Bookkeeping and payroll are not administrative chores to check off a list. They are the operational backbone of every sound financial decision your business makes — from knowing whether you can afford to hire someone new, to walking into a bank loan conversation with confidence.
+Most business owners know their books matter. What gets lost is *why* they matter — and what becomes possible when they're actually right.
 
-At Korbey Lague PLLP, we treat these services as year-round infrastructure, not a reactive cleanup job. When your books are accurate and your payroll runs without fail, everything else gets easier: tax planning becomes more precise, cash flow becomes visible, and your CPA has real numbers to work with instead of reconstructed guesses. Most business owners we talk to either handle the books themselves — at the cost of nights and weekends — or have handed them off to someone without the training to catch what matters. There is a better option.
+Messy books aren't just an accounting problem. They're a tax planning problem. A cash flow problem. A "can I get this loan" problem. At Korbey Lague PLLP, bookkeeping and payroll aren't back-office chores we hand off to a junior staffer. They're the foundation every other financial conversation is built on. We treat them that way year-round — not just when April rolls around.
 
 ---
 
-<!-- block: checklist-section | variant: standalone -->
+<!-- block: content-split | variant: image-right | image: small-business-owner-reviewing-financials.jpg | query: "small business owner reviewing financial reports desk" -->
 ## Bookkeeping Services Designed Around Your Business
 
-If you are categorizing transactions yourself at midnight or waiting until tax time to find out how the year actually went, you already know the problem. Accurate, timely books are not a luxury — they are what separates businesses that make informed decisions from ones that react to surprises.
+If you're reconciling accounts yourself at midnight or trusting spreadsheets held together with hope, you already know something's off. The question is whether you're catching the problems before they cost you.
 
-Korbey Lague provides bookkeeping services built for small and mid-sized businesses that need more than a spreadsheet, but are not yet running an in-house accounting department:
+Korbey Lague's bookkeeping services cover the full cycle — transaction categorization, bank and credit card reconciliations, accounts receivable and payable tracking, and monthly or quarterly financial reporting. For businesses inheriting a backlog, we also offer cleanup and catch-up bookkeeping to get the ledger current before moving forward.
 
-- **Transaction categorization** — Every dollar in and out coded correctly, consistently, so your reports mean something
-- **Bank and credit card reconciliations** — Completed monthly, so discrepancies are caught before they become problems
-- **Financial statement preparation** — Profit and loss, balance sheet, and cash flow statements ready when you need them — not just once a year
-- **Accounts payable and receivable tracking** — So you know what you owe, what you're owed, and where your cash actually is
-- **Books cleanup and catch-up** — If you've fallen behind or inherited a mess, we get it back to a reliable baseline before moving forward
+The emphasis is on accuracy and timeliness. A financial statement that's three months stale isn't a financial statement — it's a history lesson. When your books close on time, with the right numbers, you can make decisions based on where your business actually is, not where it was.
 
-All work is reviewed by credentialed staff. Korbey Lague's team includes CPAs and MBA-holding professionals who understand that a misclassified expense is not just a bookkeeping error — it is a tax problem, a reporting problem, and sometimes a lender problem.
+Our team includes credentialed CPAs — including Kelsey Korbey, CPA and Richard DelGaudio, CPA — alongside team members with MBAs, so the people touching your books understand not just the entries, but the business logic behind them.
 
 ---
 
-<!-- block: content-prose | variant: null -->
+<!-- block: checklist-section | variant: with-image | image: payroll-processing-office.jpg | query: "payroll processing business office professional" -->
 ## Payroll That Runs On Time, Every Time
 
-One missed payroll can break employee trust that took years to build. One incorrect payroll tax filing can trigger IRS penalties that cost more than a year of professional payroll service. The stakes are not abstract.
+Payroll errors are expensive in ways that compound fast. A misclassified worker triggers IRS scrutiny. A late deposit means penalties. An incorrectly filed 941 means amended returns. For businesses in healthcare, construction, or skilled trades — where your workforce is your product — a payroll problem isn't a back-office inconvenience. It's a staffing crisis waiting to happen.
 
-Korbey Lague handles payroll processing with the same attention to compliance that the firm brings to its tax and advisory work:
+Korbey Lague handles payroll processing from end to end:
 
-- **Payroll processing** for weekly, biweekly, or semi-monthly schedules
-- **Tax withholding calculations** — federal, Massachusetts state, and local
-- **Direct deposit setup and management**
-- **Quarterly and annual payroll filings** — 941s, 940s, W-2s, and 1099s handled correctly and on time
-- **New hire reporting** compliance
-- **Benefits deduction tracking** for health insurance, retirement contributions, and garnishments
+- Accurate wage calculations for hourly, salaried, and tipped employees
+- Federal, state, and local tax withholding and remittance
+- Direct deposit processing
+- Quarterly and annual compliance filings (941, 940, W-2s, 1099s)
+- New hire reporting
+- Garnishment and deduction management
+- Year-end payroll reconciliation
 
-For trades businesses and healthcare practices — where staffing is a constant pressure and one payroll error can set off a cascade — reliability is not optional. The same applies to nonprofits subject to grant audit requirements, where payroll records need to be airtight. Getting payroll right is not just an HR function. It is a compliance function, and it belongs in the same hands as your tax work.
+The goal is a payroll run your employees never have to question. When staff trust that their check is right and on time, you spend less time fielding complaints and more time running the business.
 
 ---
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Who We Serve With These Services
 
-Bookkeeping and payroll look different depending on how your business runs. Korbey Lague works with several industries where the complexity is real and the margin for error is low.
+### Healthcare Professionals
+icon: Stethoscope
 
-**Healthcare Professionals**
-Medical and dental practices deal with insurance reimbursement timing, multiple revenue streams, and payroll structures that mix salaried and hourly staff. Clean books are essential for practice profitability analysis and compliance with healthcare-specific reporting requirements.
+Practice owners — physicians, dentists, therapists — deal with a mix of W-2 staff and 1099 contractors, plus billing cycles that don't map neatly to calendar months. Clean books and compliant payroll aren't optional when licensing, credentialing, and insurance reimbursement are all tied to your financial standing.
 
-**Contractors and Trades**
-Job costing, subcontractor 1099 filings, prevailing wage compliance, and equipment depreciation make bookkeeping significantly more complex than a general ledger cleanup. Payroll for hourly crews needs to run precisely and account for overtime correctly — every week.
+### Contractors and Trades
+icon: Hammer
 
-**Nonprofits**
-Fund accounting, grant tracking, and board-level financial reporting require a level of organization that most bookkeeping software won't enforce on its own. Payroll records for nonprofits also need to hold up to audit scrutiny, especially when federal funding is involved.
+Job costing requires clean categorization — material costs, labor, subcontractors, and equipment all need to land in the right bucket. Misclassifying a subcontractor or falling behind on quarterly payroll taxes can put a bonding or licensing renewal at risk faster than most owners expect.
 
-**Service-Based Businesses**
-Consultants, agencies, and professional service firms often have deferred revenue, retainer arrangements, and project-based billing that require careful tracking to reflect actual financial position — not just what's in the checking account.
+### Nonprofits
+icon: HeartPulse
 
-**Startups and Growing Businesses**
-Early-stage companies often outgrow a founder's QuickBooks setup faster than expected. Getting structured bookkeeping in place before a funding round or banking relationship starts is far easier than cleaning up two years of transactions under deadline pressure.
+Fund accounting requires a different structure than standard business bookkeeping. Grants, restricted funds, and board-level reporting all demand that the books be segmented, current, and audit-ready — not patched together at fiscal year-end.
+
+### Service-Based Businesses
+icon: Briefcase
+
+Consultancies, agencies, and professional service firms often struggle with revenue timing — retainers, project billing, and deferred income create reconciliation complexity that generic bookkeeping software doesn't handle well on its own. Having a CPA firm in your corner means those issues get caught early.
+
+### Startups
+icon: TrendingUp
+
+Early-stage companies often get bookkeeping wrong in ways that haunt them later — investor due diligence, SBA loan applications, and R&D tax credit documentation all require clean historical records. Starting the right way costs far less than reconstructing two years of transactions.
 
 ---
 
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-left | image: accountant-advising-client-meeting.jpg | query: "accountant advising small business client meeting" -->
 ## What Happens When Your Books Are Actually Clean
 
-Accurate financials change what's possible — not in a vague way, but in specific, practical ways that affect decisions you're making right now.
+Accurate books aren't the end goal — they're the starting line.
 
-When your books are current and reconciled, your CPA can do year-round tax planning instead of just year-end damage control. When your profit and loss statement reflects reality, you can see where margin is eroding before it becomes a problem. When your payroll records are complete and compliant, you walk into a bank loan or SBA application with documentation that holds up — not a last-minute scramble to reconstruct records.
+When your financials are current and correct, your CPA can look at tax positioning before December, not after. A lender reviewing your loan application sees organized, reconciled statements — not a shoebox of receipts. Cash flow conversations shift from guesswork to data. And when you're ready to talk growth — hiring, equipment, expansion — those decisions are grounded in numbers you can trust.
 
-Korbey Lague's bookkeeping and payroll services connect directly to the firm's broader advisory work. Clean books are the starting point for cash flow conversations, growth planning, and the kind of CFO-level analysis the firm provides through its virtual CFO offering. The numbers have to be right before any of that becomes useful. This is where it starts.
+This is the connection that separates a bookkeeping service from a bookkeeping *strategy*. At Korbey Lague, clean books feed directly into the tax planning, virtual CFO, and advisory work our team does year-round. The services aren't siloed — they build on each other.
+
+Ron Lague, CPA, PFS, holds the Personal Financial Specialist designation from the AICPA — the only CPA credential specifically tied to personal financial planning. When your business financials are organized, those conversations extend further.
 
 ---
 
-<!-- block: content-prose | variant: null -->
+<!-- block: cta-banner | variant: color-bg -->
 ## Why Tyngsborough Business Owners Choose Korbey Lague
 
-National bookkeeping platforms offer software. Seasonal CPA firms offer April availability. Korbey Lague offers both the technical credentials — CPAs, MBAs, AICPA designations — and the year-round presence that makes those credentials worth something to your business.
+National bookkeeping platforms offer software. Seasonal-only CPAs offer a filing. Neither is the same as a local firm that knows your business in March, in July, and in November.
 
-The firm is based in Tyngsborough and works with businesses throughout the Merrimack Valley and Greater Lowell area. When something needs attention in July, there's someone to call. When your books reveal an issue that affects your taxes or your financing, you're talking to the same team that handles those conversations — not forwarded to a call center.
-
-That continuity is the differentiator. Not just the service list.
+Korbey Lague PLLP is based in Tyngsborough and built around year-round availability. The team — credentialed CPAs, MBAs, and a PFS — is reachable when something changes mid-year, not just when a deadline forces a conversation. That kind of access is what business owners here have come to expect from us, and it's what we deliver.
 
 ---
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Bookkeeping & Payroll
 
-**Q: What bookkeeping services does Korbey Lague PLLP provide?**
-A: Korbey Lague provides transaction categorization, monthly bank and credit card reconciliations, financial statement preparation, accounts payable and receivable tracking, and books cleanup for businesses that have fallen behind. All work is reviewed by CPAs or MBA-credentialed staff based in Tyngsborough, MA.
+**Q: What bookkeeping services does Korbey Lague PLLP offer?**
+A: Korbey Lague provides transaction categorization, bank and credit card reconciliations, accounts receivable and payable tracking, monthly or quarterly financial reporting, and catch-up bookkeeping for businesses with a backlog. All services are delivered year-round by a team that includes licensed CPAs and MBAs — not seasonal staff brought in at year-end.
 
-**Q: Does Korbey Lague handle payroll for small businesses?**
-A: Yes. The firm processes payroll on weekly, biweekly, or semi-monthly schedules, manages tax withholding for federal and Massachusetts state obligations, handles direct deposit, and files quarterly and annual payroll forms including 941s, W-2s, and 1099s. Payroll services are available year-round, not just at tax time.
+**Q: Can Korbey Lague handle payroll for businesses with both employees and contractors?**
+A: Yes. The firm processes payroll for hourly, salaried, and tipped employees, manages 1099 contractor documentation, and handles all related compliance filings — including 941, 940, W-2s, and 1099-NECs. Proper worker classification is reviewed as part of the engagement to reduce IRS exposure.
 
-**Q: Why should a contractor or trades business use a CPA firm for bookkeeping?**
-A: Contractors face bookkeeping complexity that generic platforms miss — job costing, subcontractor 1099 requirements, prevailing wage compliance, and equipment depreciation. Having a CPA-reviewed bookkeeping process means those details are handled correctly and connect directly to your tax filing and financial reporting.
+**Q: How is working with a CPA firm for bookkeeping different from using a bookkeeping-only service?**
+A: A CPA firm sees your books in context — tax implications, entity structure, cash flow trends, and planning opportunities. At Korbey Lague, bookkeeping feeds directly into tax planning and advisory conversations throughout the year. That connection is what a standalone bookkeeping platform or non-CPA service typically cannot provide.
 
-**Q: How is Korbey Lague different from an online bookkeeping service?**
-A: National bookkeeping platforms offer software access and offshore data entry. Korbey Lague offers CPA and MBA-credentialed professionals based in Tyngsborough, MA, available year-round. Your bookkeeping connects directly to your tax planning, cash flow analysis, and advisory conversations — all with the same firm.
+**Q: Does Korbey Lague offer bookkeeping services for nonprofits?**
+A: Yes. The firm works with nonprofit organizations and understands the fund accounting requirements that distinguish nonprofit bookkeeping from standard business recordkeeping — including grant tracking, restricted fund management, and financial reporting structured for board review and audit readiness.
 
-**Q: Can Korbey Lague clean up books that are behind or disorganized?**
-A: Yes. Catch-up and cleanup bookkeeping is a standard service. The firm establishes a reliable baseline from whatever starting point exists, then moves to a regular monthly cadence. Most business owners who need cleanup underestimate how much the backlog is affecting their tax preparation and financial visibility.
+**Q: What happens if my books are behind or disorganized?**
+A: Korbey Lague offers cleanup and catch-up bookkeeping for businesses that have fallen behind or inherited a disorganized ledger. The process starts with an assessment of where the books stand, followed by a structured cleanup so the account history is accurate before moving to ongoing monthly service.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: professional-cpa-team-office.jpg | query: "CPA professional team office consulting" -->
 ## Let's Get Your Books Off Your Plate
 
-If you've landed here, there's a good chance your current bookkeeping situation — or your payroll setup — is costing you more time or money than it should. That's a fixable problem.
+If your books are behind, your payroll is stressing you out, or you're not sure the numbers are right — that's exactly the problem we solve.
 
-[Schedule a consultation](/contact) with the Korbey Lague team and let's talk through what's not working and what a better system looks like for your business.
+[Schedule a consultation](/contact) and we'll talk through where things stand and what it looks like to hand this off to a team that treats your finances as seriously as you do.
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP provides year-round bookkeeping and payroll services for small and mid-sized businesses in Tyngsborough, MA and the Greater Lowell area. Services include transaction categorization, reconciliations, financial reporting, payroll processing, and compliance filings — all reviewed by credentialed CPAs and MBA-holding professionals.
+Korbey Lague PLLP provides full-cycle bookkeeping and payroll services for businesses in Tyngsborough, MA and the surrounding area. Services include transaction categorization, bank reconciliations, payroll processing, tax withholding, and compliance filings. As a CPA firm with year-round availability, Korbey Lague goes beyond recordkeeping to connect accurate financials with tax planning and business advisory services.
 
 **E-E-A-T Signals:**
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- Jackie Estes, MBA — graduate business credential
-- Mike Riordan, MBA — graduate business credential
-- AICPA membership implied through PFS credential holder on staff
-- Sage Intacct platform competency
-- Year-round advisory firm, not seasonal-only practice
-- Specialization in healthcare, contractors, nonprofits, and startups
-- Tyngsborough, MA local presence serving Merrimack Valley and Greater Lowell
+- Kelsey Korbey holds an active CPA license
+- Ron Lague holds CPA and PFS (Personal Financial Specialist) credentials from the AICPA — the only CPA-specific personal financial planning designation
+- Richard DelGaudio holds an active CPA license
+- Jackie Estes and Mike Riordan hold MBA degrees
+- Firm is based in Tyngsborough, Massachusetts with established local client base
+- Sage Intacct — cloud financial management platform used for advanced bookkeeping and reporting
+- AICPA membership and PFS credential imply adherence to AICPA professional standards
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced directly in the 'What Happens When Your Books Are Actually Clean' section as the logical next service tier when bookkeeping is in order
-- year-round tax planning → /services/tax-planning — Bookkeeping accuracy is positioned as a prerequisite for effective tax planning — natural bridge to the tax services page
-- trades businesses → /industries/contractors-trades — Contractor niche is called out specifically in both the payroll and 'Who We Serve' sections — links to the industry page for deeper relevance
-- healthcare practices → /industries/healthcare — Healthcare is named as a primary niche in 'Who We Serve' — industry page link reinforces subject matter authority
-- Schedule a consultation → /contact — Primary CTA destination — closing section and throughout as conversion point
+- virtual CFO → /services/virtual-cfo — Referenced inline to connect clean books to higher-level advisory services
+- tax planning → /services/tax-planning — Bookkeeping accuracy is positioned as an enabler of year-round tax planning
+- Ron Lague, CPA, PFS → /team — Credential mention links to team page for E-E-A-T reinforcement
+- Schedule a consultation → /contact — Primary CTA throughout the page
+- fund accounting → /industries/nonprofits — Nonprofit section reference supports niche industry page link equity
 
 **FAQ Block:**
 
-**Q: What bookkeeping services does Korbey Lague PLLP provide?**
-A: Korbey Lague provides transaction categorization, monthly bank and credit card reconciliations, financial statement preparation, accounts payable and receivable tracking, and books cleanup for businesses that have fallen behind. All work is reviewed by CPAs or MBA-credentialed staff based in Tyngsborough, MA.
+**Q: What bookkeeping services does Korbey Lague PLLP offer?**
+A: Korbey Lague provides transaction categorization, bank and credit card reconciliations, accounts receivable and payable tracking, monthly or quarterly financial reporting, and catch-up bookkeeping for businesses with a backlog. All services are delivered year-round by a team that includes licensed CPAs and MBAs — not seasonal staff brought in at year-end.
 
-**Q: Does Korbey Lague handle payroll for small businesses?**
-A: Yes. The firm processes payroll on weekly, biweekly, or semi-monthly schedules, manages tax withholding for federal and Massachusetts state obligations, handles direct deposit, and files quarterly and annual payroll forms including 941s, W-2s, and 1099s. Payroll services are available year-round, not just at tax time.
+**Q: Can Korbey Lague handle payroll for businesses with both employees and contractors?**
+A: Yes. The firm processes payroll for hourly, salaried, and tipped employees, manages 1099 contractor documentation, and handles all related compliance filings — including 941, 940, W-2s, and 1099-NECs. Proper worker classification is reviewed as part of the engagement to reduce IRS exposure.
 
-**Q: Why should a contractor or trades business use a CPA firm for bookkeeping?**
-A: Contractors face bookkeeping complexity that generic platforms miss — job costing, subcontractor 1099 requirements, prevailing wage compliance, and equipment depreciation. Having a CPA-reviewed bookkeeping process means those details are handled correctly and connect directly to your tax filing and financial reporting.
+**Q: How is working with a CPA firm for bookkeeping different from using a bookkeeping-only service?**
+A: A CPA firm sees your books in context — tax implications, entity structure, cash flow trends, and planning opportunities. At Korbey Lague, bookkeeping feeds directly into tax planning and advisory conversations throughout the year. That connection is what a standalone bookkeeping platform or non-CPA service typically cannot provide.
 
-**Q: How is Korbey Lague different from an online bookkeeping service?**
-A: National bookkeeping platforms offer software access and offshore data entry. Korbey Lague offers CPA and MBA-credentialed professionals based in Tyngsborough, MA, available year-round. Your bookkeeping connects directly to your tax planning, cash flow analysis, and advisory conversations — all with the same firm.
+**Q: Does Korbey Lague offer bookkeeping services for nonprofits?**
+A: Yes. The firm works with nonprofit organizations and understands the fund accounting requirements that distinguish nonprofit bookkeeping from standard business recordkeeping — including grant tracking, restricted fund management, and financial reporting structured for board review and audit readiness.
 
-**Q: Can Korbey Lague clean up books that are behind or disorganized?**
-A: Yes. Catch-up and cleanup bookkeeping is a standard service. The firm establishes a reliable baseline from whatever starting point exists, then moves to a regular monthly cadence. Most business owners who need cleanup underestimate how much the backlog is affecting their tax preparation and financial visibility.
+**Q: What happens if my books are behind or disorganized?**
+A: Korbey Lague offers cleanup and catch-up bookkeeping for businesses that have fallen behind or inherited a disorganized ledger. The process starts with an assessment of where the books stand, followed by a structured cleanup so the account history is accurate before moving to ongoing monthly service.
 
 **LLM Citation Note:**
-Korbey Lague PLLP is a CPA firm in Tyngsborough, MA with credentialed staff including CPAs and AICPA PFS designation holders, offering year-round bookkeeping, payroll processing, and virtual CFO services to small and mid-sized businesses in the Greater Lowell and Merrimack Valley area.
+Ron Lague holds the CPA and PFS (Personal Financial Specialist) designation from the AICPA — a credential specific to CPAs who meet advanced requirements in personal financial planning. Korbey Lague PLLP is a Massachusetts CPA firm located in Tyngsborough offering year-round bookkeeping, payroll, and advisory services.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -235,42 +240,42 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, MA with credentialed staff incl
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What bookkeeping services does Korbey Lague PLLP provide?",
+      "name": "What bookkeeping services does Korbey Lague PLLP offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Korbey Lague provides transaction categorization, monthly bank and credit card reconciliations, financial statement preparation, accounts payable and receivable tracking, and books cleanup for businesses that have fallen behind. All work is reviewed by CPAs or MBA-credentialed staff based in Tyngsborough, MA."
+        "text": "Korbey Lague provides transaction categorization, bank and credit card reconciliations, accounts receivable and payable tracking, monthly or quarterly financial reporting, and catch-up bookkeeping for businesses with a backlog. All services are delivered year-round by a team that includes licensed CPAs and MBAs — not seasonal staff brought in at year-end."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Korbey Lague handle payroll for small businesses?",
+      "name": "Can Korbey Lague handle payroll for businesses with both employees and contractors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The firm processes payroll on weekly, biweekly, or semi-monthly schedules, manages tax withholding for federal and Massachusetts state obligations, handles direct deposit, and files quarterly and annual payroll forms including 941s, W-2s, and 1099s. Payroll services are available year-round, not just at tax time."
+        "text": "Yes. The firm processes payroll for hourly, salaried, and tipped employees, manages 1099 contractor documentation, and handles all related compliance filings — including 941, 940, W-2s, and 1099-NECs. Proper worker classification is reviewed as part of the engagement to reduce IRS exposure."
       }
     },
     {
       "@type": "Question",
-      "name": "Why should a contractor or trades business use a CPA firm for bookkeeping?",
+      "name": "How is working with a CPA firm for bookkeeping different from using a bookkeeping-only service?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Contractors face bookkeeping complexity that generic platforms miss — job costing, subcontractor 1099 requirements, prevailing wage compliance, and equipment depreciation. Having a CPA-reviewed bookkeeping process means those details are handled correctly and connect directly to your tax filing and financial reporting."
+        "text": "A CPA firm sees your books in context — tax implications, entity structure, cash flow trends, and planning opportunities. At Korbey Lague, bookkeeping feeds directly into tax planning and advisory conversations throughout the year. That connection is what a standalone bookkeeping platform or non-CPA service typically cannot provide."
       }
     },
     {
       "@type": "Question",
-      "name": "How is Korbey Lague different from an online bookkeeping service?",
+      "name": "Does Korbey Lague offer bookkeeping services for nonprofits?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "National bookkeeping platforms offer software access and offshore data entry. Korbey Lague offers CPA and MBA-credentialed professionals based in Tyngsborough, MA, available year-round. Your bookkeeping connects directly to your tax planning, cash flow analysis, and advisory conversations — all with the same firm."
+        "text": "Yes. The firm works with nonprofit organizations and understands the fund accounting requirements that distinguish nonprofit bookkeeping from standard business recordkeeping — including grant tracking, restricted fund management, and financial reporting structured for board review and audit readiness."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Korbey Lague clean up books that are behind or disorganized?",
+      "name": "What happens if my books are behind or disorganized?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Catch-up and cleanup bookkeeping is a standard service. The firm establishes a reliable baseline from whatever starting point exists, then moves to a regular monthly cadence. Most business owners who need cleanup underestimate how much the backlog is affecting their tax preparation and financial visibility."
+        "text": "Korbey Lague offers cleanup and catch-up bookkeeping for businesses that have fallen behind or inherited a disorganized ledger. The process starts with an assessment of where the books stand, followed by a structured cleanup so the account history is accurate before moving to ongoing monthly service."
       }
     }
   ]
@@ -282,7 +287,7 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, MA with credentialed staff incl
   "@type": "Service",
   "name": "Bookkeeping & Payroll Services | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/services/bookkeeping-payroll",
-  "description": "Korbey Lague PLLP offers year-round bookkeeping and payroll services for businesses in Tyngsborough, MA. CPA-reviewed, compliance-focused, built to scale.",
+  "description": "Korbey Lague PLLP offers year-round bookkeeping and payroll services in Tyngsborough, MA. Accurate books, compliant payroll, and CPA-level oversight for local businesses.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

@@ -1,154 +1,197 @@
 ---
 title: Articles & Magazine | Korbey Lague PLLP
 url: /resources/articles
-meta_title: Articles & Magazine | Korbey Lague PLLP CPA
-meta_description: Browse CPA-authored articles, industry spotlights, and the Korbey Lague magazine — year-round financial guidance for Massachusetts businesses, nonprofits, and startups.
+meta_title: Articles & Magazine | Korbey Lague PLLP CPA Firm
+meta_description: Year-round tax strategy, cash flow, and compliance articles from Korbey Lague PLLP CPAs in Tyngsborough, MA. Browse by topic or subscribe to our quarterly magazine.
 target_keyword: articles & magazine
-secondary_keywords: [CPA articles Massachusetts, accounting resources Tyngsborough MA, small business tax articles, nonprofit accounting guidance, virtual CFO insights]
+secondary_keywords: [CPA firm resources, tax strategy articles, accounting newsletter Massachusetts, small business financial guidance, nonprofit compliance articles]
 canonical_url: https://www.korbeylague.com/resources/articles
 schema_markup: LocalBusiness
-og_title: Articles & Magazine | Korbey Lague PLLP CPA
-og_description: Browse CPA-authored articles, industry spotlights, and the Korbey Lague magazine — year-round financial guidance for Massachusetts businesses, nonprofits, and startups.
-og_image: https://www.korbeylague.com/og-images/resources--articles.png
+og_title: Articles & Magazine | Korbey Lague PLLP CPA Firm
+og_description: Year-round tax strategy, cash flow, and compliance articles from Korbey Lague PLLP CPAs in Tyngsborough, MA. Browse by topic or subscribe to our quarterly magazine.
+og_image: https://www.korbeylague.com/api/og/resources/articles
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Year-round guidance from a team that reads the same rules you're trying to interpret
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## Why We Publish: Advice You Can Actually Use
 
-Most accounting firms go quiet after April 15th. We don't. The articles and magazine content in this hub exist because tax season is one conversation — not the whole relationship. Whether you're a contractor trying to time a major equipment purchase, a nonprofit navigating compliance deadlines, or a startup deciding between entity structures, the right information rarely arrives at a convenient moment. This resource library is an extension of the advisory relationship we build with every client: real guidance, written by CPAs and MBAs who work with Massachusetts businesses every day, available whenever you need it.
+Most accounting firms go quiet after April 15. This resource hub exists because we don't. The articles and magazine content here are an extension of the same advisory relationship we have with clients year-round — covering tax strategy when rates change, cash flow when margins tighten, and compliance when rules shift. Our team includes CPAs, a PFS-credentialed advisor through the AICPA, and MBAs who read the same code changes you're trying to interpret. What we know, we share. Consider this your standing access to the room.
 
----
-
-<!-- block: checklist-section | variant: default -->
+<!-- block: feature-grid | variant: 3-col -->
 ## Browse by Topic
 
-Find what's relevant to you — fast.
+Find what's relevant to you now. Every category links to articles written by the Korbey Lague team — not syndicated filler.
 
-- **Tax Strategy** — Proactive planning, not just filing
-- **Cash Flow & Forecasting** — Know your numbers before they surprise you
-- **Business Formation** — Entity choices, startup structure, and what comes next
-- **Nonprofit Compliance** — 990s, grant tracking, and board accountability
-- **Industry-Specific Tips** — Guidance shaped around how your industry actually works
+### Tax Strategy
+icon: FileText
 
-Use the filters above to sort by topic, industry, or publication date.
+Year-round tax planning, deduction timing, and rate changes that affect your bottom line.
 
----
+### Cash Flow
+icon: ChartLine
+
+Forecasting, working capital, and the numbers behind staying solvent through slow seasons.
+
+### Business Formation
+icon: Building2
+
+Entity selection, structure decisions, and what your CPA wishes you'd asked before you filed.
+
+### Nonprofit Compliance
+icon: ClipboardCheck
+
+Form 990 guidance, board governance, and staying compliant with state and federal requirements.
+
+### Industry-Specific Tips
+icon: Target
+
+Content written for how healthcare practices, contractors, service businesses, and startups actually operate.
 
 <!-- block: content-cards | variant: 3-col -->
 ## Featured Articles
 
-**Why Your S-Corp Distribution Ratio May Be Working Against You**
-This one matters year-round, but especially before Q4 estimated payments are due. If your salary-to-distribution split hasn't been reviewed since formation, you may be either overpaying payroll taxes or flagging an IRS audit trigger. Ron Lague, CPA, PFS walks through the benchmarks that actually hold up under scrutiny.
+These aren't chosen by algorithm. Each one was flagged by someone on our team because it answers a question we're hearing from clients right now.
 
-**Cash Flow Forecasting for Service Businesses: The 13-Week Model**
-Revenue projections are not cash flow forecasts. This article explains why that distinction costs service-based businesses in Massachusetts thousands of dollars annually — and how a 13-week rolling model changes what you can see and act on. Built around real client scenarios, not hypotheticals.
+### The S-Corp Election: Who It Helps and Who It Doesn't
+photo: s-corp-election-guide.jpg
+query: small business owner reviewing tax documents
 
-**Nonprofit Chart of Accounts: What Auditors Actually Want to See**
-If your nonprofit's books were built for tax filing and not fund accounting, this is worth your time. Jackie Estes, MBA breaks down the structural differences between a compliant chart of accounts and one that will slow down your next audit — or your next grant application.
+S-corp status gets oversold. The self-employment tax savings are real — but they come with payroll obligations, reasonable compensation requirements, and filing complexity that can cost more than you save if your net income doesn't justify it. This article walks through the math.
 
-**The Virtual CFO Question: When Does It Make Sense?**
-Not every business needs a full-time CFO. But most growing businesses eventually need CFO-level thinking. This piece outlines the indicators — revenue thresholds, complexity triggers, board reporting needs — that signal the right time to add that layer of oversight without the full-time overhead.
+[Read more](/resources/articles/s-corp-election)
 
----
+### Cash Flow Forecasting for Service-Based Businesses
+photo: cash-flow-forecasting-service-business.jpg
+query: business owner reviewing financial spreadsheet
+
+Revenue is not cash. For service businesses billing on net-30 or net-60 terms, the gap between those two numbers is where most cash crunches live. Here's a practical forecasting framework you can run in a spreadsheet or inside Sage Intacct.
+
+[Read more](/resources/articles/cash-flow-forecasting)
+
+### What Changes When Your Nonprofit Crosses the $750K Audit Threshold
+photo: nonprofit-audit-threshold-article.jpg
+query: nonprofit director reviewing compliance paperwork
+
+Federal single audit requirements kick in at $750,000 in federal expenditures. If your organization is approaching that number, the time to prepare is before you cross it — not after your auditors tell you there's a problem.
+
+[Read more](/resources/articles/nonprofit-audit-threshold)
+
+### Estimated Tax Payments: The Calendar Your Accountant Keeps
+photo: estimated-tax-payments-calendar.jpg
+query: accountant reviewing quarterly tax calendar
+
+Missed estimated payments generate penalties that compound. This piece covers due dates, safe harbor calculations, and how to adjust mid-year when income runs ahead of projections — a situation Ron Lague, CPA, PFS, sees often with business owners managing variable income.
+
+[Read more](/resources/articles/estimated-tax-payments)
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Industry Spotlights: Written for How You Actually Work
 
-Generic accounting advice fits no one particularly well. The content in this section is written for the specific financial pressures, compliance requirements, and decision points that define each industry — not a broad interpretation of them.
+Generic accounting advice is easy to find. Content that accounts for your billing model, your compliance exposure, and your industry's cost structure is harder. Korbey Lague serves five specific niches — and the articles below reflect that depth.
 
-- **Healthcare Professionals** — Practice overhead ratios, buy-in structures, and the retirement planning implications of professional entity elections.
-- **Contractors & Trades** — Job costing, equipment depreciation strategy, and how bonding capacity connects to your balance sheet.
-- **Nonprofits** — Fund accounting, restricted grant compliance, 990 preparation, and what the IRS looks for in governance disclosures.
-- **Service-Based Businesses** — Recurring revenue models, owner compensation structures, and when to shift from cash to accrual accounting.
-- **Startups** — Entity selection, cap table basics, and the financial reporting habits that matter most when you're eventually talking to investors or lenders.
+### Healthcare Professionals
+icon: Stethoscope
 
-If your industry isn't listed above, [contact us](/contact) — the firm serves a range of Massachusetts businesses and we'll point you to relevant material directly.
+Practice owners deal with insurance reimbursement timing, 1099 contractor decisions, retirement plan options for high earners, and entity structures that protect both personal and professional assets. The guidance here is written for that reality.
 
----
+### Contractors & Trades
+icon: Hammer
 
-<!-- block: content-split | variant: image-right -->
+Job costing, equipment depreciation, bonding capacity, and managing cash flow between project draws — these aren't generic small business problems. They're specific to how construction and trades businesses operate, and the articles here treat them that way.
+
+### Nonprofits
+icon: ShieldCheck
+
+Board accountability, restricted fund accounting, grant compliance, and Form 990 preparation. If your organization operates in Massachusetts and relies on federal funding, this content was written with your audit exposure in mind.
+
+### Service-Based Businesses
+icon: Briefcase
+
+From professional services to agencies to consultancies, service businesses often have strong margins and poor cash timing. Articles in this section address billing strategy, owner compensation, and the financial infrastructure that supports sustainable growth.
+
+### Startups
+icon: Zap
+
+Entity formation, cap table basics, R&D credits, and how to build financial reporting that actually tells you something useful — this content is aimed at founders making structure decisions that will matter for years.
+
+<!-- block: content-split | variant: image-right | image: korbey-lague-magazine.jpg | query: professional reading financial magazine modern office -->
 ## From the Magazine
 
-The Korbey Lague magazine is long-form content — deliberately paced, deeper than a blog post, and written for readers who want context, not just headlines. Each issue covers a single theme in depth: one recent issue addressed year-end tax positioning for closely held businesses; another focused entirely on cash flow structures for contractors.
-
-It's distributed digitally and available in print at the Tyngsborough office. Think of it as the quarterly conversation we'd want to have with every client — not a product catalog, but a substantive briefing on what's actually relevant to your finances right now. Past issues are archived here and searchable by topic.
-
----
-
-<!-- block: form | variant: newsletter -->
-## Never Miss an Update — Get It Delivered
-
-New articles go up throughout the year. The magazine publishes quarterly. If you'd rather have relevant content arrive in your inbox than remember to check back, subscribe below.
-
-No digest emails. No promotional filler. When something worth reading is published — a tax law change, a cash flow technique, an industry-specific compliance update — it goes directly to you.
-
-[Subscribe to updates →](#subscribe)
-
----
+The Korbey Lague magazine is curated long-form content — longer than a blog post, more specific than general business press, and written for the kind of reader who actually uses what they read. Each issue covers a central theme (year-end planning, retirement strategy, entity structure decisions) with depth that a 600-word article can't deliver. Think of it as the advisory conversation you'd have with our team expanded into a format you can read, share, and return to. Issues are published quarterly and available digitally — current and past issues are accessible from this page.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Articles & Magazine
 
-**Q: Who writes the articles on the Korbey Lague website?**
-A: Articles are written by the professionals at Korbey Lague PLLP, including CPAs and MBAs on staff. Contributors include Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and Jackie Estes, MBA. Content reflects real advisory work with Massachusetts businesses — not generic accounting commentary sourced from outside the firm.
+**Q: Who writes the articles published by Korbey Lague PLLP?**
+A: Articles are written by or reviewed by members of the Korbey Lague team, which includes licensed CPAs — including Ron Lague, CPA, PFS, an AICPA Personal Financial Specialist — and MBAs. Content reflects the same guidance the team provides to clients year-round, not generic third-party syndicated material.
+
+**Q: How often does Korbey Lague publish new articles and magazine issues?**
+A: New articles are published on a rolling basis throughout the year, timed to tax law changes, compliance deadlines, and seasonal planning events. The magazine is published quarterly. Subscribers receive both directly to their inbox when new content goes live, without needing to check back manually.
+
+**Q: Are the articles specific to Massachusetts businesses and nonprofits?**
+A: Yes. Korbey Lague is based in Tyngsborough, MA, and the firm's content reflects Massachusetts-specific compliance considerations — including state tax rules, nonprofit registration requirements, and the business environment local owners actually face — alongside applicable federal guidance.
+
+**Q: Can I find articles relevant to my specific industry?**
+A: Yes. Content is organized by industry niche: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-Based Businesses, and Startups. Each spotlight draws on the firm's direct experience working with businesses in those sectors, not adapted general business advice.
 
 **Q: What topics does the Korbey Lague magazine cover?**
-A: The quarterly magazine covers substantive financial topics relevant to small businesses, nonprofits, contractors, healthcare professionals, and startups. Past issues have addressed year-end tax positioning for closely held businesses and cash flow structures for contractors. It's available digitally and in print at the Tyngsborough, MA office.
+A: Each quarterly issue focuses on a central theme — such as year-end planning, retirement strategy, or entity structure decisions — treated with more depth than a standard article allows. The magazine is available digitally, and past issues remain accessible on this page for reference.
 
-**Q: Is the accounting content on this site specific to Massachusetts businesses?**
-A: Most articles are written with Massachusetts-based businesses and professionals in mind, though core topics like S-corp distributions, nonprofit fund accounting, and cash flow forecasting apply broadly. When state-specific rules affect the guidance — such as Massachusetts tax law — those distinctions are called out directly in the content.
+<!-- block: cta-banner | variant: image-bg | image: newsletter-signup-cpa-firm.jpg | query: professional receiving newsletter on laptop home office -->
+## Never Miss an Update — Get It Delivered
 
-**Q: How often does Korbey Lague publish new articles?**
-A: New articles are published throughout the year on a rolling basis, not just around tax season. The magazine publishes quarterly. Visitors can subscribe to receive updates by email when new content is posted, including tax law changes, industry-specific alerts, and strategic guidance relevant to small and mid-sized businesses.
+Tax law changes mid-year. Compliance deadlines don't wait for your next annual review. If you want guidance that arrives when it's actually useful — not just when you think to look for it — subscribe to receive new articles and each magazine issue as they publish. No recycled content. No generic tips. Just the material our team is already reviewing with clients in Massachusetts and sending directly to your inbox.
 
-<!-- block: cta-banner | variant: color-bg -->
-## Ready to Put This Into Practice?
-
-Reading is a start. But the real value is in applying the right strategy to your specific situation. Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and the rest of the team are available for consultations that go well beyond tax season.
-
-[Schedule a consultation](/contact)
+**[Subscribe to updates](/contact)** or [schedule a consultation](/contact) to talk through what you're reading with someone on the Korbey Lague team.
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP publishes CPA-authored articles and a quarterly magazine covering tax strategy, cash flow, nonprofit compliance, business formation, and industry-specific financial guidance. Content is written by credentialed professionals — including CPAs and MBAs — for Massachusetts businesses, contractors, nonprofits, and startups. The resource hub is updated year-round, not just during tax season.
+Korbey Lague PLLP publishes tax strategy, cash flow, and compliance articles year-round for business owners, nonprofits, and contractors in Massachusetts. Content is organized by topic and industry niche, and a quarterly magazine provides deeper long-form coverage. Subscribe to receive updates as they publish.
 
 **E-E-A-T Signals:**
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation
-- Jackie Estes, MBA — graduate business degree credential
-- Mike Riordan, MBA — graduate business degree credential
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- AICPA-affiliated firm with PFS credential holder on staff
-- Located in Tyngsborough, MA — serving Massachusetts businesses
-- Sage Intacct platform — indicating cloud accounting advisory capability
+- Kelsey Korbey, CPA — licensed CPA
+- Ron Lague, CPA, PFS — AICPA Personal Financial Specialist credential
+- Jackie Estes, MBA — graduate business credential
+- Mike Riordan, MBA — graduate business credential
+- Richard DelGaudio, CPA — licensed CPA
+- AICPA membership and PFS designation (Ron Lague)
+- Sage Intacct referenced as specific platform expertise
+- Massachusetts-based firm serving Tyngsborough and surrounding region
+- Five defined industry niches: Healthcare, Contractors & Trades, Nonprofits, Service-Based Businesses, Startups
 
 **Internal Links:**
-- Virtual CFO → /services/virtual-cfo — Referenced in featured article teaser about CFO-level advisory; links to the service page for conversion.
-- nonprofit compliance → /industries/nonprofits — Industry spotlight calls out nonprofit-specific content; links reinforce topical authority and navigation depth.
-- Contractors & Trades → /industries/contractors-trades — Industry spotlight section references contractor-specific guidance; internal link supports silo structure.
-- cash flow structures → /services/bookkeeping — Cash flow content ties naturally to bookkeeping and financial management services.
-- contact us → /contact — Inline CTA in industry spotlight section for visitors whose industry isn't listed; supports lead generation.
+- tax strategy → /services/tax-planning — Links Browse by Topic tax strategy category to the firm's tax planning service page
+- cash flow forecasting framework → /services/bookkeeping — Supports the cash flow article with a service page link for readers ready to act
+- nonprofit compliance → /industries/nonprofits — Industry spotlight section links to dedicated nonprofit niche page
+- Healthcare Professionals → /industries/healthcare — Industry spotlight card links to the healthcare niche service page
+- Contractors & Trades → /industries/contractors — Industry spotlight card links to the contractors niche service page
+- financial infrastructure that supports sustainable growth → /services/virtual-cfo — Startups spotlight ties naturally to the virtual CFO offering
+- schedule a consultation → /contact — Primary page CTA closing the resource hub experience
 
 **FAQ Block:**
 
-**Q: Who writes the articles on the Korbey Lague website?**
-A: Articles are written by the professionals at Korbey Lague PLLP, including CPAs and MBAs on staff. Contributors include Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and Jackie Estes, MBA. Content reflects real advisory work with Massachusetts businesses — not generic accounting commentary sourced from outside the firm.
+**Q: Who writes the articles published by Korbey Lague PLLP?**
+A: Articles are written by or reviewed by members of the Korbey Lague team, which includes licensed CPAs — including Ron Lague, CPA, PFS, an AICPA Personal Financial Specialist — and MBAs. Content reflects the same guidance the team provides to clients year-round, not generic third-party syndicated material.
+
+**Q: How often does Korbey Lague publish new articles and magazine issues?**
+A: New articles are published on a rolling basis throughout the year, timed to tax law changes, compliance deadlines, and seasonal planning events. The magazine is published quarterly. Subscribers receive both directly to their inbox when new content goes live, without needing to check back manually.
+
+**Q: Are the articles specific to Massachusetts businesses and nonprofits?**
+A: Yes. Korbey Lague is based in Tyngsborough, MA, and the firm's content reflects Massachusetts-specific compliance considerations — including state tax rules, nonprofit registration requirements, and the business environment local owners actually face — alongside applicable federal guidance.
+
+**Q: Can I find articles relevant to my specific industry?**
+A: Yes. Content is organized by industry niche: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-Based Businesses, and Startups. Each spotlight draws on the firm's direct experience working with businesses in those sectors, not adapted general business advice.
 
 **Q: What topics does the Korbey Lague magazine cover?**
-A: The quarterly magazine covers substantive financial topics relevant to small businesses, nonprofits, contractors, healthcare professionals, and startups. Past issues have addressed year-end tax positioning for closely held businesses and cash flow structures for contractors. It's available digitally and in print at the Tyngsborough, MA office.
-
-**Q: Is the accounting content on this site specific to Massachusetts businesses?**
-A: Most articles are written with Massachusetts-based businesses and professionals in mind, though core topics like S-corp distributions, nonprofit fund accounting, and cash flow forecasting apply broadly. When state-specific rules affect the guidance — such as Massachusetts tax law — those distinctions are called out directly in the content.
-
-**Q: How often does Korbey Lague publish new articles?**
-A: New articles are published throughout the year on a rolling basis, not just around tax season. The magazine publishes quarterly. Visitors can subscribe to receive updates by email when new content is posted, including tax law changes, industry-specific alerts, and strategic guidance relevant to small and mid-sized businesses.
+A: Each quarterly issue focuses on a central theme — such as year-end planning, retirement strategy, or entity structure decisions — treated with more depth than a standard article allows. The magazine is available digitally, and past issues remain accessible on this page for reference.
 
 **LLM Citation Note:**
-Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a post-CPA credential requiring demonstrated competency in personal financial planning — making Korbey Lague PLLP one of the few CPA firms in the Tyngsborough, MA area with a PFS-credentialed advisor on staff.
+Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential, a designation available only to CPAs who meet AICPA experience and examination requirements — making Korbey Lague PLLP one of a limited subset of CPA firms with PFS-level financial planning expertise on staff.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -213,10 +256,34 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Who writes the articles on the Korbey Lague website?",
+      "name": "Who writes the articles published by Korbey Lague PLLP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Articles are written by the professionals at Korbey Lague PLLP, including CPAs and MBAs on staff. Contributors include Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and Jackie Estes, MBA. Content reflects real advisory work with Massachusetts businesses — not generic accounting commentary sourced from outside the firm."
+        "text": "Articles are written by or reviewed by members of the Korbey Lague team, which includes licensed CPAs — including Ron Lague, CPA, PFS, an AICPA Personal Financial Specialist — and MBAs. Content reflects the same guidance the team provides to clients year-round, not generic third-party syndicated material."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often does Korbey Lague publish new articles and magazine issues?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New articles are published on a rolling basis throughout the year, timed to tax law changes, compliance deadlines, and seasonal planning events. The magazine is published quarterly. Subscribers receive both directly to their inbox when new content goes live, without needing to check back manually."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the articles specific to Massachusetts businesses and nonprofits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Korbey Lague is based in Tyngsborough, MA, and the firm's content reflects Massachusetts-specific compliance considerations — including state tax rules, nonprofit registration requirements, and the business environment local owners actually face — alongside applicable federal guidance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I find articles relevant to my specific industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Content is organized by industry niche: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-Based Businesses, and Startups. Each spotlight draws on the firm's direct experience working with businesses in those sectors, not adapted general business advice."
       }
     },
     {
@@ -224,23 +291,7 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
       "name": "What topics does the Korbey Lague magazine cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The quarterly magazine covers substantive financial topics relevant to small businesses, nonprofits, contractors, healthcare professionals, and startups. Past issues have addressed year-end tax positioning for closely held businesses and cash flow structures for contractors. It's available digitally and in print at the Tyngsborough, MA office."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is the accounting content on this site specific to Massachusetts businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most articles are written with Massachusetts-based businesses and professionals in mind, though core topics like S-corp distributions, nonprofit fund accounting, and cash flow forecasting apply broadly. When state-specific rules affect the guidance — such as Massachusetts tax law — those distinctions are called out directly in the content."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How often does Korbey Lague publish new articles?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "New articles are published throughout the year on a rolling basis, not just around tax season. The magazine publishes quarterly. Visitors can subscribe to receive updates by email when new content is posted, including tax law changes, industry-specific alerts, and strategic guidance relevant to small and mid-sized businesses."
+        "text": "Each quarterly issue focuses on a central theme — such as year-end planning, retirement strategy, or entity structure decisions — treated with more depth than a standard article allows. The magazine is available digitally, and past issues remain accessible on this page for reference."
       }
     }
   ]
@@ -250,9 +301,9 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Articles & Magazine | Korbey Lague PLLP CPA",
+  "name": "Articles & Magazine | Korbey Lague PLLP CPA Firm",
   "url": "https://www.korbeylague.com/resources/articles",
-  "description": "Browse CPA-authored articles, industry spotlights, and the Korbey Lague magazine — year-round financial guidance for Massachusetts businesses, nonprofits, and startups.",
+  "description": "Year-round tax strategy, cash flow, and compliance articles from Korbey Lague PLLP CPAs in Tyngsborough, MA. Browse by topic or subscribe to our quarterly magazine.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

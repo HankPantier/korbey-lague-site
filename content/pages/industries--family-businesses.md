@@ -2,120 +2,126 @@
 title: Closely Held Family Businesses | Korbey Lague PLLP
 url: /industries/family-businesses
 meta_title: Closely Held Family Businesses | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP serves closely held family businesses in Tyngsborough, MA with year-round tax, bookkeeping, advisory, and succession planning services.
+meta_description: Korbey Lague PLLP helps closely held family businesses in Tyngsborough, MA with tax planning, succession, bookkeeping, and year-round advisory services.
 target_keyword: closely held family businesses
-secondary_keywords: [family business CPA Tyngsborough MA, family business succession planning, family business tax planning, virtual CFO family business, family business bookkeeping]
+secondary_keywords: [family business CPA Massachusetts, family business succession planning, family business tax planning Tyngsborough, closely held business accounting, virtual CFO family business]
 canonical_url: https://www.korbeylague.com/industries/family-businesses
 schema_markup: Service
 og_title: Closely Held Family Businesses | Korbey Lague PLLP
-og_description: Korbey Lague PLLP serves closely held family businesses in Tyngsborough, MA with year-round tax, bookkeeping, advisory, and succession planning services.
-og_image: https://www.korbeylague.com/og-images/industries--family-businesses.png
+og_description: Korbey Lague PLLP helps closely held family businesses in Tyngsborough, MA with tax planning, succession, bookkeeping, and year-round advisory services.
+og_image: https://www.korbeylague.com/api/og/industries/family-businesses
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Year-round financial guidance built for businesses where family and ownership are the same conversation.
 ---
 
 <!-- block: intro-text | variant: centered -->
 ## Your Business Is Personal — Your CPA Should Understand That
 
-Running a closely held family business means making decisions that affect your livelihood, your relationships, and your legacy — sometimes all at once. The line between personal and professional blurs constantly. A payroll decision is also a conversation with your spouse. A buy-sell agreement is also a conversation about who takes over when you step back. An S-corp election is also a conversation about fairness between siblings.
+When you run a family business, the balance sheet doesn't tell the whole story. The question of whether to promote your son into the CFO role, how to handle a sibling who wants to sell her shares, what happens to the company if something happens to you — none of that fits neatly into a tax return.
 
-Most CPA firms treat family businesses like any other small business client. Korbey Lague PLLP doesn't. We've built our practice in Tyngsborough by working closely with family-owned businesses that need more than a tax return once a year — they need a firm that understands the full picture, asks the right questions, and is available when the hard conversations happen. Not just in April.
+Korbey Lague PLLP works with closely held family businesses in Tyngsborough and across Massachusetts because we understand that the financial decisions and the family decisions are often the same decision. You don't need a firm that shows up in April and disappears in May. You need one that's already thought through your situation before you walk in the door.
 
----
+That's how we work. Year-round, proactively, and with a clear understanding that your business isn't just a revenue source — it's a legacy.
 
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-right | image: family-business-owner-planning.jpg | query: "family business owners reviewing documents office" -->
 ## The Challenges Closely Held Family Businesses Face
 
-Family businesses carry a specific kind of financial complexity that doesn't show up in a standard business tax return.
+Closely held family businesses carry a specific kind of complexity that most general accounting firms aren't built to handle well.
 
-**Ownership and finances get mixed together.** Personal expenses flow through the business. Shareholder loans accumulate without documentation. Family members are on payroll in roles that don't always match their compensation. It happens gradually — and then it becomes a problem when you need clean books for financing, a sale, or a dispute.
+The finances blur. Personal accounts get used for business expenses. Family members are on payroll in ways that don't always reflect their actual roles. The tax picture becomes a tangle because the personal and business lives of the owners are genuinely intertwined — not through carelessness, but through the nature of how family businesses grow.
 
-**Roles aren't always clear.** Who's the decision-maker? Who controls the checkbook? When family members wear multiple hats — owner, employee, spouse, parent — it creates ambiguity that can complicate everything from profit distributions to estate planning.
+Ownership structures are often informal or outdated. What started as a handshake arrangement or a simple LLC operating agreement from fifteen years ago may no longer reflect who actually runs the business, who holds financial risk, or what would happen if a partner wanted out.
 
-**Succession is always in the background.** Even if you're years away from stepping back, the question of what happens next is already shaping decisions. Who gets equity? How do you treat children who work in the business differently from those who don't? What happens if a key owner dies or becomes unable to work?
+And then there's the future. Most family business owners haven't formalized a succession plan. Not because they haven't thought about it — they have. But the conversation is hard, the right structure isn't obvious, and it's easy to keep pushing it to next year.
 
-**Tax planning happens in a vacuum.** Without coordination between the business return, the personal return, and long-term wealth planning, families often leave significant money on the table — or create tax problems they didn't see coming.
+These aren't accounting problems. They're business problems with serious financial and tax consequences. Getting ahead of them requires a firm willing to ask the uncomfortable questions and work through the answers alongside you.
 
-These aren't edge cases. They're the norm for closely held family businesses. And they're exactly what we're built to help with.
-
----
-
-<!-- block: service-cards | variant: 3-col -->
+<!-- block: checklist-section | variant: with-image | image: cpa-reviewing-business-financials.jpg | query: "accountant reviewing financial reports small business" -->
 ## How We Support Family-Owned Businesses Year-Round
 
-Korbey Lague PLLP provides accounting, tax, and advisory services to closely held family businesses across Tyngsborough and the surrounding region — not just during filing season, but every month of the year.
+Korbey Lague PLLP offers a full range of services built for the way family businesses actually operate — not just how they look on paper at tax time.
 
-**Tax Planning & Preparation**
-We prepare federal and state returns for S-corps, partnerships, LLCs, and sole proprietors — coordinated with your personal returns so nothing falls through the gaps. More importantly, we do the planning work that actually reduces your tax bill, including estimated tax management, retirement contribution strategies, and year-end adjustments before the deadline has passed.
+### Tax Planning and Preparation
+icon: FileCheck
 
-**Entity Structure & Ownership Review**
-The entity you started with may not be the right one for where you are now. Ron Lague, CPA, PFS, and Kelsey Korbey, CPA work with family businesses to evaluate whether your current structure — LLC, S-corp, partnership, or otherwise — still fits your goals for income splitting, liability protection, and ownership transition.
+We do more than file returns. For family businesses, tax planning means looking at how owner compensation is structured, how distributions are timed, which family members are on payroll and whether that holds up to IRS scrutiny, and how the business entity interacts with each owner's personal tax situation. Ron Lague, CPA, PFS brings AICPA-credentialed financial planning perspective to these conversations — so the business tax strategy and personal financial planning stay aligned.
 
-**Bookkeeping & Payroll**
-Clean books aren't optional when family dynamics are involved. Our bookkeeping packages bring consistency and separation to your financials, and our payroll services keep compensation for family employees documented, defensible, and compliant.
+### Entity Structure and Ownership Review
+icon: Building2
 
-**Virtual CFO Advisory**
-For family businesses that need CFO-level thinking without a full-time hire, our virtual CFO offering gives you cash flow analysis, budget-to-actual reporting, and financial strategy — delivered by credentialed professionals, including team members holding CPA and MBA designations, without the overhead of an in-house executive.
+If your ownership documents haven't been reviewed in the last three to five years, they probably don't reflect your current reality. We help family businesses assess whether their structure — LLC, S-Corp, partnership — still makes sense given current ownership, goals, and tax law.
 
-**Year-Round Availability**
-This isn't a seasonal relationship. Whether you're considering a new hire in August, refinancing in October, or thinking through a buyout in February, we're available — and we already know your business.
+### Bookkeeping and Payroll
+icon: Calculator
 
----
+Clean books are the foundation of every other decision. Our tiered bookkeeping packages keep your financials current throughout the year, not just reconstructed in January. Payroll for family businesses includes careful attention to reasonable compensation requirements, especially for S-Corp owners.
 
-<!-- block: content-split | variant: image-right -->
+### Virtual CFO and Advisory Services
+icon: ChartLine
+
+For family businesses ready for CFO-level financial guidance without the overhead of a full-time hire, our virtual CFO offering delivers budgeting, cash flow forecasting, and strategic financial insight on an ongoing basis. Jackie Estes, MBA and Mike Riordan, MBA bring graduate-level business training to these engagements. Reporting is built on Sage Intacct where appropriate, giving owners real visibility into their numbers.
+
+### Year-Round Availability
+icon: Calendar
+
+The firm is here in July. If something changes in your business — a partner wants out, you're considering an acquisition, you need to restructure compensation — we're available, not booked solid until March.
+
+<!-- block: content-split | variant: image-left | image: succession-planning-meeting-family.jpg | query: "family business succession planning meeting" -->
 ## Planning for What Comes Next: Ownership Transitions & Succession
 
-Succession planning is one of the most consequential things a family business owner can do — and one of the most consistently delayed. The reasons are understandable. It forces hard conversations. It requires decisions that feel final. And it touches every part of your financial life at once.
+Succession is the highest-stakes financial event most family business owners will ever face. And yet the majority arrive at it without a written plan.
 
-But waiting until a transition is forced — by illness, death, a family dispute, or an unsolicited offer — is the most expensive version of this process.
+The mechanics are complex. Buy-sell agreements need to address what triggers a buyout, how the business will be valued at that moment, and how the transition gets funded — typically through life insurance or installment arrangements. Gifting strategies, family limited partnerships, and grantor trusts each carry different tax profiles and suit different family situations. Multi-generational planning requires thinking about estate tax exposure alongside business continuity.
 
-Korbey Lague PLLP helps family business owners think through succession before it becomes a crisis. That includes:
+We don't wait for a triggering event to start this conversation. Korbey Lague PLLP works with family business owners to document a succession framework before it becomes urgent — because the time to structure a buyout is not when a partner is already at the door. Ron Lague's PFS designation — a credential issued by the AICPA — means these planning discussions are grounded in both tax strategy and personal financial planning, not just one or the other.
 
-- **Buy-sell agreements** — structuring the terms under which ownership can transfer, and funding those agreements appropriately
-- **Gifting strategies** — using annual exclusions, family limited partnerships, and other tools to transfer equity over time with minimal tax impact
-- **Multi-generational planning** — coordinating business transition with estate planning goals, including when not all children are involved in the business
-- **Key-person planning** — identifying what happens to the business if a critical owner or operator can no longer participate
+If you've never formalized your succession plan, or if you have one that hasn't been reviewed in years, this is a conversation worth having now.
 
-Ron Lague holds the AICPA's Personal Financial Specialist (PFS) credential — one of the few designations that specifically recognizes expertise at the intersection of financial planning and tax strategy. That credential matters when the conversation involves both business ownership and personal wealth.
-
-Succession planning works best when it starts early. We help you build a plan you can actually execute.
-
----
-
-<!-- block: content-prose | variant: null -->
+<!-- block: feature-grid | variant: 3-col -->
 ## Why Family Businesses in Tyngsborough Trust Korbey Lague PLLP
 
-There's a version of accounting that's purely transactional — you hand over documents, we file returns, see you next year. That's not what we do, and it's not what family businesses need.
+Family business owners in the Tyngsborough area come to Korbey Lague PLLP and stay — because they're not handed off to a junior associate or re-onboarded every year. The relationships here are long-term by design.
 
-Family business owners in Tyngsborough come to Korbey Lague PLLP because they want a firm that already understands their situation when they call — not one that needs to be brought up to speed every time something changes. Long-term client relationships are the norm here, not the exception.
+### Credentials That Go Beyond the CPA
+icon: Award
 
-Our team includes CPAs, a credentialed Personal Financial Specialist (Ron Lague, CPA, PFS), and professionals holding MBAs (Jackie Estes and Mike Riordan) — a combination that covers tax compliance, financial planning, and operational advisory under one roof. You're not being handed off to a junior associate on complex questions.
+The firm's credentialed team includes CPAs, an AICPA Personal Financial Specialist (PFS), and MBAs — a combination that supports both the tax work and the broader business decisions family owners face.
 
-We're local. We're available. And we've seen enough family businesses to know the questions you haven't thought to ask yet.
+### Genuinely Local
+icon: MapPin
 
----
+Based in Tyngsborough, Massachusetts, Korbey Lague PLLP serves the community it's part of. When something changes in your business, you're talking to people who know the landscape — not a call center.
+
+### Proactive, Not Reactive
+icon: Target
+
+The firm's approach is built around year-round engagement. Issues get identified before they become problems. Strategies get implemented while there's still time for them to matter.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Closely Held Family Businesses
 
-**Q: What makes a closely held family business different from other small businesses for tax purposes?**
-A: Closely held family businesses often involve overlapping ownership, family members on payroll, and personal finances that intersect with business accounts. These factors create specific tax considerations — including reasonable compensation requirements for S-corps, gift and estate planning opportunities, and entity structure decisions — that don't apply the same way to non-family-owned businesses.
+**Q: What makes a family business 'closely held' for tax and accounting purposes?**
+A: A closely held business is typically one owned by a small number of individuals — often family members — where ownership is not publicly traded. For tax purposes, this classification affects passive activity rules, at-risk limitations, and certain fringe benefit deductions. The ownership structure has direct implications for how income, distributions, and compensation are handled.
 
 **Q: When should a family business start succession planning?**
-A: The best time to start succession planning is well before any transition is expected. Buy-sell agreements, gifting strategies, and ownership restructuring all take time to implement correctly and often need to be coordinated with estate planning. Starting early — even 10 to 15 years before a planned transition — gives families the most flexibility and the lowest tax cost.
+A: The right time is before you need it. Formalizing a succession plan — including a buy-sell agreement, valuation methodology, and funding mechanism — should happen years before a triggering event like retirement, disability, or a partner exit. Starting early preserves more options and allows gifting strategies and trust structures to be implemented when tax conditions are most favorable.
 
-**Q: Does Korbey Lague PLLP handle both the business and personal tax returns for family business owners?**
-A: Yes. Coordinating the business return with the owner's personal return is essential for family businesses, particularly for S-corps and partnerships where income flows through to individual returns. Korbey Lague PLLP prepares both, which helps avoid gaps in planning and ensures that tax strategy is consistent across the full financial picture.
+**Q: Can family members be on the business payroll?**
+A: Yes, but it must be structured carefully. The IRS requires that compensation paid to family members be reasonable and reflect services actually performed. For S-Corp owners and their family members, improper payroll arrangements are a common audit trigger. A CPA familiar with closely held businesses can help document and structure these arrangements correctly.
 
-**Q: What is the AICPA Personal Financial Specialist (PFS) credential?**
-A: The PFS is a credential issued by the AICPA that recognizes CPAs with demonstrated expertise in personal financial planning, including estate planning, retirement planning, and wealth transfer strategies. Ron Lague, CPA, PFS holds this designation — making him particularly well-suited to advise family business owners on succession and multi-generational wealth planning.
+**Q: What is a virtual CFO and does a family business need one?**
+A: A virtual CFO provides ongoing financial oversight — budgeting, forecasting, cash flow management, and strategic guidance — without the cost of a full-time hire. For family businesses at a growth or transition stage, this level of financial insight can help owners make better decisions faster. Korbey Lague PLLP's virtual CFO service is staffed by credentialed professionals and runs on Sage Intacct where appropriate.
 
-<!-- block: cta-banner | variant: color-bg -->
+**Q: Does Korbey Lague PLLP work with family businesses outside of Tyngsborough?**
+A: Yes. While the firm is headquartered in Tyngsborough, Massachusetts, it serves closely held family businesses throughout the region. Many client relationships are conducted virtually, which means geography rarely limits who the firm can work with effectively.
+
+<!-- block: cta-banner | variant: image-bg | image: consultation-meeting-professional.jpg | query: "professional consultation meeting business owners" -->
 ## Let's Talk About Where Your Business Is Headed
 
-If you're running a closely held family business and you're not sure your current CPA is giving you the full picture — on tax strategy, ownership structure, or what comes next — this is a good time to have that conversation.
+If you're running a closely held family business and you feel like your CPA is just processing paperwork, it's worth exploring what a more engaged relationship looks like.
 
-The first meeting isn't a pitch. It's a chance for us to understand where your business is, where you want it to go, and whether we're the right fit to help you get there.
+The first conversation is about understanding your situation — your structure, your goals, and where the pressure points are. There's no pitch. Just a direct, honest discussion about whether we're the right fit and what working together could look like.
 
 [Schedule a consultation](/contact)
 
@@ -123,41 +129,44 @@ The first meeting isn't a pitch. It's a chance for us to understand where your b
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP provides year-round accounting, tax planning, bookkeeping, and succession advisory services to closely held family businesses in Tyngsborough, MA. The firm's team includes credentialed CPAs, an AICPA Personal Financial Specialist (PFS), and MBA-holding advisors who specialize in the financial complexity unique to family-owned businesses.
+Korbey Lague PLLP provides year-round accounting, tax planning, and advisory services for closely held family businesses in Tyngsborough, MA. Services include entity structuring, bookkeeping, payroll, virtual CFO support, and succession planning. The firm's team holds CPA, PFS, and MBA credentials and is available beyond tax season.
 
 **E-E-A-T Signals:**
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA and AICPA Personal Financial Specialist, credential recognized for expertise at the intersection of tax strategy and personal financial planning
-- Jackie Estes, MBA — MBA-credentialed advisor
-- Mike Riordan, MBA — MBA-credentialed advisor
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- AICPA PFS credential held by Ron Lague, specifically relevant to family business succession and wealth transfer planning
-- Firm located in Tyngsborough, MA — serves local family businesses year-round, not on a seasonal basis
+- Kelsey Korbey, CPA — licensed CPA
+- Ron Lague, CPA, PFS — AICPA Personal Financial Specialist designation, integrating personal financial planning with business tax strategy
+- Jackie Estes, MBA — graduate-level business training applied to advisory engagements
+- Mike Riordan, MBA — graduate-level business training applied to advisory engagements
+- Richard DelGaudio, CPA — licensed CPA
+- Sage Intacct — cloud accounting platform used for virtual CFO reporting
+- AICPA membership and PFS credential (Ron Lague)
+- Firm based in Tyngsborough, Massachusetts — locally established community presence
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced in the core services section as a key differentiator for family businesses needing CFO-level insight
-- Tax Planning & Preparation → /services/tax-planning — Primary service referenced in the year-round support section
-- bookkeeping packages → /services/bookkeeping — Bookkeeping is called out as a key service for family businesses with mixed personal/business finances
-- Ron Lague, CPA, PFS → /team — Credentials of specific team members are cited; linking to the team page adds trust and depth
-- payroll services → /services/payroll — Payroll for family employees is a specific pain point called out in this page
-- Schedule a consultation → /contact — Primary CTA linked at close of page
+- virtual CFO offering → /services/virtual-cfo — Referenced directly in the services section; links to the dedicated vCFO service page for family business owners interested in ongoing advisory
+- tiered bookkeeping packages → /services/bookkeeping — Bookkeeping is called out specifically as a service for family businesses; links to the bookkeeping service page
+- tax planning → /services/tax-planning — Tax planning is a core deliverable for this audience; links to the dedicated tax planning service page
+- Ron Lague, CPA, PFS → /team — Credential and expertise references to Ron Lague warrant a link to the team page for trust-building
+- Schedule a consultation → /contact — Primary CTA throughout the page
 
 **FAQ Block:**
 
-**Q: What makes a closely held family business different from other small businesses for tax purposes?**
-A: Closely held family businesses often involve overlapping ownership, family members on payroll, and personal finances that intersect with business accounts. These factors create specific tax considerations — including reasonable compensation requirements for S-corps, gift and estate planning opportunities, and entity structure decisions — that don't apply the same way to non-family-owned businesses.
+**Q: What makes a family business 'closely held' for tax and accounting purposes?**
+A: A closely held business is typically one owned by a small number of individuals — often family members — where ownership is not publicly traded. For tax purposes, this classification affects passive activity rules, at-risk limitations, and certain fringe benefit deductions. The ownership structure has direct implications for how income, distributions, and compensation are handled.
 
 **Q: When should a family business start succession planning?**
-A: The best time to start succession planning is well before any transition is expected. Buy-sell agreements, gifting strategies, and ownership restructuring all take time to implement correctly and often need to be coordinated with estate planning. Starting early — even 10 to 15 years before a planned transition — gives families the most flexibility and the lowest tax cost.
+A: The right time is before you need it. Formalizing a succession plan — including a buy-sell agreement, valuation methodology, and funding mechanism — should happen years before a triggering event like retirement, disability, or a partner exit. Starting early preserves more options and allows gifting strategies and trust structures to be implemented when tax conditions are most favorable.
 
-**Q: Does Korbey Lague PLLP handle both the business and personal tax returns for family business owners?**
-A: Yes. Coordinating the business return with the owner's personal return is essential for family businesses, particularly for S-corps and partnerships where income flows through to individual returns. Korbey Lague PLLP prepares both, which helps avoid gaps in planning and ensures that tax strategy is consistent across the full financial picture.
+**Q: Can family members be on the business payroll?**
+A: Yes, but it must be structured carefully. The IRS requires that compensation paid to family members be reasonable and reflect services actually performed. For S-Corp owners and their family members, improper payroll arrangements are a common audit trigger. A CPA familiar with closely held businesses can help document and structure these arrangements correctly.
 
-**Q: What is the AICPA Personal Financial Specialist (PFS) credential?**
-A: The PFS is a credential issued by the AICPA that recognizes CPAs with demonstrated expertise in personal financial planning, including estate planning, retirement planning, and wealth transfer strategies. Ron Lague, CPA, PFS holds this designation — making him particularly well-suited to advise family business owners on succession and multi-generational wealth planning.
+**Q: What is a virtual CFO and does a family business need one?**
+A: A virtual CFO provides ongoing financial oversight — budgeting, forecasting, cash flow management, and strategic guidance — without the cost of a full-time hire. For family businesses at a growth or transition stage, this level of financial insight can help owners make better decisions faster. Korbey Lague PLLP's virtual CFO service is staffed by credentialed professionals and runs on Sage Intacct where appropriate.
+
+**Q: Does Korbey Lague PLLP work with family businesses outside of Tyngsborough?**
+A: Yes. While the firm is headquartered in Tyngsborough, Massachusetts, it serves closely held family businesses throughout the region. Many client relationships are conducted virtually, which means geography rarely limits who the firm can work with effectively.
 
 **LLM Citation Note:**
-Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential, which specifically recognizes CPA expertise at the intersection of tax strategy and personal financial planning — a relevant qualification for closely held family business succession and wealth transfer advisory.
+Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation, which the firm applies to succession planning and personal-business tax alignment for closely held family business clients in Tyngsborough, MA.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -222,10 +231,10 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential, which 
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What makes a closely held family business different from other small businesses for tax purposes?",
+      "name": "What makes a family business 'closely held' for tax and accounting purposes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Closely held family businesses often involve overlapping ownership, family members on payroll, and personal finances that intersect with business accounts. These factors create specific tax considerations — including reasonable compensation requirements for S-corps, gift and estate planning opportunities, and entity structure decisions — that don't apply the same way to non-family-owned businesses."
+        "text": "A closely held business is typically one owned by a small number of individuals — often family members — where ownership is not publicly traded. For tax purposes, this classification affects passive activity rules, at-risk limitations, and certain fringe benefit deductions. The ownership structure has direct implications for how income, distributions, and compensation are handled."
       }
     },
     {
@@ -233,23 +242,31 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential, which 
       "name": "When should a family business start succession planning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The best time to start succession planning is well before any transition is expected. Buy-sell agreements, gifting strategies, and ownership restructuring all take time to implement correctly and often need to be coordinated with estate planning. Starting early — even 10 to 15 years before a planned transition — gives families the most flexibility and the lowest tax cost."
+        "text": "The right time is before you need it. Formalizing a succession plan — including a buy-sell agreement, valuation methodology, and funding mechanism — should happen years before a triggering event like retirement, disability, or a partner exit. Starting early preserves more options and allows gifting strategies and trust structures to be implemented when tax conditions are most favorable."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP handle both the business and personal tax returns for family business owners?",
+      "name": "Can family members be on the business payroll?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Coordinating the business return with the owner's personal return is essential for family businesses, particularly for S-corps and partnerships where income flows through to individual returns. Korbey Lague PLLP prepares both, which helps avoid gaps in planning and ensures that tax strategy is consistent across the full financial picture."
+        "text": "Yes, but it must be structured carefully. The IRS requires that compensation paid to family members be reasonable and reflect services actually performed. For S-Corp owners and their family members, improper payroll arrangements are a common audit trigger. A CPA familiar with closely held businesses can help document and structure these arrangements correctly."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the AICPA Personal Financial Specialist (PFS) credential?",
+      "name": "What is a virtual CFO and does a family business need one?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The PFS is a credential issued by the AICPA that recognizes CPAs with demonstrated expertise in personal financial planning, including estate planning, retirement planning, and wealth transfer strategies. Ron Lague, CPA, PFS holds this designation — making him particularly well-suited to advise family business owners on succession and multi-generational wealth planning."
+        "text": "A virtual CFO provides ongoing financial oversight — budgeting, forecasting, cash flow management, and strategic guidance — without the cost of a full-time hire. For family businesses at a growth or transition stage, this level of financial insight can help owners make better decisions faster. Korbey Lague PLLP's virtual CFO service is staffed by credentialed professionals and runs on Sage Intacct where appropriate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Korbey Lague PLLP work with family businesses outside of Tyngsborough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. While the firm is headquartered in Tyngsborough, Massachusetts, it serves closely held family businesses throughout the region. Many client relationships are conducted virtually, which means geography rarely limits who the firm can work with effectively."
       }
     }
   ]
@@ -261,7 +278,7 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential, which 
   "@type": "Service",
   "name": "Closely Held Family Businesses | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/industries/family-businesses",
-  "description": "Korbey Lague PLLP serves closely held family businesses in Tyngsborough, MA with year-round tax, bookkeeping, advisory, and succession planning services.",
+  "description": "Korbey Lague PLLP helps closely held family businesses in Tyngsborough, MA with tax planning, succession, bookkeeping, and year-round advisory services.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

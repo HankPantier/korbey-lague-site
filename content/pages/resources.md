@@ -139,9 +139,6 @@ Korbey Lague PLLP offers a curated library of financial guides, tax planning che
 - Year-round advisory model serving Tyngsborough, MA and surrounding Merrimack Valley communities
 
 **Internal Links:**
-- Virtual CFO services → /services/virtual-cfo — Referenced in the articles section and FAQ; drives visitors deeper into the service offering
-- tiered bookkeeping packages → /services/bookkeeping — Connects resource browsers to the firm's bookkeeping service detail page
-- tax planning → /services/tax-planning — Supports the checklists and calendar section with a direct link to the tax planning service
 - industries we serve → /industries — Extends the industry guides section for visitors who want deeper context on each niche
 - Schedule a consultation → /contact — Primary CTA destination — closing CTA block and FAQ answers
 - meet the team → /about — Reinforces credentialed authorship of guides and articles for trust-building

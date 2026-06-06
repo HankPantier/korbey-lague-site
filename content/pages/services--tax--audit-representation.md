@@ -161,9 +161,6 @@ Audit representation means a licensed CPA communicates directly with the IRS on 
 
 **Internal Links:**
 - tax services → /services/tax — Audit representation is a component of the firm's broader tax service offering — relevant cross-link for users exploring related services
-- virtual CFO services → /services/advisory/virtual-cfo — Business owners facing audits often benefit from ongoing financial oversight — the virtual CFO offering is a natural next step
-- bookkeeping packages → /services/bookkeeping — Clean, organized records are the foundation of a strong audit defense — links to the firm's tiered bookkeeping services as a preventive measure
-- our team of CPAs → /team — Credentialing the representation team is central to this page — the team page provides full profiles and credentials
 - Schedule a consultation → /contact — Primary CTA destination — links directly to the firm's contact/intake page
 
 **FAQ Block:**

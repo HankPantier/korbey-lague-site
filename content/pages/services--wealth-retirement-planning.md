@@ -138,12 +138,7 @@ Korbey Lague PLLP provides year-round wealth and retirement planning for small b
 - Firm advises on defined benefit plans, Solo 401(k)s, SEP-IRAs, and SIMPLE IRAs with entity-level coordination
 
 **Internal Links:**
-- tax planning → /services/tax-planning — Retirement contribution strategy is directly tied to current-year tax liability — cross-link reinforces the coordinated planning message
-- bookkeeping packages → /services/bookkeeping — Business owners managing retirement contributions need accurate books — connects operational service to wealth planning
-- virtual CFO services → /services/virtual-cfo — CFO-level planning conversations include retirement and exit strategy — natural cross-link for business owners reading this page
 - Ron Lague, CPA, PFS → /about — Credential claim links directly to the team/about page where Ron's background is detailed
-- healthcare professionals → /industries/healthcare — Healthcare niche is called out on this page — cross-link to industry page for deeper engagement
-- contractors and trades → /industries/contractors — Contractor niche referenced directly — links to dedicated industry page
 
 **FAQ Block:**
 

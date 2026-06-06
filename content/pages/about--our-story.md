@@ -144,11 +144,6 @@ Korbey Lague PLLP is a CPA firm founded in Tyngsborough, Massachusetts by Kelsey
 - Firm serves healthcare professionals, contractors, nonprofits, and startups with niche-specific advisory work
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced in the closing section; links readers to the specific service page
-- tiered bookkeeping packages → /services/bookkeeping — Mentioned in brand positioning; reinforces service depth beyond tax season
-- the team → /about/team — Team grid section naturally invites deeper reading on individual bios
-- healthcare professionals → /industries/healthcare — Named as a client niche in The Clients Who Shaped Us section
-- contractors → /industries/contractors — Named as a client niche; links to the relevant industry page
 - Schedule a consultation → /contact — Page CTA — primary conversion action
 
 **FAQ Block:**

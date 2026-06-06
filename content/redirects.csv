@@ -22,4 +22,8 @@ old_url,new_url,status_code,reason
 /what-we-do/nonprofit-accounting,/industries/nonprofits,301,redirected to new structure
 /who-we-are,/about/our-team,301,redirected to new structure
 /meet-our-team/,/about/our-team,301,redirected to new structure
+/hours,/contact,301,redirected to new structure
 /contact-us,/contact,301,redirected to new structure
+/resources/resource-library,/resources,301,content moved in new structure
+/resources/magazine/,/resources/articles,301,redirected to new structure
+/resources/blog/,/resources/articles,301,redirected to new structure

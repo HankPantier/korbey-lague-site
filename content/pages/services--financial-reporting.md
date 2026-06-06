@@ -134,11 +134,7 @@ Korbey Lague PLLP prepares compiled, reviewed, and prepared financial statements
 - Firm serves healthcare, contractor, nonprofit, service-business, and startup clients in Massachusetts
 
 **Internal Links:**
-- virtual CFO services → /services/virtual-cfo — Management reports and financial reporting naturally lead to CFO-level interpretation — cross-sell opportunity for clients needing deeper analysis
-- bookkeeping packages → /services/bookkeeping — Accurate financial reporting depends on current books — link to bookkeeping services to address the upstream dependency
-- year-round tax planning → /services/tax-planning — Financial reporting data feeds tax strategy — relevant for clients who want to connect their statements to tax outcomes
 - nonprofit accounting services → /industries/nonprofits — Nonprofits are called out specifically in the industry section — deep link to the dedicated industry page
-- contractor and trades accounting → /industries/contractors — Contractors have specific bonding and job costing needs mentioned in the copy — support with a dedicated industry page link
 
 **FAQ Block:**
 

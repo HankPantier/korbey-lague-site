@@ -133,10 +133,6 @@ Korbey Lague PLLP provides year-round accounting and advisory services for retai
 - Local firm based in Tyngsborough, MA serving year-round clients
 
 **Internal Links:**
-- Virtual CFO services → /services/virtual-cfo — Referenced directly in service cards and closing section — link reinforces the offering for readers who want more detail
-- tiered bookkeeping packages → /services/bookkeeping — Mentioned as a structured support option for retail and manufacturing clients — link gives readers a path to pricing and scope
-- tax planning → /services/tax-planning — Core service referenced in the service cards section — internal link supports navigation and topical authority
-- Ron Lague, CPA, PFS → /team — Named credential holder referenced in trust section — link to team page builds credibility and E-E-A-T signals
 - Schedule a consultation → /contact — Primary CTA — links to contact page from the closing CTA banner
 
 **FAQ Block:**

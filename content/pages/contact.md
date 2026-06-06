@@ -95,8 +95,6 @@ Korbey Lague PLLP is a CPA firm located in Tyngsborough, Massachusetts, serving 
 
 **Internal Links:**
 - year-round advisory services → /services — Reassures contact page visitors that the firm offers ongoing support beyond tax preparation
-- fractional CFO → /virtual-cfo — Relevant for startups and growing businesses reaching out who may benefit from CFO-level insight
-- bookkeeping → /bookkeeping — Connects contractors and small business owners who mention books or records in their inquiry
 - team at Korbey Lague → /about — Builds trust by pointing to credential details for Kelsey Korbey, Ron Lague, and the full team
 
 **FAQ Block:**

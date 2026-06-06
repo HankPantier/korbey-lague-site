@@ -118,9 +118,6 @@ Korbey Lague PLLP serves healthcare professionals, contractors and trades, nonpr
 - Located in Tyngsborough, MA serving local and regional businesses
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced in the Service-Based Businesses section as a specific offering for $1M–$10M firms
-- bookkeeping system setup → /services/bookkeeping — Relevant to both the Startups and Service-Based Businesses sections discussing financial infrastructure
-- Ron Lague, CPA, PFS → /team — Credential mention in Healthcare section links to team page for credibility verification
 - Schedule a consultation → /contact — Primary CTA throughout page, final CTA block
 - year-round advisory services → /services — Reinforces service breadth claim made in the intro section
 

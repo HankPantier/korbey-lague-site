@@ -180,10 +180,6 @@ Korbey Lague PLLP provides year-round accounting, tax planning, and financial ad
 - Year-round advisory availability, not limited to tax season
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced in the trust signals section when describing Sage Intacct capabilities for healthcare practices that need sophisticated financial reporting
-- quarterly reviews and tax projections → /services/tax-planning — Supports the service card on quarterly tax planning and the year-round advisory differentiator
-- tiered bookkeeping packages → /services/bookkeeping — Relevant for practice owners who need ongoing bookkeeping support alongside tax services
-- Ron Lague, CPA, PFS → /team — Credential mention in advisory section should link to team page for biographical depth and E-E-A-T support
 - Schedule a consultation → /contact — Primary CTA link in closing section
 
 **FAQ Block:**

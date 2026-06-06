@@ -86,35 +86,35 @@ icon: Stethoscope
 
 Practice owners and independent healthcare providers face a specific mix of challenges: payer reimbursements, payroll-heavy operations, professional entity structuring, and the constant tension between clinical and administrative demands. The firm understands the financial structure of healthcare practices and works with providers to reduce tax exposure and maintain clean financials that hold up to scrutiny.
 
-[Learn more about healthcare accounting →](/services/healthcare-professionals)
+[Learn more about healthcare accounting →](/industries/healthcare-professionals)
 
 ### Contractors & Trades
 icon: Hammer
 
 Job costing, equipment depreciation, bonding and licensing requirements, subcontractor payments, and cash flow gaps between project milestones — contractors carry a financial complexity that general bookkeeping misses. Korbey Lague works with construction and trade businesses to build accounting systems that reflect how the work actually runs.
 
-[Learn more about contractor accounting →](/services/contractors-trades)
+[Learn more about contractor accounting →](/industries/contractors-trades)
 
 ### Nonprofits
 icon: Users
 
 Nonprofit accounting operates under different rules — fund accounting, Form 990 preparation, grant compliance, and board-level financial reporting. Getting these wrong creates real exposure. The firm brings specific nonprofit accounting experience so organizations can focus on mission, not compliance anxiety.
 
-[Learn more about nonprofit accounting →](/services/nonprofits)
+[Learn more about nonprofit accounting →](/industries/nonprofits)
 
 ### Service-Based Businesses
 icon: Briefcase
 
 Consultants, agencies, professional services firms, and other service businesses often underestimate how much structure they need until they're growing fast and the wheels come off. Clean books, clear invoicing workflows, and smart entity structure make a significant difference in how much of the revenue you actually keep.
 
-[Learn more about service business accounting →](/services/service-based-businesses)
+[Learn more about service business accounting →](/industries/service-businesses)
 
 ### Startups
 icon: Lightbulb
 
 Early-stage businesses need an advisor who understands that today's decisions create tomorrow's complications — or opportunities. From entity selection to investor-ready financials to scaling the accounting infrastructure as the business grows, the firm supports startups at every stage of the build.
 
-[Learn more about startup accounting →](/services/startups)
+[Learn more about startup accounting →](/services/business-startup-accounting)
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Services
@@ -159,11 +159,6 @@ Korbey Lague PLLP offers tax planning and preparation, bookkeeping, fractional C
 - Industry focus across healthcare, contractors, nonprofits, service businesses, and startups
 
 **Internal Links:**
-- Learn more about healthcare accounting → /services/healthcare-professionals — Links to industry niche page for healthcare professionals
-- Learn more about contractor accounting → /services/contractors-trades — Links to industry niche page for contractors and trades
-- Learn more about nonprofit accounting → /services/nonprofits — Links to industry niche page for nonprofits
-- Learn more about service business accounting → /services/service-based-businesses — Links to industry niche page for service-based businesses
-- Learn more about startup accounting → /services/startups — Links to industry niche page for startups
 - Schedule a consultation → /contact — Primary CTA throughout the page pointing to the contact/consultation page
 
 **FAQ Block:**

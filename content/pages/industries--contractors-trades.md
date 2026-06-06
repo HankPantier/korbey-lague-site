@@ -120,8 +120,6 @@ Korbey Lague PLLP provides year-round accounting, job costing, bookkeeping, and 
 - Services include Sage Intacct-supported bookkeeping for project-based businesses
 
 **Internal Links:**
-- virtual CFO service → /services/virtual-cfo — Referenced in the feature grid and body copy as a core offering for growing contractors
-- tiered bookkeeping packages → /services/bookkeeping — Referenced in the bookkeeping feature item as the service delivery model for contractors
 - Ron Lague, CPA, PFS → /about — Credential mention links to team/about page for credibility and internal authority
 - Schedule a consultation → /contact — Primary page CTA — closes the page and drives lead conversion
 

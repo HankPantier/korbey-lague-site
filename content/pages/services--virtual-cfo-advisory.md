@@ -153,11 +153,6 @@ A Virtual CFO from Korbey Lague PLLP provides small and mid-sized businesses wit
 - Firm is physically based in Tyngsborough, MA with established local presence serving contractors, healthcare, nonprofits, startups, and service businesses
 
 **Internal Links:**
-- tiered bookkeeping packages → /services/bookkeeping — Virtual CFO clients often pair advisory with bookkeeping; cross-link reinforces the full service stack
-- tax planning and compliance → /services/tax-planning — Advisory services complement tax strategy; helps visitors understand the full scope of year-round support
-- healthcare professionals → /industries/healthcare — Referenced as a primary niche in the advisory copy; direct link improves discoverability for that audience
-- contractors and trades → /industries/contractors — Named niche in the Who This Is Built For section; links to industry-specific page for deeper engagement
-- Ron Lague, CPA, PFS → /team — Credentials are a key differentiator; team page validates expertise claims made in the advisory section
 - Schedule a consultation → /contact — Primary CTA throughout the page; ensures consistent path to conversion
 
 **FAQ Block:**

@@ -152,10 +152,6 @@ Business startup accounting covers entity selection, EIN setup, bookkeeping syst
 - Massachusetts-based firm serving Tyngsborough and surrounding areas
 
 **Internal Links:**
-- tiered bookkeeping packages → /services/bookkeeping — Referenced in the bookkeeping system setup section — links to the bookkeeping service page for clients who want to see ongoing options
-- virtual CFO → /services/virtual-cfo — Startup clients who grow quickly may need CFO-level guidance — cross-sell opportunity from the year-round advisory section
-- first-year tax planning → /services/tax-planning — Tax planning is a named deliverable in the startup package — link to the dedicated tax planning page for depth
-- payroll setup → /services/payroll — Payroll readiness is listed as a startup service — links to the payroll service page
 - Ron Lague, CPA, PFS → /about — Credential mention in entity structure section — links to team/about page to reinforce E-E-A-T
 
 **FAQ Block:**

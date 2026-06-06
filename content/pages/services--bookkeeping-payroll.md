@@ -151,9 +151,6 @@ Korbey Lague PLLP provides full-cycle bookkeeping and payroll services for busin
 - AICPA membership and PFS credential imply adherence to AICPA professional standards
 
 **Internal Links:**
-- virtual CFO → /services/virtual-cfo — Referenced inline to connect clean books to higher-level advisory services
-- tax planning → /services/tax-planning — Bookkeeping accuracy is positioned as an enabler of year-round tax planning
-- Ron Lague, CPA, PFS → /team — Credential mention links to team page for E-E-A-T reinforcement
 - Schedule a consultation → /contact — Primary CTA throughout the page
 - fund accounting → /industries/nonprofits — Nonprofit section reference supports niche industry page link equity
 

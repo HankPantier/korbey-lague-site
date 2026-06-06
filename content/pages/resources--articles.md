@@ -165,12 +165,7 @@ Korbey Lague PLLP publishes tax strategy, cash flow, and compliance articles yea
 - Five defined industry niches: Healthcare, Contractors & Trades, Nonprofits, Service-Based Businesses, Startups
 
 **Internal Links:**
-- tax strategy → /services/tax-planning — Links Browse by Topic tax strategy category to the firm's tax planning service page
-- cash flow forecasting framework → /services/bookkeeping — Supports the cash flow article with a service page link for readers ready to act
 - nonprofit compliance → /industries/nonprofits — Industry spotlight section links to dedicated nonprofit niche page
-- Healthcare Professionals → /industries/healthcare — Industry spotlight card links to the healthcare niche service page
-- Contractors & Trades → /industries/contractors — Industry spotlight card links to the contractors niche service page
-- financial infrastructure that supports sustainable growth → /services/virtual-cfo — Startups spotlight ties naturally to the virtual CFO offering
 - schedule a consultation → /contact — Primary page CTA closing the resource hub experience
 
 **FAQ Block:**

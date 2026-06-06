@@ -142,10 +142,6 @@ Korbey Lague PLLP provides year-round accounting, tax planning, and advisory ser
 - Firm based in Tyngsborough, Massachusetts — locally established community presence
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced directly in the services section; links to the dedicated vCFO service page for family business owners interested in ongoing advisory
-- tiered bookkeeping packages → /services/bookkeeping — Bookkeeping is called out specifically as a service for family businesses; links to the bookkeeping service page
-- tax planning → /services/tax-planning — Tax planning is a core deliverable for this audience; links to the dedicated tax planning service page
-- Ron Lague, CPA, PFS → /team — Credential and expertise references to Ron Lague warrant a link to the team page for trust-building
 - Schedule a consultation → /contact — Primary CTA throughout the page
 
 **FAQ Block:**

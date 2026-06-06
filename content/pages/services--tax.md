@@ -164,8 +164,6 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, MA offering year-round tax prep
 - Year-round advisory model distinguishes the firm from seasonal preparers
 
 **Internal Links:**
-- bookkeeping packages → /services/bookkeeping — Tax and bookkeeping are closely related services; clients interested in tax strategy are likely candidates for ongoing bookkeeping support
-- virtual CFO services → /services/virtual-cfo — Business clients doing tax planning may need CFO-level financial oversight — natural upgrade path
 - Schedule a consultation → /contact — Primary CTA for the page — drives conversion
 - our team of credentialed CPAs → /about — Reinforces trust signals by linking to team credentials and bios
 

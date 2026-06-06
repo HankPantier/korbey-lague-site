@@ -156,9 +156,6 @@ Korbey Lague PLLP provides year-round business tax preparation and planning for 
 - Multi-industry experience: healthcare, contractors, nonprofits, startups, service businesses
 
 **Internal Links:**
-- individual tax services → /services/tax/individual-tax — Business owners often have pass-through income that connects to personal returns — cross-link to individual tax page
-- bookkeeping packages → /services/bookkeeping — Clean books are the foundation of accurate business tax — relevant cross-sell
-- virtual CFO services → /services/virtual-cfo — Business owners reading this page are likely candidates for fractional CFO advisory — high-value cross-link
 - Ron Lague, CPA, PFS → /about — Credential mention links back to team/about page for authority reinforcement
 - Schedule a consultation → /contact — Primary CTA — closes the page and drives conversion
 

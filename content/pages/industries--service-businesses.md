@@ -122,10 +122,6 @@ Korbey Lague PLLP provides year-round accounting, tax planning, bookkeeping, and
 - Firm offers virtual CFO services using Sage Intacct
 
 **Internal Links:**
-- tiered bookkeeping packages → /services/bookkeeping — Referenced in the Services section — links to firm's bookkeeping service detail page
-- tax planning → /services/tax-planning — Linked from the service card for tax planning — drives users deeper into the service offering
-- virtual CFO → /services/virtual-cfo — Relevant for service businesses considering CFO-level advisory; natural cross-link from advisory mentions
-- Ron Lague, CPA, PFS → /team — Credential mention creates a natural link to the team bio page for credibility reinforcement
 - schedule a consultation → /contact — Primary CTA throughout the page — links to the contact/consultation page
 
 **FAQ Block:**

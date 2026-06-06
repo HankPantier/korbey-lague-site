@@ -159,9 +159,6 @@ Korbey Lague PLLP provides nonprofit accounting services in Tyngsborough, MA, in
 - Year-round advisory model — not a seasonal filing service
 
 **Internal Links:**
-- bookkeeping packages → /services/bookkeeping — Fund accounting and bookkeeping section references ongoing monthly/quarterly services
-- virtual CFO → /services/virtual-cfo — Nonprofits with limited finance staff benefit from outsourced CFO-level advisory — natural cross-link
-- Ron Lague, CPA, PFS → /team — Credential callout in 'Why Boards Trust' section links to team page for verification
 - Schedule a consultation → /contact — Primary CTA throughout page
 
 **FAQ Block:**

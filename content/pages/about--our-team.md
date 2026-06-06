@@ -100,8 +100,6 @@ Korbey Lague PLLP is staffed by licensed CPAs, credentialed MBAs, and an AICPA P
 - Year-round advisory model with consistent client point-of-contact
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced in the founder bio and intro — links to the service detail page for visitors who want to learn more
-- tiered bookkeeping packages → /services/bookkeeping — Mentioned in the intro and founder bio — links prospects to specific bookkeeping service options
 - year-round advisory model → /about — Reinforces the firm's core positioning and links to the broader About section for context
 - Schedule a consultation → /contact — Primary CTA throughout the page — drives conversions to the contact page
 

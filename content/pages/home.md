@@ -35,3 +35,15 @@ When you call us, you get the partner who knows your business — not a rotating
 ## Ready to Have a Real Conversation?
 
 No commitment. No jargon. Just a clear picture of where your business stands today.
+
+<!-- block: form | variant: contact -->
+## Get in Touch
+
+Tell us about your business and we'll be in touch within one business day.
+
+---SIDEBAR---
+
+**Or call us directly:**
+(978) 555-0100
+
+Mon–Fri, 9–5 Eastern.

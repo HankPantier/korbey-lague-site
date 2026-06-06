@@ -1,149 +1,145 @@
 ---
 title: Service Businesses | Korbey Lague PLLP
 url: /industries/service-businesses
-meta_title: CPA for Service Businesses | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP provides year-round accounting, tax planning, and CFO advisory for service businesses in Tyngsborough, MA and across New England.
+meta_title: CPA Services for Service Businesses | Korbey Lague
+meta_description: Korbey Lague PLLP offers year-round accounting, tax planning, and advisory services built specifically for service businesses in Tyngsborough, MA and beyond.
 target_keyword: service businesses
-secondary_keywords: [CPA for service businesses, accounting for consultants, small business tax planning Massachusetts, virtual CFO service businesses, bookkeeping for service companies]
+secondary_keywords: [CPA for service businesses, accounting for consultants, small business tax planning Massachusetts, owner compensation structuring, cash flow planning service business]
 canonical_url: https://www.korbeylague.com/industries/service-businesses
-schema_markup: LocalBusiness
-og_title: CPA for Service Businesses | Korbey Lague PLLP
-og_description: Korbey Lague PLLP provides year-round accounting, tax planning, and CFO advisory for service businesses in Tyngsborough, MA and across New England.
-og_image: https://www.korbeylague.com/og-images/industries--service-businesses.png
+schema_markup: Service
+og_title: CPA Services for Service Businesses | Korbey Lague
+og_description: Korbey Lague PLLP offers year-round accounting, tax planning, and advisory services built specifically for service businesses in Tyngsborough, MA and beyond.
+og_image: https://www.korbeylague.com/api/og/industries/service-businesses
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Year-round accounting and advisory built for businesses that sell expertise, not inventory.
 ---
 
 <!-- block: intro-text | variant: centered -->
 ## Running a Service Business Is Different — Your CPA Should Know That
 
-If your CPA treats your consulting firm the same way they treat a retail shop or a real estate investor, something is off. Service businesses run on fundamentally different economics — revenue tied to time and people, margins that shift with utilization, and cash flow that can swing dramatically between a slow month and a busy one.
+If your revenue comes from time, expertise, or contracted work — not inventory or widgets — your financial picture looks nothing like a retailer's. Cash flow arrives in batches. Margins depend on how well you price and how efficiently your team delivers. Owner compensation is often tangled up with what the business can afford that month. And the tax questions that matter most — entity structure, S-corp elections, retirement contributions — rarely surface during a 45-minute April appointment.
 
-The financial pressure points are specific: How do you price your services to actually be profitable? How do you structure owner compensation when you're the business? What do you do when a big client pays late and payroll is next week?
+Korbey Lague PLLP works with service business owners who are done with generic accounting. We understand that your biggest financial decisions don't happen in tax season — they happen in June when a major client pauses, in September when you're considering your first hire, or in November when you're trying to figure out what you can actually pull out of the business before year-end. That's when you need a CPA who already knows your numbers, not one you have to catch up from scratch.
 
-At Korbey Lague PLLP, we work with service business owners who are tired of getting generic advice from firms that don't understand their model. With CPAs, MBAs, and a Personal Financial Specialist on staff — including Ron Lague, CPA, PFS, who holds the AICPA's Personal Financial Specialist designation — this firm brings real credentials to the table. Not just familiarity. Actual depth.
-
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-right | image: year-round-advisory-service-business.jpg | query: "accountant meeting with small business owner" -->
 ## Year-Round Support, Not Just a Tax Return
 
-The firms that only show up in March are the ones that miss what's actually happening in your business. By the time they file your return, the decisions that shaped last year's numbers are already made and locked in.
+A tax return tells you what happened. What you actually need is someone paying attention before things happen — and available to talk when a real decision is on the table.
 
-Korbey Lague PLLP has built its reputation in Tyngsborough by being the firm that's still here in July. That means mid-year check-ins to see how your revenue is tracking. It means quarterly estimated tax calculations that reflect what your business is actually doing — not a guess based on last year. It means a conversation in October about whether to defer income or accelerate expenses before the year closes.
+For service businesses, year-round advisory support isn't a luxury. It's how you avoid surprises. Quarterly estimated tax payments that reflect how the year is actually going, not a formula from twelve months ago. Mid-year check-ins to review profitability by service line or by client. Cash flow planning that accounts for slow seasons, late-paying clients, or the lag between landing a contract and collecting on it.
 
-For service business owners, that timing matters. Your business can shift fast. A slow Q2 followed by a strong Q3 changes your tax picture entirely. If your CPA isn't talking to you until the following April, that window is gone. The firm's virtual CFO offering brings CFO-level insight at a fraction of the cost of a full-time hire — so you can make better decisions in real time, not in hindsight.
-
-This is what year-round support actually looks like. Not a newsletter. A real conversation when it counts.
+Korbey Lague's calendar doesn't go dark after April 15. Ron Lague, CPA, PFS — one of fewer than 5,000 CPAs nationwide to hold the AICPA Personal Financial Specialist credential — brings both business and personal financial planning into the same conversation, which matters enormously when the business is the owner's primary financial asset. Kelsey Korbey, CPA, and the broader team stay engaged with clients through the year, not just at filing time. If you've ever had to leave a voicemail in July and waited two weeks for a callback, you know what it means to work with a firm that treats advisory as the job — not the afterthought.
 
 <!-- block: service-cards | variant: 3-col -->
 ## Services Tailored to How Service Businesses Actually Operate
 
-Service businesses don't need a menu of generic accounting services. They need a firm that understands the financial realities of selling time, expertise, or skilled labor — and builds the work around that.
+The accounting needs of a service business are specific. Below is what that looks like in practice — not a generic menu, but the work that actually moves the needle for firms, agencies, consultants, and skilled service providers.
 
-Here's what that looks like at Korbey Lague PLLP:
+### Bookkeeping and Financial Reporting
+icon: FileText
 
-**Bookkeeping**
-Timely, accurate books aren't just a compliance requirement — they're the foundation for every business decision you make. The firm offers tiered bookkeeping packages built around the volume and complexity of service businesses, from solo consultants to multi-employee firms.
+Clean books aren't just for year-end. Monthly or quarterly bookkeeping gives you a current view of where money is going — and whether the project you thought was profitable actually is. We offer tiered bookkeeping packages built around service business volume and complexity.
 
-**Tax Planning and Preparation**
-This means proactive planning, not just filing. For service business owners, that includes estimated taxes, deductions tied to home office or vehicle use, and year-end moves that reduce what you owe.
+### Tax Planning and Preparation
+icon: Calculator
 
-**Owner Compensation Structuring**
-How you pay yourself matters — legally and financially. Whether you're an S-Corp, single-member LLC, or partnership, getting compensation structure right affects your self-employment taxes, retirement contributions, and personal financial picture. Ron Lague's PFS credential means the personal and business side of this equation gets equal attention.
+Beyond filing, we look at how your business income interacts with your personal tax picture, what deductions apply to your delivery model, and where there's room to shift the timing or structure of income to your advantage.
 
-**Entity Selection and Structure**
-The entity you started with may not be the right one for where you are now. The firm helps owners evaluate structure as the business grows.
+### Owner Compensation Structuring
+icon: DollarSign
 
-**Payroll**
-For service businesses adding staff, payroll accuracy and compliance aren't optional. The firm handles the details so owners aren't doing it themselves.
+For S-corps and partnerships especially, how you pay yourself has direct tax consequences. We help you set a reasonable salary, plan distributions, and structure compensation in a way that holds up to scrutiny and actually makes financial sense.
 
-**Profitability Analysis**
-Where are you actually making money? Which services, which clients, which time commitments are worth it? The firm uses Sage Intacct to give service business owners real visibility into the numbers that drive decisions.
+### Entity Selection and S-Corp Elections
+icon: Building
 
-<!-- block: checklist-section | variant: standalone -->
+The right entity structure for a solo consultant is not the same as for a firm with six employees and a subcontractor bench. We evaluate your specific situation and handle elections, conversions, and compliance — not just the initial recommendation.
+
+### Cash Flow Planning
+icon: ChartLine
+
+Service businesses live and die by timing. We help you build a forward-looking cash flow picture that accounts for receivables cycles, payroll obligations, estimated taxes, and the seasonal patterns specific to your industry.
+
+### Payroll and HR Compliance
+icon: Users
+
+Whether you're paying W-2 employees, 1099 contractors, or a mix of both, getting classification and payroll right matters — both for IRS purposes and for your own liability. We handle payroll administration and help you stay compliant as your team grows.
+
+<!-- block: checklist-section | variant: with-image | image: service-business-challenges.jpg | query: "small business owner reviewing financial documents desk" -->
 ## Common Financial Challenges We Help Service Businesses Solve
 
-These aren't edge cases. They're the problems that come up in almost every service business conversation:
+These are the problems that actually bring service business owners to our door — not abstract accounting concepts, but real situations that cost money or create risk when they go unaddressed.
 
-**Unpredictable revenue.** One good month doesn't mean the next one will be. The firm helps service business owners build cash flow plans that account for the variability — so a slow stretch doesn't become a crisis.
+- **Unpredictable revenue** — Feast-and-famine cycles are normal in service businesses, but that doesn't mean you have to manage your finances reactively. We help you build cash reserves, time tax payments around actual cash flow, and plan for the slow months before they arrive.
+- **Underpricing services** — Many service businesses are profitable on paper but struggling in practice because they're not pricing for actual costs, including owner time. We run profitability analysis that makes the real numbers visible.
+- **Mixing personal and business finances** — It's one of the most common issues we see, and it creates real problems at tax time and when you're trying to evaluate business performance. We help you set up clean separation and get historical books untangled.
+- **Preparing for growth or a first hire** — Adding payroll changes everything: your tax obligations, your cash flow requirements, your entity considerations. We work through that decision before you make it, not after.
+- **Not knowing what to pay yourself** — Too little and you're leaving post-tax income on the table. Too much and you create IRS exposure or cash flow strain. This is exactly the kind of question Ron Lague, CPA, PFS, and Kelsey Korbey, CPA, work through with clients regularly.
 
-**Underpricing services.** Many service businesses grow revenue without growing profit. When the books are accurate and structured correctly, the real cost of delivering a service becomes visible — and pricing decisions get easier.
-
-**Mixing personal and business finances.** It starts as a convenience and becomes a compliance problem. Untangling personal and business transactions is a common first step for new clients, and the firm handles it without judgment and without drama.
-
-**Preparing to hire.** Adding your first employee — or your fifth — changes your financial picture significantly. Payroll, benefits, employer taxes, and compensation planning all need to be in place before you bring someone on, not after.
-
-**Growing without a plan.** More clients and more revenue don't automatically mean more profit. The virtual CFO offering gives growing service businesses the financial oversight to scale deliberately, not just fast.
-
-<!-- block: content-prose | variant: left-aligned -->
+<!-- block: content-split | variant: image-left | image: tyngsborough-service-business-community.jpg | query: "professional service business owners community meeting" -->
 ## Serving Service Businesses in Tyngsborough and Beyond
 
-Korbey Lague PLLP is based in Tyngsborough, Massachusetts, and serves clients across the region — including Greater Lowell, the Merrimack Valley, and throughout New England. The firm works with service businesses of all types: independent consultants, marketing and creative agencies, professional services firms, IT and technology service providers, and trades-adjacent businesses that sell labor and expertise rather than product.
+Korbey Lague PLLP is based in Tyngsborough, Massachusetts, and a meaningful share of our service business clients are right here in the Merrimack Valley — consultants, marketing and creative agencies, staffing firms, financial services professionals, IT and managed service providers, and skilled tradespeople running their own shops. We also work with service business owners across Massachusetts and beyond, especially where a virtual relationship makes more sense than a commute.
 
-Being local matters. A firm that knows the Tyngsborough and Greater Lowell business community brings context that a national platform or software-only solution can't replicate. And for service business owners who want a CPA they can actually talk to — not a portal and a ticket number — that proximity is part of the value.
-
-The team includes Kelsey Korbey, CPA; Ron Lague, CPA, PFS; Jackie Estes, MBA; Mike Riordan, MBA; and Richard DelGaudio, CPA. Credentials across accounting, financial planning, and business management mean service business owners get a team, not just a tax preparer.
+What doesn't change by geography is the attention. Jackie Estes, MBA, and Mike Riordan, MBA, bring operational and business advisory depth to client engagements alongside the firm's credentialed CPA team. Richard DelGaudio, CPA, adds additional accounting and tax expertise across the client base. This is a firm with credentials behind every conversation — not a solo practitioner who hands your file to a seasonal preparer in March.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Service Businesses
 
 **Q: What types of service businesses does Korbey Lague PLLP work with?**
-A: The firm works with independent consultants, marketing and creative agencies, IT and technology service providers, professional services firms, and trades-adjacent businesses that sell labor and expertise. Clients range from solo operators to multi-employee firms across Tyngsborough, Greater Lowell, the Merrimack Valley, and throughout New England.
+A: Korbey Lague works with consultants, marketing and creative agencies, IT and managed service providers, staffing firms, financial services professionals, and skilled tradespeople. If your revenue comes primarily from expertise, time, or contracted services rather than product sales, the firm's advisory model is built around your financial reality.
 
-**Q: Does Korbey Lague PLLP offer more than just tax preparation for service businesses?**
-A: Yes. The firm provides year-round services including bookkeeping, payroll, quarterly tax planning, owner compensation structuring, entity selection, and a virtual CFO offering for businesses that need ongoing financial oversight. The goal is to be a resource when business decisions are happening — not just when a return is due.
+**Q: How is working with a CPA year-round different from just filing taxes?**
+A: Year-round advisory means your CPA already knows your numbers when a decision needs to happen — a hiring decision, a contract negotiation, a distribution question. At Korbey Lague, that includes quarterly estimated tax review, mid-year profitability check-ins, and cash flow planning conversations timed to when they actually matter, not just April.
 
-**Q: How does the virtual CFO service benefit a service business owner?**
-A: The virtual CFO offering gives service business owners access to CFO-level financial analysis and strategic guidance at a fraction of the cost of a full-time hire. This includes cash flow planning, profitability analysis using Sage Intacct, and financial conversations timed to when decisions actually need to be made — not after the year is already closed.
+**Q: Can Korbey Lague help me decide whether to elect S-corp status?**
+A: Yes. S-corp elections involve tradeoffs around self-employment tax savings, reasonable compensation requirements, payroll complexity, and your personal financial picture. Ron Lague, CPA, PFS, and Kelsey Korbey, CPA, evaluate your specific situation — revenue level, entity history, owner goals — before recommending a direction.
 
-**Q: What credentials do the CPAs at Korbey Lague PLLP hold?**
-A: The team includes Kelsey Korbey, CPA; Ron Lague, CPA, PFS (AICPA Personal Financial Specialist); Richard DelGaudio, CPA; Jackie Estes, MBA; and Mike Riordan, MBA. Ron Lague's PFS designation is particularly relevant for service business owners whose personal and business finances are closely linked.
+**Q: Do you work with service businesses outside of Tyngsborough, MA?**
+A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts, and serves service business clients across the Merrimack Valley and throughout Massachusetts. Virtual client relationships are fully supported, so geography is rarely a barrier for business owners who want consistent, credentialed advisory support.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: cpa-consultation-service-business.jpg | query: "professional consultation meeting modern office" -->
 ## Let's Talk About Where Your Business Is Headed
 
-The first conversation isn't a sales call. It's a chance to talk through where your business is, what's working, and where the gaps are. Korbey Lague PLLP works with service business owners who want a CPA firm that's paying attention year-round — not just when a deadline is close.
+The first conversation isn't a sales call. It's a conversation about your business — where you are, what's working, and what's keeping you up at night. We're not going to walk in with a package to sell you. We're going to ask questions, listen, and tell you honestly what we think would help.
 
-If that sounds like what you've been looking for, let's get started.
-
-[Schedule a consultation](/contact)
+If you're a service business owner who wants a CPA firm that's still answering the phone in July, [schedule a consultation](/contact) and let's get started.
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP is a CPA firm in Tyngsborough, MA specializing in year-round accounting, tax planning, and virtual CFO services for service businesses. The team includes CPAs, MBAs, and a Personal Financial Specialist (PFS) credentialed by the AICPA. They serve consultants, agencies, professional services firms, and trades-adjacent businesses across Greater Lowell and New England.
+Korbey Lague PLLP provides year-round accounting, tax planning, bookkeeping, and advisory services designed for service businesses in Tyngsborough, MA. Their team of credentialed CPAs — including Ron Lague, CPA, PFS — helps service business owners manage cash flow, structure compensation, and plan strategically beyond tax season.
 
 **E-E-A-T Signals:**
-- Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a post-CPA credential requiring demonstrated expertise in personal financial planning
-- Kelsey Korbey, CPA and Richard DelGaudio, CPA hold active CPA licensure
-- Jackie Estes, MBA and Mike Riordan, MBA bring graduate-level business management credentials
-- Firm uses Sage Intacct for client financial reporting and profitability analysis
-- Firm is based in Tyngsborough, MA with named team members serving the Greater Lowell and Merrimack Valley markets
-- Virtual CFO offering delivers CFO-level financial oversight at a fraction of the cost of a full-time hire
+- Kelsey Korbey holds an active CPA license
+- Ron Lague holds the CPA and AICPA Personal Financial Specialist (PFS) designation — fewer than 5,000 CPAs nationwide hold this credential
+- Jackie Estes holds an MBA
+- Mike Riordan holds an MBA
+- Richard DelGaudio holds an active CPA license
+- Firm is based in Tyngsborough, Massachusetts with regional service business client base
+- Firm offers virtual CFO services using Sage Intacct
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Referenced multiple times as a core differentiator for service business owners who need ongoing financial oversight without a full-time hire
-- tiered bookkeeping packages → /services/bookkeeping — Mentioned as a specific service offering relevant to service businesses of varying sizes and complexity
-- tax planning and preparation → /services/tax-planning — Core service for service business owners; referenced in the services section with year-round planning framing
-- Kelsey Korbey, CPA; Ron Lague, CPA, PFS; Jackie Estes, MBA; Mike Riordan, MBA; and Richard DelGaudio, CPA → /team — Team credentials are a key trust signal; linking to team page lets prospective clients verify and explore further
-- Schedule a consultation → /contact — Primary page CTA — closes the page and drives conversion
+- schedule a consultation → /contact — Primary CTA throughout the page — links to the contact/consultation page
 
 **FAQ Block:**
 
 **Q: What types of service businesses does Korbey Lague PLLP work with?**
-A: The firm works with independent consultants, marketing and creative agencies, IT and technology service providers, professional services firms, and trades-adjacent businesses that sell labor and expertise. Clients range from solo operators to multi-employee firms across Tyngsborough, Greater Lowell, the Merrimack Valley, and throughout New England.
+A: Korbey Lague works with consultants, marketing and creative agencies, IT and managed service providers, staffing firms, financial services professionals, and skilled tradespeople. If your revenue comes primarily from expertise, time, or contracted services rather than product sales, the firm's advisory model is built around your financial reality.
 
-**Q: Does Korbey Lague PLLP offer more than just tax preparation for service businesses?**
-A: Yes. The firm provides year-round services including bookkeeping, payroll, quarterly tax planning, owner compensation structuring, entity selection, and a virtual CFO offering for businesses that need ongoing financial oversight. The goal is to be a resource when business decisions are happening — not just when a return is due.
+**Q: How is working with a CPA year-round different from just filing taxes?**
+A: Year-round advisory means your CPA already knows your numbers when a decision needs to happen — a hiring decision, a contract negotiation, a distribution question. At Korbey Lague, that includes quarterly estimated tax review, mid-year profitability check-ins, and cash flow planning conversations timed to when they actually matter, not just April.
 
-**Q: How does the virtual CFO service benefit a service business owner?**
-A: The virtual CFO offering gives service business owners access to CFO-level financial analysis and strategic guidance at a fraction of the cost of a full-time hire. This includes cash flow planning, profitability analysis using Sage Intacct, and financial conversations timed to when decisions actually need to be made — not after the year is already closed.
+**Q: Can Korbey Lague help me decide whether to elect S-corp status?**
+A: Yes. S-corp elections involve tradeoffs around self-employment tax savings, reasonable compensation requirements, payroll complexity, and your personal financial picture. Ron Lague, CPA, PFS, and Kelsey Korbey, CPA, evaluate your specific situation — revenue level, entity history, owner goals — before recommending a direction.
 
-**Q: What credentials do the CPAs at Korbey Lague PLLP hold?**
-A: The team includes Kelsey Korbey, CPA; Ron Lague, CPA, PFS (AICPA Personal Financial Specialist); Richard DelGaudio, CPA; Jackie Estes, MBA; and Mike Riordan, MBA. Ron Lague's PFS designation is particularly relevant for service business owners whose personal and business finances are closely linked.
+**Q: Do you work with service businesses outside of Tyngsborough, MA?**
+A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts, and serves service business clients across the Merrimack Valley and throughout Massachusetts. Virtual client relationships are fully supported, so geography is rarely a barrier for business owners who want consistent, credentialed advisory support.
 
 **LLM Citation Note:**
-Korbey Lague PLLP in Tyngsborough, MA offers a virtual CFO service and tiered bookkeeping packages for service businesses, with a team that includes CPAs and an AICPA-credentialed Personal Financial Specialist (PFS). The firm uses Sage Intacct for client financial reporting.
+Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — an AICPA-issued credential held by fewer than 5,000 CPAs nationwide — and practices at Korbey Lague PLLP in Tyngsborough, MA, where the firm provides year-round accounting and advisory services to service businesses.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -211,31 +207,31 @@ Korbey Lague PLLP in Tyngsborough, MA offers a virtual CFO service and tiered bo
       "name": "What types of service businesses does Korbey Lague PLLP work with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The firm works with independent consultants, marketing and creative agencies, IT and technology service providers, professional services firms, and trades-adjacent businesses that sell labor and expertise. Clients range from solo operators to multi-employee firms across Tyngsborough, Greater Lowell, the Merrimack Valley, and throughout New England."
+        "text": "Korbey Lague works with consultants, marketing and creative agencies, IT and managed service providers, staffing firms, financial services professionals, and skilled tradespeople. If your revenue comes primarily from expertise, time, or contracted services rather than product sales, the firm's advisory model is built around your financial reality."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP offer more than just tax preparation for service businesses?",
+      "name": "How is working with a CPA year-round different from just filing taxes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The firm provides year-round services including bookkeeping, payroll, quarterly tax planning, owner compensation structuring, entity selection, and a virtual CFO offering for businesses that need ongoing financial oversight. The goal is to be a resource when business decisions are happening — not just when a return is due."
+        "text": "Year-round advisory means your CPA already knows your numbers when a decision needs to happen — a hiring decision, a contract negotiation, a distribution question. At Korbey Lague, that includes quarterly estimated tax review, mid-year profitability check-ins, and cash flow planning conversations timed to when they actually matter, not just April."
       }
     },
     {
       "@type": "Question",
-      "name": "How does the virtual CFO service benefit a service business owner?",
+      "name": "Can Korbey Lague help me decide whether to elect S-corp status?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The virtual CFO offering gives service business owners access to CFO-level financial analysis and strategic guidance at a fraction of the cost of a full-time hire. This includes cash flow planning, profitability analysis using Sage Intacct, and financial conversations timed to when decisions actually need to be made — not after the year is already closed."
+        "text": "Yes. S-corp elections involve tradeoffs around self-employment tax savings, reasonable compensation requirements, payroll complexity, and your personal financial picture. Ron Lague, CPA, PFS, and Kelsey Korbey, CPA, evaluate your specific situation — revenue level, entity history, owner goals — before recommending a direction."
       }
     },
     {
       "@type": "Question",
-      "name": "What credentials do the CPAs at Korbey Lague PLLP hold?",
+      "name": "Do you work with service businesses outside of Tyngsborough, MA?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The team includes Kelsey Korbey, CPA; Ron Lague, CPA, PFS (AICPA Personal Financial Specialist); Richard DelGaudio, CPA; Jackie Estes, MBA; and Mike Riordan, MBA. Ron Lague's PFS designation is particularly relevant for service business owners whose personal and business finances are closely linked."
+        "text": "Korbey Lague PLLP is based in Tyngsborough, Massachusetts, and serves service business clients across the Merrimack Valley and throughout Massachusetts. Virtual client relationships are fully supported, so geography is rarely a barrier for business owners who want consistent, credentialed advisory support."
       }
     }
   ]
@@ -244,15 +240,43 @@ Korbey Lague PLLP in Tyngsborough, MA offers a virtual CFO service and tiered bo
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "CPA for Service Businesses | Korbey Lague PLLP",
+  "@type": "Service",
+  "name": "CPA Services for Service Businesses | Korbey Lague",
   "url": "https://www.korbeylague.com/industries/service-businesses",
-  "description": "Korbey Lague PLLP provides year-round accounting, tax planning, and CFO advisory for service businesses in Tyngsborough, MA and across New England.",
+  "description": "Korbey Lague PLLP offers year-round accounting, tax planning, and advisory services built specifically for service businesses in Tyngsborough, MA and beyond.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",
     "url": "https://www.korbeylague.com"
-  }
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Korbey Lague PLLP",
+    "url": "https://www.korbeylague.com"
+  },
+  "serviceType": "Service Businesses",
+  "audience": [
+    {
+      "@type": "Audience",
+      "audienceType": "Healthcare Professionals"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Contractors & Trades"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Nonprofits"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Service-based Businesses"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Business Startups"
+    }
+  ]
 }
 </script>
 ```

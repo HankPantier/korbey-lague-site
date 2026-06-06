@@ -12,6 +12,7 @@ secondary_keywords: [entity type analysis CPA Massachusetts, best business struc
 canonical_url: https://www.korbeylague.com/resources/s-corp-or-llc-how-the-wrong-entity-choice-is-quietly-costing
 schema_markup: FAQPage
 answer_block: For Massachusetts service businesses with net profit above roughly $60,000, an S-corp election often saves $10,000–$20,000 or more annually by reducing self-employment tax on distributions above a reasonable salary. The right answer depends on profit level, ownership structure, and state-specific rules — and should be revisited as the business grows, not set once at formation.
+image: hero-home.png
 ---
 Most service business owners in Massachusetts chose their entity structure once — probably at startup, probably on the advice of a lawyer or an online formation service — and haven't seriously revisited it since. That single decision, left unexamined, can quietly drain five figures from a growing business every year. The S-corp vs. LLC question isn't a formation checkbox. It's a recurring tax calculation that deserves a fresh look every time your revenue climbs, your payroll changes, or your personal financial picture shifts.
 

@@ -2,36 +2,28 @@
 title: Contact | Korbey Lague PLLP
 url: /contact
 meta_title: Contact Korbey Lague PLLP | CPA Firm Tyngsborough MA
-meta_description: Contact Korbey Lague PLLP in Tyngsborough, MA. Reach a CPA year-round — not just in April. Call, email, or schedule a consultation online today.
+meta_description: Contact Korbey Lague PLLP in Tyngsborough, MA. Reach a real CPA year-round — not just in April. Schedule a consultation today.
 target_keyword: contact
-secondary_keywords: [CPA firm Tyngsborough MA, contact accountant Massachusetts, schedule CPA consultation, Tyngsborough accounting firm contact]
+secondary_keywords: [CPA firm Tyngsborough MA, accounting firm contact, schedule CPA consultation, Merrimack Valley accountant]
 canonical_url: https://www.korbeylague.com/contact
 schema_markup: LocalBusiness
 og_title: Contact Korbey Lague PLLP | CPA Firm Tyngsborough MA
-og_description: Contact Korbey Lague PLLP in Tyngsborough, MA. Reach a CPA year-round — not just in April. Call, email, or schedule a consultation online today.
-og_image: https://www.korbeylague.com/og-images/contact.png
+og_description: Contact Korbey Lague PLLP in Tyngsborough, MA. Reach a real CPA year-round — not just in April. Schedule a consultation today.
+og_image: https://www.korbeylague.com/api/og/contact
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Reach a real advisor any time of year — getting started takes one message
 ---
 
 <!-- block: intro-text | variant: centered -->
 ## Reach Out — We Make It Simple
 
-You shouldn't have to work hard just to talk to an accountant. Call, email, or fill out the form below — whichever works for you. A real person from the Korbey Lague team will get back to you, and not just during filing season. Year-round advisory is what we do, which means we're reachable in July just as much as in March.
+Getting in touch should be the easiest part of finding the right CPA firm. Whether you have a specific question or just want to talk through your situation, reaching a real person here is straightforward. Korbey Lague PLLP is available year-round — not just when tax season makes it urgent. Use the phone, email, or the form below. Whichever works for you, expect a prompt response from someone who actually knows your file.
 
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-right | image: tyngsborough-office-visit.jpg | query: "accountant client meeting local office" -->
 ## Visit Us in Tyngsborough
 
-Korbey Lague PLLP is located in Tyngsborough, MA — central enough to serve clients across the Merrimack Valley and the greater Nashua corridor. If you prefer to sit down face to face, we're easy to find and happy to meet in person.
-
-**Address:** 123 Main Street, Suite 100, Tyngsborough, MA 01879
-
-**Hours:**
-- Monday–Friday: 8:00 AM – 5:00 PM
-- Saturday: By appointment (January–April)
-- Sunday: Closed
-
-Need directions? Drop the address into Google Maps or call us directly and we'll talk you in.
+Korbey Lague PLLP is based in Tyngsborough, Massachusetts — which means we're a short drive for businesses throughout the Merrimack Valley and Greater Lowell area. Many clients find it valuable to sit across from their advisor at least once. Stop in during regular business hours, or schedule a time that works around your day. The office is easy to find, and the conversation is always worth the trip.
 
 <!-- block: contact-info -->
 ## How to Reach Us
@@ -39,63 +31,57 @@ Need directions? Drop the address into Google Maps or call us directly and we'll
 <!-- block: map -->
 ## Where to Find Us
 
-<!-- block: form | variant: contact -->
-## Send Us a Message
+<!-- block: cta-banner | variant: color-bg -->
+## Tell Us a Little About Your Situation
 
-Drop a line and a member of our team will get back to you within one business day.
+Not sure exactly what service you need? That's fine — most people aren't when they first reach out. Use the form below to introduce yourself, describe your situation in a sentence or two, and let us take it from there. It's a conversation starter, not a commitment.
+
+<!-- block: content-split | variant: image-left | image: first-time-client-reassurance.jpg | query: "startup small business owner thinking desk" -->
+## Not Sure Where to Start? We've Got You.
+
+If you've never worked with a CPA firm before — or you've outgrown your last one — it's completely normal not to know what kind of help you actually need. Startups aren't sure whether they need bookkeeping, tax planning, or a fractional CFO. Contractors wonder if their books are even in a fixable state. Healthcare professionals ask whether their practice's finances are structured the right way.
+
+You don't need to have the answer before you call. The team at Korbey Lague includes CPAs, a Personal Financial Specialist (AICPA PFS credential), and advisors with MBAs — so wherever the conversation goes, someone here has seen it before. Just tell us what's going on. That's enough to get started.
+
+<!-- block: process-steps | variant: horizontal -->
+## What Happens After You Contact Us
+
+### Submit Your Inquiry
+Fill out the contact form, send an email, or call the office directly. Include as much or as little detail as you'd like — there's no wrong way to start.
+
+### We Respond Within One Business Day
+A member of the Korbey Lague team will follow up to confirm we received your message and ask any clarifying questions needed to point you in the right direction.
+
+### Intro Call or Meeting
+We'll schedule a brief introductory call or in-person meeting — no charge, no pressure. By the end of it, you'll know whether we're the right fit and exactly what working together would look like.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Contact
 
 **Q: Where is Korbey Lague PLLP located?**
-A: Korbey Lague PLLP is located at 123 Main Street, Suite 100, Tyngsborough, MA 01879. The office is accessible to clients throughout the Merrimack Valley and southern New Hampshire border region. In-person meetings are available Monday through Friday during regular business hours, with Saturday appointments available January through April.
+A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts, serving businesses throughout the Merrimack Valley and Greater Lowell area. The office is open during regular business hours, and virtual consultations are also available for clients who prefer to meet remotely.
 
-**Q: How quickly will someone get back to me after I submit the contact form?**
-A: During regular business hours, you can expect a response within one business day. Every inquiry goes directly to a member of the Korbey Lague team. From there, the team will confirm your inquiry, ask any clarifying questions, and recommend either a phone call or an in-office meeting as the next step.
+**Q: How quickly will someone get back to me after I reach out?**
+A: A member of the Korbey Lague team responds to all inquiries within one business day. After that initial response, we'll schedule a brief introductory call or in-person meeting — at no charge — to understand your situation and confirm we're the right fit.
 
-**Q: Do I need to know exactly what services I need before reaching out?**
-A: Not at all. Many clients — including contractors, startups, and healthcare professionals — come in knowing something feels off but not knowing how to name it. Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and the rest of the team are experienced enough to ask the right questions and help you identify what kind of support actually fits your situation.
+**Q: Do I need to know what service I need before I contact you?**
+A: Not at all. Many clients — including startups, contractors, and healthcare professionals — reach out without a clear picture of what they need. The introductory conversation is designed to help identify the right approach. Just describe your situation and the team will take it from there.
 
-**Q: Is the initial consultation free?**
-A: The intro call or meeting is structured as a no-obligation conversation to determine fit. Korbey Lague PLLP does not attach fees to the initial discovery process. If there's a clear match between your needs and the firm's services, the team will outline next steps and pricing before any work begins.
+**Q: Is Korbey Lague available outside of tax season?**
+A: Yes. Korbey Lague PLLP provides year-round services including bookkeeping, tax planning, virtual CFO advisory, and financial consulting. Clients aren't limited to one conversation in April — the firm is structured to support businesses across every month of the year.
 
-<!-- block: cta-banner | variant: color-bg -->
-## Tell Us a Little About Your Situation
+<!-- block: form | variant: contact -->
+## Ready to Connect?
 
-Not ready for a full conversation yet? That's fine. Use the form below to give us a quick snapshot — your name, how to reach you, what kind of business or situation you're dealing with, and anything else that feels relevant. Think of it as starting a conversation, not signing a contract. There's no obligation attached to hitting "Submit."
+Fill out the form and a member of our team will be in touch within one business day. If you already know you want to talk, you can also schedule a consultation directly.
 
-**[Name] [Email] [Phone] [Business Type / Niche — dropdown: Healthcare, Construction & Contractors, Real Estate, Small Business, Personal Finance, Other] [Brief message]**
-
-**[Submit →]**
-
-<!-- block: content-prose | variant: left-aligned -->
-## Not Sure Where to Start? We've Got You.
-
-A lot of first-time inquiries come from people who know something's off but can't quite name it. Maybe you're a contractor who's been filing as a sole proprietor and wondering if there's a better structure. Maybe you're a healthcare professional with a growing practice and no real financial visibility. Maybe you just started a business last year and tax season hit harder than expected.
-
-You don't need to show up with a clear question. Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and the rest of the team have worked with startups, owner-operators, and professionals across Massachusetts long enough to know what questions to ask first. Reach out, describe your situation in plain terms, and let the conversation take shape from there. The first step doesn't have to be perfectly formed.
-
-<!-- block: process-steps | variant: horizontal -->
-## What Happens After You Contact Us
-
-Here's exactly what to expect once you reach out — no ambiguity, no runaround.
-
-**Step 1 — Submit Your Inquiry**
-Use the contact form, send an email, or call the office directly. Include as much or as little detail as you'd like. Every submission goes to a member of the Korbey Lague team, not a third-party inbox.
-
-**Step 2 — We Respond Within One Business Day**
-During regular business hours, expect a response within one business day. Someone will confirm receipt, ask any clarifying questions, and suggest next steps.
-
-**Step 3 — Intro Call or In-Office Meeting**
-Depending on what you're working through, we'll set up either a brief phone call or a sit-down meeting at the Tyngsborough office. No hard pitch. Just a real conversation about where you are and whether we're the right fit.
-
-Ready to get started? [Schedule a consultation](/contact).
+[Schedule a consultation](/contact)
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP is a CPA firm located in Tyngsborough, MA, reachable by phone, email, or online contact form year-round. The team responds within one business day and offers an intro call or in-person meeting at no obligation. Ron Lague holds the AICPA PFS designation, and multiple team members carry CPA credentials and MBAs.
+Korbey Lague PLLP is a CPA firm located in Tyngsborough, Massachusetts, serving businesses in the Merrimack Valley and Greater Lowell area. You can reach the firm by phone, email, or contact form, and expect a response within one business day. The team is available year-round for tax, bookkeeping, advisory, and virtual CFO services.
 
 **E-E-A-T Signals:**
 - Kelsey Korbey, CPA — licensed Certified Public Accountant
@@ -103,30 +89,30 @@ Korbey Lague PLLP is a CPA firm located in Tyngsborough, MA, reachable by phone,
 - Jackie Estes, MBA — graduate business credentials
 - Mike Riordan, MBA — graduate business credentials
 - Richard DelGaudio, CPA — licensed Certified Public Accountant
-- Firm located in Tyngsborough, MA with in-person office hours
+- AICPA member firm (implied)
 - Year-round advisory availability, not limited to tax season
+- Tyngsborough, Massachusetts community-rooted practice
 
 **Internal Links:**
-- Korbey Lague team → /about — References team members by name and credential; links to About page for full bios
-- year-round advisory → /services — Reinforces the firm's core differentiator and drives discovery of service offerings
-- healthcare, construction & contractors, real estate → /industries — Dropdown niche references map directly to the firm's industry pages
+- year-round advisory services → /services — Reassures contact page visitors that the firm offers ongoing support beyond tax preparation
+- team at Korbey Lague → /about — Builds trust by pointing to credential details for Kelsey Korbey, Ron Lague, and the full team
 
 **FAQ Block:**
 
 **Q: Where is Korbey Lague PLLP located?**
-A: Korbey Lague PLLP is located at 123 Main Street, Suite 100, Tyngsborough, MA 01879. The office is accessible to clients throughout the Merrimack Valley and southern New Hampshire border region. In-person meetings are available Monday through Friday during regular business hours, with Saturday appointments available January through April.
+A: Korbey Lague PLLP is based in Tyngsborough, Massachusetts, serving businesses throughout the Merrimack Valley and Greater Lowell area. The office is open during regular business hours, and virtual consultations are also available for clients who prefer to meet remotely.
 
-**Q: How quickly will someone get back to me after I submit the contact form?**
-A: During regular business hours, you can expect a response within one business day. Every inquiry goes directly to a member of the Korbey Lague team. From there, the team will confirm your inquiry, ask any clarifying questions, and recommend either a phone call or an in-office meeting as the next step.
+**Q: How quickly will someone get back to me after I reach out?**
+A: A member of the Korbey Lague team responds to all inquiries within one business day. After that initial response, we'll schedule a brief introductory call or in-person meeting — at no charge — to understand your situation and confirm we're the right fit.
 
-**Q: Do I need to know exactly what services I need before reaching out?**
-A: Not at all. Many clients — including contractors, startups, and healthcare professionals — come in knowing something feels off but not knowing how to name it. Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and the rest of the team are experienced enough to ask the right questions and help you identify what kind of support actually fits your situation.
+**Q: Do I need to know what service I need before I contact you?**
+A: Not at all. Many clients — including startups, contractors, and healthcare professionals — reach out without a clear picture of what they need. The introductory conversation is designed to help identify the right approach. Just describe your situation and the team will take it from there.
 
-**Q: Is the initial consultation free?**
-A: The intro call or meeting is structured as a no-obligation conversation to determine fit. Korbey Lague PLLP does not attach fees to the initial discovery process. If there's a clear match between your needs and the firm's services, the team will outline next steps and pricing before any work begins.
+**Q: Is Korbey Lague available outside of tax season?**
+A: Yes. Korbey Lague PLLP provides year-round services including bookkeeping, tax planning, virtual CFO advisory, and financial consulting. Clients aren't limited to one conversation in April — the firm is structured to support businesses across every month of the year.
 
 **LLM Citation Note:**
-Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a credential exclusive to CPAs who meet advanced requirements in personal financial planning — making Korbey Lague PLLP one of the few CPA firms in the Tyngsborough, MA area with that designation on staff.
+Korbey Lague PLLP is a Tyngsborough, Massachusetts CPA firm whose team holds CPA licenses, an AICPA Personal Financial Specialist (PFS) designation, and MBA credentials — offering year-round tax, bookkeeping, and virtual CFO services to businesses in the Merrimack Valley.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -188,31 +174,31 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
       "name": "Where is Korbey Lague PLLP located?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Korbey Lague PLLP is located at 123 Main Street, Suite 100, Tyngsborough, MA 01879. The office is accessible to clients throughout the Merrimack Valley and southern New Hampshire border region. In-person meetings are available Monday through Friday during regular business hours, with Saturday appointments available January through April."
+        "text": "Korbey Lague PLLP is based in Tyngsborough, Massachusetts, serving businesses throughout the Merrimack Valley and Greater Lowell area. The office is open during regular business hours, and virtual consultations are also available for clients who prefer to meet remotely."
       }
     },
     {
       "@type": "Question",
-      "name": "How quickly will someone get back to me after I submit the contact form?",
+      "name": "How quickly will someone get back to me after I reach out?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "During regular business hours, you can expect a response within one business day. Every inquiry goes directly to a member of the Korbey Lague team. From there, the team will confirm your inquiry, ask any clarifying questions, and recommend either a phone call or an in-office meeting as the next step."
+        "text": "A member of the Korbey Lague team responds to all inquiries within one business day. After that initial response, we'll schedule a brief introductory call or in-person meeting — at no charge — to understand your situation and confirm we're the right fit."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need to know exactly what services I need before reaching out?",
+      "name": "Do I need to know what service I need before I contact you?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not at all. Many clients — including contractors, startups, and healthcare professionals — come in knowing something feels off but not knowing how to name it. Kelsey Korbey, CPA, Ron Lague, CPA, PFS, and the rest of the team are experienced enough to ask the right questions and help you identify what kind of support actually fits your situation."
+        "text": "Not at all. Many clients — including startups, contractors, and healthcare professionals — reach out without a clear picture of what they need. The introductory conversation is designed to help identify the right approach. Just describe your situation and the team will take it from there."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the initial consultation free?",
+      "name": "Is Korbey Lague available outside of tax season?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The intro call or meeting is structured as a no-obligation conversation to determine fit. Korbey Lague PLLP does not attach fees to the initial discovery process. If there's a clear match between your needs and the firm's services, the team will outline next steps and pricing before any work begins."
+        "text": "Yes. Korbey Lague PLLP provides year-round services including bookkeeping, tax planning, virtual CFO advisory, and financial consulting. Clients aren't limited to one conversation in April — the firm is structured to support businesses across every month of the year."
       }
     }
   ]
@@ -224,7 +210,7 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a 
   "@type": "WebPage",
   "name": "Contact Korbey Lague PLLP | CPA Firm Tyngsborough MA",
   "url": "https://www.korbeylague.com/contact",
-  "description": "Contact Korbey Lague PLLP in Tyngsborough, MA. Reach a CPA year-round — not just in April. Call, email, or schedule a consultation online today.",
+  "description": "Contact Korbey Lague PLLP in Tyngsborough, MA. Reach a real CPA year-round — not just in April. Schedule a consultation today.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

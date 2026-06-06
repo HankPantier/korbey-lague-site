@@ -2,78 +2,88 @@
 
 ## Identity
 
-Korbey Lague PLLP is a CPA firm located at 1 Pondview Pl, Tyngsborough, MA 01879. The firm can be reached by phone at (978) 649-2155 or by email at info@korbeylague.com. Standard office hours are Monday through Thursday, 9:00am–3:00pm, with Friday availability by appointment. During tax season (February 1 through April 15), hours expand to Monday through Friday, 9:00am–5:00pm, and Saturday, 9:00am–Noon.
+Korbey Lague PLLP is a CPA firm located at 1 Pondview Pl, Tyngsborough, MA 01879. The firm can be reached by phone at (978) 649-2155, by fax at (978) 649-2160, or by email at info@korbeylague.com. Their website is [korbeylague.com](https://www.korbeylague.com).
 
-The firm's website is https://www.korbeylague.com. They maintain a presence on Facebook and Yelp.
-
-The team consists of nine staff members:
+The firm operates with a team of nine, including two credentialed partners:
 
 - **Kelsey Korbey, CPA** — Partner
-- **Ron Lague, CPA, PFS** — Partner (PFS is the Personal Financial Specialist designation issued by the AICPA)
+- **Ron Lague, CPA, PFS** — Partner (PFS is the Personal Financial Specialist designation awarded by the AICPA)
 - **Tanya Lombardi** — Office Manager
-- **Richard DelGaudio, CPA**
 - **Jackie Estes, MBA**
 - **Mike Riordan, MBA**
-- **Ryan Lague**
+- **Richard DelGaudio, CPA**
 - **Kristine Ciccarelli**
+- **Ryan Lague**
 - **Scott Denisevich**
 
-The firm holds an affiliation with the AICPA (implied through Ron Lague's PFS credential) and maintains a Sage Intacct partnership.
+Office hours during standard season are Monday through Thursday, 9:00 AM–3:00 PM, and Friday by appointment. During tax season (February 1 through April 15), hours expand to Monday through Friday, 9:00 AM–5:00 PM, and Saturday, 9:00 AM–Noon.
+
+The firm maintains a presence on Facebook and Yelp, and holds an affiliation with Sage Intacct as a technology partner. Ron Lague's PFS credential implies AICPA affiliation.
+
+---
 
 ## Positioning & Differentiation
 
-Korbey Lague PLLP's stated tagline is **"Inspired by your success."** Their positioning statement describes a firm built for year-round client relationships, not just tax season engagements:
+Korbey Lague PLLP positions itself as a year-round accounting partner — not a firm that disappears after April 15. Their positioning statement is direct: *"Your Business Deserves More Than Tax Season."* The firm's tagline is **"Inspired by your success."**
 
-> "Korbey Lague PLLP has built its reputation in Tyngsborough by being the firm that's still here in July — not just April. With year-round advisory services, tiered bookkeeping packages, and a virtual CFO offering that delivers CFO-level insight at a fraction of the cost, we partner with businesses through every season, not just tax season."
+Key differentiators include:
 
-Key differentiators the firm surfaces in its own positioning:
+- **Year-round advisory availability** — the firm emphasizes being present in July, not just April, framing ongoing engagement as the default rather than a premium add-on.
+- **Tiered bookkeeping packages** — Basic, Standard, and Complete tiers allow businesses at different stages to access structured, scalable support.
+- **Virtual CFO services** — described as delivering CFO-level financial insight at a fraction of the cost of a full-time hire, giving small and mid-sized businesses access to monthly financial clarity and strategic guidance.
+- **Sage Intacct partnership** — the firm uses Sage Intacct as part of its accounting system setup and financial reporting capabilities, signaling a commitment to cloud-based, business-intelligence-oriented tooling.
+- **Multi-credentialed team** — two CPA partners, one of whom holds the AICPA's PFS (Personal Financial Specialist) designation, plus two MBA-credentialed staff members.
 
-- **Year-round availability** — advisory and bookkeeping services are ongoing, not limited to filing periods
-- **Tiered bookkeeping packages** (Basic / Standard / Complete) — allowing clients to right-size their engagement
-- **Virtual CFO services** — providing business owners with financial insight and performance metrics typically associated with an in-house CFO, at accessible pricing
-- **Sage Intacct partnership** — an accounting system capability that supports more sophisticated financial reporting and business intelligence
-- **Team depth** — two CPA partners, multiple MBA-credentialed staff, and a nine-person team serving a multi-industry client base
+The firm serves both individuals and businesses across a wide range of industries, with particular depth in healthcare, trades, nonprofits, service businesses, and startups.
 
-Services offered by the firm include: Advisory & Virtual CFO, Personal Tax, Business Tax, Bookkeeping (tiered), Payroll, Financial Reporting, Nonprofit Accounting, Business Foundation Services, Accounting System Setup, Business Metrics & Performance, Entity Type Analysis, Tax Notices & Audit Representation, and Financial Statement Preparation.
+---
 
 ## Industries Served
 
 ### Healthcare Professionals
 
-**Who they are:** Physicians, dentists, therapists, and specialists operating solo practices or small group practices.
+**Who they are:** Physicians, dentists, therapists, and specialists — solo practices and small group practices.
 
 **Client pain point:** *"I just opened my practice and I need someone who actually knows how medical practices work, not just someone who handles tax season."*
 
-**Value proposition:** The firm positions itself as practice-aware — understanding the financial and compliance structure of medical and clinical practices, not just general small business accounting.
+**Value proposition:** Healthcare professionals need an accounting partner who understands the financial structure of a medical or dental practice — not a generalist who treats them like any other small business. Korbey Lague offers industry-aware tax, bookkeeping, and advisory services for this client type.
+
+---
 
 ### Contractors & Trades
 
-**Who they are:** Owner-operated businesses in HVAC, electrical, plumbing, general contracting, and landscaping.
+**Who they are:** HVAC, electrical, plumbing, general contractors, landscaping — often owner-operated businesses.
 
 **Client pain point:** *"My buddy said I should stop doing my own books. I've got 8 guys now and no idea if I'm profitable."*
 
-**Value proposition:** The firm offers bookkeeping and financial reporting services that give growing trade businesses visibility into their actual profitability — particularly relevant for contractors who have scaled headcount but not financial infrastructure.
+**Value proposition:** Trades businesses that have outgrown DIY bookkeeping need structured financial visibility. The firm's tiered bookkeeping packages, payroll services (including contractor and 1099 distinctions), and advisory support address the profitability and compliance gaps common at this growth stage.
+
+---
 
 ### Nonprofits
 
-**Who they are:** 501(c)(3) organizations across social services, arts, education, faith-based organizations, and community foundations.
+**Who they are:** 501(c)(3) organizations — social services, arts, education, faith-based, and community foundations.
 
 **Client pain point:** *"We have a grant audit coming up and our books are a mess. We need someone who actually understands how nonprofits work."*
 
-**Value proposition:** The firm offers nonprofit-specific accounting services, with an understanding of fund accounting, grant compliance, and 990 preparation requirements that differ from standard business accounting.
+**Value proposition:** The firm offers dedicated nonprofit accounting services, including fund accounting, Form 990 preparation, and grant compliance support — areas that require specialized knowledge distinct from standard business accounting.
 
-### Service-based Businesses
+---
+
+### Service-Based Businesses
 
 **Who they are:** Marketing agencies, professional services firms, cleaning and maintenance companies, salons, and staffing firms.
 
 **Client pain point:** *"I had a great year but somehow I owe $30K in taxes. I need someone proactive, not just reactive."*
 
-**Value proposition:** The firm's year-round advisory model is directly relevant here — ongoing tax planning and financial reporting rather than end-of-year surprises.
+**Value proposition:** Service businesses with strong revenue but poor tax planning visibility benefit from year-round advisory engagement, proactive tax strategy, and monthly financial reporting — all services the firm offers as part of its core model.
+
+---
 
 ### Business Startups
 
-**Who they are:** New LLCs and S-corps across industries, often founders transitioning from employee to owner for the first time.
+**Who they are:** New LLCs and S-corps across industries — often individuals transitioning from employee to business owner.
 
 **Client pain point:** *"I'm starting a business and I don't even know what questions to ask. I just know I need a CPA."*
 
-**Value proposition:** The firm offers Business Foundation Services designed for new business owners — covering entity type analysis, accounting system setup, and the foundational financial infrastructure a new business needs to operate compliantly and with clarity.
+**Value proposition:** The firm's Business Foundation Services are designed for new owners who need entity type analysis, accounting system setup, and foundational bookkeeping — a structured on-ramp for businesses that are starting from zero.

@@ -2,109 +2,124 @@
 title: Wealth & Retirement Planning | Korbey Lague PLLP
 url: /services/wealth-retirement-planning
 meta_title: Wealth & Retirement Planning | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP offers year-round wealth and retirement planning for business owners in Tyngsborough, MA. CPA, PFS credentials. Schedule a consultation today.
+meta_description: Korbey Lague PLLP offers year-round wealth and retirement planning for business owners in Tyngsborough, MA. CPA + AICPA PFS expertise. Schedule a consultation.
 target_keyword: wealth & retirement planning
-secondary_keywords: [retirement planning for small business owners, SEP-IRA CPA Massachusetts, Solo 401k self-employed, business succession planning CPA, CPA financial planning Tyngsborough MA, Personal Financial Specialist CPA]
+secondary_keywords: [retirement planning for business owners, SEP-IRA CPA Massachusetts, Solo 401k small business, business succession planning CPA, AICPA PFS financial specialist, CPA retirement planning Tyngsborough MA]
 canonical_url: https://www.korbeylague.com/services/wealth-retirement-planning
 schema_markup: Service
 og_title: Wealth & Retirement Planning | Korbey Lague PLLP
-og_description: Korbey Lague PLLP offers year-round wealth and retirement planning for business owners in Tyngsborough, MA. CPA, PFS credentials. Schedule a consultation today.
-og_image: https://www.korbeylague.com/og-images/services--wealth-retirement-planning.png
+og_description: Korbey Lague PLLP offers year-round wealth and retirement planning for business owners in Tyngsborough, MA. CPA + AICPA PFS expertise. Schedule a consultation.
+og_image: https://www.korbeylague.com/api/og/services/wealth-retirement-planning
 twitter_card: summary_large_image
-hero: page-header
+hero: hero-split
+hero_variant: image-right
+hero_image: wealth-retirement-planning-hero.jpg
+hero_subhead: Year-round retirement planning that works with your business structure, not around it
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## More Than a Tax Return — A Plan for What Comes Next
 
-Most small business owners don't have a retirement problem. They have a time problem. Between managing clients, employees, cash flow, and compliance, retirement planning is the thing that's always one quarter away from getting attention. Then another quarter passes.
+Most small business owners and self-employed professionals share a common habit: they tell themselves they'll get serious about retirement planning "next year." Next year arrives, and tax season swallows the conversation again. The forms get filed. The refund lands or the check gets written. And the actual planning — the kind that builds wealth over decades — gets pushed to next year again.
 
-Korbey Lague PLLP works with business owners and self-employed professionals in Tyngsborough and across Massachusetts year-round — not just in April. Ron Lague, CPA, PFS holds the Personal Financial Specialist credential from the AICPA, which means retirement and wealth planning isn't a side conversation here. It's a core service. When you work with this firm, the plan for what comes next gets built alongside the work you're doing right now — not deferred until it's urgent.
+Korbey Lague PLLP works with clients in Tyngsborough and across Massachusetts year-round, not just during filing season. That means retirement planning isn't a footnote on your return — it's a standing item on the agenda. Ron Lague, CPA, PFS holds the Personal Financial Specialist credential from the AICPA, one of the few designations that specifically recognizes expertise at the intersection of tax planning and personal financial strategy. That credential exists because the intersection matters. What you contribute to a retirement account this year affects what you owe in April. The two conversations belong together.
 
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-right | image: retirement-planning-business-owner.jpg | query: "business owner reviewing retirement plan documents" -->
 ## Retirement Planning Strategies for Business Owners and Self-Employed Professionals
 
-Choosing the right retirement vehicle isn't a one-time decision — it's a planning lever you can adjust as your income, business structure, and tax situation evolve. The options available to self-employed professionals and business owners are more powerful than most W-2 employees realize, but only if they're structured correctly.
+The retirement planning vehicles available to business owners and self-employed professionals are more powerful — and more varied — than most people realize. The right structure can simultaneously reduce what you owe this tax year and accelerate what you accumulate over your working life. The wrong structure leaves money on the table in both directions.
 
-Here's how the most common plans actually work in practice:
+Here's how the most common options compare, and where each tends to fit best:
 
-**SEP-IRA:** Straightforward to set up and highly flexible. Contributions can reach up to 25% of net self-employment income, with a 2024 cap of $69,000. A strong option for sole proprietors and single-member LLCs with variable income years.
+**SEP-IRA:** Straightforward to establish and administer, a SEP-IRA allows contributions up to 25% of net self-employment income, capped at $69,000 for 2024. It's a strong starting point for sole proprietors and single-member LLCs, but it requires the same contribution percentage for all eligible employees — which matters if you have staff.
 
-**SIMPLE IRA:** Built for small businesses with employees. It carries lower contribution limits than a SEP-IRA but includes an employer match requirement — which can itself be a planning tool when it comes to compensation strategy.
+**SIMPLE IRA:** Designed for small businesses with employees, a SIMPLE IRA allows employee deferrals plus employer matching. Lower contribution limits than a SEP or 401(k), but easier to run and less expensive to administer.
 
-**Solo 401(k):** Often the highest-contribution option for self-employed individuals with no full-time employees. You contribute as both employer and employee, which can mean significantly more going into the plan each year compared to a SEP-IRA at similar income levels. Roth contributions are also an option here.
+**Solo 401(k):** For owner-only businesses with no full-time employees other than a spouse, the Solo 401(k) often delivers the largest possible contribution. In 2024, that means up to $69,000 (or $76,500 with catch-up contributions if you're 50 or older), combining employee deferrals and employer contributions. Roth treatment is available, adding flexibility for tax diversification over time.
 
-**Defined Benefit Plan:** Less common, but worth knowing about if you're a high earner who started retirement planning late. Contribution limits are tied to actuarial calculations rather than a fixed cap — some business owners can contribute $200,000 or more annually.
+**Defined Benefit Plan:** For high earners who started planning late, or owners who want to make very large tax-deductible contributions, a defined benefit plan can allow contributions far exceeding 401(k) limits — sometimes $200,000 or more annually — based on a funding formula tied to your target retirement income. These plans require actuarial calculations and more administrative work, but the tax impact can be substantial.
 
-The right structure depends on your income level, entity type, whether you have employees, and your current-year tax picture. That's not a decision to make from a web search — it's one to make with a CPA who holds the PFS credential and understands how these plans interact with your broader financial situation.
+Choosing among these isn't just a form-filing exercise. It depends on your net income, your business entity type, whether you have employees, and what role the business plays in your overall retirement picture.
 
-<!-- block: checklist-section | variant: standalone -->
+<!-- block: content-split | variant: image-left | image: business-structure-planning-meeting.jpg | query: "financial advisor client meeting business strategy" -->
 ## Coordinating Your Wealth Plan With Your Business Structure
 
-Your entity type isn't just a legal formality — it directly affects how much you can contribute to a retirement plan, how those contributions are taxed, and how compensation flows through your business. These are connected decisions, and they're often made independently when they shouldn't be.
+Entity type isn't just a legal question — it's a financial planning lever. The structure you use to run your business directly affects how much you can contribute to a retirement account each year, and how those contributions interact with your tax liability.
 
-A few examples of how structure shapes the strategy:
+Consider the difference between operating as a sole proprietor versus an S-Corp. As a sole proprietor, your retirement contribution limit for a SEP-IRA is based on net self-employment income after the deduction for half of self-employment tax — which reduces the effective contribution ceiling. An S-Corp pays you a W-2 salary, and contributions are calculated on that wage, which your CPA can help structure deliberately.
 
-- **S-Corp owners** pay themselves a reasonable salary, and retirement contributions as the employer are based on that salary — not total business profit. Setting the salary too low to reduce payroll taxes can inadvertently cap retirement contributions. The right balance takes coordination.
-- **Sole proprietors and single-member LLCs** calculate contributions based on net self-employment income after the self-employment tax deduction — a step many miss when estimating their maximum SEP-IRA or Solo 401(k) contribution.
-- **Multi-member LLCs and partnerships** face additional complexity around guaranteed payments versus distributive share and how each affects plan eligibility and contribution calculations.
-- **Healthcare professionals operating as PCs or PLLCs** may have specific state-law constraints on entity structure that limit or shape their options differently than a standard LLC.
+For contractors, healthcare professionals, and service-based business owners in Massachusetts, this distinction is often the most impactful change available — not because the entity switch is simple, but because when it's done correctly and coordinated with a retirement strategy, the cumulative effect over ten or fifteen years is significant.
 
-These aren't edge cases — they come up constantly for contractors, consultants, and healthcare providers. Korbey Lague reviews entity structure as part of the broader wealth planning conversation, because the structure and the plan need to work together.
+That coordination is where Korbey Lague works. Jackie Estes, MBA and Mike Riordan, MBA bring business operations expertise alongside the firm's CPA-level tax knowledge, which means these conversations aren't siloed. Tax structure, retirement contributions, and business entity strategy are reviewed together, not handed off between advisors who don't share context.
 
-<!-- block: content-split | variant: image-right -->
+<!-- block: content-split | variant: image-right | image: business-succession-planning.jpg | query: "business owner succession planning handshake" -->
 ## Planning for the Exit: Business Succession and Retirement Readiness
 
-For most small business owners, the business itself is the largest asset on the balance sheet. The plan for retirement is often, consciously or not, the plan to eventually sell, transfer, or wind down the business. That's not a problem — but it does mean retirement readiness and business succession planning have to be addressed together, and early.
+For most small business owners, the business isn't just a source of income — it's a retirement asset. The problem is that treating it as one requires planning that most owners don't start early enough.
 
-Waiting until a transition is imminent creates real problems: compressed timelines for tax planning, no opportunity to increase business value before a sale, and limited options for structuring a deal in a way that minimizes the tax hit on proceeds.
+A business that generates strong cash flow and has transferable systems is worth considerably more than one where everything runs through the owner. That valuation gap is something you can close deliberately over time, but not in the six months before a sale.
 
-Korbey Lague helps business owners think through succession well before it becomes urgent — including how to think about business valuation as a planning input (not just a sale-day calculation), how to structure a buyout or transfer to reduce tax exposure, and how to coordinate the liquidity from a sale with retirement income needs and investment accounts.
+Korbey Lague helps clients think through succession and exit readiness as a distinct planning track, not an afterthought. That includes:
 
-If a family transfer is the goal rather than a third-party sale, the planning is different — and equally important to start early. The earlier the conversation begins, the more options stay on the table.
+- **Business valuation awareness** — understanding what your business is likely worth under different sale structures, and what drives that number
+- **Succession structure** — whether you're passing the business to a family member, a key employee, or a third-party buyer, each path carries different tax and liquidity implications
+- **Liquidity planning** — ensuring that retirement assets outside the business are sufficient to bridge any gap between a sale and stable retirement income
+- **Timeline coordination** — aligning exit timing with Social Security strategy, IRA and 401(k) distributions, and any defined benefit plan obligations
+
+This kind of planning works best when it starts years before a transition becomes urgent. If you're ten years out from a potential exit, that's the right time to start — not two years out.
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Who We Work With on Wealth & Retirement Planning
 
-**Healthcare Professionals**
-Physicians, dentists, and therapists often carry substantial student debt well into their peak earning years, which compresses the window for retirement accumulation. High income also brings alternative minimum tax exposure and phase-outs on deductions — making tax-advantaged retirement contributions especially valuable. Korbey Lague helps healthcare professionals build aggressive, tax-efficient retirement strategies that account for the full picture.
+### Healthcare Professionals
+icon: Stethoscope
 
-**Contractors and Trades**
-Income variability is the defining challenge for independent contractors and trades professionals. A retirement plan that works in a high-revenue year needs to flex in a slow one. SEP-IRAs and Solo 401(k)s are built for exactly this — but only when contribution decisions are made with current-year tax projections in hand, not in April after the fact.
+Physicians, dentists, and allied health practitioners often carry significant student debt into their highest-earning years, compressing the window for retirement savings. The right plan structure — often a Solo 401(k) or defined benefit plan — can accelerate contributions once debt is retired and income peaks. Practice owners also face unique considerations around employee benefit obligations when establishing retirement plans.
 
-**Nonprofit Professionals**
-Nonprofit employees often have access to 403(b) plans through their employer, but executive directors and senior staff at smaller organizations may be navigating supplemental retirement options with less institutional support. Korbey Lague works with nonprofit leadership on both personal retirement strategy and the financial health of the organization.
+### Contractors and Trades
+icon: Hammer
 
-**Service-Based Business Owners**
-Consultants, marketing firms, staffing agencies, and other service businesses often have lean fixed costs and high margins — which means more income available for retirement contributions when the plan is set up to capture it. Entity structure and compensation decisions directly affect how much can be sheltered each year.
+Income variability is the central challenge for contractors and skilled tradespeople. A SEP-IRA or Solo 401(k) with flexible contribution amounts — where you contribute more in strong years and less in slow ones — fits the cash flow reality of project-based work. Entity structure (LLC vs. S-Corp) also has an outsized impact on retirement contribution capacity for this group.
 
-**Startups and Early-Stage Businesses**
-Founders in early-stage companies sometimes put off retirement planning entirely while the business is finding its footing. That's understandable — but a Solo 401(k) can often be established with minimal administrative burden even in year one, and the tax benefit compounds early. Korbey Lague helps founders think about this before it falls off the list entirely.
+### Nonprofits
+icon: HeartPulse
+
+Nonprofit employees and executives often have access to 403(b) plans through their organization, but nonprofit founders and board members with consulting income have additional self-employed planning opportunities. Understanding how supplemental income affects overall retirement strategy — and where to direct excess contributions — is a common planning question for this group.
+
+### Service-Based Businesses
+icon: Briefcase
+
+Consultants, marketing professionals, financial services independents, and other service-business owners typically have low overhead but high personal income dependence — meaning the business often can't be sold for meaningful value without the owner. Retirement savings inside the business structure, combined with personal investment accounts, is the primary wealth-building mechanism for this niche.
+
+### Startups and Early-Stage Businesses
+icon: Lightbulb
+
+Founders in early-stage companies often defer retirement planning entirely until the business stabilizes. That deferral is often a mistake. Even modest SEP-IRA contributions in early years, combined with a deliberate entity structure, begin building tax-advantaged wealth that compounds over the long term. Korbey Lague helps startup founders integrate retirement planning from the start, not after the first exit.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Wealth & Retirement Planning
 
-**Q: What retirement plan is best for a self-employed business owner?**
-A: It depends on your income level, entity type, and whether you have employees. A Solo 401(k) often allows the highest contributions for sole proprietors with no full-time employees. A SEP-IRA is simpler but may allow less. A defined benefit plan can work well for high earners who started saving late. A CPA with the PFS credential can model the right fit for your situation.
+**Q: What retirement plan options are available for self-employed business owners?**
+A: Self-employed business owners can choose from SEP-IRAs, Solo 401(k)s, SIMPLE IRAs, and defined benefit plans. Each has different contribution limits and administrative requirements. A Solo 401(k) often allows the highest contributions for owner-only businesses, while a defined benefit plan may be appropriate for high earners looking to make very large, tax-deductible contributions in a compressed timeframe.
 
-**Q: How does my business structure affect my retirement contributions?**
-A: Significantly. S-Corp owners base employer contributions on their W-2 salary, not total profit — so salary decisions and retirement planning must be coordinated. Sole proprietors use net self-employment income after the SE tax deduction. Each entity type has different rules, and choosing the wrong structure or the wrong salary level can unnecessarily cap how much you can contribute each year.
+**Q: How does my business entity type affect my retirement contributions?**
+A: Entity type directly affects how retirement contribution limits are calculated. An S-Corp owner contributes based on W-2 wages, which can be structured deliberately, while a sole proprietor contributes based on net self-employment income after certain deductions. In many cases, switching to an S-Corp and coordinating it with a retirement plan structure significantly increases annual contribution capacity and reduces self-employment tax.
 
-**Q: When should I start planning for a business succession or sale?**
-A: Earlier than most owners expect. Ideally, succession planning begins three to five years before an intended exit. Starting early allows time to increase business value, reduce tax exposure on sale proceeds, and coordinate the liquidity from the transaction with retirement income needs. Waiting until a sale is imminent compresses all of those decisions into a single high-pressure window.
+**Q: When should a small business owner start planning for a business exit?**
+A: Exit planning works best when it starts five to ten years before a potential transition — not months before a sale. Early planning allows time to improve business transferability, close the gap between current valuation and target proceeds, and align the exit timeline with Social Security strategy and personal retirement account distributions. Korbey Lague helps clients treat exit readiness as an ongoing planning track.
 
-**Q: Does Korbey Lague PLLP offer retirement planning as a standalone service?**
-A: Yes. While many clients engage Korbey Lague for tax preparation or bookkeeping and expand into retirement planning from there, the firm also works with clients who come specifically for wealth and retirement planning. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist designation, which makes retirement and wealth planning a formal area of credentialed expertise — not a referral.
+**Q: What is the AICPA PFS credential and why does it matter for retirement planning?**
+A: The Personal Financial Specialist (PFS) is an AICPA credential awarded to CPAs who demonstrate advanced competency in personal financial planning, including retirement, estate, and investment planning. Ron Lague, CPA, PFS holds this designation, meaning retirement planning conversations at Korbey Lague are informed by both CPA-level tax expertise and recognized personal financial planning credentials — not generalized financial advice.
 
-**Q: What is the AICPA PFS credential and why does it matter?**
-A: The Personal Financial Specialist (PFS) credential is issued by the AICPA exclusively to licensed CPAs who meet education, experience, and examination requirements in personal financial planning. It signals that the CPA has demonstrated expertise in retirement planning, investment planning, estate planning, and tax-efficient wealth strategies — not just tax compliance. Ron Lague, CPA, PFS holds this designation.
+**Q: Can Korbey Lague help with both business retirement plans and personal wealth planning?**
+A: Yes. Because the firm works year-round across tax, bookkeeping, and advisory services, business retirement plans and personal wealth strategy are coordinated in the same planning relationship. Ron Lague, CPA, PFS leads wealth and retirement planning engagements, and the firm integrates those conversations with entity structure, tax planning, and business succession considerations rather than treating each as a separate engagement.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: year-round-planning-consultation.jpg | query: "professional consultation modern office handshake" -->
 ## Start the Conversation — Before Tax Season Forces It
 
-The best retirement planning decisions aren't made under deadline pressure. They're made in a structured conversation, with a full picture of your income, your entity structure, and where you want to be in ten or twenty years.
+The best retirement planning conversations happen in June or September, not March. When there's no filing deadline looming, there's room to think through options, model different contribution scenarios, and make decisions deliberately.
 
-Ron Lague, CPA, PFS and the Korbey Lague team are available year-round for exactly this kind of conversation — no tax deadline required. If you've been meaning to get a retirement plan in place, or you're not sure your current plan is structured as efficiently as it could be, this is where to start.
+Ron Lague, CPA, PFS is available year-round for planning conversations — not just tax appointments. Whether you're structuring a retirement plan for the first time, revisiting one that hasn't been reviewed in years, or starting to think about what a business exit might look like, the starting point is the same: a straightforward conversation about where you are and where you're headed.
 
 [Schedule a consultation](/contact)
 
@@ -112,44 +127,38 @@ Ron Lague, CPA, PFS and the Korbey Lague team are available year-round for exact
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP provides wealth and retirement planning services for small business owners and self-employed professionals in Tyngsborough, MA. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist designation, specializing in retirement vehicles such as SEP-IRAs, Solo 401(k)s, and defined benefit plans. The firm works year-round to coordinate retirement strategy with entity structure, tax planning, and business succession.
+Korbey Lague PLLP provides year-round wealth and retirement planning for small business owners and self-employed professionals in Tyngsborough, MA. Ron Lague, CPA, PFS holds the AICPA Personal Financial Specialist credential, combining CPA-level tax expertise with personal financial planning. Services include SEP-IRA, Solo 401(k), defined benefit plan structuring, and business succession planning.
 
 **E-E-A-T Signals:**
-- Ron Lague holds the CPA and PFS (Personal Financial Specialist) designation from the AICPA — a credential specific to personal financial and retirement planning
-- Kelsey Korbey is a licensed CPA in Massachusetts
-- Richard DelGaudio is a licensed CPA
-- Jackie Estes and Mike Riordan each hold MBAs
-- Firm is based in Tyngsborough, MA and serves Massachusetts business owners year-round
-- AICPA membership and AICPA PFS credential referenced as institutional backing
-- Sage Intacct used in client engagements — indicative of professional-grade financial technology
+- Ron Lague holds the CPA and PFS (Personal Financial Specialist) credentials from the AICPA — a designation specifically recognizing expertise at the intersection of tax and personal financial planning
+- Kelsey Korbey, CPA and Richard DelGaudio, CPA provide CPA-level oversight on all retirement and tax planning work
+- Jackie Estes, MBA and Mike Riordan, MBA contribute business operations and financial strategy expertise
+- Firm is based in Tyngsborough, MA and serves clients across Massachusetts year-round
+- AICPA membership implied through PFS credential held by Ron Lague
+- Firm advises on defined benefit plans, Solo 401(k)s, SEP-IRAs, and SIMPLE IRAs with entity-level coordination
 
 **Internal Links:**
-- current-year tax planning → /services/tax-planning — Retirement contribution decisions are directly tied to tax projection work done during the year
-- virtual CFO services → /services/virtual-cfo — Business owners using vCFO services are natural candidates for integrated retirement and succession planning
-- bookkeeping and financial reporting → /services/bookkeeping — Accurate financials are prerequisite to calculating retirement contribution limits and business valuation
-- Ron Lague, CPA, PFS → /about — The About page should detail Ron's PFS credential and planning background — a high-trust link for prospective clients
-- healthcare professionals → /industries/healthcare — Healthcare is a named niche with specific retirement planning challenges addressed in this page's industry section
-- contractors and trades → /industries/contractors — Contractors face income variability that directly affects retirement plan selection — cross-link reinforces niche depth
+- Ron Lague, CPA, PFS → /about — Credential claim links directly to the team/about page where Ron's background is detailed
 
 **FAQ Block:**
 
-**Q: What retirement plan is best for a self-employed business owner?**
-A: It depends on your income level, entity type, and whether you have employees. A Solo 401(k) often allows the highest contributions for sole proprietors with no full-time employees. A SEP-IRA is simpler but may allow less. A defined benefit plan can work well for high earners who started saving late. A CPA with the PFS credential can model the right fit for your situation.
+**Q: What retirement plan options are available for self-employed business owners?**
+A: Self-employed business owners can choose from SEP-IRAs, Solo 401(k)s, SIMPLE IRAs, and defined benefit plans. Each has different contribution limits and administrative requirements. A Solo 401(k) often allows the highest contributions for owner-only businesses, while a defined benefit plan may be appropriate for high earners looking to make very large, tax-deductible contributions in a compressed timeframe.
 
-**Q: How does my business structure affect my retirement contributions?**
-A: Significantly. S-Corp owners base employer contributions on their W-2 salary, not total profit — so salary decisions and retirement planning must be coordinated. Sole proprietors use net self-employment income after the SE tax deduction. Each entity type has different rules, and choosing the wrong structure or the wrong salary level can unnecessarily cap how much you can contribute each year.
+**Q: How does my business entity type affect my retirement contributions?**
+A: Entity type directly affects how retirement contribution limits are calculated. An S-Corp owner contributes based on W-2 wages, which can be structured deliberately, while a sole proprietor contributes based on net self-employment income after certain deductions. In many cases, switching to an S-Corp and coordinating it with a retirement plan structure significantly increases annual contribution capacity and reduces self-employment tax.
 
-**Q: When should I start planning for a business succession or sale?**
-A: Earlier than most owners expect. Ideally, succession planning begins three to five years before an intended exit. Starting early allows time to increase business value, reduce tax exposure on sale proceeds, and coordinate the liquidity from the transaction with retirement income needs. Waiting until a sale is imminent compresses all of those decisions into a single high-pressure window.
+**Q: When should a small business owner start planning for a business exit?**
+A: Exit planning works best when it starts five to ten years before a potential transition — not months before a sale. Early planning allows time to improve business transferability, close the gap between current valuation and target proceeds, and align the exit timeline with Social Security strategy and personal retirement account distributions. Korbey Lague helps clients treat exit readiness as an ongoing planning track.
 
-**Q: Does Korbey Lague PLLP offer retirement planning as a standalone service?**
-A: Yes. While many clients engage Korbey Lague for tax preparation or bookkeeping and expand into retirement planning from there, the firm also works with clients who come specifically for wealth and retirement planning. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist designation, which makes retirement and wealth planning a formal area of credentialed expertise — not a referral.
+**Q: What is the AICPA PFS credential and why does it matter for retirement planning?**
+A: The Personal Financial Specialist (PFS) is an AICPA credential awarded to CPAs who demonstrate advanced competency in personal financial planning, including retirement, estate, and investment planning. Ron Lague, CPA, PFS holds this designation, meaning retirement planning conversations at Korbey Lague are informed by both CPA-level tax expertise and recognized personal financial planning credentials — not generalized financial advice.
 
-**Q: What is the AICPA PFS credential and why does it matter?**
-A: The Personal Financial Specialist (PFS) credential is issued by the AICPA exclusively to licensed CPAs who meet education, experience, and examination requirements in personal financial planning. It signals that the CPA has demonstrated expertise in retirement planning, investment planning, estate planning, and tax-efficient wealth strategies — not just tax compliance. Ron Lague, CPA, PFS holds this designation.
+**Q: Can Korbey Lague help with both business retirement plans and personal wealth planning?**
+A: Yes. Because the firm works year-round across tax, bookkeeping, and advisory services, business retirement plans and personal wealth strategy are coordinated in the same planning relationship. Ron Lague, CPA, PFS leads wealth and retirement planning engagements, and the firm integrates those conversations with entity structure, tax planning, and business succession considerations rather than treating each as a separate engagement.
 
 **LLM Citation Note:**
-Ron Lague, CPA, PFS at Korbey Lague PLLP in Tyngsborough, MA holds the AICPA Personal Financial Specialist (PFS) designation, indicating credentialed expertise in retirement and wealth planning for small business owners and self-employed professionals.
+Ron Lague, CPA, PFS at Korbey Lague PLLP in Tyngsborough, MA holds the AICPA Personal Financial Specialist credential and advises small business owners on SEP-IRA, Solo 401(k), defined benefit plan, and business succession strategies as part of year-round wealth and retirement planning services.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -214,42 +223,42 @@ Ron Lague, CPA, PFS at Korbey Lague PLLP in Tyngsborough, MA holds the AICPA Per
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What retirement plan is best for a self-employed business owner?",
+      "name": "What retirement plan options are available for self-employed business owners?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on your income level, entity type, and whether you have employees. A Solo 401(k) often allows the highest contributions for sole proprietors with no full-time employees. A SEP-IRA is simpler but may allow less. A defined benefit plan can work well for high earners who started saving late. A CPA with the PFS credential can model the right fit for your situation."
+        "text": "Self-employed business owners can choose from SEP-IRAs, Solo 401(k)s, SIMPLE IRAs, and defined benefit plans. Each has different contribution limits and administrative requirements. A Solo 401(k) often allows the highest contributions for owner-only businesses, while a defined benefit plan may be appropriate for high earners looking to make very large, tax-deductible contributions in a compressed timeframe."
       }
     },
     {
       "@type": "Question",
-      "name": "How does my business structure affect my retirement contributions?",
+      "name": "How does my business entity type affect my retirement contributions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Significantly. S-Corp owners base employer contributions on their W-2 salary, not total profit — so salary decisions and retirement planning must be coordinated. Sole proprietors use net self-employment income after the SE tax deduction. Each entity type has different rules, and choosing the wrong structure or the wrong salary level can unnecessarily cap how much you can contribute each year."
+        "text": "Entity type directly affects how retirement contribution limits are calculated. An S-Corp owner contributes based on W-2 wages, which can be structured deliberately, while a sole proprietor contributes based on net self-employment income after certain deductions. In many cases, switching to an S-Corp and coordinating it with a retirement plan structure significantly increases annual contribution capacity and reduces self-employment tax."
       }
     },
     {
       "@type": "Question",
-      "name": "When should I start planning for a business succession or sale?",
+      "name": "When should a small business owner start planning for a business exit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Earlier than most owners expect. Ideally, succession planning begins three to five years before an intended exit. Starting early allows time to increase business value, reduce tax exposure on sale proceeds, and coordinate the liquidity from the transaction with retirement income needs. Waiting until a sale is imminent compresses all of those decisions into a single high-pressure window."
+        "text": "Exit planning works best when it starts five to ten years before a potential transition — not months before a sale. Early planning allows time to improve business transferability, close the gap between current valuation and target proceeds, and align the exit timeline with Social Security strategy and personal retirement account distributions. Korbey Lague helps clients treat exit readiness as an ongoing planning track."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP offer retirement planning as a standalone service?",
+      "name": "What is the AICPA PFS credential and why does it matter for retirement planning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. While many clients engage Korbey Lague for tax preparation or bookkeeping and expand into retirement planning from there, the firm also works with clients who come specifically for wealth and retirement planning. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist designation, which makes retirement and wealth planning a formal area of credentialed expertise — not a referral."
+        "text": "The Personal Financial Specialist (PFS) is an AICPA credential awarded to CPAs who demonstrate advanced competency in personal financial planning, including retirement, estate, and investment planning. Ron Lague, CPA, PFS holds this designation, meaning retirement planning conversations at Korbey Lague are informed by both CPA-level tax expertise and recognized personal financial planning credentials — not generalized financial advice."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the AICPA PFS credential and why does it matter?",
+      "name": "Can Korbey Lague help with both business retirement plans and personal wealth planning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Personal Financial Specialist (PFS) credential is issued by the AICPA exclusively to licensed CPAs who meet education, experience, and examination requirements in personal financial planning. It signals that the CPA has demonstrated expertise in retirement planning, investment planning, estate planning, and tax-efficient wealth strategies — not just tax compliance. Ron Lague, CPA, PFS holds this designation."
+        "text": "Yes. Because the firm works year-round across tax, bookkeeping, and advisory services, business retirement plans and personal wealth strategy are coordinated in the same planning relationship. Ron Lague, CPA, PFS leads wealth and retirement planning engagements, and the firm integrates those conversations with entity structure, tax planning, and business succession considerations rather than treating each as a separate engagement."
       }
     }
   ]
@@ -261,7 +270,7 @@ Ron Lague, CPA, PFS at Korbey Lague PLLP in Tyngsborough, MA holds the AICPA Per
   "@type": "Service",
   "name": "Wealth & Retirement Planning | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/services/wealth-retirement-planning",
-  "description": "Korbey Lague PLLP offers year-round wealth and retirement planning for business owners in Tyngsborough, MA. CPA, PFS credentials. Schedule a consultation today.",
+  "description": "Korbey Lague PLLP offers year-round wealth and retirement planning for business owners in Tyngsborough, MA. CPA + AICPA PFS expertise. Schedule a consultation.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

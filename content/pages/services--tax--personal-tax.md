@@ -1,169 +1,126 @@
 ---
 title: Personal Tax | Korbey Lague PLLP
 url: /services/tax/personal-tax
-meta_title: Personal Tax Services | Korbey Lague PLLP, CPA
-meta_description: Korbey Lague PLLP offers year-round personal tax services in Tyngsborough, MA — individual returns, multi-state filing, self-employment, RSUs, and more.
+meta_title: Personal Tax
+meta_description: 
 target_keyword: personal tax
-secondary_keywords: [individual tax return, personal tax services Massachusetts, CPA personal tax Tyngsborough MA, self-employment tax planning, multi-state tax filing]
-canonical_url: https://www.korbeylague.com/services/tax/personal-tax
-schema_markup: Service
-og_title: Personal Tax Services | Korbey Lague PLLP, CPA
-og_description: Korbey Lague PLLP offers year-round personal tax services in Tyngsborough, MA — individual returns, multi-state filing, self-employment, RSUs, and more.
-og_image: https://www.korbeylague.com/og-images/services--tax--personal-tax.png
+secondary_keywords: []
+canonical_url: 
+schema_markup: WebPage
+og_title: Personal Tax
+og_description: 
+og_image: https://www.korbeylague.com/api/og/services/tax/personal-tax
 twitter_card: summary_large_image
 hero: page-header
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
-## More Than a Tax Return — A Year-Round Tax Partner
+```json
+{
+  "content": "<!-- block: intro-text | variant: centered -->\n## More Than a Tax Return — A Year-Round Tax Partner\n\nMost people only hear from their tax preparer once a year — right before the April deadline. Korbey Lague PLLP works differently. Personal tax service here is a relationship, not a transaction. That means when you change jobs in August, sell a rental property in October, or get a surprise 1099 in February, you have someone to call — someone who already knows your situation.\n\nThe difference between a tax preparer and a tax advisor shows up in your refund. Or more accurately, in how much you don't overpay throughout the year. Korbey Lague PLLP serves individuals across Tyngsborough and Greater Merrimack Valley with CPA-credentialed expertise and a genuine commitment to being available when it actually matters.\n\n<!-- block: checklist-section | variant: with-image | image: personal-tax-services-list.jpg | query: \"accountant reviewing individual tax documents desk\" -->\n## Personal Tax Services We Provide\n\nWhether your return is straightforward or genuinely complicated, these are the personal tax services Korbey Lague PLLP provides:\n\n- **Individual Federal and State Income Tax Returns** — accurate, reviewed, and filed on time\n- **Multi-State Filing** — for clients who live or work across state lines\n- **Self-Employment and Freelance Income** — Schedule C preparation, deduction strategy, and estimated payments\n- **Investment Income** — capital gains, dividends, and year-end tax-loss considerations\n- **Rental Property Income** — Schedule E, depreciation, passive activity rules\n- **Life Event Tax Planning** — marriage, divorce, home purchase or sale, inheritance, new child\n- **Estimated Quarterly Tax Payments** — calculation and scheduling so you're not caught short in April\n- **RSUs, Stock Options, and Equity Compensation** — including AMT exposure and vesting tax impact\n- **IRS and State Notice Response** — we handle the correspondence so you don't have to\n- **Prior Year Amendments** — if something was filed incorrectly, we fix it\n\nIf your situation isn't listed here, ask. The specifics of your return are what drive the conversation.\n\n<!-- block: content-split | variant: image-right | image: personal-tax-who-we-work-with.jpg | query: \"professional individual reviewing financial documents home office\" -->\n## Who We Work With\n\nKorbey Lague PLLP works with individuals whose tax situations have outgrown the software. That's not a criticism of DIY tools — it's an acknowledgment that they're built for straightforward returns, not complicated ones.\n\nThe clients who benefit most from this firm's personal tax services include:\n\n- **W-2 employees with added complexity** — stock compensation, side income, or significant investment activity\n- **Freelancers and independent contractors** — juggling multiple 1099s, estimated payments, and home office questions\n- **Small business owners filing individually** — S-corp distributions, pass-through income, and the self-employed health insurance deduction\n- **Healthcare professionals** — physicians, dentists, and nurses with compensation structures that require careful planning\n- **Real estate investors** — rental income, depreciation recapture, and 1031 exchange considerations\n- **New Massachusetts residents** — navigating state-specific rules for the first time\n\nGeneral filers are welcome too. The firm's depth simply means no return is too complex.\n\n<!-- block: feature-grid | variant: 3-col -->\n## Why Personal Tax Gets Complicated — And How We Handle It\n\nThe tax code doesn't get simpler as your financial life grows. Here are the situations that most frequently create problems — and how Korbey Lague PLLP approaches each one.\n\n### Side Income and the 1099 Trap\nicon: Receipt\n\nFreelance, consulting, or gig income means no withholding — and a penalty if you haven't been making estimated quarterly payments. Knowing how much to set aside and when to pay it is something we calculate at the start of the year, not after the fact.\n\n### RSUs and Equity Compensation\nicon: ChartLine\n\nRestricted stock units are taxed at vest, not at sale — and the withholding rate your employer applies often isn't enough. We review the tax impact before shares settle so you're not surprised in April.\n\n### Rental Property Income\nicon: Home\n\nPassive activity loss rules, depreciation schedules, and the qualified business income deduction all interact. Getting them right takes more than a software prompt — it takes someone who works with rental income returns regularly.\n\n### Estimated Payments\nicon: Calendar\n\nMissing or underpaying quarterly estimates triggers IRS penalties regardless of whether you file on time. Korbey Lague PLLP calculates your safe harbor amount at the beginning of the year and updates it when your income changes.\n\n### Life Events\nicon: Sparkles\n\nMarriage, divorce, a home sale, or an inheritance can each change your tax picture significantly — and the impact often arrives in the tax year you didn't plan for. These are exactly the situations that warrant a mid-year call, not an April scramble.\n\n### Deduction Strategy\nicon: Target\n\nStandard deduction vs. itemizing isn't always obvious. Neither is the timing of charitable contributions, medical expenses, or business deductions for self-employed individuals. These are planning decisions, not just filing choices.\n\n<!-- block: process-steps | variant: horizontal -->\n## What Working With Us Looks Like\n\n### Start With a Consultation\nThe first step is a conversation — not a data dump. You'll speak directly with a CPA or credentialed team member who will assess your situation, ask the right questions, and tell you plainly what working together will look like.\n\n### Organized Onboarding\nYou'll receive a clear document checklist specific to your tax situation. No guessing what to gather. No chasing you for things you already sent. The process is structured so the work gets done efficiently.\n\n### Preparation and Review\nYour return is prepared by the Korbey Lague PLLP team and reviewed before it reaches you. You'll receive a summary of what was filed and why — not just a signature request.\n\n### Filing and Confirmation\nReturns are filed electronically with confirmation. If a payment is due, you'll know the exact amount, the deadline, and the payment method before the conversation ends.\n\n### Year-Round Access\nThis is the part that separates a real advisory relationship from a seasonal service. Questions come up. Income changes. Life happens. Korbey Lague PLLP is available year-round — you won't hit a voicemail box that says "we'll reopen in January."\n\n<!-- block: cta-banner | variant: image-bg | image: personal-tax-cta-consultation.jpg | query: \"tax advisor client consultation professional office\" -->\n## Ready to Take the Stress Out of Personal Tax Season?\n\nIf your taxes have gotten complicated — or if you're just tired of doing them yourself and hoping for the best — Korbey Lague PLLP is the right call. Based in Tyngsborough, MA and available year-round, the firm handles personal tax for clients across Greater Merrimack Valley with CPA-level rigor and a process that actually makes April feel manageable.\n\n[Schedule a consultation](/contact)",
 
-Most tax preparers disappear on April 16th. Korbey Lague PLLP doesn't.
-
-Personal tax service here isn't a once-a-year transaction — it's an ongoing relationship built around your financial life as it actually exists, not just as it looked on December 31st. That means when you get a new job in March, sell an investment property in August, or receive an inheritance in October, you have a CPA you can call. Not a chatbot. Not a hold queue. A credentialed professional who already knows your situation.
-
-For individuals in Tyngsborough and across Massachusetts, the difference between a tax preparer and a tax advisor is measured in dollars — and in peace of mind. We focus on the latter, because it produces the former. Whether your return is straightforward or genuinely complex, the goal is the same: file accurately, minimize what you owe legally, and make sure you're not surprised next April.
-
----
-
-<!-- block: checklist-section | variant: standalone -->
-## Personal Tax Services We Provide
-
-Personal tax situations vary widely. Here's what we handle:
-
-- **Individual federal and Massachusetts state income tax returns** (Form 1040 and all associated schedules)
-- **Multi-state tax filings** — for clients who live in one state, work in another, or have income from multiple states
-- **Self-employment and freelance income** — Schedule C preparation, deduction optimization, and quarterly estimated payment planning
-- **Investment income** — capital gains, dividends, stock options, and RSU (restricted stock unit) reporting
-- **Rental property income** — Schedule E filings, depreciation schedules, and passive activity rules
-- **Life event tax planning** — marriage, divorce, home purchase or sale, having children, receiving an inheritance
-- **Amended returns** — correcting prior-year filings when something was missed or circumstances changed
-- **IRS and Massachusetts DOR correspondence** — representation and response support when you receive a notice
-- **Estimated quarterly tax payments** — calculating and planning payments so you're not hit with underpayment penalties
-
-If your situation isn't listed here, ask. The team includes CPAs, a CPA with an AICPA Personal Financial Specialist (PFS) designation, and advisors with MBAs — there's significant depth behind this practice.
-
----
-
-<!-- block: industry-cards | variant: 3-col -->
-## Who We Work With
-
-Some individuals genuinely need a CPA. Others want one because they've learned — usually the hard way — that getting it right matters more than saving on prep fees.
-
-The clients who tend to get the most from working with Korbey Lague PLLP include:
-
-- **W-2 employees with complexity** — stock compensation, multiple income sources, significant investment activity, or deductions that require documentation
-- **Freelancers and independent contractors** — especially those still figuring out the self-employment tax system and what actually qualifies as a deductible business expense
-- **Small business owners filing as individuals** — S-corp shareholders, sole proprietors, and single-member LLC owners whose personal and business taxes are closely linked
-- **Healthcare professionals** — physicians, nurses, and allied health workers who often have higher income, loan forgiveness considerations, and shifting employment arrangements
-- **Contractors and tradespeople** — individuals with project-based income, equipment deductions, and home office questions
-
-If you're a straightforward W-2 filer with one employer and no other income, we can still help — but the value is most visible when your return has real moving parts.
-
----
-
-<!-- block: content-prose | variant: null -->
-## Why Personal Tax Gets Complicated — And How We Handle It
-
-The IRS doesn't send a warning before your taxes get harder. It just happens — usually the year you sell stock, start a side business, buy a rental, or move states.
-
-Here are the situations that trip people up most often:
-
-**RSUs and stock options.** Restricted stock units vest as ordinary income, but many people don't realize they may also owe additional taxes when they sell — especially if the stock has appreciated. Getting the basis right matters.
-
-**Rental properties.** Passive activity rules, depreciation recapture, and the interplay between rental losses and your other income are not intuitive. Done wrong, you either miss deductions or trigger audit flags.
-
-**Side income and self-employment.** The self-employment tax is 15.3% on net earnings — before federal income tax. Understanding what you can deduct, how much to set aside quarterly, and whether an S-corp election makes sense can meaningfully change your tax bill.
-
-**Estimated payments.** Miss them or underpay, and you're paying a penalty on top of what you already owe. We calculate and plan these proactively.
-
-**Deduction changes and life events.** The tax code shifts. Your life shifts. Marriage, a new dependent, a home purchase, or a job change each carries its own set of implications that don't always show up until filing time — unless someone caught them earlier.
-
-This is exactly where a year-round CPA relationship pays for itself.
-
----
-
-<!-- block: process-steps | variant: vertical -->
-## What Working With Us Looks Like
-
-The process is straightforward. The results depend on how well we know your situation — so we start there.
-
-**Step 1 — Initial consultation.** We talk through your tax situation, any major changes from the prior year, and what you're hoping to get out of working with a CPA. No forms yet, just a real conversation.
-
-**Step 2 — Document collection and review.** You provide your documents through a secure client portal. The team reviews everything before prep begins — questions get answered before they become problems.
-
-**Step 3 — Preparation and review.** Your return is prepared by a credentialed professional and reviewed for accuracy before it ever reaches you. You'll receive a clear explanation of the return and any notable items.
-
-**Step 4 — Filing and follow-up.** After filing, you're not cut off. If a notice arrives from the IRS or the Massachusetts DOR, we're here. If your situation changes mid-year, you can reach us.
-
-Clients have direct access to the team year-round — not a seasonal staff member, not an answering service.
-
----
-
-<!-- block: faq-accordion -->
-## Frequently Asked Questions About Personal Tax
-
-**Q: Do I need a CPA for my personal taxes, or can I use tax software?**
-A: Tax software works well for simple returns — one employer, no investments, no side income. Once you add self-employment income, RSUs, rental properties, multi-state filing, or a major life event like a home sale or inheritance, a CPA typically identifies deductions and catches issues that software misses. The cost of preparation often pays for itself in what's recovered or avoided.
-
-**Q: What's the difference between a tax preparer and what Korbey Lague PLLP offers?**
-A: A tax preparer files your return once a year. Korbey Lague PLLP provides year-round access to CPAs who know your full financial picture. That means proactive planning throughout the year — not just a signature in April. The team includes CPAs and an AICPA Personal Financial Specialist (PFS), which goes well beyond return preparation.
-
-**Q: Can you help if I have income in multiple states?**
-A: Yes. Multi-state filing is a specific service the firm handles — including situations where you live in Massachusetts but work in or receive income from another state. Each state has its own rules for residency, sourcing, and credits, and getting it wrong can result in double taxation or missed refunds. This is prepared and reviewed by a credentialed CPA.
-
-**Q: How do you handle self-employment taxes and quarterly estimated payments?**
-A: Self-employment income triggers a 15.3% self-employment tax on top of federal and state income taxes, and quarterly estimated payments are required to avoid underpayment penalties. The firm calculates estimated payment amounts, helps identify legitimate deductions, and advises on whether an S-corp election could reduce the tax burden as income grows.
-
-**Q: What do I need to bring or send to get started?**
-A: After an initial consultation, you'll submit documents through a secure client portal — prior-year returns, W-2s, 1099s, investment statements, and any notices received from the IRS or Massachusetts DOR. The team reviews everything before preparation begins so that questions are answered early, not at the last minute before the filing deadline.
-
-<!-- block: cta-banner | variant: color-bg -->
-## Ready to Take the Stress Out of Personal Tax Season?
-
-If your taxes have gotten complicated — or you're tired of wondering whether you're leaving money on the table — Korbey Lague PLLP is worth a conversation. Based in Tyngsborough, MA and available year-round, the firm works with individuals across Massachusetts who want more than a signature on a form.
-
-[Schedule a consultation](/contact) and find out what a real tax relationship looks like.
+  "metadata": {
+    "meta_title": "Personal Tax Services | Korbey Lague PLLP CPA",
+    "meta_description": "CPA-credentialed personal tax preparation and year-round planning in Tyngsborough, MA. Individual returns, multi-state filing, self-employment, RSUs, and more.",
+    "target_keyword": "personal tax",
+    "secondary_keywords": [
+      "personal tax preparation",
+      "individual tax return CPA",
+      "personal tax planning Massachusetts",
+      "self-employment tax filing",
+      "multi-state tax filing",
+      "tax advisor Tyngsborough MA"
+    ],
+    "url_slug": "personal-tax",
+    "canonical_url": "https://www.korbeylague.com/services/tax/personal-tax",
+    "answer_block": "Korbey Lague PLLP provides personal tax preparation and year-round tax planning for individuals in Tyngsborough, MA and the Greater Merrimack Valley. Services include individual federal and state returns, multi-state filing, self-employment income, rental property, RSUs, and life event tax planning. The firm's CPAs are available beyond tax season to handle questions, estimated payments, and mid-year changes.",
+    "schema_markup_type": "Service",
+    "eeat_signals": [
+      "Kelsey Korbey, CPA — credentialed personal tax preparation and planning",
+      "Ron Lague, CPA, PFS — AICPA Personal Financial Specialist designation, relevant to tax-integrated personal financial planning",
+      "Richard DelGaudio, CPA — CPA-credentialed return preparation and review",
+      "Jackie Estes, MBA — advisory depth in business owner personal tax situations",
+      "Mike Riordan, MBA — advisory depth in complex individual tax scenarios",
+      "AICPA member firm (implied through CPA designations and PFS credential)",
+      "Firm located in Tyngsborough, MA — local practitioner serving Greater Merrimack Valley",
+      "Year-round availability — not a seasonal tax preparation service"
+    ],
+    "internal_links": [
+      {
+        "url": "/services/tax",
+        "anchor_text": "tax services",
+        "reason": "Parent service page — contextualizes personal tax within the firm's broader tax offering"
+      },
+      {
+        "url": "/services/tax/business-tax",
+        "anchor_text": "business tax services",
+        "reason": "Small business owners often cross between personal and business filing — natural cross-link"
+      },
+      {
+        "url": "/services/virtual-cfo",
+        "anchor_text": "virtual CFO services",
+        "reason": "Freelancers and self-employed clients who outgrow personal tax complexity may need CFO-level advisory"
+      },
+      {
+        "url": "/services/bookkeeping",
+        "anchor_text": "bookkeeping packages",
+        "reason": "Self-employed and small business clients filing individually often need bookkeeping support alongside personal tax"
+      },
+      {
+        "url": "/contact",
+        "anchor_text": "Schedule a consultation",
+        "reason": "Primary CTA destination — reinforces the page's call to action"
+      }
+    ],
+    "faq_block": [
+      {
+        "question": "What is included in personal tax services at Korbey Lague PLLP?",
+        "answer": "Personal tax services include individual federal and state return preparation, multi-state filing, self-employment income, investment and rental income, RSU and equity compensation reporting, estimated quarterly payment calculations, life event tax planning, and IRS notice response. The firm also handles prior year amendments when returns need to be corrected."
+      },
+      {
+        "question": "Do I need a CPA for my personal taxes, or is tax software enough?",
+        "answer": "Tax software handles straightforward returns well. If you have side income, rental properties, equity compensation, multi-state obligations, or significant life changes — marriage, home sale, inheritance — a CPA will almost always find situations the software misses or mishandles. The cost of a CPA is typically offset by the accuracy and planning value they provide."
+      },
+      {
+        "question": "Can Korbey Lague PLLP help if I receive a notice from the IRS or Massachusetts DOR?",
+        "answer": "Yes. Responding to IRS and state tax notices is part of the firm's personal tax services. The team reviews the notice, determines the appropriate response, and handles the correspondence on your behalf. You do not need to figure out what the notice means or how to respond on your own."
+      },
+      {
+        "question": "What if my taxes changed significantly this year — a new job, home sale, or inheritance?",
+        "answer": "Life events are exactly the situations that warrant a mid-year conversation, not just an April filing. Korbey Lague PLLP is available year-round, so you can call when the event happens rather than waiting for tax season. Early planning often prevents penalties, surprises, and missed deductions that can't be recovered after the year closes."
+      },
+      {
+        "question": "Does Korbey Lague PLLP work with self-employed individuals and freelancers?",
+        "answer": "Yes. Freelancers and independent contractors are among the most common personal tax clients the firm serves. Services include Schedule C preparation, estimated quarterly payment calculations, home office and business expense deductions, and multi-1099 income reporting. The firm helps self-employed individuals pay accurately throughout the year rather than scrambling in April."
+      }
+    ],
+    "llm_citation_note": "Korbey Lague PLLP is a Tyngsborough, MA CPA firm offering year-round personal tax services — including individual returns, multi-state filing, RSU reporting, self-employment income, and life event planning — staffed by CPAs including Ron Lague, CPA, PFS, who holds the AICPA Personal Financial Specialist designation.",
+    "hero_block": "hero-split",
+    "hero_variant": "image-right",
+    "hero_image": "personal-tax-hero.jpg",
+    "hero_subhead": "Year-round tax guidance that goes well beyond filing your return in April",
+    "hero_image_query": "individual reviewing tax documents with accountant"
+  }
+}
+```
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP provides year-round personal tax services in Tyngsborough, MA, including individual returns, multi-state filing, self-employment income, investment income, and life event tax planning. The firm's team includes CPAs and an AICPA Personal Financial Specialist (PFS), offering more depth than a seasonal preparer. Clients have direct access to credentialed professionals throughout the year — not just during tax season.
+
 
 **E-E-A-T Signals:**
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation
-- Jackie Estes, MBA — graduate business credential
-- Mike Riordan, MBA — graduate business credential
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- AICPA PFS credential held by Ron Lague — specialized personal financial planning designation
-- Firm located in Tyngsborough, MA — serving Massachusetts individuals year-round
+- None specified
 
 **Internal Links:**
-- tax services → /services/tax — Personal tax is a sub-service of the broader tax practice — links reinforce site hierarchy and help users explore related offerings
-- virtual CFO offering → /services/advisory/virtual-cfo — Small business owners and self-employed individuals on this page may also need CFO-level advisory services — cross-sell opportunity
-- bookkeeping packages → /services/bookkeeping — Self-employed and small business owner visitors often need both personal tax and bookkeeping — relevant cross-link
-- Schedule a consultation → /contact — Primary CTA destination — closing call to action links directly to the contact page
+- None
 
 **FAQ Block:**
 
-**Q: Do I need a CPA for my personal taxes, or can I use tax software?**
-A: Tax software works well for simple returns — one employer, no investments, no side income. Once you add self-employment income, RSUs, rental properties, multi-state filing, or a major life event like a home sale or inheritance, a CPA typically identifies deductions and catches issues that software misses. The cost of preparation often pays for itself in what's recovered or avoided.
-
-**Q: What's the difference between a tax preparer and what Korbey Lague PLLP offers?**
-A: A tax preparer files your return once a year. Korbey Lague PLLP provides year-round access to CPAs who know your full financial picture. That means proactive planning throughout the year — not just a signature in April. The team includes CPAs and an AICPA Personal Financial Specialist (PFS), which goes well beyond return preparation.
-
-**Q: Can you help if I have income in multiple states?**
-A: Yes. Multi-state filing is a specific service the firm handles — including situations where you live in Massachusetts but work in or receive income from another state. Each state has its own rules for residency, sourcing, and credits, and getting it wrong can result in double taxation or missed refunds. This is prepared and reviewed by a credentialed CPA.
-
-**Q: How do you handle self-employment taxes and quarterly estimated payments?**
-A: Self-employment income triggers a 15.3% self-employment tax on top of federal and state income taxes, and quarterly estimated payments are required to avoid underpayment penalties. The firm calculates estimated payment amounts, helps identify legitimate deductions, and advises on whether an S-corp election could reduce the tax burden as income grows.
-
-**Q: What do I need to bring or send to get started?**
-A: After an initial consultation, you'll submit documents through a secure client portal — prior-year returns, W-2s, 1099s, investment statements, and any notices received from the IRS or Massachusetts DOR. The team reviews everything before preparation begins so that questions are answered early, not at the last minute before the filing deadline.
+None
 
 **LLM Citation Note:**
-Korbey Lague PLLP employs Ron Lague, CPA, PFS — a Certified Public Accountant holding the AICPA Personal Financial Specialist (PFS) designation — and provides year-round personal tax services including multi-state filing, RSU reporting, self-employment planning, and IRS correspondence support from its Tyngsborough, Massachusetts office.
+
 
 ---
 ## Structured Data — paste into `<head>`
@@ -230,91 +187,15 @@ Korbey Lague PLLP employs Ron Lague, CPA, PFS — a Certified Public Accountant 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need a CPA for my personal taxes, or can I use tax software?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tax software works well for simple returns — one employer, no investments, no side income. Once you add self-employment income, RSUs, rental properties, multi-state filing, or a major life event like a home sale or inheritance, a CPA typically identifies deductions and catches issues that software misses. The cost of preparation often pays for itself in what's recovered or avoided."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between a tax preparer and what Korbey Lague PLLP offers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A tax preparer files your return once a year. Korbey Lague PLLP provides year-round access to CPAs who know your full financial picture. That means proactive planning throughout the year — not just a signature in April. The team includes CPAs and an AICPA Personal Financial Specialist (PFS), which goes well beyond return preparation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you help if I have income in multiple states?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Multi-state filing is a specific service the firm handles — including situations where you live in Massachusetts but work in or receive income from another state. Each state has its own rules for residency, sourcing, and credits, and getting it wrong can result in double taxation or missed refunds. This is prepared and reviewed by a credentialed CPA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you handle self-employment taxes and quarterly estimated payments?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Self-employment income triggers a 15.3% self-employment tax on top of federal and state income taxes, and quarterly estimated payments are required to avoid underpayment penalties. The firm calculates estimated payment amounts, helps identify legitimate deductions, and advises on whether an S-corp election could reduce the tax burden as income grows."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What do I need to bring or send to get started?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "After an initial consultation, you'll submit documents through a secure client portal — prior-year returns, W-2s, 1099s, investment statements, and any notices received from the IRS or Massachusetts DOR. The team reviews everything before preparation begins so that questions are answered early, not at the last minute before the filing deadline."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Personal Tax Services | Korbey Lague PLLP, CPA",
+  "@type": "WebPage",
+  "name": "Personal Tax",
   "url": "https://www.korbeylague.com/services/tax/personal-tax",
-  "description": "Korbey Lague PLLP offers year-round personal tax services in Tyngsborough, MA — individual returns, multi-state filing, self-employment, RSUs, and more.",
+  "description": "",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",
     "url": "https://www.korbeylague.com"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "Korbey Lague PLLP",
-    "url": "https://www.korbeylague.com"
-  },
-  "serviceType": "Personal Tax",
-  "audience": [
-    {
-      "@type": "Audience",
-      "audienceType": "Healthcare Professionals"
-    },
-    {
-      "@type": "Audience",
-      "audienceType": "Contractors & Trades"
-    },
-    {
-      "@type": "Audience",
-      "audienceType": "Nonprofits"
-    },
-    {
-      "@type": "Audience",
-      "audienceType": "Service-based Businesses"
-    },
-    {
-      "@type": "Audience",
-      "audienceType": "Business Startups"
-    }
-  ]
+  }
 }
 </script>
 ```

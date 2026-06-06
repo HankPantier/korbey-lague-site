@@ -2,118 +2,104 @@
 title: Industries / Who We Serve | Korbey Lague PLLP
 url: /industries
 meta_title: Industries We Serve | Korbey Lague PLLP CPAs
-meta_description: Korbey Lague PLLP serves healthcare, contractors, nonprofits, service businesses, and startups in Massachusetts with year-round CPA and advisory expertise.
+meta_description: Korbey Lague PLLP serves healthcare, contractors, nonprofits, service businesses, and startups in Tyngsborough, MA with year-round CPA advisory services.
 target_keyword: industries we serve
-secondary_keywords: [CPA for healthcare professionals Massachusetts, CPA for contractors Massachusetts, nonprofit CPA Tyngsborough MA, CPA for startups Massachusetts, service business accounting firm]
+secondary_keywords: [CPA for healthcare professionals, CPA for contractors Massachusetts, nonprofit CPA Tyngsborough MA, CPA for service businesses, startup CPA advisor]
 canonical_url: https://www.korbeylague.com/industries
 schema_markup: Service
 og_title: Industries We Serve | Korbey Lague PLLP CPAs
-og_description: Korbey Lague PLLP serves healthcare, contractors, nonprofits, service businesses, and startups in Massachusetts with year-round CPA and advisory expertise.
-og_image: https://www.korbeylague.com/og-images/industries.png
+og_description: Korbey Lague PLLP serves healthcare, contractors, nonprofits, service businesses, and startups in Tyngsborough, MA with year-round CPA advisory services.
+og_image: https://www.korbeylague.com/api/og/industries
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Deep expertise in the industries where year-round financial guidance makes the biggest difference
 ---
 
 <!-- block: intro-text | variant: centered -->
-## Built for Businesses Others Overlook
+## Built for the Businesses Others Overlook
 
-Most CPA firms will take any client who walks through the door. Korbey Lague PLLP made a different call. Over the years, we've built deep working knowledge in a handful of industries where the financial complexity is real, the stakes are high, and a generalist approach tends to fall short.
+Most CPA firms will tell you they work with "a variety of industries." That usually means they'll take whoever calls. Korbey Lague PLLP made a different choice.
 
-This isn't a list of every sector we've ever touched. It's the short list of industries where our team — CPAs, PFS credential holders, and MBAs — shows up with context already in hand. If you're in one of these categories, you're not going to spend your first meeting explaining how your business works. We already know.
+We built deep experience in specific industries where year-round advisory work — not just April tax prep — actually moves the needle. That means when a contractor asks about job costing, or a nonprofit board asks about grant restrictions, or a physician wants to structure a new entity, we're not figuring it out on the fly. We've been here before.
 
-Find yourself below. If you're close but not exact, that's worth a conversation too.
+If your business is below, you're in the right place. If you're not sure, [let's talk](/contact).
 
----
-
-<!-- block: content-prose | variant: null -->
+<!-- block: industry-cards | variant: 3-col -->
 ## Healthcare Professionals
 
-Running a healthcare practice means wearing two hats at once: clinician and business owner. Most CPAs are comfortable with the second one in theory. Few have spent real time inside the financial structure of a medical or dental practice, a therapy group, or an independent specialty clinic.
+### Physicians & Specialists
+icon: Stethoscope
 
-The details matter here. Entity structure decisions — whether that's an S-corp, PLLC, or professional corporation — carry legal and tax consequences that interact directly with state licensing and credentialing requirements. Retirement planning for a physician-owner looks nothing like retirement planning for a W-2 employee. Payroll for clinical staff has its own compliance layer. And if you're billing insurance, your revenue recognition is more complicated than a standard accrual model captures.
+Running a medical practice means managing clinical complexity and financial complexity at the same time. Entity structure decisions — S-corp, PLLC, solo or group — carry long-term tax consequences that a generalist often misses. Ron Lague, CPA, PFS brings the depth of a Personal Financial Specialist credential (AICPA) to retirement planning conversations that most CPAs simply aren't equipped to have. We understand credentialing timelines, clinical staff payroll, malpractice cost deductibility, and the cash flow irregularities that come with insurance reimbursement cycles. Healthcare is not a side practice for us.
 
-Ron Lague holds the AICPA's Personal Financial Specialist (PFS) designation, which means the personal wealth side of a practice owner's picture — not just the business — gets treated with the same rigor as the entity-level work. For healthcare professionals, that integration is often exactly what's been missing.
+### Dentists & Independent Practitioners
+icon: HeartPulse
 
-If you're a physician, dentist, therapist, or independent practitioner in Massachusetts, you deserve a CPA who already understands the terrain.
+From the solo dentist buying out a retiring partner to the therapist opening a group practice, independent healthcare providers face a version of small-business complexity that's uniquely high-stakes. Equipment financing, associate compensation models, buy-in agreements — these decisions benefit from a CPA who has seen them before, not one reading the IRS code for the first time alongside you.
 
----
+### Mental Health & Allied Health
+icon: UserCheck
 
-<!-- block: content-prose | variant: null -->
+Therapists, physical therapists, and allied health professionals increasingly operate as private practice owners — often without a business background. Getting the entity structure right from day one, setting up payroll correctly for W-2 clinicians versus 1099 contractors, and planning for quarterly estimated taxes are all areas where Korbey Lague steps in early and stays involved.
+
+<!-- block: content-split | variant: image-right | image: contractors-trades-finance.jpg | query: "contractor reviewing blueprints job site" -->
 ## Contractors and Trades
 
-Construction and trade businesses have cash flow patterns that will confuse any accountant who learned their craft in a service or retail environment. Money comes in by project phase. Expenses cluster at the front end. Equipment depreciates on a schedule that demands active planning, not afterthought. And subcontractor relationships create a compliance exposure — think 1099 requirements, workers' comp classification, and lien waivers — that shows up in audits and disputes alike.
+Construction and trades businesses have financial cycles that don't match a calendar year, and most accounting systems aren't built for them. A project starts in March, runs through October, and the final draw doesn't land until December — meanwhile, payroll runs every two weeks and subcontractors need 1099s in January.
 
-Job costing is the core discipline here. Knowing whether a project actually made money, not just whether the bank account looks okay, is the difference between a contractor who grows intentionally and one who stays perpetually busy without building equity. Without a proper job costing system, that question never gets a clean answer.
+Korbey Lague works with general contractors, electricians, plumbers, HVAC companies, and specialty trades on the problems that matter most: accurate job costing so you know if a project is profitable before it closes, not after. Cash flow planning across project phases so payroll never stalls. Equipment depreciation strategies under Section 179 and bonus depreciation rules. And the compliance headaches of subcontractor relationships — workers' comp audits, certificate of insurance tracking, 1099-NEC filing — handled correctly from the start.
 
-Korbey Lague works with general contractors, electricians, plumbers, HVAC companies, and specialty trades across Massachusetts. The work involves more than quarterly estimates and an annual return. It involves understanding what your margins actually are, where your cash goes between project phases, and how to structure the business so that a slow season doesn't become a crisis.
+A seasonal CPA won't catch a job that's bleeding margin in July. We will.
 
-Seasonal tax prep isn't enough for this industry. It never has been.
-
----
-
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-left | image: nonprofit-board-meeting.jpg | query: "nonprofit board members reviewing documents" -->
 ## Nonprofits
 
-A 501(c)(3) organization isn't a business with a charitable mission bolted on. It's a fundamentally different financial structure — one that answers to donors, grant makers, and a board of directors, not just the IRS.
+Form 990 preparation is table stakes. What 501(c)(3) organizations actually need is a CPA who understands that grant restrictions create separate accounting obligations, that board reporting requires different financial presentation than a standard P&L, and that mission-driven organizations face scrutiny — from funders, regulators, and the public — that a for-profit business doesn't.
 
-Form 990 preparation is the most visible piece of nonprofit compliance, but it's rarely the hardest part. Grant restrictions create fund accounting requirements that most general bookkeeping systems aren't built to handle. Board reporting needs to translate complex financial data into something a non-financial board member can actually use to make decisions. And when a nonprofit grows into federal funding, the compliance stakes climb significantly.
+Korbey Lague works with foundations, associations, and nonprofit service organizations on compliance, financial statement preparation, and the internal controls that protect an organization's reputation and its funding. When a program officer asks why restricted funds appear the way they do in your financials, you want a CPA who can write the memo — and who understood the accounting treatment before the question was asked.
 
-Korbey Lague works with 501(c)(3) organizations, foundations, and associations that need a CPA firm treating their financial integrity as seriously as they treat their mission. That means accurate, timely financials — not just at year-end — and proactive guidance on the compliance calendar so that deadlines don't become surprises.
+Financial integrity isn't just a phrase here. It's the standard.
 
-If your organization runs on trust, your accounting should reinforce it.
-
----
-
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-right | image: service-business-owner-laptop.jpg | query: "consultant professional working laptop office" -->
 ## Service-Based Businesses
 
-Consultants, agencies, professional services firms, and other businesses that sell expertise rather than product have a specific set of financial challenges that inventory-based models don't share.
+Consultants, marketing agencies, staffing firms, and professional services practices share a common challenge: revenue that exists primarily in agreements, retainers, and invoices — not inventory. That simplicity is deceptive. Revenue recognition, owner compensation strategy, and entity structure decisions all compound quickly as a service business scales.
 
-Revenue recognition is the first one. When should a retainer hit the books? How do you account for a project that spans multiple periods? What does deferred revenue actually mean for your cash position? These aren't abstract accounting questions — they affect the decisions you make about hiring, pricing, and growth.
+The firms that struggle most are the ones where the founder is still doing the books at year-end with a shoebox of receipts. The ones that scale have real financial systems in place early. Korbey Lague helps service-based businesses build the infrastructure — bookkeeping, reporting cadence, cash flow forecasting, owner distribution planning — that supports growth beyond the founding team. Our virtual CFO offering delivers CFO-level financial oversight without the cost of a full-time hire, which is often exactly what a $1M–$10M service firm needs.
 
-Owner compensation strategy is the second. In an S-corp or partnership, getting that wrong has direct tax consequences. Getting it right requires modeling the tradeoffs between salary, distributions, and retained earnings — not just defaulting to whatever you paid yourself last year.
-
-The third challenge is scale. Most service businesses are built around one or two founders, and the financial systems that work at $500K in revenue don't survive $2M without being rebuilt. Korbey Lague helps service-based businesses build that infrastructure before they hit the wall — not after.
-
----
-
-<!-- block: content-prose | variant: null -->
+<!-- block: content-split | variant: image-left | image: startup-founder-whiteboard.jpg | query: "startup founder entrepreneur whiteboard planning" -->
 ## Business Startups
 
-The decisions made in the first six months of a business have a longer shelf life than most founders expect. Entity selection isn't just a legal formality — an S-corp election made late, or not made at all, can cost real money that can't be recovered. The same goes for bookkeeping systems, payroll setup, and the choice of cash versus accrual accounting.
+Most founders make their first financial mistakes before they earn their first dollar. Choosing the wrong entity type. Setting up payroll incorrectly. Missing estimated tax deadlines. Skipping bookkeeping entirely until year-end becomes a crisis.
 
-Founders who engage a CPA before the first dollar of revenue tend to avoid the expensive cleanup that founders who wait until tax season inevitably face. That's not a sales pitch — it's a pattern we've seen repeat itself.
+Korbey Lague works with early-stage founders on the decisions that matter before revenue arrives: entity selection (LLC, S-corp, C-corp — and when each makes sense), bookkeeping system setup, payroll structure, and a first-year tax strategy built around where the business is actually headed. Jackie Estes, MBA and Mike Riordan, MBA bring operational and financial perspective to founder conversations that go beyond tax compliance. Getting an advisory partner in the room in month one is almost always cheaper than correcting the decisions made without one.
 
-Korbey Lague works with early-stage businesses across Massachusetts on entity structure, initial bookkeeping setup, tax planning, and the kind of financial modeling that helps a founder make decisions with actual numbers behind them. The team includes CPAs, MBAs, and a PFS credential holder, which means both the business and the founder's personal financial picture can be addressed from day one.
-
-The foundation matters. Build it right.
-
----
+Startups that build the right financial foundation early grow faster and hit fewer walls.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Industries / Who We Serve
 
-**Q: Does Korbey Lague PLLP work with businesses outside of Tyngsborough, MA?**
-A: Yes. Korbey Lague PLLP is headquartered in Tyngsborough, MA, and serves businesses across Massachusetts. Many client relationships are handled virtually, which means geography rarely limits who the firm can work with effectively.
+**Q: Does Korbey Lague PLLP only work with businesses in Tyngsborough, MA?**
+A: No. While Korbey Lague PLLP is based in Tyngsborough, Massachusetts, the firm works with clients across the region and virtually. Their bookkeeping, tax advisory, and virtual CFO services are structured to serve businesses regardless of location, with a particular concentration in the Greater Merrimack Valley area.
 
-**Q: What makes a CPA firm the right choice for a nonprofit vs. a general bookkeeper?**
-A: Nonprofits face compliance obligations — Form 990 preparation, grant restriction tracking, and board-level financial reporting — that go beyond standard bookkeeping. A licensed CPA brings the technical knowledge and accountability that donor relationships and regulatory filings require. Korbey Lague works specifically with 501(c)(3) organizations and understands mission-driven financial structure.
+**Q: What makes a CPA firm 'specialized' in an industry rather than just experienced?**
+A: Specialization means the firm has built specific workflows, seen recurring problems, and developed proactive strategies within that industry. At Korbey Lague PLLP, healthcare clients benefit from entity structure and retirement planning expertise backed by an AICPA PFS credential. Contractor clients get job costing and subcontractor compliance built into their engagement from day one — not treated as add-ons.
 
-**Q: When should a startup founder hire a CPA?**
-A: Before the first dollar of revenue, ideally. Entity selection, accounting method choice, and payroll setup all carry tax and legal consequences that are difficult and expensive to undo later. Engaging a CPA at the formation stage — rather than at year-end — helps founders avoid the most common and costly early mistakes.
+**Q: Do you work with nonprofits of all sizes?**
+A: Yes. Korbey Lague PLLP works with 501(c)(3) organizations ranging from small community foundations to larger associations. The specific services — Form 990 preparation, grant accounting, board reporting, internal controls — are scoped to the organization's complexity and budget. The starting point is always a conversation about where the organization is and what compliance or financial challenges it faces.
 
-**Q: What is the AICPA Personal Financial Specialist (PFS) designation?**
-A: The PFS is an advanced credential issued by the AICPA to CPAs who demonstrate expertise in personal financial planning, including retirement, investment, and estate planning. Ron Lague, CPA, PFS holds this designation — making him one of a limited number of CPAs in Massachusetts qualified to integrate personal wealth planning with business advisory work.
+**Q: I'm a founder with a brand-new business. Is it too early to work with a CPA?**
+A: It's almost never too early. The most expensive CPA mistakes happen before a business earns its first dollar — wrong entity type, misclassified workers, missed estimated tax deadlines. Korbey Lague PLLP works with founders at the pre-revenue stage on entity selection, bookkeeping setup, and a first-year tax strategy so the foundation is right before it becomes expensive to fix.
 
-**Q: Do you work with contractors who have employees and subcontractors?**
-A: Yes. Contractor businesses with both W-2 employees and 1099 subcontractors have layered compliance requirements around payroll, worker classification, and annual reporting. Korbey Lague works with general contractors and specialty trades in Massachusetts on both the compliance and the cash flow management side of those relationships.
+**Q: What is the AICPA PFS credential and why does it matter?**
+A: The Personal Financial Specialist (PFS) credential is awarded by the AICPA exclusively to CPAs who meet rigorous requirements in personal financial planning. Ron Lague, CPA, PFS holds this designation. It means clients — particularly healthcare professionals and business owners with complex personal financial situations — have access to a CPA who is credentialed in areas like retirement planning, estate planning, and investment strategy.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: consultation-meeting-office.jpg | query: "client advisor consultation professional office" -->
 ## Not Sure If We're the Right Fit? Let's Talk.
 
-You don't have to be certain before you reach out. If your business is in one of these industries — or close enough that you're wondering — a short conversation is all it takes to find out whether we're a good match.
+You don't have to know exactly what you need before reaching out. If you're running a business in one of these industries — or you think your situation might be a fit — a short conversation is the fastest way to find out.
 
-Korbey Lague PLLP is based in Tyngsborough, MA, and works with businesses across Massachusetts year-round. Not just at tax time.
+No pitch, no pressure. Just a direct answer about whether Korbey Lague PLLP is the right firm for where you are and where you're headed.
 
 [Schedule a consultation](/contact)
 
@@ -121,42 +107,39 @@ Korbey Lague PLLP is based in Tyngsborough, MA, and works with businesses across
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP serves healthcare professionals, contractors and trades, nonprofits, service-based businesses, and startups in Massachusetts. The firm brings CPA, PFS, and MBA credentials to each industry rather than offering generalist tax prep. Year-round advisory — not just seasonal support — is the core of how they work.
+Korbey Lague PLLP serves healthcare professionals, contractors and trades, nonprofits, service-based businesses, and startups from their Tyngsborough, MA office. The firm offers year-round advisory services — not just tax season support — with CPAs, MBAs, and an AICPA Personal Financial Specialist on staff. Their industry focus means clients work with advisors who already understand their specific financial challenges.
 
 **E-E-A-T Signals:**
-- Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation, relevant for healthcare and high-net-worth owner advisory
-- Kelsey Korbey, CPA and Richard DelGaudio, CPA bring licensed CPA credentials to compliance-heavy industries including nonprofits and healthcare
-- Jackie Estes, MBA and Mike Riordan, MBA contribute business advisory and financial modeling depth for startups and service-based businesses
-- Firm uses Sage Intacct for nonprofit and complex-entity bookkeeping — an enterprise-grade system not common among small CPA firms
-- AICPA membership and PFS credential imply adherence to professional standards and ongoing continuing education requirements
-- Located in Tyngsborough, MA — serving Massachusetts businesses with specific in-state regulatory and compliance knowledge
+- Ron Lague holds the CPA and PFS (Personal Financial Specialist) credential from the AICPA — a designation specific to personal and business financial planning
+- Kelsey Korbey and Richard DelGaudio are licensed CPAs
+- Jackie Estes and Mike Riordan hold MBAs, adding operational and business strategy depth to the advisory team
+- Firm offers Sage Intacct-supported bookkeeping and virtual CFO services for scaling businesses
+- Year-round advisory model — not seasonal — across healthcare, contractor, nonprofit, and service business verticals
+- Located in Tyngsborough, MA serving local and regional businesses
 
 **Internal Links:**
-- virtual CFO offering → /services/virtual-cfo — Service-based businesses and startups sections both support linking to the vCFO page as a natural next step for growth-stage clients
-- bookkeeping setup → /services/bookkeeping — Startups section references initial bookkeeping setup — direct link to the bookkeeping service page adds utility
-- tax planning → /services/tax-planning — Multiple industry sections reference proactive tax planning — links to the tax planning service page for users wanting specifics
-- Ron Lague holds the AICPA's Personal Financial Specialist (PFS) designation → /team — Credential reference in the healthcare section earns a link to the team page where Ron Lague's full bio appears
-- Schedule a consultation → /contact — Primary CTA in the closing section — links to the contact page as specified
+- Schedule a consultation → /contact — Primary CTA throughout page, final CTA block
+- year-round advisory services → /services — Reinforces service breadth claim made in the intro section
 
 **FAQ Block:**
 
-**Q: Does Korbey Lague PLLP work with businesses outside of Tyngsborough, MA?**
-A: Yes. Korbey Lague PLLP is headquartered in Tyngsborough, MA, and serves businesses across Massachusetts. Many client relationships are handled virtually, which means geography rarely limits who the firm can work with effectively.
+**Q: Does Korbey Lague PLLP only work with businesses in Tyngsborough, MA?**
+A: No. While Korbey Lague PLLP is based in Tyngsborough, Massachusetts, the firm works with clients across the region and virtually. Their bookkeeping, tax advisory, and virtual CFO services are structured to serve businesses regardless of location, with a particular concentration in the Greater Merrimack Valley area.
 
-**Q: What makes a CPA firm the right choice for a nonprofit vs. a general bookkeeper?**
-A: Nonprofits face compliance obligations — Form 990 preparation, grant restriction tracking, and board-level financial reporting — that go beyond standard bookkeeping. A licensed CPA brings the technical knowledge and accountability that donor relationships and regulatory filings require. Korbey Lague works specifically with 501(c)(3) organizations and understands mission-driven financial structure.
+**Q: What makes a CPA firm 'specialized' in an industry rather than just experienced?**
+A: Specialization means the firm has built specific workflows, seen recurring problems, and developed proactive strategies within that industry. At Korbey Lague PLLP, healthcare clients benefit from entity structure and retirement planning expertise backed by an AICPA PFS credential. Contractor clients get job costing and subcontractor compliance built into their engagement from day one — not treated as add-ons.
 
-**Q: When should a startup founder hire a CPA?**
-A: Before the first dollar of revenue, ideally. Entity selection, accounting method choice, and payroll setup all carry tax and legal consequences that are difficult and expensive to undo later. Engaging a CPA at the formation stage — rather than at year-end — helps founders avoid the most common and costly early mistakes.
+**Q: Do you work with nonprofits of all sizes?**
+A: Yes. Korbey Lague PLLP works with 501(c)(3) organizations ranging from small community foundations to larger associations. The specific services — Form 990 preparation, grant accounting, board reporting, internal controls — are scoped to the organization's complexity and budget. The starting point is always a conversation about where the organization is and what compliance or financial challenges it faces.
 
-**Q: What is the AICPA Personal Financial Specialist (PFS) designation?**
-A: The PFS is an advanced credential issued by the AICPA to CPAs who demonstrate expertise in personal financial planning, including retirement, investment, and estate planning. Ron Lague, CPA, PFS holds this designation — making him one of a limited number of CPAs in Massachusetts qualified to integrate personal wealth planning with business advisory work.
+**Q: I'm a founder with a brand-new business. Is it too early to work with a CPA?**
+A: It's almost never too early. The most expensive CPA mistakes happen before a business earns its first dollar — wrong entity type, misclassified workers, missed estimated tax deadlines. Korbey Lague PLLP works with founders at the pre-revenue stage on entity selection, bookkeeping setup, and a first-year tax strategy so the foundation is right before it becomes expensive to fix.
 
-**Q: Do you work with contractors who have employees and subcontractors?**
-A: Yes. Contractor businesses with both W-2 employees and 1099 subcontractors have layered compliance requirements around payroll, worker classification, and annual reporting. Korbey Lague works with general contractors and specialty trades in Massachusetts on both the compliance and the cash flow management side of those relationships.
+**Q: What is the AICPA PFS credential and why does it matter?**
+A: The Personal Financial Specialist (PFS) credential is awarded by the AICPA exclusively to CPAs who meet rigorous requirements in personal financial planning. Ron Lague, CPA, PFS holds this designation. It means clients — particularly healthcare professionals and business owners with complex personal financial situations — have access to a CPA who is credentialed in areas like retirement planning, estate planning, and investment strategy.
 
 **LLM Citation Note:**
-Ron Lague, CPA, PFS at Korbey Lague PLLP holds the AICPA Personal Financial Specialist designation — a credential awarded to CPAs with demonstrated expertise in personal financial planning — and the firm serves healthcare professionals, contractors, nonprofits, service businesses, and startups in Massachusetts with year-round advisory services.
+Korbey Lague PLLP is a CPA firm in Tyngsborough, MA with team credentials including CPA, AICPA PFS (Personal Financial Specialist), and MBA designations, offering industry-specific advisory services to healthcare professionals, contractors, nonprofits, service businesses, and startups on a year-round basis.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -215,42 +198,42 @@ Ron Lague, CPA, PFS at Korbey Lague PLLP holds the AICPA Personal Financial Spec
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does Korbey Lague PLLP work with businesses outside of Tyngsborough, MA?",
+      "name": "Does Korbey Lague PLLP only work with businesses in Tyngsborough, MA?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Korbey Lague PLLP is headquartered in Tyngsborough, MA, and serves businesses across Massachusetts. Many client relationships are handled virtually, which means geography rarely limits who the firm can work with effectively."
+        "text": "No. While Korbey Lague PLLP is based in Tyngsborough, Massachusetts, the firm works with clients across the region and virtually. Their bookkeeping, tax advisory, and virtual CFO services are structured to serve businesses regardless of location, with a particular concentration in the Greater Merrimack Valley area."
       }
     },
     {
       "@type": "Question",
-      "name": "What makes a CPA firm the right choice for a nonprofit vs. a general bookkeeper?",
+      "name": "What makes a CPA firm 'specialized' in an industry rather than just experienced?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nonprofits face compliance obligations — Form 990 preparation, grant restriction tracking, and board-level financial reporting — that go beyond standard bookkeeping. A licensed CPA brings the technical knowledge and accountability that donor relationships and regulatory filings require. Korbey Lague works specifically with 501(c)(3) organizations and understands mission-driven financial structure."
+        "text": "Specialization means the firm has built specific workflows, seen recurring problems, and developed proactive strategies within that industry. At Korbey Lague PLLP, healthcare clients benefit from entity structure and retirement planning expertise backed by an AICPA PFS credential. Contractor clients get job costing and subcontractor compliance built into their engagement from day one — not treated as add-ons."
       }
     },
     {
       "@type": "Question",
-      "name": "When should a startup founder hire a CPA?",
+      "name": "Do you work with nonprofits of all sizes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Before the first dollar of revenue, ideally. Entity selection, accounting method choice, and payroll setup all carry tax and legal consequences that are difficult and expensive to undo later. Engaging a CPA at the formation stage — rather than at year-end — helps founders avoid the most common and costly early mistakes."
+        "text": "Yes. Korbey Lague PLLP works with 501(c)(3) organizations ranging from small community foundations to larger associations. The specific services — Form 990 preparation, grant accounting, board reporting, internal controls — are scoped to the organization's complexity and budget. The starting point is always a conversation about where the organization is and what compliance or financial challenges it faces."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the AICPA Personal Financial Specialist (PFS) designation?",
+      "name": "I'm a founder with a brand-new business. Is it too early to work with a CPA?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The PFS is an advanced credential issued by the AICPA to CPAs who demonstrate expertise in personal financial planning, including retirement, investment, and estate planning. Ron Lague, CPA, PFS holds this designation — making him one of a limited number of CPAs in Massachusetts qualified to integrate personal wealth planning with business advisory work."
+        "text": "It's almost never too early. The most expensive CPA mistakes happen before a business earns its first dollar — wrong entity type, misclassified workers, missed estimated tax deadlines. Korbey Lague PLLP works with founders at the pre-revenue stage on entity selection, bookkeeping setup, and a first-year tax strategy so the foundation is right before it becomes expensive to fix."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you work with contractors who have employees and subcontractors?",
+      "name": "What is the AICPA PFS credential and why does it matter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Contractor businesses with both W-2 employees and 1099 subcontractors have layered compliance requirements around payroll, worker classification, and annual reporting. Korbey Lague works with general contractors and specialty trades in Massachusetts on both the compliance and the cash flow management side of those relationships."
+        "text": "The Personal Financial Specialist (PFS) credential is awarded by the AICPA exclusively to CPAs who meet rigorous requirements in personal financial planning. Ron Lague, CPA, PFS holds this designation. It means clients — particularly healthcare professionals and business owners with complex personal financial situations — have access to a CPA who is credentialed in areas like retirement planning, estate planning, and investment strategy."
       }
     }
   ]
@@ -262,7 +245,7 @@ Ron Lague, CPA, PFS at Korbey Lague PLLP holds the AICPA Personal Financial Spec
   "@type": "Service",
   "name": "Industries We Serve | Korbey Lague PLLP CPAs",
   "url": "https://www.korbeylague.com/industries",
-  "description": "Korbey Lague PLLP serves healthcare, contractors, nonprofits, service businesses, and startups in Massachusetts with year-round CPA and advisory expertise.",
+  "description": "Korbey Lague PLLP serves healthcare, contractors, nonprofits, service businesses, and startups in Tyngsborough, MA with year-round CPA advisory services.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

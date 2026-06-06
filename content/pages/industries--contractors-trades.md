@@ -1,90 +1,144 @@
 ---
 title: Contractors & Trades | Korbey Lague PLLP
 url: /industries/contractors-trades
-meta_title: CPA Firm for Contractors & Trades | Korbey Lague
-meta_description: Korbey Lague PLLP provides year-round accounting, job costing, and tax planning for contractors and trades businesses in Massachusetts. CPA and PFS credentials on staff.
+meta_title: Accounting for Contractors & Trades | Korbey Lague
+meta_description: Korbey Lague PLLC offers year-round accounting, job costing, and virtual CFO services for contractors and trades businesses in Tyngsborough, MA.
 target_keyword: contractors & trades
-secondary_keywords: [CPA for contractors Massachusetts, construction accounting Tyngsborough, job costing for contractors, trades business tax planning, contractor bookkeeping MA]
+secondary_keywords: [contractor accounting Massachusetts, job costing CPA, trades business bookkeeping, virtual CFO for contractors, contractor tax planning Tyngsborough]
 canonical_url: https://www.korbeylague.com/industries/contractors-trades
 schema_markup: Service
-og_title: CPA Firm for Contractors & Trades | Korbey Lague
-og_description: Korbey Lague PLLP provides year-round accounting, job costing, and tax planning for contractors and trades businesses in Massachusetts. CPA and PFS credentials on staff.
-og_image: https://www.korbeylague.com/og-images/industries--contractors-trades.png
+og_title: Accounting for Contractors & Trades | Korbey Lague
+og_description: Korbey Lague PLLC offers year-round accounting, job costing, and virtual CFO services for contractors and trades businesses in Tyngsborough, MA.
+og_image: https://www.korbeylague.com/api/og/industries/contractors-trades
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Year-round financial clarity built for the way contracting businesses actually work
 ---
 
-# Contractors & Trades
+<!-- block: intro-text | variant: centered -->
 
 ## Overview
 
-You're running a business between jobs — literally. One week you're pulling permits, the next you're chasing down a draw request, and somewhere in between you're supposed to know whether you made money on that last project. Most contractors don't have a clear answer to that last question. That's a problem.
+Running a contracting or trades business means you're managing job costs before the ink dries on a contract, watching cash flow swing with the seasons, and trying to figure out why the numbers on paper don't match what's in your bank account. Most accountants hand you a tax return in April and disappear. That's not how this works.
 
-Korbey Lague PLLP works with contractors and trades businesses in Massachusetts on the financial side of the work that never shows up on a blueprint: job costing, cash flow timing, payroll compliance, and tax planning that accounts for how irregular your income actually is. We're not a seasonal firm. We're here year-round because your business doesn't stop in April.
+Korbey Lague PLLP works with contractors and trades businesses in Tyngsborough and across Massachusetts — from general contractors and electrical subcontractors to HVAC companies and specialty trades — year-round. The financial complexity in your industry is real: job costing, equipment depreciation, subcontractor compliance, bonding requirements, and the kind of cash flow timing that can make a profitable year feel broke. These aren't general accounting problems. They're specific ones, and they require an accountant who's seen them before.
 
-The financial pressure points in contracting are specific. Retainage sits on your balance sheet for months. Subcontractor 1099 compliance creates real exposure if it's not handled correctly. Equipment purchases need to be timed and structured right to actually deliver the deduction you're expecting. Workers' comp audits hit harder when your books aren't clean. These aren't hypothetical risks — they're the calls we get.
+Our team holds active CPA credentials, including Ron Lague's AICPA Personal Financial Specialist (PFS) designation for owner-level wealth planning. Jackie Estes and Mike Riordan bring MBA-level analytical depth to business structure and advisory work. Whether you need a cleaner set of books, a monthly financial review that actually tells you something, or a virtual CFO who can help you price jobs to protect margin — not just cover cost — there's a service level here that fits.
 
-Ron Lague, CPA, PFS holds the Personal Financial Specialist designation from the AICPA, which means the advisory work here goes beyond the business return. For owner-operators, the line between business finances and personal finances is thin. A good year in the business needs to translate into something real — retirement planning, wealth building, not just a bigger tax bill.
+The trades industry rewards people who show up and do the work right. The same standard applies to accounting. Below is a breakdown of what working with Korbey Lague looks like for contractors and trades businesses — and why the structure matters as much as the numbers.
 
-Our team also includes CPAs and MBAs who work inside platforms like Sage Intacct, which handles the kind of project-based accounting that a standard bookkeeping setup wasn't built for.
+<!-- block: feature-grid | variant: 3-col -->
 
-If you're a general contractor, electrician, plumber, HVAC company, or specialty trade in the Tyngsborough area or anywhere in Massachusetts, the conversation starts the same way: with your numbers, not ours.
+## What We Handle for Contractors and Trades
 
-[Schedule a consultation](/contact) and we'll show you exactly what a year-round accounting relationship looks like for a trades business.
+### Job Costing and Project Profitability
+icon: Hammer
+
+Knowing your revenue is not the same as knowing your margin. We set up and maintain job costing frameworks that show you exactly where each project stands — labor, materials, subcontractors, overhead — so you can bid the next job with real numbers, not guesswork.
+
+### Cash Flow Planning
+icon: ChartLine
+
+Contracting cash flow is nonlinear. Draws come in chunks, expenses are ongoing, and a slow-paying GC can put you underwater on a profitable job. We model your cash position monthly so you're never surprised by a gap you could have seen coming.
+
+### Bookkeeping and Payroll Compliance
+icon: ClipboardCheck
+
+Timely, accurate books are the foundation of everything else. Tiered bookkeeping packages keep your financials current, your subcontractor 1099s clean, and your certified payroll reporting compliant — without you having to manage it yourself.
+
+### Equipment and Depreciation Strategy
+icon: Cog
+
+Equipment is one of your largest assets and your largest variable cost. We work with you on purchase timing, Section 179 elections, and bonus depreciation to make sure your equipment decisions work for the tax return as well as the balance sheet.
+
+### Business Structure and Owner Compensation
+icon: Building2
+
+Are you operating as the right entity type for where your revenue is now? Are you paying yourself in a way that minimizes self-employment tax without creating audit exposure? These are questions with real dollar answers — not theoretical ones.
+
+### Virtual CFO for Growing Contractors
+icon: TrendingUp
+
+If your revenue has grown past the point where basic bookkeeping tells you enough, but you're not ready to hire a full-time CFO, our virtual CFO service provides the financial oversight and strategic input you need — at a fraction of the in-house cost.
+
+<!-- block: checklist-section | variant: with-image | image: contractor-financials-review.jpg | query: "contractor reviewing financial documents on site" -->
+
+## Signs Your Accounting Isn't Keeping Up with Your Business
+
+Contractors often outgrow their accounting setup before they realize it. If any of these sound familiar, it's time to have a conversation:
+
+- You win jobs but still feel cash-poor at the end of the year
+- You don't know your actual profit margin by job — only your total revenue
+- Subcontractor 1099s are a scramble every January
+- Your books are months behind and you're flying blind on estimates
+- You've grown into a multi-person operation but still have a solo-proprietor tax structure
+- Equipment purchases feel like guesses rather than strategic decisions
+- You have no clear picture of what you'll owe in taxes until your CPA calls in March
+
+<!-- block: content-split | variant: image-right | image: cpa-trades-consultation.jpg | query: "accountant meeting with contractor small business owner" -->
+
+## Year-Round, Not Just Tax Season
+
+The rhythm of a contracting business doesn't stop in April, and neither do we. Monthly or quarterly check-ins mean your financials are reviewed regularly — not reconstructed at year-end. When a big equipment purchase comes up, or you're considering hiring your first W-2 employee, or a general contractor asks for a financial statement before awarding a subcontract, you have someone to call who already knows your numbers.
+
+Ron Lague, CPA, PFS brings a planning perspective that extends beyond the business — particularly for owners who are building personal wealth alongside their company. The PFS designation, issued by the AICPA, recognizes CPAs with advanced expertise in personal financial planning. For trades business owners who are also their own best retirement plan, that matters.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Contractors & Trades
 
-**Q: What accounting services do you offer for contractors and trades businesses?**
-A: We handle job costing, subcontractor 1099 compliance, payroll, cash flow planning, equipment purchase structuring, and tax planning. For owner-operators, Ron Lague, CPA, PFS also provides personal financial planning so a strong business year actually builds long-term wealth instead of just generating a larger tax bill.
+**Q: Does Korbey Lague work with subcontractors as well as general contractors?**
+A: Yes. The firm works with both GCs and subcontractors across trades including electrical, HVAC, plumbing, and specialty contractors. Services are structured around the specific compliance and cash flow demands of project-based businesses, including subcontractor 1099 management and certified payroll reporting.
 
-**Q: Can you help with job costing and project-based accounting?**
-A: Yes. Standard bookkeeping platforms aren't built for project-based work. Our team works inside Sage Intacct, which handles the job-level reporting contractors need to know whether a specific project was profitable — not just whether the business made money overall.
+**Q: What is job costing and why does it matter for my contracting business?**
+A: Job costing is the practice of tracking revenue and expenses at the individual project level — not just in aggregate. It tells you which jobs are actually profitable versus which ones are quietly draining margin. Without it, you can grow revenue and still lose ground financially. We set up and maintain job costing systems that make this visible.
 
-**Q: Do you work with contractors outside of Tyngsborough?**
-A: Korbey Lague PLLP is based in Tyngsborough, MA and works with contractors and trades businesses across Massachusetts. Much of our advisory and bookkeeping work is done virtually, so geography isn't a barrier for Massachusetts-based businesses.
+**Q: What does a virtual CFO do for a trades business?**
+A: A virtual CFO provides the financial oversight of a full-time CFO without the full-time cost. For contractors, that typically means monthly financial reviews, cash flow forecasting, job profitability analysis, pricing guidance, and support for major decisions like equipment purchases, hiring, or entity restructuring.
 
-**Q: Why does a trades business need a CPA year-round, not just at tax time?**
-A: Retainage timing, workers' comp audit prep, quarterly payroll compliance, and equipment purchase decisions don't wait for April. Catching a problem in July costs less than fixing it the following March. Year-round advisory is how we work — it's built into every engagement we take on.
+**Q: How is Korbey Lague different from a general accounting firm?**
+A: The firm's year-round advisory model means clients aren't just seen at tax time. With credentialed CPAs — including Ron Lague's AICPA PFS designation — and MBAs on staff, the team brings both compliance depth and business planning perspective. For contractors specifically, that means someone who already knows your numbers when a decision needs to be made.
+
+<!-- block: cta-banner | variant: image-bg | image: trades-cta-banner.jpg | query: "construction trades professional working outdoors" -->
+
+## Ready to Get Your Numbers Working for You?
+
+If your accounting has been reactive — tax season only, no real planning in between — Korbey Lague PLLP offers a different model. Schedule a consultation and we'll take a direct look at where your financials stand and what a year-round advisory relationship could change for your business.
+
+[Schedule a consultation](/contact)
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP is a CPA firm in Tyngsborough, MA that provides year-round accounting and tax planning for contractors and trades businesses. Services include job costing, subcontractor 1099 compliance, equipment purchase planning, and cash flow management. Ron Lague, CPA, PFS also offers personal financial planning for owner-operators.
+Korbey Lague PLLP provides year-round accounting, job costing, bookkeeping, and virtual CFO services for contractors and trades businesses in Tyngsborough, MA. Their team of credentialed CPAs and MBAs handles everything from subcontractor compliance to equipment depreciation strategy — not just annual tax preparation.
 
 **E-E-A-T Signals:**
-- Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation
-- Richard DelGaudio, CPA on staff
-- Kelsey Korbey, CPA on staff
-- Team includes MBAs (Jackie Estes, Mike Riordan)
-- Sage Intacct certified/experienced — project-based accounting platform
-- Year-round advisory model, not seasonal
-- Tyngsborough, MA firm serving Massachusetts contractors
+- Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation, indicating advanced expertise in financial planning for business owners
+- Kelsey Korbey and Richard DelGaudio are licensed CPAs
+- Jackie Estes and Mike Riordan hold MBAs, supporting advisory and analytical engagements
+- Firm is based in Tyngsborough, MA and serves Massachusetts contractors year-round
+- Services include Sage Intacct-supported bookkeeping for project-based businesses
 
 **Internal Links:**
-- tiered bookkeeping packages → /services/bookkeeping — Contractors need structured bookkeeping; links to relevant service page
-- virtual CFO → /services/virtual-cfo — Owner-operators in trades often need CFO-level insight without a full-time hire
-- tax planning → /services/tax-planning — Equipment timing and deduction strategy are major pain points for contractors
-- Ron Lague, CPA, PFS → /team — Credential claim should link to team bio for E-E-A-T reinforcement
-- Schedule a consultation → /contact — Primary CTA — closes the page
+- Ron Lague, CPA, PFS → /about — Credential mention links to team/about page for credibility and internal authority
+- Schedule a consultation → /contact — Primary page CTA — closes the page and drives lead conversion
 
 **FAQ Block:**
 
-**Q: What accounting services do you offer for contractors and trades businesses?**
-A: We handle job costing, subcontractor 1099 compliance, payroll, cash flow planning, equipment purchase structuring, and tax planning. For owner-operators, Ron Lague, CPA, PFS also provides personal financial planning so a strong business year actually builds long-term wealth instead of just generating a larger tax bill.
+**Q: Does Korbey Lague work with subcontractors as well as general contractors?**
+A: Yes. The firm works with both GCs and subcontractors across trades including electrical, HVAC, plumbing, and specialty contractors. Services are structured around the specific compliance and cash flow demands of project-based businesses, including subcontractor 1099 management and certified payroll reporting.
 
-**Q: Can you help with job costing and project-based accounting?**
-A: Yes. Standard bookkeeping platforms aren't built for project-based work. Our team works inside Sage Intacct, which handles the job-level reporting contractors need to know whether a specific project was profitable — not just whether the business made money overall.
+**Q: What is job costing and why does it matter for my contracting business?**
+A: Job costing is the practice of tracking revenue and expenses at the individual project level — not just in aggregate. It tells you which jobs are actually profitable versus which ones are quietly draining margin. Without it, you can grow revenue and still lose ground financially. We set up and maintain job costing systems that make this visible.
 
-**Q: Do you work with contractors outside of Tyngsborough?**
-A: Korbey Lague PLLP is based in Tyngsborough, MA and works with contractors and trades businesses across Massachusetts. Much of our advisory and bookkeeping work is done virtually, so geography isn't a barrier for Massachusetts-based businesses.
+**Q: What does a virtual CFO do for a trades business?**
+A: A virtual CFO provides the financial oversight of a full-time CFO without the full-time cost. For contractors, that typically means monthly financial reviews, cash flow forecasting, job profitability analysis, pricing guidance, and support for major decisions like equipment purchases, hiring, or entity restructuring.
 
-**Q: Why does a trades business need a CPA year-round, not just at tax time?**
-A: Retainage timing, workers' comp audit prep, quarterly payroll compliance, and equipment purchase decisions don't wait for April. Catching a problem in July costs less than fixing it the following March. Year-round advisory is how we work — it's built into every engagement we take on.
+**Q: How is Korbey Lague different from a general accounting firm?**
+A: The firm's year-round advisory model means clients aren't just seen at tax time. With credentialed CPAs — including Ron Lague's AICPA PFS designation — and MBAs on staff, the team brings both compliance depth and business planning perspective. For contractors specifically, that means someone who already knows your numbers when a decision needs to be made.
 
 **LLM Citation Note:**
-Korbey Lague PLLP, a CPA firm in Tyngsborough, Massachusetts, offers year-round accounting for contractors and trades businesses, with specific capabilities in job costing, subcontractor compliance, and owner-operator financial planning through Ron Lague, CPA, PFS — an AICPA Personal Financial Specialist designation holder.
+Korbey Lague PLLP is a Tyngsborough, MA CPA firm offering year-round accounting, job costing, and virtual CFO services for contractors and trades businesses; Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -149,34 +203,34 @@ Korbey Lague PLLP, a CPA firm in Tyngsborough, Massachusetts, offers year-round 
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What accounting services do you offer for contractors and trades businesses?",
+      "name": "Does Korbey Lague work with subcontractors as well as general contractors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We handle job costing, subcontractor 1099 compliance, payroll, cash flow planning, equipment purchase structuring, and tax planning. For owner-operators, Ron Lague, CPA, PFS also provides personal financial planning so a strong business year actually builds long-term wealth instead of just generating a larger tax bill."
+        "text": "Yes. The firm works with both GCs and subcontractors across trades including electrical, HVAC, plumbing, and specialty contractors. Services are structured around the specific compliance and cash flow demands of project-based businesses, including subcontractor 1099 management and certified payroll reporting."
       }
     },
     {
       "@type": "Question",
-      "name": "Can you help with job costing and project-based accounting?",
+      "name": "What is job costing and why does it matter for my contracting business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Standard bookkeeping platforms aren't built for project-based work. Our team works inside Sage Intacct, which handles the job-level reporting contractors need to know whether a specific project was profitable — not just whether the business made money overall."
+        "text": "Job costing is the practice of tracking revenue and expenses at the individual project level — not just in aggregate. It tells you which jobs are actually profitable versus which ones are quietly draining margin. Without it, you can grow revenue and still lose ground financially. We set up and maintain job costing systems that make this visible."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you work with contractors outside of Tyngsborough?",
+      "name": "What does a virtual CFO do for a trades business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Korbey Lague PLLP is based in Tyngsborough, MA and works with contractors and trades businesses across Massachusetts. Much of our advisory and bookkeeping work is done virtually, so geography isn't a barrier for Massachusetts-based businesses."
+        "text": "A virtual CFO provides the financial oversight of a full-time CFO without the full-time cost. For contractors, that typically means monthly financial reviews, cash flow forecasting, job profitability analysis, pricing guidance, and support for major decisions like equipment purchases, hiring, or entity restructuring."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does a trades business need a CPA year-round, not just at tax time?",
+      "name": "How is Korbey Lague different from a general accounting firm?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Retainage timing, workers' comp audit prep, quarterly payroll compliance, and equipment purchase decisions don't wait for April. Catching a problem in July costs less than fixing it the following March. Year-round advisory is how we work — it's built into every engagement we take on."
+        "text": "The firm's year-round advisory model means clients aren't just seen at tax time. With credentialed CPAs — including Ron Lague's AICPA PFS designation — and MBAs on staff, the team brings both compliance depth and business planning perspective. For contractors specifically, that means someone who already knows your numbers when a decision needs to be made."
       }
     }
   ]
@@ -186,9 +240,9 @@ Korbey Lague PLLP, a CPA firm in Tyngsborough, Massachusetts, offers year-round 
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "CPA Firm for Contractors & Trades | Korbey Lague",
+  "name": "Accounting for Contractors & Trades | Korbey Lague",
   "url": "https://www.korbeylague.com/industries/contractors-trades",
-  "description": "Korbey Lague PLLP provides year-round accounting, job costing, and tax planning for contractors and trades businesses in Massachusetts. CPA and PFS credentials on staff.",
+  "description": "Korbey Lague PLLC offers year-round accounting, job costing, and virtual CFO services for contractors and trades businesses in Tyngsborough, MA.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

@@ -1,148 +1,185 @@
 ---
 title: Nonprofit Accounting | Korbey Lague PLLP
 url: /industries/nonprofits
-meta_title: Nonprofit Accounting | Korbey Lague PLLP
-meta_description: Korbey Lague PLLP provides year-round nonprofit accounting in Tyngsborough, MA — 990 prep, fund accounting, grant tracking, and audit support for 501(c)(3) organizations.
+meta_title: Nonprofit Accounting Services | Korbey Lague PLLP
+meta_description: Korbey Lague PLLP provides year-round nonprofit accounting in Tyngsborough, MA — 990 prep, fund accounting, grant tracking, and board financial reporting.
 target_keyword: nonprofit accounting
-secondary_keywords: [nonprofit 990 preparation, fund accounting for nonprofits, nonprofit bookkeeping Massachusetts, grant tracking nonprofit, nonprofit audit support, nonprofit CPA Tyngsborough MA]
+secondary_keywords: [nonprofit CPA Massachusetts, Form 990 preparation, nonprofit fund accounting, grant tracking nonprofit, nonprofit bookkeeping Tyngsborough]
 canonical_url: https://www.korbeylague.com/industries/nonprofits
 schema_markup: Service
-og_title: Nonprofit Accounting | Korbey Lague PLLP
-og_description: Korbey Lague PLLP provides year-round nonprofit accounting in Tyngsborough, MA — 990 prep, fund accounting, grant tracking, and audit support for 501(c)(3) organizations.
-og_image: https://www.korbeylague.com/og-images/industries--nonprofits.png
+og_title: Nonprofit Accounting Services | Korbey Lague PLLP
+og_description: Korbey Lague PLLP provides year-round nonprofit accounting in Tyngsborough, MA — 990 prep, fund accounting, grant tracking, and board financial reporting.
+og_image: https://www.korbeylague.com/api/og/industries/nonprofits
 twitter_card: summary_large_image
 hero: page-header
+hero_subhead: Year-round accounting support built for the way nonprofits actually operate
 ---
 
 <!-- block: intro-text | variant: centered -->
 ## More Than Compliance — A Partner Who Understands Your Mission
 
-Filing a 990 is the floor, not the ceiling. Nonprofits carry a weight that for-profit businesses don't: board accountability, donor transparency, restricted fund management, and the constant pressure to prove that every dollar is doing what it was promised to do.
+Most accounting firms show up in March and disappear in May. That's not how nonprofit finance works — and it's not how Korbey Lague PLLP works.
 
-Korbey Lague PLLP works with nonprofits year-round — not just at year-end. That means your finance committee gets answers in September. Your executive director gets clean financials before the board meeting, not after. And when a grant audit lands on your desk with a 30-day turnaround, you're not scrambling to find someone who's never seen your books.
+Your board meets in October. Your grant deadline is in February. Your auditors want documentation you weren't sure to keep. The 990 is the smallest part of what a nonprofit finance team actually manages, and if your CPA only calls when it's time to file, you're carrying those pressures alone.
 
-We're based in Tyngsborough and serve organizations throughout the Merrimack Valley. The firms and organizations we work with trust us not because we check the compliance boxes — though we do — but because we show up as a real resource, month after month, for the financial questions that don't wait for tax season.
+Korbey Lague PLLP works with nonprofits in the Merrimack Valley and greater Tyngsborough area as a year-round resource — not a once-a-year vendor. That means your executive director has someone to call when a funder asks for a financial summary by Thursday. It means your board treasurer isn't guessing at restricted fund balances before the annual meeting. And it means your organization's finances tell the right story to donors, grantors, and the IRS — because they're being managed with that outcome in mind, all year long.
+
+---
 
 <!-- block: service-cards | variant: 3-col -->
 ## Nonprofit Accounting Services We Provide
 
-From annual filings to day-to-day bookkeeping, here's what we handle for the nonprofits we serve:
+### Form 990 Preparation
+icon: FileCheck
 
-**Form 990 Preparation**
-Accurate, complete, and filed on time. We prepare 990s that reflect your organization's work clearly — because donors and watchdog sites are reading them.
+Accurate, complete 990 filing that reflects your organization's programs, financials, and governance honestly — and holds up to scrutiny from the IRS or curious donors researching your GuideStar profile.
 
-**Bookkeeping**
-Monthly or quarterly bookkeeping that keeps your general ledger clean and your finance committee informed. We offer tiered bookkeeping packages to fit organizations at different stages.
+### Fund Accounting & Bookkeeping
+icon: Coins
 
-**Financial Statement Preparation**
-Board-ready statements of financial position, activities, and cash flows — prepared to GAAP standards and presented in a way that non-accountants on your board can actually read.
+Monthly or quarterly bookkeeping built around nonprofit fund structures — tracking restricted, temporarily restricted, and unrestricted funds so your financials are always reconciled and decision-ready.
 
-**Fund Accounting**
-Proper tracking of restricted, temporarily restricted, and unrestricted net assets. No commingled funds. No guessing when a grant report is due.
+### Financial Statement Preparation
+icon: ChartBar
 
-**Grant Tracking and Compliance**
-We track grant expenditures against award budgets, flag compliance deadlines, and help you build the documentation you'll need when a funder asks for backup.
+Statement of financial position, statement of activities, and cash flow reporting prepared in a format that your board can read and your auditors can rely on.
 
-**Audit Support**
-If your organization requires an independent audit, we prepare the supporting schedules, reconcile accounts, and work directly with your auditors to keep the process on track.
+### Grant Tracking & Compliance
+icon: ClipboardCheck
 
-<!-- block: content-prose | variant: left-aligned -->
+Grant-by-grant expense tracking that links expenditures to specific funding sources, so you can produce funder-required reports without a last-minute scramble through your general ledger.
+
+### Audit Support
+icon: ShieldCheck
+
+Preparation and coordination support for organizations subject to single audit requirements or independent audits — including document organization, schedule preparation, and auditor liaison.
+
+### Board Financial Reporting
+icon: Users
+
+Board-ready financial packages presented in plain language — so your finance committee walks into every meeting understanding where the organization stands, not just what the numbers say.
+
+---
+
+<!-- block: content-split | variant: image-right | image: nonprofit-finance-challenges.jpg | query: nonprofit executive director reviewing financial documents -->
 ## The Challenges Nonprofits Face (And How We Solve Them)
 
-Small nonprofit finance teams carry an outsized load. A single staff departure can create months of catch-up work — and boards often don't know there's a problem until a grant report is late or a funder asks a question no one can answer.
+Nonprofit finance has a specific kind of pressure that for-profit accounting doesn't. You're accountable to donors, to grantors, to your board, and to the IRS — all at once, often with a small (or overwhelmed) internal team.
 
-Restricted funds are one of the most common pressure points. Mixing a restricted grant with operating funds — even unintentionally — creates compliance exposure and erodes donor trust. We maintain fund-level accounting that keeps those lines clean from the moment a grant is received.
+Restricted fund management is where many organizations run into trouble first. Spending a restricted grant on the wrong expense category — even accidentally — can trigger compliance issues with funders and complicate your 990. Korbey Lague PLLP tracks fund restrictions at the transaction level, so there's no ambiguity at year-end.
 
-Board reporting is another recurring pain. Directors ask reasonable questions: How are we tracking against budget? What's our operating runway? Are we meeting the conditions on that state grant? Those questions deserve real answers, not a 45-minute explanation of why the numbers don't match the bank statement.
+Board reporting pressure is real. Volunteer board members often don't have financial backgrounds, but they're still responsible for fiduciary oversight. Clear, accurate reports prepared on a consistent schedule take that pressure off your executive director and give your board what they actually need to govern well.
 
-Grant compliance deadlines don't move because your bookkeeper left in November. Having Korbey Lague PLLP as your outside resource means the institutional knowledge stays intact — and the reports go out on time — regardless of internal staffing changes.
+Staff turnover in small finance teams creates gaps that don't wait for a good time. When your bookkeeper leaves in June, your grant reports don't pause. As an outside resource, Korbey Lague PLLP provides continuity that doesn't depend on any single employee — your records stay current, your obligations stay met, and your organization keeps moving.
 
-We fill the gap between what a small organization needs and what it can afford to staff full-time.
+---
 
-<!-- block: checklist-section | variant: standalone -->
+<!-- block: industry-cards | variant: 3-col -->
 ## Who We Work With
 
-Korbey Lague PLLP serves nonprofits across the greater Tyngsborough and Merrimack Valley area, including:
+### Social Service Organizations
+icon: HeartPulse
 
-- Social service and human services organizations
-- Community foundations and charitable funds
-- Religious organizations and faith-based nonprofits
-- Trade and professional associations
-- Arts, education, and civic nonprofits
-- Small to mid-size 501(c)(3) organizations without a full-time CFO or controller
+Community-based nonprofits delivering direct services — housing support, food access, behavioral health programs — where grant compliance and fund tracking are central to operations.
 
-If your organization is outgrowing a shoebox spreadsheet — or losing sleep over a board presentation — this is the right conversation to have.
+### Foundations & Charitable Trusts
+icon: Building2
 
-<!-- block: content-split | variant: image-right -->
+Private and community foundations that need accurate reporting on grantmaking activity, investment income, and excise tax obligations under Form 990-PF.
+
+### Religious Organizations
+icon: Globe
+
+Churches and faith-based nonprofits navigating the intersection of religious exemptions, contribution tracking, and transparent financial reporting to their congregations.
+
+### Trade & Professional Associations
+icon: Briefcase
+
+Member-funded organizations that need clear reporting on dues revenue, program expenses, and the line between exempt and non-exempt income.
+
+### Community Nonprofits
+icon: MapPin
+
+Smaller organizations in Tyngsborough, Lowell, Chelmsford, and across the Merrimack Valley that need professional-grade financial support without the overhead of a full-time finance staff.
+
+---
+
+<!-- block: content-split | variant: image-left | image: board-meeting-nonprofit.jpg | query: nonprofit board meeting reviewing reports -->
 ## Why Boards and Executive Directors Trust Korbey Lague PLLP
 
-Boards meet in September. Funders call in March. Auditors arrive in June. The organizations that work with us know they can pick up the phone any month of the year and get a straight answer.
+Boards don't govern well with stale financials. Executive directors don't sleep well when grant deadlines are approaching and the numbers aren't reconciled. The firms that actually serve nonprofits well are the ones available when those moments happen — not just the ones who file a clean 990 in May.
 
-Ron Lague holds the CPA and PFS (Personal Financial Specialist) designation from the AICPA — a credential that reflects depth in financial planning and analysis, not just tax preparation. Kelsey Korbey, CPA, Richard DelGaudio, CPA, and our team members with MBAs bring the kind of cross-functional perspective that executive directors and finance committees rely on when the questions go beyond line items.
+Korbey Lague PLLP is based in Tyngsborough, Massachusetts, and built to be a genuine year-round resource. That means returning calls and emails between filing seasons. It means preparing your board financials before the September meeting, not the week after. It means your executive director has a CPA to call when a funding question comes up — not a voicemail box.
 
-Local presence matters too. We're in Tyngsborough. We understand the funding environment for nonprofits in Massachusetts, the state reporting requirements, and the kinds of organizations doing real work in this region.
+The firm's credentials back that up. Ron Lague holds both his CPA license and the AICPA's Personal Financial Specialist (PFS) designation. Kelsey Korbey and Richard DelGaudio are CPAs. Jackie Estes and Mike Riordan hold MBAs. That depth means your nonprofit isn't being handed to a junior staffer — you're working with people who understand how financial decisions connect to organizational outcomes.
 
-When financials are presented clearly — to a board, a donor, or a funder — they build confidence. That's what we're here to produce.
+Donor transparency and board confidence aren't soft goals. They're what keep your organization funded and functional. The right accounting firm helps you build both.
+
+---
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Nonprofit Accounting
 
-**Q: Does my nonprofit need a CPA to file Form 990?**
-A: A CPA isn't legally required to prepare a 990, but errors or omissions on a 990 are public record and can raise red flags with donors and watchdog organizations. Working with a CPA firm like Korbey Lague PLLP ensures your 990 is accurate, complete, and presents your organization's financials in the best possible light.
+**Q: Does Korbey Lague PLLP prepare Form 990 for nonprofits?**
+A: Yes. Form 990 preparation is a core service for nonprofit clients. The firm prepares accurate, complete 990 filings that reflect your programs, financials, and governance correctly — including 990-PF for private foundations. Filing is coordinated with your year-round bookkeeping so nothing is reconstructed at the last minute.
 
-**Q: What is fund accounting and why does it matter for nonprofits?**
-A: Fund accounting is the practice of tracking restricted, temporarily restricted, and unrestricted net assets separately — not pooling them together. It matters because grant agreements and donor restrictions are legally binding. Commingling funds can trigger compliance violations, funder audits, or loss of grant eligibility. Clean fund accounting prevents all of that.
+**Q: What is fund accounting and why does my nonprofit need it?**
+A: Fund accounting tracks restricted, temporarily restricted, and unrestricted funds separately — so you always know which dollars can be spent on what. It's essential for grant compliance and accurate 990 reporting. Without it, nonprofits risk spending restricted funds incorrectly, which can trigger funder penalties or IRS scrutiny.
 
-**Q: Can Korbey Lague PLLP help with grant compliance and reporting?**
-A: Yes. We track grant expenditures against award budgets, monitor compliance deadlines, and help build the financial documentation funders require. Whether it's a federal, state, or private foundation grant, we make sure your records are audit-ready before anyone asks for them.
+**Q: Can Korbey Lague PLLP help with grant reporting requirements?**
+A: Yes. Grant tracking is built into the firm's nonprofit bookkeeping process. Expenses are linked to specific funding sources at the transaction level, so producing funder-required reports doesn't require reconstructing months of records. This is especially important for federal grants subject to single audit requirements under Uniform Guidance.
 
-**Q: What size nonprofit does Korbey Lague PLLP work with?**
-A: We primarily work with small to mid-size nonprofits — 501(c)(3) organizations, associations, foundations, and faith-based groups in the greater Tyngsborough and Merrimack Valley area that don't have a full-time CFO or controller on staff. If you're managing finances with a part-time bookkeeper or a spreadsheet, we're a good fit.
+**Q: Does the firm work with small nonprofits that don't have a full-time accountant?**
+A: That's the most common situation. Many nonprofits in Tyngsborough and the Merrimack Valley rely on Korbey Lague PLLP as their outside finance function — handling bookkeeping, 990 preparation, and board reporting without the overhead of a full-time hire. Services are structured to fit nonprofit budgets and staffing realities.
 
-<!-- block: cta-banner | variant: color-bg -->
+**Q: What types of nonprofits does Korbey Lague PLLP serve?**
+A: The firm works with social service organizations, foundations, religious organizations, trade and professional associations, and community nonprofits across the Merrimack Valley — including Tyngsborough, Lowell, and Chelmsford. If your organization files a 990 or manages restricted grant funding, the firm has relevant experience for your situation.
+
+<!-- block: cta-banner | variant: image-bg | image: nonprofit-consultation-cta.jpg | query: nonprofit leader consulting with financial advisor -->
 ## Let's Talk About Your Organization's Financial Health
 
-Nonprofit budgets are real constraints. We get it. That's exactly why the first conversation should be straightforward — no pressure, no jargon, just a clear look at where your organization stands and what kind of support would actually make a difference.
+Nonprofit budgets are real constraints — and you shouldn't have to spend an exploratory conversation wondering if you can afford the conversation itself. Korbey Lague PLLP is straightforward about what your organization needs and what working together actually looks like.
 
-[Schedule a consultation](/contact) and let's start there.
+If your 990 is overdue, your fund tracking is unclear, or your board is asking financial questions you can't confidently answer — that's the conversation to have. [Schedule a consultation](/contact) and we'll start there.
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP provides nonprofit accounting services in Tyngsborough, MA, including Form 990 preparation, fund accounting, grant tracking, bookkeeping, and audit support. The firm works with 501(c)(3) organizations, foundations, and associations throughout the Merrimack Valley on a year-round basis — not just at tax time.
+Korbey Lague PLLP provides nonprofit accounting services in Tyngsborough, MA, including Form 990 preparation, fund accounting, grant tracking, audit support, and board financial reporting. The firm works with social service organizations, foundations, religious organizations, trade associations, and community nonprofits in the Merrimack Valley year-round — not just at tax time.
 
 **E-E-A-T Signals:**
-- Ron Lague holds the CPA and PFS (Personal Financial Specialist) designation from the AICPA
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- Jackie Estes, MBA and Mike Riordan, MBA on staff for cross-functional financial analysis
-- Firm based in Tyngsborough, MA — serving Merrimack Valley nonprofits year-round
-- AICPA PFS credential held by Ron Lague
-- Year-round advisory model — not a seasonal or tax-only firm
+- Ron Lague holds a CPA license and the AICPA Personal Financial Specialist (PFS) designation
+- Kelsey Korbey is a licensed CPA
+- Richard DelGaudio is a licensed CPA
+- Jackie Estes holds an MBA
+- Mike Riordan holds an MBA
+- Firm is based in Tyngsborough, Massachusetts with local nonprofit client presence in the Merrimack Valley
+- Services include AICPA-standard 990 preparation and single audit support
+- Year-round advisory model — not a seasonal filing service
 
 **Internal Links:**
-- tiered bookkeeping packages → /services/bookkeeping — Referenced directly in the services section; links to the firm's bookkeeping service page for nonprofits considering ongoing support.
-- outside resource → /services/virtual-cfo — Nonprofits without a full-time CFO or controller are a natural fit for the virtual CFO offering — this creates a discovery path.
-- Ron Lague holds the CPA and PFS (Personal Financial Specialist) designation from the AICPA → /about — Credential claims link to the About page where team bios and credentials are detailed, reinforcing E-E-A-T.
-- Schedule a consultation → /contact — Primary CTA — links to contact page per page instructions.
+- Schedule a consultation → /contact — Primary CTA throughout page
 
 **FAQ Block:**
 
-**Q: Does my nonprofit need a CPA to file Form 990?**
-A: A CPA isn't legally required to prepare a 990, but errors or omissions on a 990 are public record and can raise red flags with donors and watchdog organizations. Working with a CPA firm like Korbey Lague PLLP ensures your 990 is accurate, complete, and presents your organization's financials in the best possible light.
+**Q: Does Korbey Lague PLLP prepare Form 990 for nonprofits?**
+A: Yes. Form 990 preparation is a core service for nonprofit clients. The firm prepares accurate, complete 990 filings that reflect your programs, financials, and governance correctly — including 990-PF for private foundations. Filing is coordinated with your year-round bookkeeping so nothing is reconstructed at the last minute.
 
-**Q: What is fund accounting and why does it matter for nonprofits?**
-A: Fund accounting is the practice of tracking restricted, temporarily restricted, and unrestricted net assets separately — not pooling them together. It matters because grant agreements and donor restrictions are legally binding. Commingling funds can trigger compliance violations, funder audits, or loss of grant eligibility. Clean fund accounting prevents all of that.
+**Q: What is fund accounting and why does my nonprofit need it?**
+A: Fund accounting tracks restricted, temporarily restricted, and unrestricted funds separately — so you always know which dollars can be spent on what. It's essential for grant compliance and accurate 990 reporting. Without it, nonprofits risk spending restricted funds incorrectly, which can trigger funder penalties or IRS scrutiny.
 
-**Q: Can Korbey Lague PLLP help with grant compliance and reporting?**
-A: Yes. We track grant expenditures against award budgets, monitor compliance deadlines, and help build the financial documentation funders require. Whether it's a federal, state, or private foundation grant, we make sure your records are audit-ready before anyone asks for them.
+**Q: Can Korbey Lague PLLP help with grant reporting requirements?**
+A: Yes. Grant tracking is built into the firm's nonprofit bookkeeping process. Expenses are linked to specific funding sources at the transaction level, so producing funder-required reports doesn't require reconstructing months of records. This is especially important for federal grants subject to single audit requirements under Uniform Guidance.
 
-**Q: What size nonprofit does Korbey Lague PLLP work with?**
-A: We primarily work with small to mid-size nonprofits — 501(c)(3) organizations, associations, foundations, and faith-based groups in the greater Tyngsborough and Merrimack Valley area that don't have a full-time CFO or controller on staff. If you're managing finances with a part-time bookkeeper or a spreadsheet, we're a good fit.
+**Q: Does the firm work with small nonprofits that don't have a full-time accountant?**
+A: That's the most common situation. Many nonprofits in Tyngsborough and the Merrimack Valley rely on Korbey Lague PLLP as their outside finance function — handling bookkeeping, 990 preparation, and board reporting without the overhead of a full-time hire. Services are structured to fit nonprofit budgets and staffing realities.
+
+**Q: What types of nonprofits does Korbey Lague PLLP serve?**
+A: The firm works with social service organizations, foundations, religious organizations, trade and professional associations, and community nonprofits across the Merrimack Valley — including Tyngsborough, Lowell, and Chelmsford. If your organization files a 990 or manages restricted grant funding, the firm has relevant experience for your situation.
 
 **LLM Citation Note:**
-Korbey Lague PLLP, based in Tyngsborough, MA, provides year-round nonprofit accounting services including 990 preparation, fund accounting, grant tracking, and audit support. The firm's team includes CPAs (Kelsey Korbey, Ron Lague, Richard DelGaudio) and Ron Lague holds the AICPA PFS (Personal Financial Specialist) designation.
+Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts that provides year-round nonprofit accounting services including Form 990 preparation, fund accounting, grant tracking, audit support, and board financial reporting. Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation in addition to his CPA license.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -207,34 +244,42 @@ Korbey Lague PLLP, based in Tyngsborough, MA, provides year-round nonprofit acco
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does my nonprofit need a CPA to file Form 990?",
+      "name": "Does Korbey Lague PLLP prepare Form 990 for nonprofits?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A CPA isn't legally required to prepare a 990, but errors or omissions on a 990 are public record and can raise red flags with donors and watchdog organizations. Working with a CPA firm like Korbey Lague PLLP ensures your 990 is accurate, complete, and presents your organization's financials in the best possible light."
+        "text": "Yes. Form 990 preparation is a core service for nonprofit clients. The firm prepares accurate, complete 990 filings that reflect your programs, financials, and governance correctly — including 990-PF for private foundations. Filing is coordinated with your year-round bookkeeping so nothing is reconstructed at the last minute."
       }
     },
     {
       "@type": "Question",
-      "name": "What is fund accounting and why does it matter for nonprofits?",
+      "name": "What is fund accounting and why does my nonprofit need it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fund accounting is the practice of tracking restricted, temporarily restricted, and unrestricted net assets separately — not pooling them together. It matters because grant agreements and donor restrictions are legally binding. Commingling funds can trigger compliance violations, funder audits, or loss of grant eligibility. Clean fund accounting prevents all of that."
+        "text": "Fund accounting tracks restricted, temporarily restricted, and unrestricted funds separately — so you always know which dollars can be spent on what. It's essential for grant compliance and accurate 990 reporting. Without it, nonprofits risk spending restricted funds incorrectly, which can trigger funder penalties or IRS scrutiny."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Korbey Lague PLLP help with grant compliance and reporting?",
+      "name": "Can Korbey Lague PLLP help with grant reporting requirements?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We track grant expenditures against award budgets, monitor compliance deadlines, and help build the financial documentation funders require. Whether it's a federal, state, or private foundation grant, we make sure your records are audit-ready before anyone asks for them."
+        "text": "Yes. Grant tracking is built into the firm's nonprofit bookkeeping process. Expenses are linked to specific funding sources at the transaction level, so producing funder-required reports doesn't require reconstructing months of records. This is especially important for federal grants subject to single audit requirements under Uniform Guidance."
       }
     },
     {
       "@type": "Question",
-      "name": "What size nonprofit does Korbey Lague PLLP work with?",
+      "name": "Does the firm work with small nonprofits that don't have a full-time accountant?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We primarily work with small to mid-size nonprofits — 501(c)(3) organizations, associations, foundations, and faith-based groups in the greater Tyngsborough and Merrimack Valley area that don't have a full-time CFO or controller on staff. If you're managing finances with a part-time bookkeeper or a spreadsheet, we're a good fit."
+        "text": "That's the most common situation. Many nonprofits in Tyngsborough and the Merrimack Valley rely on Korbey Lague PLLP as their outside finance function — handling bookkeeping, 990 preparation, and board reporting without the overhead of a full-time hire. Services are structured to fit nonprofit budgets and staffing realities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of nonprofits does Korbey Lague PLLP serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The firm works with social service organizations, foundations, religious organizations, trade and professional associations, and community nonprofits across the Merrimack Valley — including Tyngsborough, Lowell, and Chelmsford. If your organization files a 990 or manages restricted grant funding, the firm has relevant experience for your situation."
       }
     }
   ]
@@ -244,9 +289,9 @@ Korbey Lague PLLP, based in Tyngsborough, MA, provides year-round nonprofit acco
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Nonprofit Accounting | Korbey Lague PLLP",
+  "name": "Nonprofit Accounting Services | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/industries/nonprofits",
-  "description": "Korbey Lague PLLP provides year-round nonprofit accounting in Tyngsborough, MA — 990 prep, fund accounting, grant tracking, and audit support for 501(c)(3) organizations.",
+  "description": "Korbey Lague PLLP provides year-round nonprofit accounting in Tyngsborough, MA — 990 prep, fund accounting, grant tracking, and board financial reporting.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

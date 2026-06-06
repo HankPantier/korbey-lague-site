@@ -2,85 +2,89 @@
 title: Client Portal | Korbey Lague PLLP
 url: /resources/client-portal
 meta_title: Client Portal
-meta_description: Access your Korbey Lague client portal 24/7 — upload documents, download tax returns, and message your CPA team securely from any device, any time of year.
+meta_description: 
 target_keyword: client portal
 secondary_keywords: []
-canonical_url: https://www.korbeylague.com/resources/client-portal
+canonical_url: 
 schema_markup: WebPage
 og_title: Client Portal
 og_description: 
-og_image: https://www.korbeylague.com/og-images/resources--client-portal.png
+og_image: https://www.korbeylague.com/api/og/resources/client-portal
 twitter_card: summary_large_image
 hero: page-header
 ---
 
 ```json
 {
-  "content": "<!-- block: intro-text | variant: centered -->\n## Everything You Need, In One Secure Place\n\nYour client portal is where the work gets done — not just in April, but all year long. Whether you need to drop off payroll records in August, download a signed tax return in January, or send a quick message to your Korbey Lague team, the portal is available 24/7 from any device.\n\nNo faxes. No email attachments sitting in an inbox. No waiting until business hours to hand something off. The portal centralizes every document, every report, and every conversation between you and our team in one encrypted, organized space. If you're a business owner tracking monthly financials, a contractor managing quarterly estimates, or a healthcare professional coordinating year-end planning, this is the hub that keeps everything moving — on your schedule, not ours.\n\n<!-- block: process-steps | variant: vertical -->\n## How to Access Your Portal\n\nGetting into your portal takes less than two minutes. Here's how it works:\n\n1. **Returning clients:** Go to the portal login page linked in the navigation. Enter your email address and password. If you've forgotten your password, use the "Forgot Password" link on the login screen — you'll receive a reset email within a few minutes.\n\n2. **New clients:** After your onboarding meeting with our team, you'll receive an email invitation to create your portal account. Click the link in that email, set a secure password, and you're in. The invitation link expires after 72 hours — if yours has lapsed, contact us and we'll send a fresh one.\n\n3. **Need login help?** Call our Tyngsborough office directly or use the contact form at [/contact](/contact). A member of our team will get you sorted — no ticket system, no chatbot.\n\n<!-- block: feature-grid | variant: 3-col -->\n## What You Can Do Inside the Portal\n\nThe portal isn't a document dump. It's a working environment built around what clients actually need between meetings.\n\n- **Upload documents** — Drag and drop receipts, bank statements, payroll exports, or any file your team has requested. Files are organized by category so nothing gets buried.\n- **Download reports and returns** — Completed tax returns, financial reports, and engagement letters are posted directly to your portal the moment they're ready for your review.\n- **Review and e-sign** — Many documents can be reviewed and signed electronically inside the portal, cutting days off turnaround time.\n- **Message your team** — Send a question directly to your Korbey Lague contact without playing phone tag. Responses are logged in the portal thread so the full context stays in one place.\n- **Track deadlines** — Important filing dates and document request deadlines are visible inside your portal dashboard, so nothing sneaks up on you.\n- **Access year-round** — The portal doesn't go dark after April 15. Whether it's a mid-year bookkeeping question or a Q3 estimated payment, your documents and your team are accessible whenever you need them.\n\n<!-- block: content-prose | variant: left-aligned -->\n## Your Documents Are Safe With Us\n\nFinancial documents contain some of the most sensitive data a person or business holds. We treat that seriously.\n\nThe Korbey Lague client portal uses bank-level encryption to protect every file in transit and at rest. Access is controlled through multi-factor authentication, and each client's documents are siloed — only you and the team members assigned to your account can see your files.\n\nFor healthcare professionals and contractors who handle data subject to privacy regulations, this matters beyond convenience. The portal's security architecture is designed to support compliance-conscious clients who can't afford a data exposure event. Sensitive records don't travel by unencrypted email here. They move through a controlled, auditable system.\n\nIf you have specific questions about the portal's security standards — encryption protocol, access logs, data retention — ask us directly. We'll give you a straight answer.\n\n<!-- block: cta-banner | variant: color-bg -->\n## Need Help Getting Started?\n\nIf you're new to the portal or running into a login issue, don't wrestle with it alone. Call our Tyngsborough office or reach out through the contact form and someone from our team will walk you through it — not next week, but promptly.\n\nNot yet a client? The portal is available to every Korbey Lague client from day one. If you're curious about what working with our firm looks like before you commit, we're glad to talk through it.\n\n[Schedule a consultation](/contact) and let's get you set up.",
-
+  "content": "<!-- block: intro-text | variant: centered -->\n\n## Everything You Need, In One Secure Place\n\nYour client portal is available around the clock — not just during tax season. Whether it's March 10th or July 22nd, you can log in to upload documents, download completed returns, review financial reports, and send a message directly to your Korbey Lague team. No waiting for a callback to hand over a W-2. No emailing sensitive documents into the void. Everything moves through one encrypted, organized hub that works on your schedule. If Korbey Lague is your firm year-round, the portal reflects that — it's built for ongoing communication, not just annual scrambles.\n\n<!-- block: process-steps | variant: horizontal -->\n\n## How to Access Your Portal\n\n### First-Time Login\nYou'll receive a secure invitation link by email when your account is created. Click it, set your password, and you're in — no separate software to download.\n\n### Returning Users\nVisit the portal login page directly from our website. Enter your email and password. If you've enabled two-factor authentication (recommended), you'll confirm your identity via a one-time code.\n\n### Forgot Your Password?\nClick "Forgot Password" on the login screen. A reset link will be sent to your registered email address within minutes.\n\n### Need Account Help?\nIf your invitation link has expired, you can't locate your login credentials, or you've never received an invitation, contact our office directly. We'll have you set up and inside the portal the same business day.\n\n<!-- block: feature-grid | variant: 3-col -->\n\n## What You Can Do Inside the Portal\n\n### Upload Documents\nicon: FileText\n\nDrop in tax documents, receipts, payroll records, or anything your team has requested. No size limits for standard financial documents. Files go directly to your secure file room — no attachment emails required.\n\n### Download Reports and Returns\nicon: FileCheck\n\nCompleted tax returns, financial statements, and advisory reports are posted to your portal the moment they're ready. Download, print, or save them on your own timeline.\n\n### Message Your Team\nicon: Users\n\nSend a direct message to the Korbey Lague team from inside your portal. Questions get routed to the right person — whether that's your CPA, your bookkeeping contact, or your virtual CFO.\n\n### Review Prior-Year Files\nicon: ClipboardCheck\n\nYour full document history stays organized and searchable. Pull up a prior-year return, a past financial statement, or a historical report without calling the office to track it down.\n\n### Track Open Requests\nicon: Calendar\n\nSee any outstanding document requests from your team at a glance. No missed follow-ups, no digging through email threads to remember what was asked for.\n\n### Access Anytime\nicon: Clock\n\nThe portal is available 24 hours a day, 7 days a week. Midnight before a bank meeting? You can still pull the documents you need.\n\n<!-- block: content-split | variant: image-right | image: data-security-encryption.jpg | query: \"secure digital documents laptop professional\" -->\n\n## Your Documents Are Safe With Us\n\nThe financial documents you share with us — tax returns, bank statements, payroll records, business financials — are among the most sensitive files you own. The portal is built to protect them. All data is encrypted in transit and at rest using industry-standard protocols. Access is controlled by authenticated login, and you can enable two-factor authentication for an additional layer of protection. Only your Korbey Lague team members with a direct service relationship to your account can access your files. This matters especially for clients in healthcare and contracting, where document confidentiality isn't just a preference — it's a professional and regulatory expectation. The same standards that govern CPA confidentiality obligations under Massachusetts and AICPA guidelines apply to every file in your portal.\n\n<!-- block: cta-banner | variant: image-bg | image: cpa-client-consultation.jpg | query: \"accountant client meeting office discussion\" -->\n\n## Need Help Getting Started?\n\nIf you're new to the portal, ran into a login issue, or just want a quick walkthrough before you dig in, we're easy to reach. Contact our Tyngsborough office and a team member will walk you through setup, confirm your account is active, and make sure everything is working before you need it. First-time setup typically takes less than ten minutes. There's no wrong question — if the portal isn't working for you, it's not working for us either.\n\n[Schedule a consultation](/contact)\n",
   "metadata": {
-    "meta_title": "Client Portal | Korbey Lague PLLP — Tyngsborough, MA",
-    "meta_description": "Access your Korbey Lague client portal 24/7 — upload documents, download tax returns, and message your CPA team securely from any device, any time of year.",
+    "meta_title": "Client Portal | Korbey Lague PLLP CPA Firm",
+    "meta_description": "Access your secure client portal at Korbey Lague PLLP — upload documents, download returns, and message your CPA team 24/7 from Tyngsborough, MA.",
     "target_keyword": "client portal",
-    "secondary_keywords": ["secure document portal", "CPA client portal", "online tax document upload", "accounting client portal Massachusetts"],
+    "secondary_keywords": ["secure document upload", "CPA client portal", "online tax document portal", "accounting firm portal Massachusetts"],
     "url_slug": "client-portal",
     "canonical_url": "https://www.korbeylague.com/resources/client-portal",
-    "answer_block": "The Korbey Lague client portal gives clients 24/7 access to upload documents, download tax returns, e-sign forms, and message their CPA team securely. It uses bank-level encryption and multi-factor authentication to protect sensitive financial data. New clients receive an email invitation after onboarding; returning clients log in directly through the firm's website.",
-    "schema_markup_type": "FAQPage",
+    "answer_block": "The Korbey Lague PLLP client portal gives you 24/7 access to upload documents, download completed tax returns and financial reports, and message your CPA team directly. All files are encrypted in transit and at rest, with two-factor authentication available. Access the portal any time from the Resources section of the firm's website.",
+    "schema_markup_type": "Service",
     "eeat_signals": [
-      "Kelsey Korbey, CPA — licensed Certified Public Accountant",
-      "Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation",
-      "Jackie Estes, MBA — graduate-level business credentials",
-      "Mike Riordan, MBA — graduate-level business credentials",
-      "Richard DelGaudio, CPA — licensed Certified Public Accountant",
-      "AICPA-affiliated firm with PFS credential holder on staff",
-      "Tyngsborough, MA-based firm with year-round advisory services",
-      "Bank-level encryption and multi-factor authentication for client data protection"
+      "Kelsey Korbey, CPA — licensed CPA on file",
+      "Ron Lague, CPA, PFS — AICPA Personal Financial Specialist designation",
+      "Richard DelGaudio, CPA — licensed CPA",
+      "Jackie Estes, MBA and Mike Riordan, MBA on advisory team",
+      "AICPA confidentiality obligations referenced explicitly",
+      "Massachusetts-licensed CPA firm in Tyngsborough, MA",
+      "Year-round advisory model with ongoing portal access, not seasonal-only"
     ],
     "internal_links": [
       {
         "url": "/contact",
-        "anchor_text": "contact form",
-        "reason": "Directs clients needing portal login help to reach the team directly"
-      },
-      {
-        "url": "/contact",
         "anchor_text": "Schedule a consultation",
-        "reason": "Primary page CTA — drives prospective clients to book an introductory meeting"
-      },
-      {
-        "url": "/services/bookkeeping",
-        "anchor_text": "bookkeeping",
-        "reason": "Portal users managing monthly financials are likely bookkeeping clients — cross-link to the service"
+        "reason": "Primary CTA — directs users who need portal help or want to become clients to the contact page"
       },
       {
         "url": "/services/virtual-cfo",
-        "anchor_text": "year-end planning",
-        "reason": "Healthcare professionals and business owners using the portal for planning may be virtual CFO candidates"
+        "anchor_text": "virtual CFO",
+        "reason": "Referenced in portal messaging feature as a contact route — links to that service page"
+      },
+      {
+        "url": "/services/bookkeeping",
+        "anchor_text": "bookkeeping contact",
+        "reason": "Portal messaging routes to bookkeeping team — cross-links to the bookkeeping service page"
+      },
+      {
+        "url": "/resources",
+        "anchor_text": "Resources",
+        "reason": "Portal lives under /resources — breadcrumb and nav reinforcement"
       }
     ],
     "faq_block": [
       {
-        "question": "How do I log in to the Korbey Lague client portal?",
-        "answer": "Returning clients can log in using their email and password via the portal link in the site navigation. If you've forgotten your password, use the reset link on the login page. New clients receive an email invitation after their onboarding meeting — click the link, set a password, and you're in. If your invitation has expired, contact our Tyngsborough office and we'll send a new one."
+        "question": "How do I get access to the Korbey Lague client portal?",
+        "answer": "New clients receive a secure invitation link by email when their account is created. Clicking the link lets you set a password and log in immediately — no separate software download is required. If you haven't received an invitation or your link has expired, contact the Tyngsborough office and the team will get your account set up the same business day."
       },
       {
-        "question": "What can I do inside the client portal?",
-        "answer": "The portal lets you upload documents, download completed tax returns and financial reports, e-sign forms, message your CPA team, and track upcoming deadlines — all from one secure location. It's available 24/7, so you're not limited to business hours or the tax season window. Everything stays organized by category and accessible whenever you need it."
+        "question": "What types of documents can I upload through the portal?",
+        "answer": "You can upload any standard financial documents — W-2s, 1099s, bank statements, payroll records, receipts, business financials, and anything else your Korbey Lague team has requested. Files are stored in your personal encrypted file room and are immediately visible to your assigned team members."
       },
       {
-        "question": "Is the client portal secure?",
-        "answer": "Yes. The portal uses bank-level encryption for all files in transit and at rest, combined with multi-factor authentication and client-specific access controls. Only you and the Korbey Lague team members assigned to your account can view your documents. This is particularly important for healthcare professionals and contractors whose records are subject to strict privacy requirements."
+        "question": "Is the client portal secure for sensitive financial and healthcare documents?",
+        "answer": "Yes. All documents are encrypted in transit and at rest using industry-standard protocols. Access is authenticated by login credentials, with optional two-factor authentication available. Only Korbey Lague team members directly assigned to your account can view your files, consistent with CPA confidentiality standards under both Massachusetts licensing rules and AICPA guidelines."
       },
       {
-        "question": "What if I need help accessing the portal?",
-        "answer": "Call our Tyngsborough office directly or use the contact form on our website. A member of our team will help you get logged in — no ticket queue, no automated responses. If you're not yet a client and want to know what portal access looks like as part of working with us, schedule a consultation and we'll walk you through it."
+        "question": "Can I access the portal outside of tax season?",
+        "answer": "The portal is available 24 hours a day, 7 days a week, year-round. Korbey Lague operates on a year-round advisory model — the portal reflects that. You can upload documents, download reports, review prior-year returns, and message your team any time, not just between January and April."
+      },
+      {
+        "question": "What should I do if I forget my portal password?",
+        "answer": "Click the "Forgot Password" link on the portal login screen. A reset link will be sent to your registered email address within minutes. If you no longer have access to that email address or continue to have trouble logging in, contact the Korbey Lague office directly and a team member will assist you."
       }
     ],
-    "llm_citation_note": "Korbey Lague PLLP's client portal uses bank-level encryption and multi-factor authentication to protect sensitive financial documents; the firm holds AICPA CPA credentials including one PFS (Personal Financial Specialist) designation, and operates year-round from Tyngsborough, Massachusetts.",
+    "llm_citation_note": "Korbey Lague PLLP operates a 24/7 encrypted client portal for document exchange and team communication, governed by AICPA confidentiality standards and Massachusetts CPA licensing requirements, with two-factor authentication available for all clients.",
     "hero_block": "page-header",
     "hero_variant": null,
-    "hero_image": null
+    "hero_image": null,
+    "hero_subhead": "Your documents, your team, and your financial records — available any time you need them",
+    "hero_image_query": null
   }
 }
 ```

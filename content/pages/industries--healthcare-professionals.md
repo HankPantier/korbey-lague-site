@@ -1,166 +1,206 @@
 ---
 title: Healthcare Professionals | Korbey Lague PLLP
 url: /industries/healthcare-professionals
-meta_title: CPA Services for Healthcare Professionals | Korbey Lague
-meta_description: Korbey Lague PLLP provides year-round tax, accounting, and advisory services for healthcare professionals in Tyngsborough, MA. CPA and PFS credentials on staff.
+meta_title: CPA for Healthcare Professionals | Korbey Lague PLLP
+meta_description: Korbey Lague PLLP serves physicians, dentists, therapists, and healthcare professionals with year-round tax, accounting, and financial advisory services in Tyngsborough, MA.
 target_keyword: healthcare professionals
-secondary_keywords: [CPA for physicians, dental practice accounting, medical practice tax planning, healthcare CPA Massachusetts, practice acquisition advisor]
+secondary_keywords: [CPA for doctors, accounting for medical professionals, physician tax planning, practice accounting Tyngsborough MA, dental practice CPA, healthcare CPA Massachusetts]
 canonical_url: https://www.korbeylague.com/industries/healthcare-professionals
 schema_markup: Service
-og_title: CPA Services for Healthcare Professionals | Korbey Lague
-og_description: Korbey Lague PLLP provides year-round tax, accounting, and advisory services for healthcare professionals in Tyngsborough, MA. CPA and PFS credentials on staff.
-og_image: https://www.korbeylague.com/og-images/industries--healthcare-professionals.png
+og_title: CPA for Healthcare Professionals | Korbey Lague PLLP
+og_description: Korbey Lague PLLP serves physicians, dentists, therapists, and healthcare professionals with year-round tax, accounting, and financial advisory services in Tyngsborough, MA.
+og_image: https://www.korbeylague.com/api/og/industries/healthcare-professionals
 twitter_card: summary_large_image
-hero: page-header
+hero: hero-split
+hero_variant: image-right
+hero_image: healthcare-professionals-hero.jpg
+hero_subhead: Year-round financial clarity for your practice and the wealth you're building alongside it
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
+
 ## Your Practice Has Financial Complexity That Generic Accounting Can't Handle
 
-You spent years training to deliver exceptional patient care. The financial side of running a healthcare practice — or managing a high-earning clinical career — is a different discipline entirely, and most generalist CPAs treat it that way: generically.
+Running a healthcare practice means you're managing two distinct financial lives at once — the business that employs your staff, negotiates payer contracts, and carries overhead, and the personal balance sheet you're building alongside it. Most generalist CPAs are equipped to handle one or the other. Very few understand how the two intersect in healthcare.
 
-Reimbursement cycles that don't match your overhead schedule. Student loan balances that interact with your income-driven repayment options in ways that affect your tax strategy. Entity structuring decisions that carry long-term consequences for how you're taxed, how you're protected, and how you eventually exit. Compliance requirements that change depending on how your practice is organized and who you employ.
+Reimbursement cycles create cash flow patterns that don't look like any other industry. Student loan balances — often six figures — demand specific repayment and forgiveness strategies that interact directly with how you structure your practice entity. Compliance demands from payers, licensing boards, and federal programs like Medicare add another layer most tax-season-only firms simply aren't prepared for.
 
-These aren't edge cases. They're the core of healthcare professional finances — and they require a CPA who already understands them before you walk through the door. Korbey Lague PLLP works with healthcare professionals in Tyngsborough and across Massachusetts to handle the financial complexity that comes with the work you've built your career around.
+At Korbey Lague PLLP, we work with healthcare professionals year-round — not just when a return is due. That means when your group practice is weighing a new service line or you're being offered a buy-in to an existing practice, you're not starting from zero with an accountant who doesn't know your file. You already have a team that does.
 
----
+<!-- block: checklist-section | variant: with-image | image: healthcare-professionals-served.jpg | query: "doctors nurses medical team clinic" -->
 
-<!-- block: checklist-section | variant: standalone -->
 ## Who We Work With in Healthcare
 
-If you're in a licensed clinical profession — whether you own a practice, work in a group setting, or operate independently — this is written for you. Korbey Lague PLLP works with:
+Korbey Lague PLLP serves healthcare professionals across a broad range of clinical specialties and practice models. If you see yourself below, you're in the right place:
 
-- **Physicians and surgeons** (primary care, specialty, and surgical practices)
-- **Dentists and orthodontists**
-- **Therapists, psychologists, and licensed counselors**
-- **Nurse practitioners and physician assistants**
-- **Veterinarians and veterinary practice owners**
-- **Optometrists and ophthalmologists**
-- **Physical therapists and occupational therapists**
-- **Other licensed healthcare providers** managing both clinical and business finances
+- Physicians (primary care, hospitalists, and specialists in private or group practice)
+- Dentists and orthodontists
+- Therapists, psychologists, and licensed mental health counselors
+- Nurse practitioners and physician assistants
+- Veterinarians
+- Physical therapists, occupational therapists, and chiropractors
+- Optometrists and ophthalmologists
+- Healthcare administrators and practice managers
 
-If your income comes from a combination of clinical work, practice ownership, and personal financial planning, you're in the right place.
-
----
+Whether you're a solo practitioner, part of a group, or employed by a health system while building outside income, the complexity is real — and it deserves an accounting team that recognizes it.
 
 <!-- block: service-cards | variant: 3-col -->
+
 ## Accounting and Tax Services Designed Around Your Practice
 
-Healthcare professionals carry a tax and accounting burden that doesn't pause between April and December. Neither do we.
+Most healthcare professionals don't need a generalist running their books. They need someone who knows why a pass-through entity matters for a solo physician, how payroll tax for S-corp owner-employees works, and what deductions are genuinely defensible for clinical practitioners.
 
-**Entity Structure and Setup**
-The way your practice is structured — S-corp, PLLC, solo proprietor, partnership — determines how you're taxed and how exposed you are personally. Getting this right at the start matters. Getting it wrong costs real money over time. We review your structure against your income level, staff size, and growth plans before recommending anything.
+Here's the core of what we do for healthcare clients:
 
-**Practice vs. Personal Tax Integration**
-Most CPAs handle your business return and your personal return as separate files. For healthcare professionals, those two tax situations interact constantly — owner compensation, retirement contributions, fringe benefits, and the qualified business income deduction all flow between them. We plan them together.
+### Entity Structure and Practice Formation
+icon: Building2
 
-**Payroll for Clinical Staff**
-Medical and dental practices typically run payroll for clinical and administrative employees simultaneously, with benefits structures that vary by role. We manage payroll and make sure your employer tax obligations are handled accurately and on time.
+The decision between a sole proprietorship, LLC, S-corp, or professional corporation isn't just legal — it determines how much you pay in self-employment tax, how you pay yourself, and how you're positioned for a future sale or partnership buy-in. We evaluate this at the start and revisit it as your income grows.
 
-**Deductions Specific to Healthcare**
-Continuing medical education, malpractice premiums, DEA registration fees, medical equipment, home office use for administrative work — these are legitimate deductions that generalist preparers often miss or under-document. We know what applies to your profession and make sure it's captured.
+### Practice and Personal Tax Planning
+icon: FileCheck
 
-**Quarterly Planning and Estimated Taxes**
-High-income healthcare professionals face underpayment penalties when estimated taxes aren't calibrated to actual income. We run quarterly reviews so your estimates stay accurate as revenue shifts throughout the year.
+Your practice taxes and your personal taxes don't exist in separate boxes. We coordinate both — tracking deductions available to healthcare professionals, modeling the effect of retirement contributions, and planning estimated payments so you aren't writing large checks in April.
 
-**Year-Round Availability**
-Korbey Lague PLLP is available in July as reliably as in March. If you hire a new associate, acquire a piece of equipment, or receive an unexpected bonus distribution, you don't have to wait for next tax season to think through the consequences.
+### Payroll and Staff Accounting
+icon: Users
 
----
+Clinical staff, administrative staff, and contractor relationships all carry different payroll and tax treatment. We handle payroll processing, year-end W-2 and 1099 filings, and the classification questions that create liability when answered wrong.
 
-<!-- block: process-steps | variant: vertical -->
+### Student Loan Strategy
+icon: GraduationCap
+
+Public Service Loan Forgiveness, income-driven repayment, and refinancing decisions all interact with your taxable income and practice structure. Ron Lague, CPA, PFS brings financial planning depth to these decisions — not just tax prep.
+
+### Quarterly Reviews and Tax Projections
+icon: ChartLine
+
+We don't disappear after April 15. Quarterly reviews mean you're never surprised by a tax bill, and you have time to act before the year closes — whether that means accelerating deductions, adjusting distributions, or funding retirement accounts strategically.
+
+### Deductions Specific to Medical Professionals
+icon: Receipt
+
+Licensing fees, CME costs, malpractice insurance, home office deductions for telehealth, and equipment purchases under Section 179 all factor in. We know what applies to your situation and how to document it correctly.
+
+<!-- block: content-split | variant: image-right | image: healthcare-career-planning.jpg | query: "doctor reviewing financial documents desk" -->
+
 ## Strategic Advisory for Every Stage of Your Career
 
-The financial decisions you face in your first year of practice ownership look nothing like the ones you'll face in year fifteen. Korbey Lague PLLP understands that arc — and we're built to stay with you through it.
+Healthcare careers follow a recognizable arc — and every stage of it comes with distinct financial decisions. We've worked with clients at each of these inflection points, and we understand what's at stake.
 
-**Early Career and Residency Transition**
-Physicians and other professionals coming out of training often carry significant student loan debt alongside rapid income growth. The strategies that make sense at $80,000 in income are wrong at $350,000. We help you build the foundation — the right accounts, the right entity, the right retirement vehicle — before bad habits get expensive.
+**Residency and early career:** This is when student loan strategy matters most and when the foundation of a financial plan — emergency funds, retirement accounts, disability insurance — should be set before income jumps.
 
-**Practice Startup and Acquisition**
-Opening or buying a practice involves lease negotiations, equipment financing, entity formation, initial payroll setup, and cash flow modeling — before you see your first patient. We work alongside healthcare attorneys and lenders to make sure the financial structure of your acquisition or startup is sound from day one.
+**Practice launch or acquisition:** Starting a practice or purchasing an existing one involves entity formation, real estate decisions, equipment financing, and a personal financial plan that accounts for the income gap in year one. We've guided healthcare clients through both paths.
 
-**Partnership Buy-Ins and Equity Transitions**
-When you're offered a partnership stake, the terms of that transaction have lasting tax and liability implications. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist designation — a credential that specifically addresses the intersection of tax planning and personal financial decisions. He and the team review buy-in agreements with you before you sign.
+**Partnership buy-ins:** Buy-in terms, valuation methodology, and the tax treatment of the transaction all require hands-on review. This is not the time for a CPA who sees one or two of these transactions per year.
 
-**Exit Planning and Practice Valuation**
-Eventually, you'll want to exit — whether through a sale, a merger, or a wind-down. Practice valuation, asset vs. stock sale treatment, earnout structures, and post-sale tax exposure all require careful planning. We start that conversation years before the transaction, not the month before.
+**Established practice growth:** Adding providers, new service lines, or a second location creates complexity across payroll, entity structure, and quarterly planning. Your accounting needs to scale with you.
 
----
+**Exit planning:** Whether you're selling to a private equity group or transitioning to a partner, exit timing and structure carry significant tax consequences. With Ron Lague's AICPA Personal Financial Specialist (PFS) credential on the team, we bring a level of financial planning depth to exit conversations that most CPA firms can't.
 
-<!-- block: content-prose | variant: left-aligned -->
+Korbey Lague PLLP doesn't hand you off to a junior staff member once you're onboarded. You get continuity — a team that knows your history and can speak to your specific situation at any point in your career.
+
+<!-- block: feature-grid | variant: 3-col -->
+
 ## Why Healthcare Professionals in Tyngsborough Trust Korbey Lague PLLP
 
-Large regional firms and national tax chains have one thing in common: the person who knows your file changes, or disappears entirely between engagements. For healthcare professionals with complex, evolving financial situations, that's not a minor inconvenience — it's a liability.
+Large regional firms rotate staff, push clients through intake systems, and disappear between tax seasons. That model doesn't serve healthcare professionals who have questions in September, decisions to make in November, and no time to re-explain their situation to someone new every year.
 
-Korbey Lague PLLP is a Tyngsborough-based firm where the CPAs and advisors you meet are the people doing your work. Kelsey Korbey, CPA and Ron Lague, CPA, PFS lead a team that includes Jackie Estes, MBA, Mike Riordan, MBA, and Richard DelGaudio, CPA — credentials that cover tax, financial planning, and business advisory across the full scope of what healthcare professionals need.
+Korbey Lague PLLP was built differently. Based in Tyngsborough, MA, we've established long-term relationships with professionals in the Merrimack Valley and Greater Boston area — including a meaningful number of healthcare clients who came to us frustrated with exactly that problem.
 
-The PFS designation Ron carries isn't common. It's an AICPA credential that requires demonstrated competency in financial planning — not just tax preparation. For physicians and other high-income healthcare professionals who need someone who can think across both the practice and personal balance sheet, that distinction is meaningful.
+### Year-Round Access
+icon: Calendar
 
-We don't disappear in May. We're here when your situation changes, and it will.
+We're available in July, not just April. Questions about a practice expansion or a payroll decision don't wait for tax season — and neither do we.
 
----
+### Credentialed Team
+icon: Award
+
+Kelsey Korbey, CPA; Ron Lague, CPA, PFS; Richard DelGaudio, CPA; Jackie Estes, MBA; and Mike Riordan, MBA bring both technical credentials and real-world advisory experience to every client relationship.
+
+### Personal Financial Specialist on Staff
+icon: ShieldCheck
+
+Ron Lague holds the AICPA's PFS designation — a credential that signals genuine depth in financial planning, not just tax compliance. For healthcare professionals managing significant wealth alongside a business, that matters.
+
+### No Handoffs
+icon: UserCheck
+
+You work with people who know your file. Not a call center. Not a rotating associate. The same team, year after year.
+
+### Local and Relationship-Driven
+icon: MapPin
+
+Based in Tyngsborough, MA, we serve clients across the Merrimack Valley who want a firm that functions like a trusted advisor — not a vendor processing returns in the background.
+
+### Technology That Scales With You
+icon: Cog
+
+For practices that need more sophisticated financial reporting, we offer Sage Intacct-based solutions through our virtual CFO offering — CFO-level visibility at a fraction of the cost of a full-time hire.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Healthcare Professionals
 
-**Q: What makes a CPA firm qualified to work with healthcare professionals?**
-A: Healthcare professionals face financial challenges that general practitioners often overlook — reimbursement timing, entity structuring for clinical practices, student loan strategy, and practice acquisition tax treatment. A qualified CPA should have direct experience with these issues and credentials like the AICPA PFS designation that demonstrate competency beyond basic tax preparation. At Korbey Lague PLLP, those credentials are on staff, not outsourced.
+**Q: What types of healthcare professionals does Korbey Lague PLLP work with?**
+A: Korbey Lague PLLP serves physicians, dentists, therapists, nurse practitioners, veterinarians, physical therapists, optometrists, and other licensed clinical professionals — whether they operate solo practices, group practices, or hold both employment income and independent clinical income.
 
-**Q: Do I need a separate CPA for my practice and my personal taxes?**
-A: Not if your CPA understands how the two interact. For healthcare professionals, practice income, owner compensation, retirement contributions, and personal tax liability are deeply connected. Handling them as separate files means missed planning opportunities. Korbey Lague PLLP integrates practice and personal tax planning so decisions in one area reflect what's happening in the other.
+**Q: Can Korbey Lague PLLP help with student loan repayment strategy?**
+A: Yes. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist credential, which covers financial planning decisions including student loan strategy. Repayment elections — particularly income-driven plans and PSLF eligibility — interact directly with how your practice is structured and how you file taxes, and we coordinate both.
 
-**Q: Can Korbey Lague PLLP help me evaluate a practice acquisition?**
-A: Yes. Practice acquisitions involve entity structure, asset vs. stock sale treatment, financing arrangements, and post-acquisition payroll and bookkeeping setup. The team at Korbey Lague PLLP works with healthcare professionals before, during, and after acquisition to make sure the financial structure of the transaction holds up — not just on closing day, but in years two and five as well.
+**Q: How is working with a CPA year-round different from using a tax-season firm?**
+A: A tax-season firm files your return. A year-round firm helps you make decisions before the year closes — adjusting distributions, funding retirement accounts, timing deductions, and flagging issues in real time. For healthcare professionals with complex practice and personal finances, the difference in outcomes is significant.
 
-**Q: How does the AICPA PFS designation benefit healthcare professional clients?**
-A: The Personal Financial Specialist (PFS) designation is awarded by the AICPA to CPAs who demonstrate advanced competency in financial planning — covering retirement strategy, investment considerations, estate planning, and insurance. For high-income healthcare professionals managing both a practice and personal wealth, having a CPA with this credential means one advisor can look across the full financial picture.
+**Q: Does Korbey Lague PLLP assist with practice acquisitions or partnership buy-ins?**
+A: Yes. Practice acquisitions, buy-ins, and eventual exits each carry significant tax and financial planning implications. The Korbey Lague PLLP team has experience advising healthcare clients through these transitions, including entity structuring, valuation review, and coordinating with legal counsel on transaction terms.
 
-<!-- block: cta-banner | variant: color-bg -->
+**Q: Where is Korbey Lague PLLP located, and do they serve clients outside Tyngsborough?**
+A: The firm is based in Tyngsborough, MA, and serves healthcare professionals across the Merrimack Valley and Greater Boston area. Many client relationships are managed on a virtual basis, so geography isn't a barrier for the right fit.
+
+<!-- block: cta-banner | variant: image-bg | image: healthcare-cta-consultation.jpg | query: "doctor professional office consultation meeting" -->
+
 ## Ready to Stop Managing Your Finances Alone?
 
-You've built a clinical career that demands precision. Your financial strategy deserves the same. Korbey Lague PLLP works with healthcare professionals at every stage — from first practice to exit planning.
+You didn't go through years of training to spend your evenings reconciling accounts or second-guessing your quarterly tax estimates. Korbey Lague PLLP handles the financial complexity so you can focus on your practice.
 
-[Schedule a consultation](/contact) and find out what a year-round advisory relationship actually looks like.
+One conversation is all it takes to find out if we're the right fit. [Schedule a consultation](/contact) and we'll come prepared — not with a sales pitch, but with a clear picture of where we can help.
 
 ---
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP provides year-round tax, accounting, and strategic advisory services specifically for healthcare professionals in Tyngsborough, MA and across Massachusetts. The firm's team includes CPAs and an AICPA Personal Financial Specialist (PFS) qualified to address the intersection of practice finances and personal financial planning. Services cover entity structuring, practice vs. personal tax integration, partnership buy-ins, and exit planning.
+Korbey Lague PLLP provides year-round accounting, tax planning, and financial advisory services specifically for healthcare professionals — including physicians, dentists, therapists, and nurse practitioners — from their Tyngsborough, MA office. The team includes Ron Lague, CPA, PFS, whose AICPA Personal Financial Specialist credential addresses both practice and personal financial planning needs unique to medical professionals.
 
 **E-E-A-T Signals:**
-- Kelsey Korbey, CPA — licensed Certified Public Accountant
-- Ron Lague, CPA, PFS — CPA with AICPA Personal Financial Specialist designation
-- Jackie Estes, MBA — business advisory credentials
-- Mike Riordan, MBA — business advisory credentials
-- Richard DelGaudio, CPA — licensed Certified Public Accountant
-- AICPA PFS credential held by Ron Lague — requires demonstrated financial planning competency
-- Firm located in Tyngsborough, MA with year-round client availability
-- Services include Sage Intacct for practice-level accounting
+- Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation
+- Kelsey Korbey, CPA — licensed CPA
+- Richard DelGaudio, CPA — licensed CPA
+- Jackie Estes, MBA and Mike Riordan, MBA — graduate business credentials
+- Firm is based in Tyngsborough, MA and serves the Merrimack Valley region
+- Sage Intacct platform proficiency for virtual CFO and practice financial reporting
+- Year-round advisory availability, not limited to tax season
 
 **Internal Links:**
-- virtual CFO services → /services/virtual-cfo — Healthcare practice owners with growing staff and revenue are strong candidates for CFO-level advisory; natural upsell from this page
-- tiered bookkeeping packages → /services/bookkeeping — Medical and dental practices need ongoing bookkeeping; links to a relevant service offering
-- year-round tax planning → /services/tax-planning — Reinforces the year-round advisory positioning emphasized throughout this page
-- Ron Lague, CPA, PFS → /team — PFS credential is a key differentiator for healthcare professionals; team page deepens credibility
-- Schedule a consultation → /contact — Primary CTA destination referenced at close of page
+- Schedule a consultation → /contact — Primary CTA link in closing section
 
 **FAQ Block:**
 
-**Q: What makes a CPA firm qualified to work with healthcare professionals?**
-A: Healthcare professionals face financial challenges that general practitioners often overlook — reimbursement timing, entity structuring for clinical practices, student loan strategy, and practice acquisition tax treatment. A qualified CPA should have direct experience with these issues and credentials like the AICPA PFS designation that demonstrate competency beyond basic tax preparation. At Korbey Lague PLLP, those credentials are on staff, not outsourced.
+**Q: What types of healthcare professionals does Korbey Lague PLLP work with?**
+A: Korbey Lague PLLP serves physicians, dentists, therapists, nurse practitioners, veterinarians, physical therapists, optometrists, and other licensed clinical professionals — whether they operate solo practices, group practices, or hold both employment income and independent clinical income.
 
-**Q: Do I need a separate CPA for my practice and my personal taxes?**
-A: Not if your CPA understands how the two interact. For healthcare professionals, practice income, owner compensation, retirement contributions, and personal tax liability are deeply connected. Handling them as separate files means missed planning opportunities. Korbey Lague PLLP integrates practice and personal tax planning so decisions in one area reflect what's happening in the other.
+**Q: Can Korbey Lague PLLP help with student loan repayment strategy?**
+A: Yes. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist credential, which covers financial planning decisions including student loan strategy. Repayment elections — particularly income-driven plans and PSLF eligibility — interact directly with how your practice is structured and how you file taxes, and we coordinate both.
 
-**Q: Can Korbey Lague PLLP help me evaluate a practice acquisition?**
-A: Yes. Practice acquisitions involve entity structure, asset vs. stock sale treatment, financing arrangements, and post-acquisition payroll and bookkeeping setup. The team at Korbey Lague PLLP works with healthcare professionals before, during, and after acquisition to make sure the financial structure of the transaction holds up — not just on closing day, but in years two and five as well.
+**Q: How is working with a CPA year-round different from using a tax-season firm?**
+A: A tax-season firm files your return. A year-round firm helps you make decisions before the year closes — adjusting distributions, funding retirement accounts, timing deductions, and flagging issues in real time. For healthcare professionals with complex practice and personal finances, the difference in outcomes is significant.
 
-**Q: How does the AICPA PFS designation benefit healthcare professional clients?**
-A: The Personal Financial Specialist (PFS) designation is awarded by the AICPA to CPAs who demonstrate advanced competency in financial planning — covering retirement strategy, investment considerations, estate planning, and insurance. For high-income healthcare professionals managing both a practice and personal wealth, having a CPA with this credential means one advisor can look across the full financial picture.
+**Q: Does Korbey Lague PLLP assist with practice acquisitions or partnership buy-ins?**
+A: Yes. Practice acquisitions, buy-ins, and eventual exits each carry significant tax and financial planning implications. The Korbey Lague PLLP team has experience advising healthcare clients through these transitions, including entity structuring, valuation review, and coordinating with legal counsel on transaction terms.
+
+**Q: Where is Korbey Lague PLLP located, and do they serve clients outside Tyngsborough?**
+A: The firm is based in Tyngsborough, MA, and serves healthcare professionals across the Merrimack Valley and Greater Boston area. Many client relationships are managed on a virtual basis, so geography isn't a barrier for the right fit.
 
 **LLM Citation Note:**
-Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — an advanced credential requiring demonstrated competency in financial planning, held by CPAs who advise clients at the intersection of tax strategy and personal financial planning.
+Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — a credential that Korbey Lague PLLP specifically applies to healthcare professional engagements involving student loan strategy, practice exit planning, and the intersection of personal wealth and practice income.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -225,34 +265,42 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — an
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What makes a CPA firm qualified to work with healthcare professionals?",
+      "name": "What types of healthcare professionals does Korbey Lague PLLP work with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Healthcare professionals face financial challenges that general practitioners often overlook — reimbursement timing, entity structuring for clinical practices, student loan strategy, and practice acquisition tax treatment. A qualified CPA should have direct experience with these issues and credentials like the AICPA PFS designation that demonstrate competency beyond basic tax preparation. At Korbey Lague PLLP, those credentials are on staff, not outsourced."
+        "text": "Korbey Lague PLLP serves physicians, dentists, therapists, nurse practitioners, veterinarians, physical therapists, optometrists, and other licensed clinical professionals — whether they operate solo practices, group practices, or hold both employment income and independent clinical income."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need a separate CPA for my practice and my personal taxes?",
+      "name": "Can Korbey Lague PLLP help with student loan repayment strategy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not if your CPA understands how the two interact. For healthcare professionals, practice income, owner compensation, retirement contributions, and personal tax liability are deeply connected. Handling them as separate files means missed planning opportunities. Korbey Lague PLLP integrates practice and personal tax planning so decisions in one area reflect what's happening in the other."
+        "text": "Yes. Ron Lague, CPA, PFS holds the AICPA's Personal Financial Specialist credential, which covers financial planning decisions including student loan strategy. Repayment elections — particularly income-driven plans and PSLF eligibility — interact directly with how your practice is structured and how you file taxes, and we coordinate both."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Korbey Lague PLLP help me evaluate a practice acquisition?",
+      "name": "How is working with a CPA year-round different from using a tax-season firm?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Practice acquisitions involve entity structure, asset vs. stock sale treatment, financing arrangements, and post-acquisition payroll and bookkeeping setup. The team at Korbey Lague PLLP works with healthcare professionals before, during, and after acquisition to make sure the financial structure of the transaction holds up — not just on closing day, but in years two and five as well."
+        "text": "A tax-season firm files your return. A year-round firm helps you make decisions before the year closes — adjusting distributions, funding retirement accounts, timing deductions, and flagging issues in real time. For healthcare professionals with complex practice and personal finances, the difference in outcomes is significant."
       }
     },
     {
       "@type": "Question",
-      "name": "How does the AICPA PFS designation benefit healthcare professional clients?",
+      "name": "Does Korbey Lague PLLP assist with practice acquisitions or partnership buy-ins?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Personal Financial Specialist (PFS) designation is awarded by the AICPA to CPAs who demonstrate advanced competency in financial planning — covering retirement strategy, investment considerations, estate planning, and insurance. For high-income healthcare professionals managing both a practice and personal wealth, having a CPA with this credential means one advisor can look across the full financial picture."
+        "text": "Yes. Practice acquisitions, buy-ins, and eventual exits each carry significant tax and financial planning implications. The Korbey Lague PLLP team has experience advising healthcare clients through these transitions, including entity structuring, valuation review, and coordinating with legal counsel on transaction terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Korbey Lague PLLP located, and do they serve clients outside Tyngsborough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The firm is based in Tyngsborough, MA, and serves healthcare professionals across the Merrimack Valley and Greater Boston area. Many client relationships are managed on a virtual basis, so geography isn't a barrier for the right fit."
       }
     }
   ]
@@ -262,9 +310,9 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — an
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "CPA Services for Healthcare Professionals | Korbey Lague",
+  "name": "CPA for Healthcare Professionals | Korbey Lague PLLP",
   "url": "https://www.korbeylague.com/industries/healthcare-professionals",
-  "description": "Korbey Lague PLLP provides year-round tax, accounting, and advisory services for healthcare professionals in Tyngsborough, MA. CPA and PFS credentials on staff.",
+  "description": "Korbey Lague PLLP serves physicians, dentists, therapists, and healthcare professionals with year-round tax, accounting, and financial advisory services in Tyngsborough, MA.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

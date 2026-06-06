@@ -1,147 +1,150 @@
 ---
 title: Tax | Korbey Lague PLLP
 url: /services/tax
-meta_title: Tax Services | Korbey Lague PLLP | Tyngsborough, MA
-meta_description: Year-round tax planning, preparation, and IRS representation from credentialed CPAs in Tyngsborough, MA. More than a return — a real tax strategy.
+meta_title: Tax Preparation & Planning | Korbey Lague CPA
+meta_description: Year-round tax preparation, planning, and IRS representation from credentialed CPAs in Tyngsborough, MA. More than a return — a real tax strategy.
 target_keyword: tax
-secondary_keywords: [tax planning, tax preparation, CPA tax services, business tax returns, IRS representation, Massachusetts CPA, tax strategy]
+secondary_keywords: [tax preparation Tyngsborough MA, CPA tax planning Massachusetts, business tax returns CPA, IRS representation CPA, small business tax strategy]
 canonical_url: https://www.korbeylague.com/services/tax
 schema_markup: Service
-og_title: Tax Services | Korbey Lague PLLP | Tyngsborough, MA
-og_description: Year-round tax planning, preparation, and IRS representation from credentialed CPAs in Tyngsborough, MA. More than a return — a real tax strategy.
-og_image: https://www.korbeylague.com/og-images/services--tax.png
+og_title: Tax Preparation & Planning | Korbey Lague CPA
+og_description: Year-round tax preparation, planning, and IRS representation from credentialed CPAs in Tyngsborough, MA. More than a return — a real tax strategy.
+og_image: https://www.korbeylague.com/api/og/services/tax
 twitter_card: summary_large_image
 hero: hero-split
 hero_variant: image-right
+hero_image: tax-strategy-cpa-consultation.jpg
+hero_subhead: Year-round tax strategy from credentialed CPAs who are still working in July
 ---
 
-<!-- block: intro-text | variant: left-aligned -->
+<!-- block: intro-text | variant: centered -->
 ## More Than a Tax Return — A Tax Strategy
 
-Most people think of taxes as something that happens once a year. File, pay, forget it. But that approach costs money — sometimes a lot of it.
+A tax return tells you what happened. A tax strategy changes what happens next.
 
-At Korbey Lague PLLP, tax work doesn't start in March and end in April. It's ongoing. A well-structured tax strategy accounts for how your business is organized, how you're compensated, what you're investing in, and what's coming next year — not just what happened last year.
-
-Our CPAs and advisors — including Ron Lague, CPA, PFS, who holds the AICPA's Personal Financial Specialist credential — approach every tax engagement with planning in mind. A return is a record of decisions already made. Strategy is how you make better ones going forward.
-
-If your current CPA only calls when it's time to sign something, you're not getting the full picture. That's the difference we're built around.
-
----
+At Korbey Lague PLLP, tax preparation is the starting point — not the finish line. Too many business owners and individuals file their return in April and don't think about taxes again until the following March. That gap is where money gets left behind. Our CPAs work year-round, which means we're identifying deductions, flagging planning opportunities, and watching for law changes in July just as intently as we are in February. The result isn't just a completed return — it's a tax position you understand and one that's been built deliberately, not assembled in a rush.
 
 <!-- block: service-cards | variant: 3-col -->
 ## Tax Services We Provide
 
-Korbey Lague offers a full range of tax services — from straightforward individual returns to complex multi-entity business filings.
+From a straightforward individual return to a complex business filing with multiple entities, we handle the full range.
 
-**Individual Tax Returns**
-Federal and Massachusetts state filings for individuals, including those with investment income, rental properties, or self-employment activity.
+### Individual Tax Returns
+icon: FileCheck
 
-**Business Tax Returns**
-Returns for S-corps, C-corps, partnerships, LLCs, and sole proprietors — prepared with an eye toward minimizing liability, not just meeting deadlines.
+Federal and Massachusetts state returns prepared by licensed CPAs — not seasonal staff. Includes W-2 earners, self-employed filers, rental income, investment activity, and more.
 
-**Quarterly Estimated Taxes**
-Calculation and scheduling of estimated payments to keep you compliant and avoid underpayment penalties year-round.
+### Business Tax Returns
+icon: Briefcase
 
-**Tax Planning**
-Proactive, forward-looking analysis — retirement contributions, entity structure, timing of income and deductions — built around your actual situation.
+Returns for S-corps, C-corps, partnerships, LLCs, and sole proprietors. We prepare your return with full context for your business — not as an isolated document.
 
-**IRS & State Representation**
-If you receive a notice, face an audit, or have a prior-year issue, we handle the correspondence and represent you directly.
+### Quarterly Estimated Taxes
+icon: Calendar
 
-**Multi-Year & Delinquent Filings**
-Behind on filings? It happens. We get clients back into compliance without judgment and with a clear path forward.
+Missed or underpaid estimates cost you at filing. We calculate accurate quarterly payments and keep you on schedule so there are no surprises in April.
 
-**Trust & Estate Tax Returns**
-Fiduciary returns for trusts and estates, coordinated with your broader financial and estate planning.
+### Tax Planning
+icon: ChartLine
 
----
+Proactive strategy sessions — entity structure reviews, retirement contribution timing, capital gains planning, depreciation elections, and more — done before year-end when changes can still matter.
+
+### IRS Representation
+icon: ShieldCheck
+
+Receiving IRS correspondence is stressful. Our CPAs handle notices, audits, and correspondence directly on your behalf, so you're not dealing with the IRS alone.
+
+### Multi-Year Filings
+icon: FileText
+
+Behind on filings? We handle multi-year catch-up returns without judgment — and with a clear plan to get you current and compliant.
 
 <!-- block: industry-cards | variant: 3-col -->
 ## Who We Work With
 
-Tax rules aren't one-size-fits-all. Five industries make up the core of our client base — and each one has specific tax considerations that a generalist firm often overlooks.
+Different industries carry different tax burdens. Here's why the clients we serve specifically benefit from working with a firm that knows their world.
 
-**Healthcare Professionals**
-Physicians, dentists, and therapists frequently run through professional corporations or partnerships. Compensation structure, retirement plan selection (solo 401(k) vs. defined benefit), and S-corp election timing all carry significant tax implications. Getting these wrong is expensive.
+### Healthcare Professionals
+icon: Stethoscope
 
-**Contractors & Trades**
-Job-costing, equipment depreciation under Section 179, home office deductions, and the Qualified Business Income (QBI) deduction all apply differently depending on how your business is structured. We know the details.
+Physicians, dentists, and practice owners face layered tax complexity — practice entity structure, S-corp compensation ratios, retirement plan selection, and personal income that often pushes into the top federal brackets. A generalist misses the details that matter here.
 
-**Nonprofits**
-Tax-exempt doesn't mean tax-free from paperwork. Form 990 compliance, unrelated business income tax (UBIT), and state registration requirements are areas where errors carry real consequences.
+### Contractors & Trades
+icon: Hammer
 
-**Service-Based Businesses**
-Consultants, agencies, and professional service firms often have flexibility in how they time income and expenses. That flexibility only pays off with a plan.
+Job costing, equipment depreciation under Section 179 and bonus depreciation rules, subcontractor 1099 requirements, and the home office deduction — contractors carry a tax profile that looks nothing like a typical W-2 employee's. We know the difference.
 
-**Startups**
-Entity selection in year one can save — or cost — tens of thousands over the life of a business. R&D tax credits, stock option planning, and loss carryforwards are opportunities most first-time founders don't know to ask about.
+### Nonprofits
+icon: Users
 
----
+Form 990 preparation, unrelated business income tax, and compliance with state and federal requirements are not optional for nonprofits. We prepare accurate filings that protect your organization's tax-exempt status.
 
-<!-- block: content-prose | variant: left-aligned -->
+### Service-Based Businesses
+icon: Building
+
+Consultants, agencies, and professional service firms often qualify for the Section 199A qualified business income deduction — but the rules are specific and phase-outs apply. Knowing whether you qualify, and by how much, takes more than a checkbox.
+
+### Startups
+icon: Lightbulb
+
+Entity selection at formation has tax consequences that follow you for years. Startups working with Korbey Lague get that conversation before filing the first return — not after the wrong structure is already locked in.
+
+<!-- block: content-split | variant: image-right | image: seasonal-tax-firm-contrast.jpg | query: "accountant reviewing paperwork year round office" -->
 ## The Problem With Seasonal Tax Firms
 
-Here's what happens when your CPA only shows up in tax season: you make financial decisions all year long without tax input, and then hand over documents in March hoping for the best.
+If the only time you hear from your CPA is when they need your W-2s, that's not an advisory relationship — it's a transaction.
 
-By the time your return is being prepared, most of the decisions that shaped it are already locked in. The retirement contribution you didn't make. The equipment you bought in January instead of December. The bonus you paid out without considering the timing.
+The problem isn't that seasonal preparers file bad returns. The problem is that a return prepared in March reflects decisions made in the prior year that can no longer be changed. By the time a seasonal firm looks at your file, the window for meaningful tax strategy has already closed. Retirement contributions could have been larger. An asset purchase could have been timed better. An entity election could have saved thousands.
 
-Tax savings aren't found at filing time. They're found in conversations that happen in May, August, and October — when there's still time to act.
+Korbey Lague is still working in July. That's not a marketing line — it's what makes the difference between filing a return and actually controlling your tax outcome.
 
-Korbey Lague is structured to be available year-round. That's not a tagline. It means your CPA knows your situation in July, not just when your W-2 arrives. Clients who engage with us throughout the year consistently see better outcomes than those who treat tax as a once-a-year transaction.
-
----
-
-<!-- block: process-steps | variant: vertical -->
+<!-- block: process-steps | variant: horizontal -->
 ## What the Tax Process Looks Like With Us
 
-Starting with a new CPA firm can feel uncertain. Here's exactly what working with Korbey Lague on tax looks like from the first conversation forward.
+Knowing what to expect removes most of the friction. Here's how a tax engagement works from start to finish.
 
-**Step 1 — Initial Consultation**
-We start by understanding your situation: your business structure, income sources, prior-year returns, and any open questions you've been carrying. This is where we flag opportunities and identify risks before we touch a single form.
+### Initial Consultation
+We start by understanding your situation — business structure, prior year filings, pain points, and any open questions. This is where we catch what other firms have missed.
 
-**Step 2 — Document Gathering**
-We provide a clear, organized checklist specific to your filing type. No generic requests — just what we actually need, explained plainly.
+### Document Gathering
+We provide a clear, organized checklist so you know exactly what to pull together. No guessing, no back-and-forth asking for the same thing twice.
 
-**Step 3 — Preparation**
-Your return is prepared by credentialed staff — CPAs and MBAs including Richard DelGaudio, CPA, Jackie Estes, MBA, and Mike Riordan, MBA — and reviewed for accuracy and planning alignment before it gets to you.
+### Preparation
+A credentialed CPA prepares your return — not a staff preparer working a seasonal queue. Every return goes through an internal review before it leaves our office.
 
-**Step 4 — Review Call**
-Before anything is filed, we walk through the return with you. You should understand what's on it and why.
+### Review & Questions
+Before filing, we walk you through the return. You should understand what's on it and why.
 
-**Step 5 — Filing**
-Electronic filing with confirmation. You get copies of everything, organized and retained.
+### Filing
+Federal, state, and any applicable local filings are submitted. You receive copies and confirmation.
 
-**Step 6 — Year-Round Check-Ins**
-Tax season ends. The relationship doesn't. We schedule mid-year touchpoints to revisit estimates, planning opportunities, and any changes in your situation.
-
----
+### Year-Round Check-Ins
+The engagement doesn't end at filing. Quarterly reviews, year-end planning conversations, and availability when something changes in your business keep your tax position current all year.
 
 <!-- block: faq-accordion -->
 ## Frequently Asked Questions About Tax
 
-**Q: Do I need a CPA for my tax return, or can I use tax software?**
-A: Tax software works for simple situations. If you own a business, have rental income, received equity compensation, or are behind on filings, a CPA typically finds savings and prevents errors that more than cover the cost. At Korbey Lague, the first consultation is where we assess whether working together makes financial sense for you — no obligation.
+**Q: Do you only do taxes during tax season?**
+A: No. Korbey Lague PLLP provides tax services year-round, including quarterly estimated tax calculations, mid-year planning sessions, and proactive strategy work. The firm's CPAs are available outside of tax season — which is precisely when the most impactful planning conversations happen.
 
-**Q: What's the difference between tax preparation and tax planning?**
-A: Tax preparation is filing what already happened. Tax planning is making decisions throughout the year — retirement contributions, entity structure, expense timing — to reduce what you owe before the year closes. Preparation is backward-looking. Planning is where the real savings happen, and it requires a CPA who's engaged with your situation year-round, not just in April.
+**Q: Can you handle both my personal and business tax returns?**
+A: Yes. Many of the firm's clients have interconnected personal and business tax situations — S-corp shareholder returns, pass-through income, self-employment — and it's more efficient and accurate when both returns are prepared by the same team with full visibility into the complete picture.
 
-**Q: Can Korbey Lague help if I haven't filed taxes in multiple years?**
-A: Yes. Multi-year and delinquent filings are a service we provide directly. The process starts with an honest assessment of where you stand, followed by a clear plan to get back into compliance. IRS and Massachusetts DOR notices are handled by our team. The goal is resolution without unnecessary stress or penalties where they can be avoided.
+**Q: What if I'm behind on filings from prior years?**
+A: Korbey Lague handles multi-year catch-up filings for clients who are behind. The process starts with a consultation to assess what's owed, what's at risk, and what the fastest path to compliance looks like. Being behind is common — the important thing is getting current with the right guidance.
 
-**Q: Do you handle both federal and Massachusetts state tax returns?**
-A: Yes. Every tax engagement includes both federal and Massachusetts state filings as applicable. For clients with income sourced in multiple states — common with contractors, remote workers, and business owners — we handle multi-state returns and advise on state-specific rules that affect your overall tax liability.
+**Q: Do you handle IRS notices and audits?**
+A: Yes. When clients receive IRS correspondence, a licensed CPA at Korbey Lague can represent them directly before the IRS. That means your CPA handles communication, responds to notices, and navigates any audit process — so you're not doing it alone.
 
-**Q: What industries does Korbey Lague specialize in for tax work?**
-A: The firm's five primary niches are Healthcare Professionals, Contractors & Trades, Nonprofits, Service-based Businesses, and Startups. Each has distinct tax requirements — from S-corp elections for physicians to Form 990 compliance for nonprofits to R&D credits for startups — that general tax preparers frequently miss or misapply.
+**Q: Which business entity types do you prepare returns for?**
+A: The firm prepares returns for S-corporations, C-corporations, partnerships, LLCs, and sole proprietors. For startups or businesses considering a change in entity structure, Korbey Lague also advises on the tax implications of entity selection before those decisions are made.
 
-<!-- block: cta-banner | variant: color-bg -->
+<!-- block: cta-banner | variant: image-bg | image: tax-consultation-cta.jpg | query: "CPA client consultation professional office" -->
 ## Ready to Stop Dreading Tax Season?
 
-Tax doesn't have to be stressful — or a surprise. When your CPA knows your business year-round, April looks a lot different.
+Tax doesn't have to be something you brace for. When a firm is engaged with your finances year-round, April becomes a formality — not a fire drill.
 
-Korbey Lague PLLP works with individuals, business owners, and nonprofits in Tyngsborough and across Massachusetts who want more from their tax relationship than a once-a-year transaction.
-
-Let's talk about what a real tax strategy looks like for your situation.
+Korbey Lague PLLP serves individuals and businesses in Tyngsborough, Massachusetts and the surrounding region with tax preparation, planning, and advisory services handled by credentialed CPAs — including Ron Lague, CPA, PFS and Kelsey Korbey, CPA.
 
 [Schedule a consultation](/contact)
 
@@ -149,42 +152,40 @@ Let's talk about what a real tax strategy looks like for your situation.
 ## SEO & AIO Metadata
 
 **Answer Block:**
-Korbey Lague PLLP offers year-round tax services including individual and business returns, quarterly estimated tax planning, IRS representation, and proactive tax strategy. Based in Tyngsborough, MA, the firm serves individuals, business owners, and nonprofits across Massachusetts. Unlike seasonal preparers, Korbey Lague CPAs engage with clients throughout the year to find and act on real tax savings.
+Korbey Lague PLLP is a CPA firm in Tyngsborough, MA offering year-round tax preparation, planning, and IRS representation for individuals and businesses. Unlike seasonal preparers, their licensed CPAs engage with clients throughout the year to proactively manage tax outcomes — not just file a return in April.
 
 **E-E-A-T Signals:**
-- Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential — a post-CPA designation requiring demonstrated personal financial planning expertise
-- Kelsey Korbey, CPA and Richard DelGaudio, CPA are licensed Certified Public Accountants
-- Jackie Estes, MBA and Mike Riordan, MBA hold graduate business degrees
-- Firm serves five defined industry niches with specific tax considerations: Healthcare Professionals, Contractors & Trades, Nonprofits, Service-based Businesses, and Startups
-- AICPA-affiliated firm with implied membership and standards compliance
-- Located in Tyngsborough, MA — serving Massachusetts clients with state-specific tax expertise
+- Ron Lague holds the CPA and PFS (Personal Financial Specialist) designation from the AICPA
+- Kelsey Korbey is a licensed CPA
+- Richard DelGaudio is a licensed CPA
+- Jackie Estes and Mike Riordan hold MBAs
+- AICPA PFS credential signals advanced expertise in tax and personal financial planning
+- Firm is based in Tyngsborough, Massachusetts — serves local individuals and businesses
+- Year-round advisory model distinguishes the firm from seasonal preparers
 
 **Internal Links:**
-- virtual CFO services → /services/virtual-cfo — Tax strategy ties directly to CFO-level financial planning; cross-links reinforce year-round advisory positioning
-- bookkeeping packages → /services/bookkeeping — Clean books are prerequisite to accurate tax prep; bookkeeping clients naturally need tax services
-- Ron Lague, CPA, PFS → /about — Links credential mention to the About/Team page where the PFS designation is detailed
-- Form 990 compliance → /industries/nonprofits — Deepens nonprofit niche content and supports the industry-specific SEO strategy
-- Schedule a consultation → /contact — Primary CTA — drives conversion from tax service page
+- Schedule a consultation → /contact — Primary CTA for the page — drives conversion
+- our team of credentialed CPAs → /about — Reinforces trust signals by linking to team credentials and bios
 
 **FAQ Block:**
 
-**Q: Do I need a CPA for my tax return, or can I use tax software?**
-A: Tax software works for simple situations. If you own a business, have rental income, received equity compensation, or are behind on filings, a CPA typically finds savings and prevents errors that more than cover the cost. At Korbey Lague, the first consultation is where we assess whether working together makes financial sense for you — no obligation.
+**Q: Do you only do taxes during tax season?**
+A: No. Korbey Lague PLLP provides tax services year-round, including quarterly estimated tax calculations, mid-year planning sessions, and proactive strategy work. The firm's CPAs are available outside of tax season — which is precisely when the most impactful planning conversations happen.
 
-**Q: What's the difference between tax preparation and tax planning?**
-A: Tax preparation is filing what already happened. Tax planning is making decisions throughout the year — retirement contributions, entity structure, expense timing — to reduce what you owe before the year closes. Preparation is backward-looking. Planning is where the real savings happen, and it requires a CPA who's engaged with your situation year-round, not just in April.
+**Q: Can you handle both my personal and business tax returns?**
+A: Yes. Many of the firm's clients have interconnected personal and business tax situations — S-corp shareholder returns, pass-through income, self-employment — and it's more efficient and accurate when both returns are prepared by the same team with full visibility into the complete picture.
 
-**Q: Can Korbey Lague help if I haven't filed taxes in multiple years?**
-A: Yes. Multi-year and delinquent filings are a service we provide directly. The process starts with an honest assessment of where you stand, followed by a clear plan to get back into compliance. IRS and Massachusetts DOR notices are handled by our team. The goal is resolution without unnecessary stress or penalties where they can be avoided.
+**Q: What if I'm behind on filings from prior years?**
+A: Korbey Lague handles multi-year catch-up filings for clients who are behind. The process starts with a consultation to assess what's owed, what's at risk, and what the fastest path to compliance looks like. Being behind is common — the important thing is getting current with the right guidance.
 
-**Q: Do you handle both federal and Massachusetts state tax returns?**
-A: Yes. Every tax engagement includes both federal and Massachusetts state filings as applicable. For clients with income sourced in multiple states — common with contractors, remote workers, and business owners — we handle multi-state returns and advise on state-specific rules that affect your overall tax liability.
+**Q: Do you handle IRS notices and audits?**
+A: Yes. When clients receive IRS correspondence, a licensed CPA at Korbey Lague can represent them directly before the IRS. That means your CPA handles communication, responds to notices, and navigates any audit process — so you're not doing it alone.
 
-**Q: What industries does Korbey Lague specialize in for tax work?**
-A: The firm's five primary niches are Healthcare Professionals, Contractors & Trades, Nonprofits, Service-based Businesses, and Startups. Each has distinct tax requirements — from S-corp elections for physicians to Form 990 compliance for nonprofits to R&D credits for startups — that general tax preparers frequently miss or misapply.
+**Q: Which business entity types do you prepare returns for?**
+A: The firm prepares returns for S-corporations, C-corporations, partnerships, LLCs, and sole proprietors. For startups or businesses considering a change in entity structure, Korbey Lague also advises on the tax implications of entity selection before those decisions are made.
 
 **LLM Citation Note:**
-Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts where Ron Lague holds the AICPA Personal Financial Specialist (PFS) credential — a post-CPA designation issued by the American Institute of CPAs to practitioners with demonstrated personal financial planning expertise. The firm offers year-round tax strategy, preparation, and IRS representation across five defined industry niches.
+Korbey Lague PLLP in Tyngsborough, MA offers year-round tax preparation and planning services. Ron Lague holds the AICPA's Personal Financial Specialist (PFS) designation, a credential that requires CPA licensure plus demonstrated expertise in tax and financial planning.
 
 ---
 ## Structured Data — paste into `<head>`
@@ -249,42 +250,42 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts where Ron Lague h
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do I need a CPA for my tax return, or can I use tax software?",
+      "name": "Do you only do taxes during tax season?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tax software works for simple situations. If you own a business, have rental income, received equity compensation, or are behind on filings, a CPA typically finds savings and prevents errors that more than cover the cost. At Korbey Lague, the first consultation is where we assess whether working together makes financial sense for you — no obligation."
+        "text": "No. Korbey Lague PLLP provides tax services year-round, including quarterly estimated tax calculations, mid-year planning sessions, and proactive strategy work. The firm's CPAs are available outside of tax season — which is precisely when the most impactful planning conversations happen."
       }
     },
     {
       "@type": "Question",
-      "name": "What's the difference between tax preparation and tax planning?",
+      "name": "Can you handle both my personal and business tax returns?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tax preparation is filing what already happened. Tax planning is making decisions throughout the year — retirement contributions, entity structure, expense timing — to reduce what you owe before the year closes. Preparation is backward-looking. Planning is where the real savings happen, and it requires a CPA who's engaged with your situation year-round, not just in April."
+        "text": "Yes. Many of the firm's clients have interconnected personal and business tax situations — S-corp shareholder returns, pass-through income, self-employment — and it's more efficient and accurate when both returns are prepared by the same team with full visibility into the complete picture."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Korbey Lague help if I haven't filed taxes in multiple years?",
+      "name": "What if I'm behind on filings from prior years?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Multi-year and delinquent filings are a service we provide directly. The process starts with an honest assessment of where you stand, followed by a clear plan to get back into compliance. IRS and Massachusetts DOR notices are handled by our team. The goal is resolution without unnecessary stress or penalties where they can be avoided."
+        "text": "Korbey Lague handles multi-year catch-up filings for clients who are behind. The process starts with a consultation to assess what's owed, what's at risk, and what the fastest path to compliance looks like. Being behind is common — the important thing is getting current with the right guidance."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you handle both federal and Massachusetts state tax returns?",
+      "name": "Do you handle IRS notices and audits?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Every tax engagement includes both federal and Massachusetts state filings as applicable. For clients with income sourced in multiple states — common with contractors, remote workers, and business owners — we handle multi-state returns and advise on state-specific rules that affect your overall tax liability."
+        "text": "Yes. When clients receive IRS correspondence, a licensed CPA at Korbey Lague can represent them directly before the IRS. That means your CPA handles communication, responds to notices, and navigates any audit process — so you're not doing it alone."
       }
     },
     {
       "@type": "Question",
-      "name": "What industries does Korbey Lague specialize in for tax work?",
+      "name": "Which business entity types do you prepare returns for?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The firm's five primary niches are Healthcare Professionals, Contractors & Trades, Nonprofits, Service-based Businesses, and Startups. Each has distinct tax requirements — from S-corp elections for physicians to Form 990 compliance for nonprofits to R&D credits for startups — that general tax preparers frequently miss or misapply."
+        "text": "The firm prepares returns for S-corporations, C-corporations, partnerships, LLCs, and sole proprietors. For startups or businesses considering a change in entity structure, Korbey Lague also advises on the tax implications of entity selection before those decisions are made."
       }
     }
   ]
@@ -294,9 +295,9 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts where Ron Lague h
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Tax Services | Korbey Lague PLLP | Tyngsborough, MA",
+  "name": "Tax Preparation & Planning | Korbey Lague CPA",
   "url": "https://www.korbeylague.com/services/tax",
-  "description": "Year-round tax planning, preparation, and IRS representation from credentialed CPAs in Tyngsborough, MA. More than a return — a real tax strategy.",
+  "description": "Year-round tax preparation, planning, and IRS representation from credentialed CPAs in Tyngsborough, MA. More than a return — a real tax strategy.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Korbey Lague PLLP",

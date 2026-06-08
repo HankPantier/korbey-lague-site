@@ -5,7 +5,7 @@ import {
   extractCtaBannerProps,
   extractHeroSplitProps,
 } from './extract-block-props'
-import type { PageSection, PageManifest } from './parse-page-md'
+import { parsePageMd, type PageSection, type PageManifest } from './parse-page-md'
 
 function section(partial: Partial<PageSection>): PageSection {
   return {
@@ -36,10 +36,66 @@ describe('extractContentSplitProps', () => {
     expect(props.image_alt).toBe('Built on Trust')
   })
 
+  it('prefers the annotation alt over the heading', () => {
+    const s = section({
+      heading: 'Built on Trust',
+      image: 'attr.jpg',
+      alt: 'Accountant reviewing documents with a client',
+      content: 'Body.',
+    })
+    expect(extractContentSplitProps(s).image_alt).toBe(
+      'Accountant reviewing documents with a client'
+    )
+  })
+
   it('accepts a URL as the body image', () => {
     const s = section({ content: '![alt](https://cdn.x/p.png)\n\nBody.' })
     const props = extractContentSplitProps(s)
     expect(props.image).toBe('https://cdn.x/p.png')
+  })
+})
+
+describe('annotation alt parsing (parsePageMd)', () => {
+  it('captures alt between image and query and keeps heading/body intact', () => {
+    const md = [
+      '---',
+      'title: T',
+      'url: /x',
+      '---',
+      '',
+      '<!-- block: content-split | variant: image-right | image: a.jpg | alt: "Team at work in the office" | query: "office team" -->',
+      '## Our Approach',
+      '',
+      'Body prose.',
+    ].join('\n')
+    const manifest = parsePageMd(md)
+    expect(manifest.sections).toHaveLength(1)
+    const s = manifest.sections[0]
+    expect(s.image).toBe('a.jpg')
+    expect(s.alt).toBe('Team at work in the office')
+    expect(s.query).toBe('office team')
+    expect(s.heading).toBe('Our Approach')
+    expect(extractChecklistSectionProps({ ...s, blockId: 'checklist-section' }).image_alt).toBe(
+      'Team at work in the office'
+    )
+  })
+
+  it('still parses annotations without alt (back-compat)', () => {
+    const md = [
+      '---',
+      'title: T',
+      'url: /x',
+      '---',
+      '',
+      '<!-- block: content-split | variant: image-left | image: b.jpg | query: "subject" -->',
+      '## H',
+      '',
+      'Body.',
+    ].join('\n')
+    const s = parsePageMd(md).sections[0]
+    expect(s.image).toBe('b.jpg')
+    expect(s.alt).toBeUndefined()
+    expect(s.query).toBe('subject')
   })
 })
 

@@ -37,6 +37,18 @@ cd <client-slug>-site
 
 Pick a folder name that fits the client (e.g. `korbey-lague-site`).
 
+The clone's `origin` is the template. Each client gets its **own** GitHub repo
+(forked from this codebase) — that repo is what Vercel deploys and what the admin
+tool links to for the in-admin editor. Re-point `origin` at it and keep the
+template as an upstream for future upgrades (see [`upgrading.md`](./upgrading.md)):
+
+```bash
+git remote rename origin template      # template stays a read-only upstream
+# create <org>/<client-slug>-site on GitHub, then:
+git remote add origin https://github.com/<org>/<client-slug>-site.git
+git push -u origin main
+```
+
 **Shortcut:** instead of running steps 2 + 5 (`npm install` then `npm run unpack <zip>`) separately, you can collapse them with:
 
 ```bash
@@ -194,15 +206,22 @@ re-running `unpack`. If Claude also returns refined tokens, overwrite
 
 ## 8. Handling content updates later
 
-When the client sends edits, regenerate the deliverable in the admin tool and:
+Two paths, by size of the change:
 
-```bash
-npm run unpack ~/Downloads/content-package-v2.zip
-git diff            # review exactly what changed in content/ + theme
-npm run dev         # verify, then commit + push to redeploy
-```
+- **Routine edits — the in-admin editor.** Once the repo is linked in the admin
+  tool, **Edit content ↗** commits straight to this repo's `draft` branch and
+  **Publish to live** fast-forwards `main` (Vercel builds previews on `draft`,
+  prod on `main`). No local clone needed. Operator setup for the editor lives in
+  the onboarding repo's `docs/github.readme.md`.
+- **Bulk regeneration — re-unpack a fresh deliverable** locally:
 
-Your `site.config.ts`, `content/design-overrides.css`, and source changes survive.
+  ```bash
+  npm run unpack ~/Downloads/content-package-v2.zip
+  git diff            # review exactly what changed in content/ + theme
+  npm run dev         # verify, then commit + push to redeploy
+  ```
+
+Your `site.config.ts`, `content/design-overrides.css`, and source changes survive either way.
 
 ---
 

@@ -34,6 +34,7 @@ export type { PricingTier }
 export type HeroProps = {
   variant: 'image' | 'video' | 'slider' | 'image-right' | 'image-left'
   image?: string
+  image_alt?: string
   headline: string
   subheadline: string
   cta_primary?: { label: string; url: string }
@@ -48,6 +49,7 @@ export function extractHeroProps(manifest: PageManifest): HeroProps {
   return {
     variant: (manifest.hero_variant as HeroProps['variant']) ?? 'image',
     image: manifest.hero_image,
+    image_alt: manifest.hero_image_alt,
     headline: manifest.title.split(' | ')[0].trim(),
     subheadline: manifest.hero_subhead ?? manifest.meta_description,
     cta_primary: undefined,
@@ -76,7 +78,7 @@ export function extractContentSplitProps(section: PageSection): ContentSplitProp
     heading: section.heading,
     body,
     image,
-    image_alt: img.alt ?? section.heading,
+    image_alt: img.alt ?? section.alt ?? section.heading,
     cta,
   }
 }
@@ -213,7 +215,13 @@ export type ServiceCardsProps = {
   variant: '2-col' | '3-col'
   heading: string
   intro?: string
-  cards: Array<{ title: string; description: string; url?: string; image?: string }>
+  cards: Array<{
+    title: string
+    description: string
+    url?: string
+    image?: string
+    icon?: string
+  }>
 }
 
 export function extractServiceCardsProps(section: PageSection): ServiceCardsProps {
@@ -340,7 +348,7 @@ export function extractChecklistSectionProps(section: PageSection): ChecklistSec
     intro,
     items,
     image,
-    image_alt: image ? (img.alt ?? section.heading) : undefined,
+    image_alt: image ? (img.alt ?? section.alt ?? section.heading) : undefined,
     cta,
   }
 }

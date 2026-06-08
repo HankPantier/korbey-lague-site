@@ -7,13 +7,14 @@ import { resolveImageSrc } from '@/lib/assembly/resolve-image'
 export type HeroProps = {
   variant: 'image' | 'video' | 'slider' | 'image-right' | 'image-left'
   image?: string
+  image_alt?: string
   headline: string
   subheadline: string
   cta_primary?: { label: string; url: string }
   cta_secondary?: { label: string; url: string }
 }
 
-export function Hero({ image, headline, subheadline, cta_primary, cta_secondary }: HeroProps) {
+export function Hero({ image, image_alt, headline, subheadline, cta_primary, cta_secondary }: HeroProps) {
   // For M3, all hero variants render the image variant.
   // Slider/video come in M4.
   const bgSrc = resolveImageSrc(image)
@@ -24,7 +25,7 @@ export function Hero({ image, headline, subheadline, cta_primary, cta_secondary 
         <>
           <Image
             src={bgSrc}
-            alt=""
+            alt={image_alt ?? ''}
             fill
             priority
             sizes="100vw"

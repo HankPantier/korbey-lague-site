@@ -299,7 +299,7 @@ Contact / quote / newsletter / custom form. The interactive shell lives in
 
 Tell us about your business and we'll be in touch within one business day.
 
----SIDEBAR---
+sidebar:
 
 **Or call us directly:**
 (978) 555-0100
@@ -307,7 +307,7 @@ Tell us about your business and we'll be in touch within one business day.
 Mon–Fri, 9–5 Eastern.
 ```
 
-The `---SIDEBAR---` marker splits the body — the part above becomes the form intro, the
+The `sidebar:` marker splits the body — the part above becomes the form intro, the
 part below renders as a sidebar. For `variant: custom`, the body should declare the
 fields in a markdown list (one per line, format `- name: type (required?) — placeholder`).
 See [`README → Form / email setup`](../README.md#form--email-setup) for the wiring and

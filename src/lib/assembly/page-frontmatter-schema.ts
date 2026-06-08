@@ -25,31 +25,37 @@ const InternalLinkSchema = z.object({
   reason: z.string(),
 })
 
+// YAML parses an empty value (`meta_description:`) as null, which plain
+// z.string().default() rejects — .default() only covers undefined. Real
+// deliverables ship empty fields, so null must coerce like missing.
+const str = (def: string) => z.preprocess((v) => v ?? def, z.string())
+const optStr = z.preprocess((v) => v ?? undefined, z.string().optional())
+
 export const PageFrontmatterSchema = z
   .object({
-    title: z.string().default(''),
-    url: z.string().default('/'),
-    meta_title: z.string().default(''),
-    meta_description: z.string().default(''),
-    target_keyword: z.string().default(''),
-    canonical_url: z.string().default(''),
-    schema_markup: z.string().default('WebPage'),
+    title: str(''),
+    url: str('/'),
+    meta_title: str(''),
+    meta_description: str(''),
+    target_keyword: str(''),
+    canonical_url: str(''),
+    schema_markup: str('WebPage'),
 
     // Phase I emits `hero:` (newer) but older deliverables used `hero_block:`.
     // The parser falls back from one to the other — both stay optional here
     // and the resolved value is computed in parsePageMd.
-    hero: z.string().optional(),
-    hero_block: z.string().optional(),
-    hero_variant: z.string().optional(),
-    hero_image: z.string().optional(),
-    hero_image_alt: z.string().optional(),
-    hero_subhead: z.string().optional(),
+    hero: optStr,
+    hero_block: optStr,
+    hero_variant: optStr,
+    hero_image: optStr,
+    hero_image_alt: optStr,
+    hero_subhead: optStr,
 
-    answer_block: z.string().optional(),
+    answer_block: optStr,
     eeat_signals: z.array(z.string()).optional(),
     internal_links: z.array(InternalLinkSchema).optional(),
     faq_block: z.array(FaqItemSchema).optional(),
-    llm_citation_note: z.string().optional(),
+    llm_citation_note: optStr,
   })
   // Pass through unknown fields without erroring — deliverables sometimes carry
   // extra review-only metadata we don't render but shouldn't reject.

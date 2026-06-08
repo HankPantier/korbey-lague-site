@@ -11,6 +11,8 @@ export type PageSection = {
   blockId: string
   variant?: string
   image?: string
+  /** Model-written literal description of the block's image, for alt text. */
+  alt?: string
   /**
    * Pexels search query Phase I emitted alongside this block's image, when
    * the image filename was stock-sourced. Not used by the Phase II renderer
@@ -77,17 +79,18 @@ export function parsePageMd(markdown: string): PageManifest {
 
   /**
    * Splits on the canonical annotation pattern:
-   *   <!-- block: <id> | variant: <v> | image: <f> | query: "<q>" -->
+   *   <!-- block: <id> | variant: <v> | image: <f> | alt: "<a>" | query: "<q>" -->
    * immediately followed by a ## heading.
-   * Variant, image, and query are all optional.
+   * Variant, image, alt, and query are all optional (in that order).
    *
+   * `alt` is the model-written image description used as alt text.
    * `query` is the Pexels search query Phase I emitted alongside the image.
    * Captured here so it's surfaced on PageSection, but the renderer doesn't
    * use it — the image is already downloaded into public/content-assets/
    * by the time the deliverable lands.
    */
   const SECTION_PATTERN =
-    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s|>]+))?(?:\s*\|\s*query:\s*"([^"]+)")?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
+    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s|>]+))?(?:\s*\|\s*alt:\s*"([^"]*)")?(?:\s*\|\s*query:\s*"([^"]+)")?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
 
   const sections: PageSection[] = []
   let m: RegExpExecArray | null
@@ -98,9 +101,10 @@ export function parsePageMd(markdown: string): PageManifest {
       blockId: m[1],
       variant: m[2] || undefined,
       image: m[3] || undefined,
-      query: m[4] || undefined,
-      heading: m[5].trim(),
-      content: m[6].trim(),
+      alt: m[4] || undefined,
+      query: m[5] || undefined,
+      heading: m[6].trim(),
+      content: m[7].trim(),
       position: i++,
     })
   }

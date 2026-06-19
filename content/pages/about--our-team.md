@@ -15,6 +15,7 @@ hero: hero-split
 hero_variant: image-right
 hero_image: korbey-lague-team-tyngsborough.jpg
 hero_subhead: Real credentials, consistent relationships, and someone who picks up the phone in July
+answer_block: "Korbey Lague PLLP is a nine-person CPA firm in Tyngsborough, MA led by founding CPA Kelsey Korbey, with a team that includes three licensed CPAs (Kelsey Korbey, Ron Lague, and Richard DelGaudio), an AICPA Personal Financial Specialist (Ron Lague, CPA, PFS), and two MBA-credentialed staff members (Jackie Estes and Mike Riordan). Unlike firms that are only accessible during tax season, every member of the Korbey Lague team works with clients year-round, maintaining consistent relationships so clients never have to re-explain their situation. The firm serves small business owners, healthcare professionals, contractors, nonprofits, and startups across the Greater Merrimack Valley from its base in Tyngsborough, MA."
 ---
 
 <!-- block: intro-text | variant: centered -->

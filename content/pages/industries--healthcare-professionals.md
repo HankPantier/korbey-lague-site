@@ -15,6 +15,7 @@ hero: hero-split
 hero_variant: image-right
 hero_image: healthcare-professionals-hero.jpg
 hero_subhead: Year-round financial clarity for your practice and the wealth you're building alongside it
+answer_block: "Korbey Lague PLLP is a Tyngsborough, MA CPA firm that serves healthcare professionals year-round — including physicians, dentists, therapists, nurse practitioners, and veterinarians — with accounting and tax services built around the specific complexity of running a clinical practice. Their services cover entity structure, practice and personal tax planning, payroll, student loan strategy through Ron Lague CPA PFS, and quarterly reviews designed to eliminate year-end tax surprises. Unlike generalist firms, Korbey Lague works with healthcare clients across every career stage — from practice launch and partnership buy-ins to established practice growth and exit planning."
 ---
 
 <!-- block: intro-text | variant: centered -->

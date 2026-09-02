@@ -20,6 +20,9 @@ export type PageSection = {
    * preserved so consumers can introspect or surface it if needed.
    */
   query?: string
+  /** Ink & Clay section theme. 'ink' renders the block on the deep primary
+   * band (the light→ink→light rhythm); default/undefined = light canvas. */
+  theme?: string
   heading: string
   content: string   // raw markdown body below the heading (excluding heading line)
   position: number
@@ -35,6 +38,7 @@ export type PageManifest = {
   meta_title: string
   meta_description: string
   target_keyword: string
+  secondary_keywords?: string[]
   canonical_url: string
   schema_markup: string
   hero_block: string        // 'hero' | 'hero-split' | 'page-header'
@@ -42,12 +46,22 @@ export type PageManifest = {
   hero_image?: string
   hero_image_alt?: string
   hero_subhead?: string     // Benefit-led hero copy; falls back to meta_description in consumers
+  hero_headline?: string    // Marketing H1; falls back to the page title in consumers
+  hero_eyebrow?: string     // Small-caps kicker above a statement-variant hero headline
+  hero_video?: string       // Background video source for hero_variant: 'video'
+  hero_images?: string[]    // Crossfade slides for hero_variant: 'slider'
   // Optional structured data (passed through)
   answer_block?: string
   eeat_signals?: string[]
   internal_links?: InternalLink[]
   faq_block?: FaqItem[]
   llm_citation_note?: string
+  /**
+   * JSON-LD graph extracted from the Phase I "## Structured Data" trailer, when
+   * present. Richer than the frontmatter-derived schema; SchemaScript renders it
+   * in place of its own builder. Undefined for deliverables that predate it.
+   */
+  json_ld?: Record<string, unknown>[]
   // Body
   sections: PageSection[]
 }
@@ -68,6 +82,67 @@ function trimMetadataTrailer(body: string): string {
   return m && m.index !== undefined ? body.slice(0, m.index) : body
 }
 
+/**
+ * Extract the JSON-LD graph Phase I emits in the "## Structured Data" trailer
+ * (a fenced ```html block of <script type="application/ld+json"> elements).
+ * That builder produces richer schema than this repo can from frontmatter alone
+ * (multi-location AccountingService, sitemap-accurate breadcrumbs), so we render
+ * it verbatim when present and fall back to the frontmatter builder otherwise.
+ *
+ * Security: we never inject the raw HTML from the deliverable. Each block is
+ * JSON.parsed to a plain object here, then re-serialized through the same
+ * `<`-escaping path SchemaScript uses for frontmatter-built schema. A block that
+ * fails to parse is skipped, not rendered. `\/` in the emitted text is valid
+ * JSON (the builder escapes `</script` as `<\/script`), so JSON.parse restores
+ * the original object directly.
+ */
+const LD_JSON_SCRIPT = /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
+
+function extractEmittedJsonLd(rawContent: string): Record<string, unknown>[] | undefined {
+  const out: Record<string, unknown>[] = []
+  let m: RegExpExecArray | null
+  LD_JSON_SCRIPT.lastIndex = 0
+  while ((m = LD_JSON_SCRIPT.exec(rawContent)) !== null) {
+    try {
+      const obj = JSON.parse(m[1].trim())
+      if (obj && typeof obj === 'object' && !Array.isArray(obj)) {
+        out.push(obj as Record<string, unknown>)
+      }
+    } catch {
+      // Unparseable block — skip; renderer falls back to frontmatter schema if
+      // nothing here parses.
+    }
+  }
+  return out.length ? out : undefined
+}
+
+/**
+ * Defensive unwrap for malformed deliverables whose page body is the raw
+ * content-generation envelope — a JSON object `{ "content": "...markdown...",
+ * "metadata": {...} }` — instead of the assembleable block markdown. This
+ * happens when a generation step stored the model's JSON response verbatim as
+ * `content_markdown` upstream (observed in older Phase I zips). Left as-is, the
+ * body carries no `<!-- block: -->` annotations, so the page renders with an
+ * empty content area. Detect that envelope and substitute its `.content`
+ * string so the real blocks render. No-op for well-formed bodies.
+ */
+function unwrapJsonEnvelope(body: string): string {
+  const trimmed = body.trim()
+  // Tolerate an optional ```json … ``` code fence around the envelope.
+  const fenced = trimmed.match(/^```(?:json)?\s*\n([\s\S]*?)\n```$/)
+  const candidate = fenced ? fenced[1].trim() : trimmed
+  if (!candidate.startsWith('{')) return body
+  try {
+    const obj = JSON.parse(candidate)
+    if (obj && typeof obj.content === 'string' && obj.content.includes('<!-- block:')) {
+      return obj.content
+    }
+  } catch {
+    // Not valid JSON — leave the body untouched for normal parsing.
+  }
+  return body
+}
+
 export function parsePageMd(markdown: string): PageManifest {
   const parsed = matter(markdown)
   // Validate the frontmatter shape via Zod. Throws on type mismatches (e.g.
@@ -75,7 +150,10 @@ export function parsePageMd(markdown: string): PageManifest {
   // script can fail CI before a malformed deliverable ships. Missing fields
   // fall back to safe defaults — old deliverables keep building.
   const fm = PageFrontmatterSchema.parse(parsed.data)
-  const body = trimMetadataTrailer(parsed.content)
+  const body = unwrapJsonEnvelope(trimMetadataTrailer(parsed.content))
+  // Extract from the full content — the JSON-LD lives in the trailer that
+  // trimMetadataTrailer strips off `body`.
+  const json_ld = extractEmittedJsonLd(parsed.content)
 
   /**
    * Splits on the canonical annotation pattern:
@@ -90,7 +168,7 @@ export function parsePageMd(markdown: string): PageManifest {
    * by the time the deliverable lands.
    */
   const SECTION_PATTERN =
-    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s|>]+))?(?:\s*\|\s*alt:\s*"([^"]*)")?(?:\s*\|\s*query:\s*"([^"]+)")?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
+    /<!-- block: ([a-z-]+)(?:\s*\|\s*variant:\s*([a-z0-9-]+))?(?:\s*\|\s*image:\s*([^\s|>]+))?(?:\s*\|\s*alt:\s*"([^"]*)")?(?:\s*\|\s*query:\s*"([^"]+)")?(?:\s*\|\s*theme:\s*([a-z]+))?\s*-->\s*\n##\s+(.+?)\n([\s\S]*?)(?=\n<!-- block:|$)/g
 
   const sections: PageSection[] = []
   let m: RegExpExecArray | null
@@ -103,8 +181,9 @@ export function parsePageMd(markdown: string): PageManifest {
       image: m[3] || undefined,
       alt: m[4] || undefined,
       query: m[5] || undefined,
-      heading: m[6].trim(),
-      content: m[7].trim(),
+      theme: m[6] || undefined,
+      heading: m[7].trim(),
+      content: m[8].trim(),
       position: i++,
     })
   }
@@ -136,12 +215,28 @@ export function parsePageMd(markdown: string): PageManifest {
       )
     : sections
 
+  /**
+   * De-duplicate the hero headline against the lead section. When the hero
+   * promotes the page's first content heading into its H1 (hero_headline
+   * derived from the lead block upstream), rendering that same heading again
+   * on the first section reads as a stutter. Blank the lead heading so its body
+   * still renders — block components render the <h2> only when heading is set.
+   */
+  const heroHeadline = fm.hero_headline?.trim()
+  if (heroHeadline && filteredSections.length > 0) {
+    const lead = filteredSections[0]
+    if (lead.heading.trim().toLowerCase() === heroHeadline.toLowerCase()) {
+      filteredSections[0] = { ...lead, heading: '' }
+    }
+  }
+
   return {
     title: fm.title,
     url: fm.url,
     meta_title: fm.meta_title,
     meta_description: fm.meta_description,
     target_keyword: fm.target_keyword,
+    secondary_keywords: fm.secondary_keywords,
     canonical_url: fm.canonical_url,
     schema_markup: fm.schema_markup,
     hero_block: fm.hero ?? fm.hero_block ?? 'page-header',
@@ -149,11 +244,16 @@ export function parsePageMd(markdown: string): PageManifest {
     hero_image: fm.hero_image,
     hero_image_alt: fm.hero_image_alt,
     hero_subhead: fm.hero_subhead?.trim() || undefined,
+    hero_headline: fm.hero_headline?.trim() || undefined,
+    hero_eyebrow: fm.hero_eyebrow?.trim() || undefined,
+    hero_video: fm.hero_video?.trim() || undefined,
+    hero_images: fm.hero_images?.length ? fm.hero_images : undefined,
     answer_block: fm.answer_block,
     eeat_signals: fm.eeat_signals,
     internal_links: fm.internal_links,
     faq_block: fm.faq_block,
     llm_citation_note: fm.llm_citation_note,
+    json_ld,
     sections: filteredSections,
   }
 }

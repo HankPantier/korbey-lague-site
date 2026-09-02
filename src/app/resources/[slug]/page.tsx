@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import { Image } from '@/components/ui/skeleton-image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
@@ -8,6 +8,10 @@ import { Section } from '@/components/blocks/Section'
 import { Button } from '@/components/ui/button'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getPost, listPostSlugs, relatedPosts } from '@/lib/content/get-post'
+import { getBlogConfig } from '@/lib/content/get-blog-config'
+import { asPostContentType, CONTENT_TYPE_META } from '@/lib/content/content-type-meta'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 import { siteConfig } from '../../../../site.config'
 import { MD_LINK_COMPONENTS } from '@/lib/markdown-components'
 import { resolveImageSrc } from '@/lib/assembly/resolve-image'
@@ -25,7 +29,9 @@ const EMPTY_PLACEHOLDER = '__no_posts__'
 // Cache Components requires generateStaticParams to return at least one entry,
 // matching the [...slug] pattern. The page handler maps the placeholder to 404.
 export async function generateStaticParams() {
-  const slugs = await listPostSlugs()
+  // Drop empty/whitespace slugs (a stray ".md" file → "") so a malformed post
+  // can't produce a degenerate /resources/ route and fail the build.
+  const slugs = (await listPostSlugs()).filter((slug) => slug.trim() !== '')
   return slugs.length === 0 ? [{ slug: EMPTY_PLACEHOLDER }] : slugs.map((slug) => ({ slug }))
 }
 
@@ -40,12 +46,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       const pageMeta = await generatedPageMetadata(`/resources/${slug}`, `resources/${slug}`)
       return pageMeta ?? { title: 'Not found' }
     }
-    const url = post.frontmatter.canonical_url || `${siteConfig.siteUrl.replace(/\/$/, '')}/resources/${post.slug}`
+    const blog = await getBlogConfig()
+    const url = post.frontmatter.canonical_url || `${siteConfig.siteUrl.replace(/\/$/, '')}${blog.path}/${post.slug}`
     const ogUrl = `/api/og/resources/${post.slug}`
     const description = post.frontmatter.meta_description || post.frontmatter.excerpt
+    const keywords = Array.from(
+      new Set(
+        [post.frontmatter.target_keyword, ...(post.frontmatter.secondary_keywords ?? [])]
+          .map(k => (k ?? '').trim())
+          .filter(Boolean)
+      )
+    )
     return {
       title: post.frontmatter.meta_title || post.frontmatter.title,
       description,
+      keywords: keywords.length ? keywords : undefined,
       alternates: { canonical: url },
       openGraph: {
         title: post.frontmatter.title,
@@ -92,13 +107,15 @@ export default async function PostPage({ params }: Props) {
     notFound()
   }
 
-  const [brand, related] = await Promise.all([
+  const [brand, related, blog] = await Promise.all([
     getBrandConfig(),
     relatedPosts(post.slug, post.frontmatter.tags),
+    getBlogConfig(),
   ])
+  const typeMeta = CONTENT_TYPE_META[asPostContentType(post.frontmatter.content_type)]
   const canonical =
     post.frontmatter.canonical_url ||
-    `${siteConfig.siteUrl.replace(/\/$/, '')}/resources/${post.slug}`
+    `${siteConfig.siteUrl.replace(/\/$/, '')}${blog.path}/${post.slug}`
 
   // BlogPosting JSON-LD — built from validated frontmatter only, never raw
   // user input, so the same dangerouslySetInnerHTML pattern as
@@ -127,17 +144,19 @@ export default async function PostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Section dataBlock="page-header" className="max-w-3xl mx-auto">
-        <Link href="/resources" className="text-sm text-foreground/60 hover:text-primary">
-          ← Back to Resources
+        <Link href={blog.path} className="text-sm text-foreground/60 hover:text-primary">
+          ← Back to {blog.label}
         </Link>
-        {post.frontmatter.date && (
-          <time
-            dateTime={post.frontmatter.date}
-            className="mt-6 block text-sm text-muted-foreground"
-          >
-            {formatDate(post.frontmatter.date)}
-          </time>
-        )}
+        <div className="mt-6 flex items-center gap-3">
+          <Badge variant="outline" className={cn('border-transparent', typeMeta.badgeClass)}>
+            {typeMeta.label}
+          </Badge>
+          {post.frontmatter.date && (
+            <time dateTime={post.frontmatter.date} className="text-sm text-muted-foreground">
+              {formatDate(post.frontmatter.date)}
+            </time>
+          )}
+        </div>
         <h1 className="mt-2 font-heading text-3xl md:text-4xl font-semibold text-foreground leading-tight">
           {post.frontmatter.title}
         </h1>
@@ -179,7 +198,7 @@ export default async function PostPage({ params }: Props) {
 
         <div className="mt-12 pt-8 border-t border-border text-center">
           <Button asChild variant="outline">
-            <Link href="/resources">More resources →</Link>
+            <Link href={blog.path}>More {blog.label.toLowerCase()} →</Link>
           </Button>
         </div>
       </Section>
@@ -206,7 +225,7 @@ export default async function PostPage({ params }: Props) {
                 <div className="p-5">
                   <h3 className="font-heading text-base font-semibold leading-snug">
                     <Link
-                      href={`/resources/${p.slug}`}
+                      href={`${blog.path}/${p.slug}`}
                       className="hover:text-primary focus-visible:outline-none focus-visible:underline"
                     >
                       {p.frontmatter.title}

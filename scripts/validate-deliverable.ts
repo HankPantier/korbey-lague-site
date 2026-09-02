@@ -49,9 +49,23 @@ async function main() {
       const { data, content } = matter(raw)
 
       // Frontmatter shape — Zod-validate via parsePageMd. Catches deliverable
-      // typos (e.g. faq_block in the wrong shape) before they ship.
+      // typos (e.g. faq_block in the wrong shape) before they ship. Also assert
+      // the body produced renderable blocks: a page whose body has substantial
+      // text but zero `<!-- block: -->` sections renders an empty content area
+      // (e.g. a raw JSON generation envelope stored as the body). parsePageMd
+      // now defensively unwraps that envelope, so a still-empty result means
+      // genuinely missing block annotations — fail the deliverable.
       try {
-        parsePageMd(raw)
+        const manifest = parsePageMd(raw)
+        const bodyText = content.replace(/\s/g, '')
+        if (manifest.sections.length === 0 && bodyText.length > 200) {
+          findings.push({
+            severity: 'error',
+            file: `pages/${file}`,
+            message:
+              'body has content but produced no renderable blocks — missing <!-- block: --> annotations',
+          })
+        }
       } catch (err) {
         findings.push({
           severity: 'error',
@@ -73,6 +87,24 @@ async function main() {
               message: `hero_image "${img}" missing in public/content-assets/`,
             })
           }
+        }
+      }
+
+      // Frontmatter: hero_video + hero_images (video/slider variants). Same
+      // local-asset existence check, skipping remote URLs.
+      const heroMedia: string[] = [
+        ...(typeof data.hero_video === 'string' && data.hero_video ? [data.hero_video] : []),
+        ...(Array.isArray(data.hero_images) ? data.hero_images.filter((s): s is string => typeof s === 'string' && !!s) : []),
+      ]
+      for (const ref of heroMedia) {
+        if (ref.startsWith('http://') || ref.startsWith('https://')) continue
+        referencedImages.add(ref)
+        if (!(await exists(path.join(assetsDir, ref)))) {
+          findings.push({
+            severity: 'warning',
+            file: `pages/${file}`,
+            message: `hero media "${ref}" missing in public/content-assets/`,
+          })
         }
       }
 

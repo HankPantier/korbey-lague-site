@@ -3,12 +3,20 @@ import type { ReactNode } from 'react'
 import { getPageMarkdown } from '@/lib/content/get-page'
 import { parsePageMd } from '@/lib/assembly/parse-page-md'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
+import { getNavConfig } from '@/lib/nav/get-nav-config'
+import { resolveSideNav } from '@/lib/nav/nav-tree'
+import { buildBreadcrumbTrail } from '@/lib/nav/breadcrumbs'
+import { SideNav } from '@/components/nav/SideNav'
+import { Breadcrumb } from '@/components/blocks/Breadcrumb'
 import { PageLayout } from '@/components/layout/PageLayout'
 import { BlockRenderer } from '@/components/assembly/BlockRenderer'
 import { SchemaScript } from '@/components/layout/SchemaScript'
 import { Hero } from '@/components/blocks/Hero'
 import { HeroSplit } from '@/components/blocks/HeroSplit'
 import { PageHeader } from '@/components/blocks/PageHeader'
+import { AnswerCallout } from '@/components/blocks/AnswerCallout'
+import { RelatedLinks } from '@/components/blocks/RelatedLinks'
+import { TrustSignals } from '@/components/blocks/TrustSignals'
 import {
   extractHeroProps,
   extractHeroSplitProps,
@@ -49,15 +57,29 @@ export async function renderGeneratedPage(url: string): Promise<ReactNode | null
     console.error('[page] Failed to parse:', err)
     return null
   }
-  const brand = await getBrandConfig()
+  const [brand, nav] = await Promise.all([getBrandConfig(), getNavConfig()])
+
+  // Show the section side-nav only on secondary/tertiary pages of a primary
+  // that has tertiary items (see resolveSideNav). Otherwise render full-width.
+  const sidePrimary = resolveSideNav(nav, url)
+
+  const rootLabel = brand.firm.shortName?.trim() || brand.firm.name
+  const crumbs = buildBreadcrumbTrail(url, nav, rootLabel)
 
   return (
     <>
       <SchemaScript manifest={manifest} brand={brand} />
-      <PageLayout hero={renderHeroBlock(manifest)}>
+      <PageLayout
+        hero={renderHeroBlock(manifest)}
+        breadcrumb={<Breadcrumb crumbs={crumbs} />}
+        sideNav={sidePrimary ? <SideNav primary={sidePrimary} currentUrl={url} /> : undefined}
+      >
+        <AnswerCallout answer={manifest.answer_block} />
         {manifest.sections.map((section, i) => (
           <BlockRenderer key={i} section={section} manifest={manifest} />
         ))}
+        <RelatedLinks links={manifest.internal_links} />
+        <TrustSignals signals={manifest.eeat_signals} />
       </PageLayout>
     </>
   )
@@ -72,9 +94,20 @@ export async function generatedPageMetadata(
   try {
     const manifest = parsePageMd(md)
     const ogUrl = `/api/og/${ogSlugPath}`
+    // Next emits `keywords` as <meta name="keywords">. Primary keyword first,
+    // then secondaries; de-duped and blank-filtered so an empty target or
+    // absent secondaries can't produce an empty/garbage tag.
+    const keywords = Array.from(
+      new Set(
+        [manifest.target_keyword, ...(manifest.secondary_keywords ?? [])]
+          .map(k => k.trim())
+          .filter(Boolean)
+      )
+    )
     return {
       title: manifest.meta_title || manifest.title,
       description: manifest.meta_description,
+      keywords: keywords.length ? keywords : undefined,
       alternates: { canonical: manifest.canonical_url || undefined },
       // OG + Twitter images come from /api/og/[[...slug]] — branded per page,
       // generated from frontmatter, no per-page PNG required.

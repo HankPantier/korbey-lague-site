@@ -1,12 +1,17 @@
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
-import { Public_Sans } from 'next/font/google'
+import { Public_Sans, Fraunces } from 'next/font/google'
 import './globals.css'
 import { NavBar } from '@/components/nav/NavBar'
+import { TopUtilityBar } from '@/components/nav/TopUtilityBar'
 import { Footer } from '@/components/footer/Footer'
 import { Analytics } from '@/components/analytics/Analytics'
+import { ThemeProvider } from '@/components/theme/ThemeProvider'
+import { ContactDrawerProvider } from '@/components/contact/ContactDrawerProvider'
+import { ClientCenterProvider } from '@/components/client-center/ClientCenterProvider'
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getNavConfig } from '@/lib/nav/get-nav-config'
+import { getClientCenterConfig } from '@/lib/client-center/get-client-center-config'
 import { siteConfig } from '../../site.config'
 
 // Placeholder fonts — generate-theme.ts will rewrite these per client in a
@@ -18,6 +23,18 @@ const publicSans = Public_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-heading-loaded',
+  display: 'swap',
+})
+
+// Italic-serif accent role for the Ink & Clay statement headlines / eyebrows.
+// Exposed as --font-accent-loaded; globals.css maps --font-accent to it with a
+// serif fallback. generate-theme.ts will swap this per client (design.json
+// accentFont) in a later pass — Fraunces is the default pairing.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-accent-loaded',
   display: 'swap',
 })
 
@@ -39,7 +56,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [brand, nav] = await Promise.all([getBrandConfig(), getNavConfig()])
+  const [brand, nav, clientCenter] = await Promise.all([
+    getBrandConfig(),
+    getNavConfig(),
+    getClientCenterConfig(),
+  ])
 
   // Site-wide Organization JSON-LD. Page-level WebPage / LocalBusiness /
   // FAQPage / BlogPosting are emitted by SchemaScript + the post page; this
@@ -77,11 +98,28 @@ export default async function RootLayout({
       : undefined,
   }
 
+  // WebSite entity, linked to the Organization as publisher. No SearchAction —
+  // the template ships no on-site search endpoint, and advertising one Google
+  // can't fulfill would be misleading.
+  const websiteSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: brand.firm.name,
+    url: siteConfig.siteUrl,
+    publisher: { '@type': 'Organization', name: brand.firm.name },
+  }
+
+  // Escape `<` so embedded values can never break out of the <script> element.
+  const jsonLd = (s: Record<string, unknown>) => JSON.stringify(s).replace(/</g, '\\u003c')
+
   return (
     <html
       lang="en"
-      className={publicSans.variable}
+      className={`${publicSans.variable} ${fraunces.variable}`}
       style={{ '--font-body-loaded': 'var(--font-heading-loaded)' } as CSSProperties}
+      // next-themes sets the theme class on <html> before hydration, so the
+      // server/client class attributes intentionally differ on first paint.
+      suppressHydrationWarning
     >
       <body
         className="min-h-screen flex flex-col antialiased bg-background text-foreground"
@@ -95,24 +133,42 @@ export default async function RootLayout({
       >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(orgSchema) }}
         />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-background focus:text-foreground focus:rounded-md focus:px-4 focus:py-2 focus:shadow-lg focus:outline focus:outline-2 focus:outline-cyan-500"
-        >
-          Skip to main content
-        </a>
-        <NavBar brand={brand} nav={nav} />
-        {children}
-        <Footer />
-        {/* <Analytics> is a client component that reads consent from
-            document.cookie — deliberately NOT a server cookies() island.
-            Keeping the layout free of request APIs makes every page fully
-            prerenderable AND avoids vercel/next.js#86251 (cookies() in the
-            root layout turns unknown-URL 404s into 500s under
-            cacheComponents). See Analytics.tsx for the full rationale. */}
-        <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd(websiteSchema) }}
+        />
+        <ThemeProvider>
+          <ContactDrawerProvider
+            config={{
+              firmName: brand.firm.name,
+              phone: brand.contact.phone,
+              email: brand.contact.email,
+              booking: siteConfig.booking,
+            }}
+          >
+           <ClientCenterProvider config={clientCenter}>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-background focus:text-foreground focus:rounded-md focus:px-4 focus:py-2 focus:shadow-lg focus:outline focus:outline-2 focus:outline-cyan-500"
+            >
+              Skip to main content
+            </a>
+            <TopUtilityBar phone={brand.contact.phone} />
+            <NavBar brand={brand} nav={nav} />
+            {children}
+            <Footer />
+            {/* <Analytics> is a client component that reads consent from
+                document.cookie — deliberately NOT a server cookies() island.
+                Keeping the layout free of request APIs makes every page fully
+                prerenderable AND avoids vercel/next.js#86251 (cookies() in the
+                root layout turns unknown-URL 404s into 500s under
+                cacheComponents). See Analytics.tsx for the full rationale. */}
+            <Analytics />
+           </ClientCenterProvider>
+          </ContactDrawerProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

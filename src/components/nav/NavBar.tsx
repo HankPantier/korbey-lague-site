@@ -15,15 +15,11 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
 import { MobileNav } from './MobileNav'
+import { ThemeToggle } from '@/components/theme/ThemeToggle'
 import { resolveImageSrc } from '@/lib/assembly/resolve-image'
+import { isUrlActive, orderedPrimaryNav } from '@/lib/nav/nav-tree'
 import type { BrandJson } from '@/lib/brand/types'
 import type { NavJson } from '@/lib/nav/types'
-
-/** True when `pathname` is exactly `target` or sits beneath it (e.g. /about + /about/our-team). */
-function isUrlActive(pathname: string, target: string): boolean {
-  if (target === '/') return pathname === '/'
-  return pathname === target || pathname.startsWith(target + '/')
-}
 
 export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
   const pathname = usePathname() ?? '/'
@@ -76,7 +72,7 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
 
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
-            {nav.primary.map(item => {
+            {orderedPrimaryNav(nav.primary).map(item => {
               const itemActive = isUrlActive(pathname, item.url)
               return item.children?.length ? (
                 <NavigationMenuItem key={item.url}>
@@ -150,6 +146,7 @@ export function NavBar({ brand, nav }: { brand: BrandJson; nav: NavJson }) {
               <Link href={nav.cta.url}>{nav.cta.label}</Link>
             </Button>
           )}
+          <ThemeToggle />
           <MobileNav nav={nav} />
         </div>
       </div>

@@ -7,13 +7,9 @@ import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { isUrlActive, orderedPrimaryNav } from '@/lib/nav/nav-tree'
 import type { NavJson, NavItem } from '@/lib/nav/types'
 import { useState } from 'react'
-
-function isUrlActive(pathname: string, target: string): boolean {
-  if (target === '/') return pathname === '/'
-  return pathname === target || pathname.startsWith(target + '/')
-}
 
 export function MobileNav({ nav }: { nav: NavJson }) {
   const pathname = usePathname() ?? '/'
@@ -29,7 +25,7 @@ export function MobileNav({ nav }: { nav: NavJson }) {
         <SheetTitle className="sr-only">Site menu</SheetTitle>
         <nav className="mt-8 flex flex-col gap-1">
           <Accordion type="multiple">
-            {nav.primary.map((item: NavItem) => {
+            {orderedPrimaryNav(nav.primary).map((item: NavItem) => {
               const itemActive = isUrlActive(pathname, item.url)
               return item.children?.length ? (
                 <AccordionItem key={item.url} value={item.url} className="border-none">

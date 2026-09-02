@@ -23,6 +23,8 @@ import { ContactInfo } from '@/components/blocks/ContactInfo'
 import { MapBlock } from '@/components/blocks/Map'
 import { Booking } from '@/components/blocks/Booking'
 import { ResourceList } from '@/components/blocks/ResourceList'
+import { PricingCalculator } from '@/components/blocks/PricingCalculator'
+import { PricingPlans } from '@/components/blocks/PricingPlans'
 
 import {
   extractContentSplitProps,
@@ -45,6 +47,8 @@ import {
   extractContentTableProps,
   extractBookingProps,
   extractResourceListProps,
+  extractPricingCalculatorProps,
+  extractPricingPlansProps,
 } from '@/lib/assembly/extract-block-props'
 
 /**
@@ -83,6 +87,10 @@ export const BLOCK_REGISTRY: Record<string, BlockRender> = {
   // Config-driven block — reads provider/url from site.config.ts.
   'booking': (s) => <Booking {...extractBookingProps(s)} />,
   'resource-list': (s) => <ResourceList {...extractResourceListProps(s)} />,
+  // Config-driven — reads content/pricing-calculator.json.
+  'pricing-calculator': (s) => <PricingCalculator {...extractPricingCalculatorProps(s)} />,
+  // Config-driven — reads content/pricing-plans.json.
+  'pricing-plans': (s) => <PricingPlans {...extractPricingPlansProps(s)} />,
 }
 
 /** Sorted list of every supported block id (for tests + docs). */

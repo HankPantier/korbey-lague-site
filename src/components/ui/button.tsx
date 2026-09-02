@@ -9,14 +9,23 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80",
+        // Primary call-to-action — the brand action colour. Single source of
+        // truth for the CTA look (was inline-styled across Hero/CtaBanner/forms).
+        cta: "bg-action text-action-foreground hover:bg-action/90 active:bg-action/80",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground active:bg-accent/90",
+        // Ink & Clay soft-fill secondary — primary colour at low tint. Reads as
+        // a quieter companion to the `cta` fill without competing for attention.
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+          "bg-[color:var(--color-primary)]/10 text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)]/20",
+        // Ink & Clay outlined tertiary — action-colour hairline, transparent
+        // ground, filling to a faint action wash on hover.
+        tertiary:
+          "border border-[color:var(--color-action)] text-[color:var(--color-action)] bg-transparent hover:bg-[color:var(--color-action)]/10",
+        ghost: "hover:bg-accent hover:text-accent-foreground active:bg-accent/90",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

@@ -75,19 +75,19 @@
       ]
     },
     {
-      "url": "/resources",
-      "label": "Resources",
+      "url": "/insights",
+      "label": "Insights",
       "children": [
         {
-          "url": "/resources/articles",
+          "url": "/insights/articles",
           "label": "Articles & Magazine"
         },
         {
-          "url": "/resources/refund-tracker",
+          "url": "/insights/refund-tracker",
           "label": "Refund Tracker"
         },
         {
-          "url": "/resources/client-portal",
+          "url": "/insights/client-portal",
           "label": "Client Portal"
         }
       ]

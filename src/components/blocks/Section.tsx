@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 type SectionProps = {
   children: ReactNode
   fullBleed?: boolean
-  bg?: 'none' | 'surface' | 'primary' | 'action' | 'card'
+  bg?: 'none' | 'surface' | 'primary' | 'action' | 'card' | 'ink'
   /** Vertical rhythm. Establishes the light→ink→light cadence instead of every
    * section sharing one padding. Defaults to 'normal'. */
   spacing?: 'compact' | 'normal' | 'spacious' | 'none'
@@ -19,6 +19,9 @@ const BG_CLASSES: Record<NonNullable<SectionProps['bg']>, string> = {
   primary: 'bg-primary text-primary-foreground',
   action: 'bg-[color:var(--color-action,theme(colors.cyan.500))] text-white',
   card: 'bg-card text-card-foreground',
+  // Deep brand-tinted near-black for the opt-in dark section rhythm. Falls back
+  // to --color-near-black for repos whose theme.css predates the --color-ink token.
+  ink: 'bg-[color:var(--color-ink,var(--color-near-black))] text-[color:var(--color-ink-foreground,var(--color-near-white))]',
 }
 
 const SPACING_CLASSES: Record<NonNullable<SectionProps['spacing']>, string> = {
@@ -39,11 +42,13 @@ export function Section({
 }: SectionProps) {
   const bgClass = BG_CLASSES[bg]
   const padClass = SPACING_CLASSES[spacing]
+  // data-c5-spacing: inert hook for the Design Studio sectionRhythm axis (src/styles/style-axes.css).
+  const spacingHook = spacing === 'none' ? undefined : spacing
 
   if (fullBleed) {
     return (
       <Tag data-block={dataBlock} className={cn(bgClass, className)}>
-        <div className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8', padClass)}>
+        <div data-c5-spacing={spacingHook} className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8', padClass)}>
           {children}
         </div>
       </Tag>
@@ -53,6 +58,7 @@ export function Section({
   return (
     <Tag
       data-block={dataBlock}
+      data-c5-spacing={spacingHook}
       className={cn('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8', padClass, bgClass, className)}
     >
       {children}

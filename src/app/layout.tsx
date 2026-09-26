@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
-import type { CSSProperties } from 'react'
-import { Public_Sans, Fraunces } from 'next/font/google'
 import './globals.css'
+// Fonts come from a GENERATED next/font module (scripts/generate-fonts.ts,
+// from design.json typography). The default file loads exactly the fonts this
+// layout used to hardcode, so untouched sites render unchanged.
+import { fontAliases, fontVariables } from './fonts.generated'
 import { NavBar } from '@/components/nav/NavBar'
 import { TopUtilityBar } from '@/components/nav/TopUtilityBar'
 import { Footer } from '@/components/footer/Footer'
@@ -12,31 +14,10 @@ import { ClientCenterProvider } from '@/components/client-center/ClientCenterPro
 import { getBrandConfig } from '@/lib/brand/get-brand-config'
 import { getNavConfig } from '@/lib/nav/get-nav-config'
 import { getClientCenterConfig } from '@/lib/client-center/get-client-center-config'
+import { getDesignConfig } from '@/lib/theme/get-theme-vars'
+import { capabilitiesMetaContent } from '@/lib/theme/template-marker'
+import { styleAxisAttributes } from '@/lib/theme/style-axes'
 import { siteConfig } from '../../site.config'
-
-// Placeholder fonts — generate-theme.ts will rewrite these per client in a
-// future iteration. For now, hardcode Public Sans (matches design.json default).
-// Loaded once and aliased to both heading + body CSS variables so theme.css
-// (which references --font-{heading,body}-loaded) keeps working without a
-// second next/font instance for the same family.
-const publicSans = Public_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-heading-loaded',
-  display: 'swap',
-})
-
-// Italic-serif accent role for the Ink & Clay statement headlines / eyebrows.
-// Exposed as --font-accent-loaded; globals.css maps --font-accent to it with a
-// serif fallback. generate-theme.ts will swap this per client (design.json
-// accentFont) in a later pass — Fraunces is the default pairing.
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  style: ['normal', 'italic'],
-  variable: '--font-accent-loaded',
-  display: 'swap',
-})
 
 export async function generateMetadata(): Promise<Metadata> {
   const brand = await getBrandConfig()
@@ -48,6 +29,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description:
       brand.firm.tagline ?? `${brand.firm.name} — accounting & advisory services`,
+    // Design Studio capability handshake (see src/lib/theme/template-marker.ts).
+    // Pages don't set `other`, so every page inherits it.
+    other: { 'c5-capabilities': capabilitiesMetaContent() },
   }
 }
 
@@ -56,10 +40,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [brand, nav, clientCenter] = await Promise.all([
+  const [brand, nav, clientCenter, design] = await Promise.all([
     getBrandConfig(),
     getNavConfig(),
     getClientCenterConfig(),
+    getDesignConfig(),
   ])
 
   // Site-wide Organization JSON-LD. Page-level WebPage / LocalBusiness /
@@ -115,8 +100,16 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${publicSans.variable} ${fraunces.variable}`}
-      style={{ '--font-body-loaded': 'var(--font-heading-loaded)' } as CSSProperties}
+      className={fontVariables}
+      // Opt-in Revaltus-corporate treatments from design.json. Absent/default
+      // values ('sans' / 'standard') are inert — the globals.css rules only key
+      // off 'serif' / 'mono' — so untouched sites render exactly as before.
+      data-headline={design.headlineStyle ?? 'sans'}
+      data-eyebrow={design.eyebrowStyle ?? 'standard'}
+      // Design Studio style axes (design.json "style"). Only NON-default values
+      // emit an attribute, so untouched sites match no style-axes.css rule.
+      {...styleAxisAttributes(design.style)}
+      style={fontAliases}
       // next-themes sets the theme class on <html> before hydration, so the
       // server/client class attributes intentionally differ on first paint.
       suppressHydrationWarning

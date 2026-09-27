@@ -101,5 +101,9 @@
       "label": "Contact",
       "children": []
     }
-  ]
+  ],
+  "cta": {
+    "label": "Contact us",
+    "url": "/contact"
+  }
 }

@@ -61,7 +61,7 @@ Board-ready financial packages presented in plain language — so your finance c
 
 ---
 
-<!-- block: content-split | variant: image-right | image: nonprofit-finance-challenges.jpg | query: nonprofit executive director reviewing financial documents -->
+<!-- block: content-split | variant: image-right | image: nonprofit-finance-challenges.jpg | query: "nonprofit executive director reviewing financial documents" -->
 ## The Challenges Nonprofits Face (And How We Solve Them)
 
 Nonprofit finance has a specific kind of pressure that for-profit accounting doesn't. You're accountable to donors, to grantors, to your board, and to the IRS — all at once, often with a small (or overwhelmed) internal team.
@@ -104,7 +104,7 @@ Smaller organizations in Tyngsborough, Lowell, Chelmsford, and across the Merrim
 
 ---
 
-<!-- block: content-split | variant: image-left | image: board-meeting-nonprofit.jpg | query: nonprofit board meeting reviewing reports -->
+<!-- block: content-split | variant: image-left | image: board-meeting-nonprofit.jpg | query: "nonprofit board meeting reviewing reports" -->
 ## Why Boards and Executive Directors Trust Korbey Lague PLLP
 
 Boards don't govern well with stale financials. Executive directors don't sleep well when grant deadlines are approaching and the numbers aren't reconciled. The firms that actually serve nonprofits well are the ones available when those moments happen — not just the ones who file a clean 990 in May.
@@ -135,7 +135,7 @@ A: That's the most common situation. Many nonprofits in Tyngsborough and the Mer
 **Q: What types of nonprofits does Korbey Lague PLLP serve?**
 A: The firm works with social service organizations, foundations, religious organizations, trade and professional associations, and community nonprofits across the Merrimack Valley — including Tyngsborough, Lowell, and Chelmsford. If your organization files a 990 or manages restricted grant funding, the firm has relevant experience for your situation.
 
-<!-- block: cta-banner | variant: image-bg | image: nonprofit-consultation-cta.jpg | query: nonprofit leader consulting with financial advisor -->
+<!-- block: cta-banner | variant: image-bg | image: nonprofit-consultation-cta.jpg | query: "nonprofit leader consulting with financial advisor" -->
 ## Let's Talk About Your Organization's Financial Health
 
 Nonprofit budgets are real constraints — and you shouldn't have to spend an exploratory conversation wondering if you can afford the conversation itself. Korbey Lague PLLP is straightforward about what your organization needs and what working together actually looks like.

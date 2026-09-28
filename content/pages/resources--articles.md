@@ -117,7 +117,7 @@ icon: Zap
 
 Entity formation, cap table basics, R&D credits, and how to build financial reporting that actually tells you something useful — this content is aimed at founders making structure decisions that will matter for years.
 
-<!-- block: content-split | variant: image-right | image: korbey-lague-magazine.jpg | query: professional reading financial magazine modern office -->
+<!-- block: content-split | variant: image-right | image: korbey-lague-magazine.jpg | query: "professional reading financial magazine modern office" -->
 ## From the Magazine
 
 The Korbey Lague magazine is curated long-form content — longer than a blog post, more specific than general business press, and written for the kind of reader who actually uses what they read. Each issue covers a central theme (year-end planning, retirement strategy, entity structure decisions) with depth that a 600-word article can't deliver. Think of it as the advisory conversation you'd have with our team expanded into a format you can read, share, and return to. Issues are published quarterly and available digitally — current and past issues are accessible from this page.
@@ -140,7 +140,7 @@ A: Yes. Content is organized by industry niche: Healthcare Professionals, Contra
 **Q: What topics does the Korbey Lague magazine cover?**
 A: Each quarterly issue focuses on a central theme — such as year-end planning, retirement strategy, or entity structure decisions — treated with more depth than a standard article allows. The magazine is available digitally, and past issues remain accessible on this page for reference.
 
-<!-- block: cta-banner | variant: image-bg | image: newsletter-signup-cpa-firm.jpg | query: professional receiving newsletter on laptop home office -->
+<!-- block: cta-banner | variant: image-bg | image: newsletter-signup-cpa-firm.jpg | query: "professional receiving newsletter on laptop home office" -->
 ## Never Miss an Update — Get It Delivered
 
 Tax law changes mid-year. Compliance deadlines don't wait for your next annual review. If you want guidance that arrives when it's actually useful — not just when you think to look for it — subscribe to receive new articles and each magazine issue as they publish. No recycled content. No generic tips. Just the material our team is already reviewing with clients in Massachusetts and sending directly to your inbox.

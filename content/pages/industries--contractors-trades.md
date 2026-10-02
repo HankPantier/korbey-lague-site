@@ -150,7 +150,6 @@ Korbey Lague PLLP is a Tyngsborough, MA CPA firm offering year-round accounting,
   "@type": "Organization",
   "name": "Korbey Lague PLLP",
   "url": "https://www.korbeylague.com",
-  "logo": "https://www.korbeylague.com/logo.png",
   "sameAs": [
     "https: //www.facebook.com/korbeylaguepllp/",
     "https: //www.yelp.com/biz/korbey-lague-tyngsborough"

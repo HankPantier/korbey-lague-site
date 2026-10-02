@@ -151,7 +151,6 @@ Ron Lague holds the AICPA Personal Financial Specialist (PFS) designation — an
   "@type": "Organization",
   "name": "Korbey Lague PLLP",
   "url": "https://www.korbeylague.com",
-  "logo": "https://www.korbeylague.com/logo.png",
   "sameAs": [
     "https: //www.facebook.com/korbeylaguepllp/",
     "https: //www.yelp.com/biz/korbey-lague-tyngsborough"

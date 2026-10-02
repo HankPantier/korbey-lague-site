@@ -191,7 +191,6 @@ Korbey Lague PLLP is a CPA firm in Tyngsborough, Massachusetts that provides yea
   "@type": "Organization",
   "name": "Korbey Lague PLLP",
   "url": "https://www.korbeylague.com",
-  "logo": "https://www.korbeylague.com/logo.png",
   "sameAs": [
     "https: //www.facebook.com/korbeylaguepllp/",
     "https: //www.yelp.com/biz/korbey-lague-tyngsborough"
